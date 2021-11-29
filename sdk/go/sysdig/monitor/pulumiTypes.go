@@ -336,378 +336,6 @@ func (o AlertAnomalyCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-type AlertDashboardPanel struct {
-	AutosizeText          *bool                      `pulumi:"autosizeText"`
-	Content               *string                    `pulumi:"content"`
-	Description           *string                    `pulumi:"description"`
-	Height                int                        `pulumi:"height"`
-	Name                  string                     `pulumi:"name"`
-	PosX                  int                        `pulumi:"posX"`
-	PosY                  int                        `pulumi:"posY"`
-	Queries               []AlertDashboardPanelQuery `pulumi:"queries"`
-	TransparentBackground *bool                      `pulumi:"transparentBackground"`
-	Type                  string                     `pulumi:"type"`
-	VisibleTitle          *bool                      `pulumi:"visibleTitle"`
-	Width                 int                        `pulumi:"width"`
-}
-
-// AlertDashboardPanelInput is an input type that accepts AlertDashboardPanelArgs and AlertDashboardPanelOutput values.
-// You can construct a concrete instance of `AlertDashboardPanelInput` via:
-//
-//          AlertDashboardPanelArgs{...}
-type AlertDashboardPanelInput interface {
-	pulumi.Input
-
-	ToAlertDashboardPanelOutput() AlertDashboardPanelOutput
-	ToAlertDashboardPanelOutputWithContext(context.Context) AlertDashboardPanelOutput
-}
-
-type AlertDashboardPanelArgs struct {
-	AutosizeText          pulumi.BoolPtrInput                `pulumi:"autosizeText"`
-	Content               pulumi.StringPtrInput              `pulumi:"content"`
-	Description           pulumi.StringPtrInput              `pulumi:"description"`
-	Height                pulumi.IntInput                    `pulumi:"height"`
-	Name                  pulumi.StringInput                 `pulumi:"name"`
-	PosX                  pulumi.IntInput                    `pulumi:"posX"`
-	PosY                  pulumi.IntInput                    `pulumi:"posY"`
-	Queries               AlertDashboardPanelQueryArrayInput `pulumi:"queries"`
-	TransparentBackground pulumi.BoolPtrInput                `pulumi:"transparentBackground"`
-	Type                  pulumi.StringInput                 `pulumi:"type"`
-	VisibleTitle          pulumi.BoolPtrInput                `pulumi:"visibleTitle"`
-	Width                 pulumi.IntInput                    `pulumi:"width"`
-}
-
-func (AlertDashboardPanelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertDashboardPanel)(nil)).Elem()
-}
-
-func (i AlertDashboardPanelArgs) ToAlertDashboardPanelOutput() AlertDashboardPanelOutput {
-	return i.ToAlertDashboardPanelOutputWithContext(context.Background())
-}
-
-func (i AlertDashboardPanelArgs) ToAlertDashboardPanelOutputWithContext(ctx context.Context) AlertDashboardPanelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertDashboardPanelOutput)
-}
-
-// AlertDashboardPanelArrayInput is an input type that accepts AlertDashboardPanelArray and AlertDashboardPanelArrayOutput values.
-// You can construct a concrete instance of `AlertDashboardPanelArrayInput` via:
-//
-//          AlertDashboardPanelArray{ AlertDashboardPanelArgs{...} }
-type AlertDashboardPanelArrayInput interface {
-	pulumi.Input
-
-	ToAlertDashboardPanelArrayOutput() AlertDashboardPanelArrayOutput
-	ToAlertDashboardPanelArrayOutputWithContext(context.Context) AlertDashboardPanelArrayOutput
-}
-
-type AlertDashboardPanelArray []AlertDashboardPanelInput
-
-func (AlertDashboardPanelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertDashboardPanel)(nil)).Elem()
-}
-
-func (i AlertDashboardPanelArray) ToAlertDashboardPanelArrayOutput() AlertDashboardPanelArrayOutput {
-	return i.ToAlertDashboardPanelArrayOutputWithContext(context.Background())
-}
-
-func (i AlertDashboardPanelArray) ToAlertDashboardPanelArrayOutputWithContext(ctx context.Context) AlertDashboardPanelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertDashboardPanelArrayOutput)
-}
-
-type AlertDashboardPanelOutput struct{ *pulumi.OutputState }
-
-func (AlertDashboardPanelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertDashboardPanel)(nil)).Elem()
-}
-
-func (o AlertDashboardPanelOutput) ToAlertDashboardPanelOutput() AlertDashboardPanelOutput {
-	return o
-}
-
-func (o AlertDashboardPanelOutput) ToAlertDashboardPanelOutputWithContext(ctx context.Context) AlertDashboardPanelOutput {
-	return o
-}
-
-func (o AlertDashboardPanelOutput) AutosizeText() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) *bool { return v.AutosizeText }).(pulumi.BoolPtrOutput)
-}
-
-func (o AlertDashboardPanelOutput) Content() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) *string { return v.Content }).(pulumi.StringPtrOutput)
-}
-
-func (o AlertDashboardPanelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o AlertDashboardPanelOutput) Height() pulumi.IntOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) int { return v.Height }).(pulumi.IntOutput)
-}
-
-func (o AlertDashboardPanelOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o AlertDashboardPanelOutput) PosX() pulumi.IntOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) int { return v.PosX }).(pulumi.IntOutput)
-}
-
-func (o AlertDashboardPanelOutput) PosY() pulumi.IntOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) int { return v.PosY }).(pulumi.IntOutput)
-}
-
-func (o AlertDashboardPanelOutput) Queries() AlertDashboardPanelQueryArrayOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) []AlertDashboardPanelQuery { return v.Queries }).(AlertDashboardPanelQueryArrayOutput)
-}
-
-func (o AlertDashboardPanelOutput) TransparentBackground() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) *bool { return v.TransparentBackground }).(pulumi.BoolPtrOutput)
-}
-
-func (o AlertDashboardPanelOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) string { return v.Type }).(pulumi.StringOutput)
-}
-
-func (o AlertDashboardPanelOutput) VisibleTitle() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) *bool { return v.VisibleTitle }).(pulumi.BoolPtrOutput)
-}
-
-func (o AlertDashboardPanelOutput) Width() pulumi.IntOutput {
-	return o.ApplyT(func(v AlertDashboardPanel) int { return v.Width }).(pulumi.IntOutput)
-}
-
-type AlertDashboardPanelArrayOutput struct{ *pulumi.OutputState }
-
-func (AlertDashboardPanelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertDashboardPanel)(nil)).Elem()
-}
-
-func (o AlertDashboardPanelArrayOutput) ToAlertDashboardPanelArrayOutput() AlertDashboardPanelArrayOutput {
-	return o
-}
-
-func (o AlertDashboardPanelArrayOutput) ToAlertDashboardPanelArrayOutputWithContext(ctx context.Context) AlertDashboardPanelArrayOutput {
-	return o
-}
-
-func (o AlertDashboardPanelArrayOutput) Index(i pulumi.IntInput) AlertDashboardPanelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertDashboardPanel {
-		return vs[0].([]AlertDashboardPanel)[vs[1].(int)]
-	}).(AlertDashboardPanelOutput)
-}
-
-type AlertDashboardPanelQuery struct {
-	Promql string `pulumi:"promql"`
-	Unit   string `pulumi:"unit"`
-}
-
-// AlertDashboardPanelQueryInput is an input type that accepts AlertDashboardPanelQueryArgs and AlertDashboardPanelQueryOutput values.
-// You can construct a concrete instance of `AlertDashboardPanelQueryInput` via:
-//
-//          AlertDashboardPanelQueryArgs{...}
-type AlertDashboardPanelQueryInput interface {
-	pulumi.Input
-
-	ToAlertDashboardPanelQueryOutput() AlertDashboardPanelQueryOutput
-	ToAlertDashboardPanelQueryOutputWithContext(context.Context) AlertDashboardPanelQueryOutput
-}
-
-type AlertDashboardPanelQueryArgs struct {
-	Promql pulumi.StringInput `pulumi:"promql"`
-	Unit   pulumi.StringInput `pulumi:"unit"`
-}
-
-func (AlertDashboardPanelQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertDashboardPanelQuery)(nil)).Elem()
-}
-
-func (i AlertDashboardPanelQueryArgs) ToAlertDashboardPanelQueryOutput() AlertDashboardPanelQueryOutput {
-	return i.ToAlertDashboardPanelQueryOutputWithContext(context.Background())
-}
-
-func (i AlertDashboardPanelQueryArgs) ToAlertDashboardPanelQueryOutputWithContext(ctx context.Context) AlertDashboardPanelQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertDashboardPanelQueryOutput)
-}
-
-// AlertDashboardPanelQueryArrayInput is an input type that accepts AlertDashboardPanelQueryArray and AlertDashboardPanelQueryArrayOutput values.
-// You can construct a concrete instance of `AlertDashboardPanelQueryArrayInput` via:
-//
-//          AlertDashboardPanelQueryArray{ AlertDashboardPanelQueryArgs{...} }
-type AlertDashboardPanelQueryArrayInput interface {
-	pulumi.Input
-
-	ToAlertDashboardPanelQueryArrayOutput() AlertDashboardPanelQueryArrayOutput
-	ToAlertDashboardPanelQueryArrayOutputWithContext(context.Context) AlertDashboardPanelQueryArrayOutput
-}
-
-type AlertDashboardPanelQueryArray []AlertDashboardPanelQueryInput
-
-func (AlertDashboardPanelQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertDashboardPanelQuery)(nil)).Elem()
-}
-
-func (i AlertDashboardPanelQueryArray) ToAlertDashboardPanelQueryArrayOutput() AlertDashboardPanelQueryArrayOutput {
-	return i.ToAlertDashboardPanelQueryArrayOutputWithContext(context.Background())
-}
-
-func (i AlertDashboardPanelQueryArray) ToAlertDashboardPanelQueryArrayOutputWithContext(ctx context.Context) AlertDashboardPanelQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertDashboardPanelQueryArrayOutput)
-}
-
-type AlertDashboardPanelQueryOutput struct{ *pulumi.OutputState }
-
-func (AlertDashboardPanelQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertDashboardPanelQuery)(nil)).Elem()
-}
-
-func (o AlertDashboardPanelQueryOutput) ToAlertDashboardPanelQueryOutput() AlertDashboardPanelQueryOutput {
-	return o
-}
-
-func (o AlertDashboardPanelQueryOutput) ToAlertDashboardPanelQueryOutputWithContext(ctx context.Context) AlertDashboardPanelQueryOutput {
-	return o
-}
-
-func (o AlertDashboardPanelQueryOutput) Promql() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertDashboardPanelQuery) string { return v.Promql }).(pulumi.StringOutput)
-}
-
-func (o AlertDashboardPanelQueryOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertDashboardPanelQuery) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-type AlertDashboardPanelQueryArrayOutput struct{ *pulumi.OutputState }
-
-func (AlertDashboardPanelQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertDashboardPanelQuery)(nil)).Elem()
-}
-
-func (o AlertDashboardPanelQueryArrayOutput) ToAlertDashboardPanelQueryArrayOutput() AlertDashboardPanelQueryArrayOutput {
-	return o
-}
-
-func (o AlertDashboardPanelQueryArrayOutput) ToAlertDashboardPanelQueryArrayOutputWithContext(ctx context.Context) AlertDashboardPanelQueryArrayOutput {
-	return o
-}
-
-func (o AlertDashboardPanelQueryArrayOutput) Index(i pulumi.IntInput) AlertDashboardPanelQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertDashboardPanelQuery {
-		return vs[0].([]AlertDashboardPanelQuery)[vs[1].(int)]
-	}).(AlertDashboardPanelQueryOutput)
-}
-
-type AlertDashboardScope struct {
-	Comparator *string  `pulumi:"comparator"`
-	Metric     string   `pulumi:"metric"`
-	Values     []string `pulumi:"values"`
-	Variable   *string  `pulumi:"variable"`
-}
-
-// AlertDashboardScopeInput is an input type that accepts AlertDashboardScopeArgs and AlertDashboardScopeOutput values.
-// You can construct a concrete instance of `AlertDashboardScopeInput` via:
-//
-//          AlertDashboardScopeArgs{...}
-type AlertDashboardScopeInput interface {
-	pulumi.Input
-
-	ToAlertDashboardScopeOutput() AlertDashboardScopeOutput
-	ToAlertDashboardScopeOutputWithContext(context.Context) AlertDashboardScopeOutput
-}
-
-type AlertDashboardScopeArgs struct {
-	Comparator pulumi.StringPtrInput   `pulumi:"comparator"`
-	Metric     pulumi.StringInput      `pulumi:"metric"`
-	Values     pulumi.StringArrayInput `pulumi:"values"`
-	Variable   pulumi.StringPtrInput   `pulumi:"variable"`
-}
-
-func (AlertDashboardScopeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertDashboardScope)(nil)).Elem()
-}
-
-func (i AlertDashboardScopeArgs) ToAlertDashboardScopeOutput() AlertDashboardScopeOutput {
-	return i.ToAlertDashboardScopeOutputWithContext(context.Background())
-}
-
-func (i AlertDashboardScopeArgs) ToAlertDashboardScopeOutputWithContext(ctx context.Context) AlertDashboardScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertDashboardScopeOutput)
-}
-
-// AlertDashboardScopeArrayInput is an input type that accepts AlertDashboardScopeArray and AlertDashboardScopeArrayOutput values.
-// You can construct a concrete instance of `AlertDashboardScopeArrayInput` via:
-//
-//          AlertDashboardScopeArray{ AlertDashboardScopeArgs{...} }
-type AlertDashboardScopeArrayInput interface {
-	pulumi.Input
-
-	ToAlertDashboardScopeArrayOutput() AlertDashboardScopeArrayOutput
-	ToAlertDashboardScopeArrayOutputWithContext(context.Context) AlertDashboardScopeArrayOutput
-}
-
-type AlertDashboardScopeArray []AlertDashboardScopeInput
-
-func (AlertDashboardScopeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertDashboardScope)(nil)).Elem()
-}
-
-func (i AlertDashboardScopeArray) ToAlertDashboardScopeArrayOutput() AlertDashboardScopeArrayOutput {
-	return i.ToAlertDashboardScopeArrayOutputWithContext(context.Background())
-}
-
-func (i AlertDashboardScopeArray) ToAlertDashboardScopeArrayOutputWithContext(ctx context.Context) AlertDashboardScopeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertDashboardScopeArrayOutput)
-}
-
-type AlertDashboardScopeOutput struct{ *pulumi.OutputState }
-
-func (AlertDashboardScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertDashboardScope)(nil)).Elem()
-}
-
-func (o AlertDashboardScopeOutput) ToAlertDashboardScopeOutput() AlertDashboardScopeOutput {
-	return o
-}
-
-func (o AlertDashboardScopeOutput) ToAlertDashboardScopeOutputWithContext(ctx context.Context) AlertDashboardScopeOutput {
-	return o
-}
-
-func (o AlertDashboardScopeOutput) Comparator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertDashboardScope) *string { return v.Comparator }).(pulumi.StringPtrOutput)
-}
-
-func (o AlertDashboardScopeOutput) Metric() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertDashboardScope) string { return v.Metric }).(pulumi.StringOutput)
-}
-
-func (o AlertDashboardScopeOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AlertDashboardScope) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-func (o AlertDashboardScopeOutput) Variable() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AlertDashboardScope) *string { return v.Variable }).(pulumi.StringPtrOutput)
-}
-
-type AlertDashboardScopeArrayOutput struct{ *pulumi.OutputState }
-
-func (AlertDashboardScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertDashboardScope)(nil)).Elem()
-}
-
-func (o AlertDashboardScopeArrayOutput) ToAlertDashboardScopeArrayOutput() AlertDashboardScopeArrayOutput {
-	return o
-}
-
-func (o AlertDashboardScopeArrayOutput) ToAlertDashboardScopeArrayOutputWithContext(ctx context.Context) AlertDashboardScopeArrayOutput {
-	return o
-}
-
-func (o AlertDashboardScopeArrayOutput) Index(i pulumi.IntInput) AlertDashboardScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertDashboardScope {
-		return vs[0].([]AlertDashboardScope)[vs[1].(int)]
-	}).(AlertDashboardScopeOutput)
-}
-
 type AlertDowntimeCapture struct {
 	Duration int     `pulumi:"duration"`
 	Filename string  `pulumi:"filename"`
@@ -2338,6 +1966,378 @@ func (o AlertPromqlCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DashboardPanel struct {
+	AutosizeText          *bool                 `pulumi:"autosizeText"`
+	Content               *string               `pulumi:"content"`
+	Description           *string               `pulumi:"description"`
+	Height                int                   `pulumi:"height"`
+	Name                  string                `pulumi:"name"`
+	PosX                  int                   `pulumi:"posX"`
+	PosY                  int                   `pulumi:"posY"`
+	Queries               []DashboardPanelQuery `pulumi:"queries"`
+	TransparentBackground *bool                 `pulumi:"transparentBackground"`
+	Type                  string                `pulumi:"type"`
+	VisibleTitle          *bool                 `pulumi:"visibleTitle"`
+	Width                 int                   `pulumi:"width"`
+}
+
+// DashboardPanelInput is an input type that accepts DashboardPanelArgs and DashboardPanelOutput values.
+// You can construct a concrete instance of `DashboardPanelInput` via:
+//
+//          DashboardPanelArgs{...}
+type DashboardPanelInput interface {
+	pulumi.Input
+
+	ToDashboardPanelOutput() DashboardPanelOutput
+	ToDashboardPanelOutputWithContext(context.Context) DashboardPanelOutput
+}
+
+type DashboardPanelArgs struct {
+	AutosizeText          pulumi.BoolPtrInput           `pulumi:"autosizeText"`
+	Content               pulumi.StringPtrInput         `pulumi:"content"`
+	Description           pulumi.StringPtrInput         `pulumi:"description"`
+	Height                pulumi.IntInput               `pulumi:"height"`
+	Name                  pulumi.StringInput            `pulumi:"name"`
+	PosX                  pulumi.IntInput               `pulumi:"posX"`
+	PosY                  pulumi.IntInput               `pulumi:"posY"`
+	Queries               DashboardPanelQueryArrayInput `pulumi:"queries"`
+	TransparentBackground pulumi.BoolPtrInput           `pulumi:"transparentBackground"`
+	Type                  pulumi.StringInput            `pulumi:"type"`
+	VisibleTitle          pulumi.BoolPtrInput           `pulumi:"visibleTitle"`
+	Width                 pulumi.IntInput               `pulumi:"width"`
+}
+
+func (DashboardPanelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPanel)(nil)).Elem()
+}
+
+func (i DashboardPanelArgs) ToDashboardPanelOutput() DashboardPanelOutput {
+	return i.ToDashboardPanelOutputWithContext(context.Background())
+}
+
+func (i DashboardPanelArgs) ToDashboardPanelOutputWithContext(ctx context.Context) DashboardPanelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardPanelOutput)
+}
+
+// DashboardPanelArrayInput is an input type that accepts DashboardPanelArray and DashboardPanelArrayOutput values.
+// You can construct a concrete instance of `DashboardPanelArrayInput` via:
+//
+//          DashboardPanelArray{ DashboardPanelArgs{...} }
+type DashboardPanelArrayInput interface {
+	pulumi.Input
+
+	ToDashboardPanelArrayOutput() DashboardPanelArrayOutput
+	ToDashboardPanelArrayOutputWithContext(context.Context) DashboardPanelArrayOutput
+}
+
+type DashboardPanelArray []DashboardPanelInput
+
+func (DashboardPanelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardPanel)(nil)).Elem()
+}
+
+func (i DashboardPanelArray) ToDashboardPanelArrayOutput() DashboardPanelArrayOutput {
+	return i.ToDashboardPanelArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardPanelArray) ToDashboardPanelArrayOutputWithContext(ctx context.Context) DashboardPanelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardPanelArrayOutput)
+}
+
+type DashboardPanelOutput struct{ *pulumi.OutputState }
+
+func (DashboardPanelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPanel)(nil)).Elem()
+}
+
+func (o DashboardPanelOutput) ToDashboardPanelOutput() DashboardPanelOutput {
+	return o
+}
+
+func (o DashboardPanelOutput) ToDashboardPanelOutputWithContext(ctx context.Context) DashboardPanelOutput {
+	return o
+}
+
+func (o DashboardPanelOutput) AutosizeText() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DashboardPanel) *bool { return v.AutosizeText }).(pulumi.BoolPtrOutput)
+}
+
+func (o DashboardPanelOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardPanel) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardPanelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardPanel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardPanelOutput) Height() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardPanel) int { return v.Height }).(pulumi.IntOutput)
+}
+
+func (o DashboardPanelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardPanel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DashboardPanelOutput) PosX() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardPanel) int { return v.PosX }).(pulumi.IntOutput)
+}
+
+func (o DashboardPanelOutput) PosY() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardPanel) int { return v.PosY }).(pulumi.IntOutput)
+}
+
+func (o DashboardPanelOutput) Queries() DashboardPanelQueryArrayOutput {
+	return o.ApplyT(func(v DashboardPanel) []DashboardPanelQuery { return v.Queries }).(DashboardPanelQueryArrayOutput)
+}
+
+func (o DashboardPanelOutput) TransparentBackground() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DashboardPanel) *bool { return v.TransparentBackground }).(pulumi.BoolPtrOutput)
+}
+
+func (o DashboardPanelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardPanel) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o DashboardPanelOutput) VisibleTitle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DashboardPanel) *bool { return v.VisibleTitle }).(pulumi.BoolPtrOutput)
+}
+
+func (o DashboardPanelOutput) Width() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardPanel) int { return v.Width }).(pulumi.IntOutput)
+}
+
+type DashboardPanelArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardPanelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardPanel)(nil)).Elem()
+}
+
+func (o DashboardPanelArrayOutput) ToDashboardPanelArrayOutput() DashboardPanelArrayOutput {
+	return o
+}
+
+func (o DashboardPanelArrayOutput) ToDashboardPanelArrayOutputWithContext(ctx context.Context) DashboardPanelArrayOutput {
+	return o
+}
+
+func (o DashboardPanelArrayOutput) Index(i pulumi.IntInput) DashboardPanelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardPanel {
+		return vs[0].([]DashboardPanel)[vs[1].(int)]
+	}).(DashboardPanelOutput)
+}
+
+type DashboardPanelQuery struct {
+	Promql string `pulumi:"promql"`
+	Unit   string `pulumi:"unit"`
+}
+
+// DashboardPanelQueryInput is an input type that accepts DashboardPanelQueryArgs and DashboardPanelQueryOutput values.
+// You can construct a concrete instance of `DashboardPanelQueryInput` via:
+//
+//          DashboardPanelQueryArgs{...}
+type DashboardPanelQueryInput interface {
+	pulumi.Input
+
+	ToDashboardPanelQueryOutput() DashboardPanelQueryOutput
+	ToDashboardPanelQueryOutputWithContext(context.Context) DashboardPanelQueryOutput
+}
+
+type DashboardPanelQueryArgs struct {
+	Promql pulumi.StringInput `pulumi:"promql"`
+	Unit   pulumi.StringInput `pulumi:"unit"`
+}
+
+func (DashboardPanelQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPanelQuery)(nil)).Elem()
+}
+
+func (i DashboardPanelQueryArgs) ToDashboardPanelQueryOutput() DashboardPanelQueryOutput {
+	return i.ToDashboardPanelQueryOutputWithContext(context.Background())
+}
+
+func (i DashboardPanelQueryArgs) ToDashboardPanelQueryOutputWithContext(ctx context.Context) DashboardPanelQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardPanelQueryOutput)
+}
+
+// DashboardPanelQueryArrayInput is an input type that accepts DashboardPanelQueryArray and DashboardPanelQueryArrayOutput values.
+// You can construct a concrete instance of `DashboardPanelQueryArrayInput` via:
+//
+//          DashboardPanelQueryArray{ DashboardPanelQueryArgs{...} }
+type DashboardPanelQueryArrayInput interface {
+	pulumi.Input
+
+	ToDashboardPanelQueryArrayOutput() DashboardPanelQueryArrayOutput
+	ToDashboardPanelQueryArrayOutputWithContext(context.Context) DashboardPanelQueryArrayOutput
+}
+
+type DashboardPanelQueryArray []DashboardPanelQueryInput
+
+func (DashboardPanelQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardPanelQuery)(nil)).Elem()
+}
+
+func (i DashboardPanelQueryArray) ToDashboardPanelQueryArrayOutput() DashboardPanelQueryArrayOutput {
+	return i.ToDashboardPanelQueryArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardPanelQueryArray) ToDashboardPanelQueryArrayOutputWithContext(ctx context.Context) DashboardPanelQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardPanelQueryArrayOutput)
+}
+
+type DashboardPanelQueryOutput struct{ *pulumi.OutputState }
+
+func (DashboardPanelQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPanelQuery)(nil)).Elem()
+}
+
+func (o DashboardPanelQueryOutput) ToDashboardPanelQueryOutput() DashboardPanelQueryOutput {
+	return o
+}
+
+func (o DashboardPanelQueryOutput) ToDashboardPanelQueryOutputWithContext(ctx context.Context) DashboardPanelQueryOutput {
+	return o
+}
+
+func (o DashboardPanelQueryOutput) Promql() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardPanelQuery) string { return v.Promql }).(pulumi.StringOutput)
+}
+
+func (o DashboardPanelQueryOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardPanelQuery) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type DashboardPanelQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardPanelQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardPanelQuery)(nil)).Elem()
+}
+
+func (o DashboardPanelQueryArrayOutput) ToDashboardPanelQueryArrayOutput() DashboardPanelQueryArrayOutput {
+	return o
+}
+
+func (o DashboardPanelQueryArrayOutput) ToDashboardPanelQueryArrayOutputWithContext(ctx context.Context) DashboardPanelQueryArrayOutput {
+	return o
+}
+
+func (o DashboardPanelQueryArrayOutput) Index(i pulumi.IntInput) DashboardPanelQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardPanelQuery {
+		return vs[0].([]DashboardPanelQuery)[vs[1].(int)]
+	}).(DashboardPanelQueryOutput)
+}
+
+type DashboardScope struct {
+	Comparator *string  `pulumi:"comparator"`
+	Metric     string   `pulumi:"metric"`
+	Values     []string `pulumi:"values"`
+	Variable   *string  `pulumi:"variable"`
+}
+
+// DashboardScopeInput is an input type that accepts DashboardScopeArgs and DashboardScopeOutput values.
+// You can construct a concrete instance of `DashboardScopeInput` via:
+//
+//          DashboardScopeArgs{...}
+type DashboardScopeInput interface {
+	pulumi.Input
+
+	ToDashboardScopeOutput() DashboardScopeOutput
+	ToDashboardScopeOutputWithContext(context.Context) DashboardScopeOutput
+}
+
+type DashboardScopeArgs struct {
+	Comparator pulumi.StringPtrInput   `pulumi:"comparator"`
+	Metric     pulumi.StringInput      `pulumi:"metric"`
+	Values     pulumi.StringArrayInput `pulumi:"values"`
+	Variable   pulumi.StringPtrInput   `pulumi:"variable"`
+}
+
+func (DashboardScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardScope)(nil)).Elem()
+}
+
+func (i DashboardScopeArgs) ToDashboardScopeOutput() DashboardScopeOutput {
+	return i.ToDashboardScopeOutputWithContext(context.Background())
+}
+
+func (i DashboardScopeArgs) ToDashboardScopeOutputWithContext(ctx context.Context) DashboardScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardScopeOutput)
+}
+
+// DashboardScopeArrayInput is an input type that accepts DashboardScopeArray and DashboardScopeArrayOutput values.
+// You can construct a concrete instance of `DashboardScopeArrayInput` via:
+//
+//          DashboardScopeArray{ DashboardScopeArgs{...} }
+type DashboardScopeArrayInput interface {
+	pulumi.Input
+
+	ToDashboardScopeArrayOutput() DashboardScopeArrayOutput
+	ToDashboardScopeArrayOutputWithContext(context.Context) DashboardScopeArrayOutput
+}
+
+type DashboardScopeArray []DashboardScopeInput
+
+func (DashboardScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardScope)(nil)).Elem()
+}
+
+func (i DashboardScopeArray) ToDashboardScopeArrayOutput() DashboardScopeArrayOutput {
+	return i.ToDashboardScopeArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardScopeArray) ToDashboardScopeArrayOutputWithContext(ctx context.Context) DashboardScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardScopeArrayOutput)
+}
+
+type DashboardScopeOutput struct{ *pulumi.OutputState }
+
+func (DashboardScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardScope)(nil)).Elem()
+}
+
+func (o DashboardScopeOutput) ToDashboardScopeOutput() DashboardScopeOutput {
+	return o
+}
+
+func (o DashboardScopeOutput) ToDashboardScopeOutputWithContext(ctx context.Context) DashboardScopeOutput {
+	return o
+}
+
+func (o DashboardScopeOutput) Comparator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardScope) *string { return v.Comparator }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardScopeOutput) Metric() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardScope) string { return v.Metric }).(pulumi.StringOutput)
+}
+
+func (o DashboardScopeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DashboardScope) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+func (o DashboardScopeOutput) Variable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardScope) *string { return v.Variable }).(pulumi.StringPtrOutput)
+}
+
+type DashboardScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardScope)(nil)).Elem()
+}
+
+func (o DashboardScopeArrayOutput) ToDashboardScopeArrayOutput() DashboardScopeArrayOutput {
+	return o
+}
+
+func (o DashboardScopeArrayOutput) ToDashboardScopeArrayOutputWithContext(ctx context.Context) DashboardScopeArrayOutput {
+	return o
+}
+
+func (o DashboardScopeArrayOutput) Index(i pulumi.IntInput) DashboardScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardScope {
+		return vs[0].([]DashboardScope)[vs[1].(int)]
+	}).(DashboardScopeOutput)
+}
+
 type TeamEntrypoint struct {
 	Selection *string `pulumi:"selection"`
 	Type      string  `pulumi:"type"`
@@ -2543,12 +2543,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertAnomalyCapturePtrInput)(nil)).Elem(), AlertAnomalyCaptureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertAnomalyCustomNotificationInput)(nil)).Elem(), AlertAnomalyCustomNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertAnomalyCustomNotificationPtrInput)(nil)).Elem(), AlertAnomalyCustomNotificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertDashboardPanelInput)(nil)).Elem(), AlertDashboardPanelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertDashboardPanelArrayInput)(nil)).Elem(), AlertDashboardPanelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertDashboardPanelQueryInput)(nil)).Elem(), AlertDashboardPanelQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertDashboardPanelQueryArrayInput)(nil)).Elem(), AlertDashboardPanelQueryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertDashboardScopeInput)(nil)).Elem(), AlertDashboardScopeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertDashboardScopeArrayInput)(nil)).Elem(), AlertDashboardScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertDowntimeCaptureInput)(nil)).Elem(), AlertDowntimeCaptureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertDowntimeCapturePtrInput)(nil)).Elem(), AlertDowntimeCaptureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertDowntimeCustomNotificationInput)(nil)).Elem(), AlertDowntimeCustomNotificationArgs{})
@@ -2569,6 +2563,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertPromqlCapturePtrInput)(nil)).Elem(), AlertPromqlCaptureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertPromqlCustomNotificationInput)(nil)).Elem(), AlertPromqlCustomNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertPromqlCustomNotificationPtrInput)(nil)).Elem(), AlertPromqlCustomNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPanelInput)(nil)).Elem(), DashboardPanelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPanelArrayInput)(nil)).Elem(), DashboardPanelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPanelQueryInput)(nil)).Elem(), DashboardPanelQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPanelQueryArrayInput)(nil)).Elem(), DashboardPanelQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardScopeInput)(nil)).Elem(), DashboardScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardScopeArrayInput)(nil)).Elem(), DashboardScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamEntrypointInput)(nil)).Elem(), TeamEntrypointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamEntrypointArrayInput)(nil)).Elem(), TeamEntrypointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamUserRoleInput)(nil)).Elem(), TeamUserRoleArgs{})
@@ -2577,12 +2577,6 @@ func init() {
 	pulumi.RegisterOutputType(AlertAnomalyCapturePtrOutput{})
 	pulumi.RegisterOutputType(AlertAnomalyCustomNotificationOutput{})
 	pulumi.RegisterOutputType(AlertAnomalyCustomNotificationPtrOutput{})
-	pulumi.RegisterOutputType(AlertDashboardPanelOutput{})
-	pulumi.RegisterOutputType(AlertDashboardPanelArrayOutput{})
-	pulumi.RegisterOutputType(AlertDashboardPanelQueryOutput{})
-	pulumi.RegisterOutputType(AlertDashboardPanelQueryArrayOutput{})
-	pulumi.RegisterOutputType(AlertDashboardScopeOutput{})
-	pulumi.RegisterOutputType(AlertDashboardScopeArrayOutput{})
 	pulumi.RegisterOutputType(AlertDowntimeCaptureOutput{})
 	pulumi.RegisterOutputType(AlertDowntimeCapturePtrOutput{})
 	pulumi.RegisterOutputType(AlertDowntimeCustomNotificationOutput{})
@@ -2603,6 +2597,12 @@ func init() {
 	pulumi.RegisterOutputType(AlertPromqlCapturePtrOutput{})
 	pulumi.RegisterOutputType(AlertPromqlCustomNotificationOutput{})
 	pulumi.RegisterOutputType(AlertPromqlCustomNotificationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardPanelOutput{})
+	pulumi.RegisterOutputType(DashboardPanelArrayOutput{})
+	pulumi.RegisterOutputType(DashboardPanelQueryOutput{})
+	pulumi.RegisterOutputType(DashboardPanelQueryArrayOutput{})
+	pulumi.RegisterOutputType(DashboardScopeOutput{})
+	pulumi.RegisterOutputType(DashboardScopeArrayOutput{})
 	pulumi.RegisterOutputType(TeamEntrypointOutput{})
 	pulumi.RegisterOutputType(TeamEntrypointArrayOutput{})
 	pulumi.RegisterOutputType(TeamUserRoleOutput{})

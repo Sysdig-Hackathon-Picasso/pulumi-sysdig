@@ -17,33 +17,6 @@ export namespace Monitor {
         title: string;
     }
 
-    export interface AlertDashboardPanel {
-        autosizeText?: boolean;
-        content?: string;
-        description?: string;
-        height: number;
-        name: string;
-        posX: number;
-        posY: number;
-        queries?: outputs.Monitor.AlertDashboardPanelQuery[];
-        transparentBackground?: boolean;
-        type: string;
-        visibleTitle?: boolean;
-        width: number;
-    }
-
-    export interface AlertDashboardPanelQuery {
-        promql: string;
-        unit: string;
-    }
-
-    export interface AlertDashboardScope {
-        comparator?: string;
-        metric: string;
-        values?: string[];
-        variable?: string;
-    }
-
     export interface AlertDowntimeCapture {
         duration: number;
         filename: string;
@@ -102,6 +75,33 @@ export namespace Monitor {
         append?: string;
         prepend?: string;
         title: string;
+    }
+
+    export interface DashboardPanel {
+        autosizeText?: boolean;
+        content?: string;
+        description?: string;
+        height: number;
+        name: string;
+        posX: number;
+        posY: number;
+        queries?: outputs.Monitor.DashboardPanelQuery[];
+        transparentBackground?: boolean;
+        type: string;
+        visibleTitle?: boolean;
+        width: number;
+    }
+
+    export interface DashboardPanelQuery {
+        promql: string;
+        unit: string;
+    }
+
+    export interface DashboardScope {
+        comparator?: string;
+        metric: string;
+        values?: string[];
+        variable?: string;
     }
 
     export interface TeamEntrypoint {

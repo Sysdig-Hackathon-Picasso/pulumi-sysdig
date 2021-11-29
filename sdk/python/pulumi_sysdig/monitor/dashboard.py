@@ -10,18 +10,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AlertDashboardArgs', 'AlertDashboard']
+__all__ = ['DashboardArgs', 'Dashboard']
 
 @pulumi.input_type
-class AlertDashboardArgs:
+class DashboardArgs:
     def __init__(__self__, *,
-                 panels: pulumi.Input[Sequence[pulumi.Input['AlertDashboardPanelArgs']]],
+                 panels: pulumi.Input[Sequence[pulumi.Input['DashboardPanelArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public: Optional[pulumi.Input[bool]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AlertDashboardScopeArgs']]]] = None):
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]]] = None):
         """
-        The set of arguments for constructing a AlertDashboard resource.
+        The set of arguments for constructing a Dashboard resource.
         """
         pulumi.set(__self__, "panels", panels)
         if description is not None:
@@ -35,11 +35,11 @@ class AlertDashboardArgs:
 
     @property
     @pulumi.getter
-    def panels(self) -> pulumi.Input[Sequence[pulumi.Input['AlertDashboardPanelArgs']]]:
+    def panels(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardPanelArgs']]]:
         return pulumi.get(self, "panels")
 
     @panels.setter
-    def panels(self, value: pulumi.Input[Sequence[pulumi.Input['AlertDashboardPanelArgs']]]):
+    def panels(self, value: pulumi.Input[Sequence[pulumi.Input['DashboardPanelArgs']]]):
         pulumi.set(self, "panels", value)
 
     @property
@@ -71,26 +71,26 @@ class AlertDashboardArgs:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertDashboardScopeArgs']]]]:
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]]]:
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertDashboardScopeArgs']]]]):
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]]]):
         pulumi.set(self, "scopes", value)
 
 
 @pulumi.input_type
-class _AlertDashboardState:
+class _DashboardState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 panels: Optional[pulumi.Input[Sequence[pulumi.Input['AlertDashboardPanelArgs']]]] = None,
+                 panels: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPanelArgs']]]] = None,
                  public: Optional[pulumi.Input[bool]] = None,
                  public_token: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AlertDashboardScopeArgs']]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]]] = None,
                  version: Optional[pulumi.Input[int]] = None):
         """
-        Input properties used for looking up and filtering AlertDashboard resources.
+        Input properties used for looking up and filtering Dashboard resources.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -127,11 +127,11 @@ class _AlertDashboardState:
 
     @property
     @pulumi.getter
-    def panels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertDashboardPanelArgs']]]]:
+    def panels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPanelArgs']]]]:
         return pulumi.get(self, "panels")
 
     @panels.setter
-    def panels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertDashboardPanelArgs']]]]):
+    def panels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPanelArgs']]]]):
         pulumi.set(self, "panels", value)
 
     @property
@@ -154,11 +154,11 @@ class _AlertDashboardState:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertDashboardScopeArgs']]]]:
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]]]:
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertDashboardScopeArgs']]]]):
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]]]):
         pulumi.set(self, "scopes", value)
 
     @property
@@ -171,19 +171,19 @@ class _AlertDashboardState:
         pulumi.set(self, "version", value)
 
 
-class AlertDashboard(pulumi.CustomResource):
+class Dashboard(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 panels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertDashboardPanelArgs']]]]] = None,
+                 panels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardPanelArgs']]]]] = None,
                  public: Optional[pulumi.Input[bool]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertDashboardScopeArgs']]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardScopeArgs']]]]] = None,
                  __props__=None):
         """
-        Create a AlertDashboard resource with the given unique name, props, and options.
+        Create a Dashboard resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -191,17 +191,17 @@ class AlertDashboard(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AlertDashboardArgs,
+                 args: DashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AlertDashboard resource with the given unique name, props, and options.
+        Create a Dashboard resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param AlertDashboardArgs args: The arguments to use to populate this resource's properties.
+        :param DashboardArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AlertDashboardArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DashboardArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -212,9 +212,9 @@ class AlertDashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 panels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertDashboardPanelArgs']]]]] = None,
+                 panels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardPanelArgs']]]]] = None,
                  public: Optional[pulumi.Input[bool]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertDashboardScopeArgs']]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardScopeArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -225,7 +225,7 @@ class AlertDashboard(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AlertDashboardArgs.__new__(AlertDashboardArgs)
+            __props__ = DashboardArgs.__new__(DashboardArgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -236,8 +236,8 @@ class AlertDashboard(pulumi.CustomResource):
             __props__.__dict__["scopes"] = scopes
             __props__.__dict__["public_token"] = None
             __props__.__dict__["version"] = None
-        super(AlertDashboard, __self__).__init__(
-            'sysdig:Monitor/alertDashboard:AlertDashboard',
+        super(Dashboard, __self__).__init__(
+            'sysdig:Monitor/dashboard:Dashboard',
             resource_name,
             __props__,
             opts)
@@ -248,13 +248,13 @@ class AlertDashboard(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            panels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertDashboardPanelArgs']]]]] = None,
+            panels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardPanelArgs']]]]] = None,
             public: Optional[pulumi.Input[bool]] = None,
             public_token: Optional[pulumi.Input[str]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertDashboardScopeArgs']]]]] = None,
-            version: Optional[pulumi.Input[int]] = None) -> 'AlertDashboard':
+            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardScopeArgs']]]]] = None,
+            version: Optional[pulumi.Input[int]] = None) -> 'Dashboard':
         """
-        Get an existing AlertDashboard resource's state with the given name, id, and optional extra
+        Get an existing Dashboard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -263,7 +263,7 @@ class AlertDashboard(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _AlertDashboardState.__new__(_AlertDashboardState)
+        __props__ = _DashboardState.__new__(_DashboardState)
 
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
@@ -272,7 +272,7 @@ class AlertDashboard(pulumi.CustomResource):
         __props__.__dict__["public_token"] = public_token
         __props__.__dict__["scopes"] = scopes
         __props__.__dict__["version"] = version
-        return AlertDashboard(resource_name, opts=opts, __props__=__props__)
+        return Dashboard(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
@@ -286,7 +286,7 @@ class AlertDashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def panels(self) -> pulumi.Output[Sequence['outputs.AlertDashboardPanel']]:
+    def panels(self) -> pulumi.Output[Sequence['outputs.DashboardPanel']]:
         return pulumi.get(self, "panels")
 
     @property
@@ -301,7 +301,7 @@ class AlertDashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Output[Optional[Sequence['outputs.AlertDashboardScope']]]:
+    def scopes(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardScope']]]:
         return pulumi.get(self, "scopes")
 
     @property

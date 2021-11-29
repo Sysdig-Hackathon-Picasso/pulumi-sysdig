@@ -23,8 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "sysdig:Monitor/alertAnomaly:AlertAnomaly":
 		r = &AlertAnomaly{}
-	case "sysdig:Monitor/alertDashboard:AlertDashboard":
-		r = &AlertDashboard{}
 	case "sysdig:Monitor/alertDowntime:AlertDowntime":
 		r = &AlertDowntime{}
 	case "sysdig:Monitor/alertEvent:AlertEvent":
@@ -35,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertMetric{}
 	case "sysdig:Monitor/alertPromql:AlertPromql":
 		r = &AlertPromql{}
+	case "sysdig:Monitor/dashboard:Dashboard":
+		r = &Dashboard{}
 	case "sysdig:Monitor/notificationChannelEmail:NotificationChannelEmail":
 		r = &NotificationChannelEmail{}
 	case "sysdig:Monitor/notificationChannelOpsgenie:NotificationChannelOpsgenie":
@@ -71,11 +71,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"sysdig",
-		"Monitor/alertDashboard",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"sysdig",
 		"Monitor/alertDowntime",
 		&module{version},
 	)
@@ -97,6 +92,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"sysdig",
 		"Monitor/alertPromql",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sysdig",
+		"Monitor/dashboard",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

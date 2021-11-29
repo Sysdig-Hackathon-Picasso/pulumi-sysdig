@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Sysdig.Monitor.Inputs
 {
 
-    public sealed class AlertDashboardPanelGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardPanelGetArgs : Pulumi.ResourceArgs
     {
         [Input("autosizeText")]
         public Input<bool>? AutosizeText { get; set; }
@@ -34,10 +34,10 @@ namespace Pulumi.Sysdig.Monitor.Inputs
         public Input<int> PosY { get; set; } = null!;
 
         [Input("queries")]
-        private InputList<Inputs.AlertDashboardPanelQueryGetArgs>? _queries;
-        public InputList<Inputs.AlertDashboardPanelQueryGetArgs> Queries
+        private InputList<Inputs.DashboardPanelQueryGetArgs>? _queries;
+        public InputList<Inputs.DashboardPanelQueryGetArgs> Queries
         {
-            get => _queries ?? (_queries = new InputList<Inputs.AlertDashboardPanelQueryGetArgs>());
+            get => _queries ?? (_queries = new InputList<Inputs.DashboardPanelQueryGetArgs>());
             set => _queries = value;
         }
 
@@ -53,7 +53,7 @@ namespace Pulumi.Sysdig.Monitor.Inputs
         [Input("width", required: true)]
         public Input<int> Width { get; set; } = null!;
 
-        public AlertDashboardPanelGetArgs()
+        public DashboardPanelGetArgs()
         {
         }
     }

@@ -6,12 +6,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .alert_anomaly import *
-from .alert_dashboard import *
 from .alert_downtime import *
 from .alert_event import *
 from .alert_group_outlier import *
 from .alert_metric import *
 from .alert_promql import *
+from .dashboard import *
 from .notification_channel_email import *
 from .notification_channel_opsgenie import *
 from .notification_channel_pagerduty import *

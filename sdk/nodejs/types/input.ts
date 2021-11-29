@@ -17,33 +17,6 @@ export namespace Monitor {
         title: pulumi.Input<string>;
     }
 
-    export interface AlertDashboardPanel {
-        autosizeText?: pulumi.Input<boolean>;
-        content?: pulumi.Input<string>;
-        description?: pulumi.Input<string>;
-        height: pulumi.Input<number>;
-        name: pulumi.Input<string>;
-        posX: pulumi.Input<number>;
-        posY: pulumi.Input<number>;
-        queries?: pulumi.Input<pulumi.Input<inputs.Monitor.AlertDashboardPanelQuery>[]>;
-        transparentBackground?: pulumi.Input<boolean>;
-        type: pulumi.Input<string>;
-        visibleTitle?: pulumi.Input<boolean>;
-        width: pulumi.Input<number>;
-    }
-
-    export interface AlertDashboardPanelQuery {
-        promql: pulumi.Input<string>;
-        unit: pulumi.Input<string>;
-    }
-
-    export interface AlertDashboardScope {
-        comparator?: pulumi.Input<string>;
-        metric: pulumi.Input<string>;
-        values?: pulumi.Input<pulumi.Input<string>[]>;
-        variable?: pulumi.Input<string>;
-    }
-
     export interface AlertDowntimeCapture {
         duration: pulumi.Input<number>;
         filename: pulumi.Input<string>;
@@ -102,6 +75,33 @@ export namespace Monitor {
         append?: pulumi.Input<string>;
         prepend?: pulumi.Input<string>;
         title: pulumi.Input<string>;
+    }
+
+    export interface DashboardPanel {
+        autosizeText?: pulumi.Input<boolean>;
+        content?: pulumi.Input<string>;
+        description?: pulumi.Input<string>;
+        height: pulumi.Input<number>;
+        name: pulumi.Input<string>;
+        posX: pulumi.Input<number>;
+        posY: pulumi.Input<number>;
+        queries?: pulumi.Input<pulumi.Input<inputs.Monitor.DashboardPanelQuery>[]>;
+        transparentBackground?: pulumi.Input<boolean>;
+        type: pulumi.Input<string>;
+        visibleTitle?: pulumi.Input<boolean>;
+        width: pulumi.Input<number>;
+    }
+
+    export interface DashboardPanelQuery {
+        promql: pulumi.Input<string>;
+        unit: pulumi.Input<string>;
+    }
+
+    export interface DashboardScope {
+        comparator?: pulumi.Input<string>;
+        metric: pulumi.Input<string>;
+        values?: pulumi.Input<pulumi.Input<string>[]>;
+        variable?: pulumi.Input<string>;
     }
 
     export interface TeamEntrypoint {

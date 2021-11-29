@@ -11,7 +11,7 @@ namespace Pulumi.Sysdig.Monitor.Outputs
 {
 
     [OutputType]
-    public sealed class AlertDashboardPanel
+    public sealed class DashboardPanel
     {
         public readonly bool? AutosizeText;
         public readonly string? Content;
@@ -20,14 +20,14 @@ namespace Pulumi.Sysdig.Monitor.Outputs
         public readonly string Name;
         public readonly int PosX;
         public readonly int PosY;
-        public readonly ImmutableArray<Outputs.AlertDashboardPanelQuery> Queries;
+        public readonly ImmutableArray<Outputs.DashboardPanelQuery> Queries;
         public readonly bool? TransparentBackground;
         public readonly string Type;
         public readonly bool? VisibleTitle;
         public readonly int Width;
 
         [OutputConstructor]
-        private AlertDashboardPanel(
+        private DashboardPanel(
             bool? autosizeText,
 
             string? content,
@@ -42,7 +42,7 @@ namespace Pulumi.Sysdig.Monitor.Outputs
 
             int posY,
 
-            ImmutableArray<Outputs.AlertDashboardPanelQuery> queries,
+            ImmutableArray<Outputs.DashboardPanelQuery> queries,
 
             bool? transparentBackground,
 

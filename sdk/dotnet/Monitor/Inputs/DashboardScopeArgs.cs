@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Sysdig.Monitor.Inputs
 {
 
-    public sealed class AlertDashboardScopeGetArgs : Pulumi.ResourceArgs
+    public sealed class DashboardScopeArgs : Pulumi.ResourceArgs
     {
         [Input("comparator")]
         public Input<string>? Comparator { get; set; }
@@ -29,7 +29,7 @@ namespace Pulumi.Sysdig.Monitor.Inputs
         [Input("variable")]
         public Input<string>? Variable { get; set; }
 
-        public AlertDashboardScopeGetArgs()
+        public DashboardScopeArgs()
         {
         }
     }

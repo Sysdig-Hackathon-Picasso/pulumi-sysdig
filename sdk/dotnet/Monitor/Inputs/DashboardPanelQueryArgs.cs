@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Sysdig.Monitor.Inputs
 {
 
-    public sealed class AlertDashboardPanelQueryArgs : Pulumi.ResourceArgs
+    public sealed class DashboardPanelQueryArgs : Pulumi.ResourceArgs
     {
         [Input("promql", required: true)]
         public Input<string> Promql { get; set; } = null!;
@@ -18,7 +18,7 @@ namespace Pulumi.Sysdig.Monitor.Inputs
         [Input("unit", required: true)]
         public Input<string> Unit { get; set; } = null!;
 
-        public AlertDashboardPanelQueryArgs()
+        public DashboardPanelQueryArgs()
         {
         }
     }

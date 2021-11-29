@@ -35,14 +35,6 @@ _utilities.register(
  },
  {
   "pkg": "sysdig",
-  "mod": "Monitor/alertDashboard",
-  "fqn": "pulumi_sysdig.monitor",
-  "classes": {
-   "sysdig:Monitor/alertDashboard:AlertDashboard": "AlertDashboard"
-  }
- },
- {
-  "pkg": "sysdig",
   "mod": "Monitor/alertDowntime",
   "fqn": "pulumi_sysdig.monitor",
   "classes": {
@@ -79,6 +71,14 @@ _utilities.register(
   "fqn": "pulumi_sysdig.monitor",
   "classes": {
    "sysdig:Monitor/alertPromql:AlertPromql": "AlertPromql"
+  }
+ },
+ {
+  "pkg": "sysdig",
+  "mod": "Monitor/dashboard",
+  "fqn": "pulumi_sysdig.monitor",
+  "classes": {
+   "sysdig:Monitor/dashboard:Dashboard": "Dashboard"
   }
  },
  {

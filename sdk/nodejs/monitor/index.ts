@@ -6,12 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./alertAnomaly";
-export * from "./alertDashboard";
 export * from "./alertDowntime";
 export * from "./alertEvent";
 export * from "./alertGroupOutlier";
 export * from "./alertMetric";
 export * from "./alertPromql";
+export * from "./dashboard";
 export * from "./notificationChannelEmail";
 export * from "./notificationChannelOpsgenie";
 export * from "./notificationChannelPagerduty";
@@ -23,12 +23,12 @@ export * from "./team";
 
 // Import resources to register:
 import { AlertAnomaly } from "./alertAnomaly";
-import { AlertDashboard } from "./alertDashboard";
 import { AlertDowntime } from "./alertDowntime";
 import { AlertEvent } from "./alertEvent";
 import { AlertGroupOutlier } from "./alertGroupOutlier";
 import { AlertMetric } from "./alertMetric";
 import { AlertPromql } from "./alertPromql";
+import { Dashboard } from "./dashboard";
 import { NotificationChannelEmail } from "./notificationChannelEmail";
 import { NotificationChannelOpsgenie } from "./notificationChannelOpsgenie";
 import { NotificationChannelPagerduty } from "./notificationChannelPagerduty";
@@ -44,8 +44,6 @@ const _module = {
         switch (type) {
             case "sysdig:Monitor/alertAnomaly:AlertAnomaly":
                 return new AlertAnomaly(name, <any>undefined, { urn })
-            case "sysdig:Monitor/alertDashboard:AlertDashboard":
-                return new AlertDashboard(name, <any>undefined, { urn })
             case "sysdig:Monitor/alertDowntime:AlertDowntime":
                 return new AlertDowntime(name, <any>undefined, { urn })
             case "sysdig:Monitor/alertEvent:AlertEvent":
@@ -56,6 +54,8 @@ const _module = {
                 return new AlertMetric(name, <any>undefined, { urn })
             case "sysdig:Monitor/alertPromql:AlertPromql":
                 return new AlertPromql(name, <any>undefined, { urn })
+            case "sysdig:Monitor/dashboard:Dashboard":
+                return new Dashboard(name, <any>undefined, { urn })
             case "sysdig:Monitor/notificationChannelEmail:NotificationChannelEmail":
                 return new NotificationChannelEmail(name, <any>undefined, { urn })
             case "sysdig:Monitor/notificationChannelOpsgenie:NotificationChannelOpsgenie":
@@ -78,12 +78,12 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertAnomaly", _module)
-pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertDashboard", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertDowntime", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertEvent", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertGroupOutlier", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertMetric", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertPromql", _module)
+pulumi.runtime.registerResourceModule("sysdig", "Monitor/dashboard", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/notificationChannelEmail", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/notificationChannelOpsgenie", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/notificationChannelPagerduty", _module)

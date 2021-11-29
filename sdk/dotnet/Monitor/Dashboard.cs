@@ -9,8 +9,8 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Monitor
 {
-    [SysdigResourceType("sysdig:Monitor/alertDashboard:AlertDashboard")]
-    public partial class AlertDashboard : Pulumi.CustomResource
+    [SysdigResourceType("sysdig:Monitor/dashboard:Dashboard")]
+    public partial class Dashboard : Pulumi.CustomResource
     {
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -19,7 +19,7 @@ namespace Pulumi.Sysdig.Monitor
         public Output<string> Name { get; private set; } = null!;
 
         [Output("panels")]
-        public Output<ImmutableArray<Outputs.AlertDashboardPanel>> Panels { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DashboardPanel>> Panels { get; private set; } = null!;
 
         [Output("public")]
         public Output<bool?> Public { get; private set; } = null!;
@@ -28,26 +28,26 @@ namespace Pulumi.Sysdig.Monitor
         public Output<string> PublicToken { get; private set; } = null!;
 
         [Output("scopes")]
-        public Output<ImmutableArray<Outputs.AlertDashboardScope>> Scopes { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DashboardScope>> Scopes { get; private set; } = null!;
 
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
 
         /// <summary>
-        /// Create a AlertDashboard resource with the given unique name, arguments, and options.
+        /// Create a Dashboard resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AlertDashboard(string name, AlertDashboardArgs args, CustomResourceOptions? options = null)
-            : base("sysdig:Monitor/alertDashboard:AlertDashboard", name, args ?? new AlertDashboardArgs(), MakeResourceOptions(options, ""))
+        public Dashboard(string name, DashboardArgs args, CustomResourceOptions? options = null)
+            : base("sysdig:Monitor/dashboard:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private AlertDashboard(string name, Input<string> id, AlertDashboardState? state = null, CustomResourceOptions? options = null)
-            : base("sysdig:Monitor/alertDashboard:AlertDashboard", name, state, MakeResourceOptions(options, id))
+        private Dashboard(string name, Input<string> id, DashboardState? state = null, CustomResourceOptions? options = null)
+            : base("sysdig:Monitor/dashboard:Dashboard", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -63,7 +63,7 @@ namespace Pulumi.Sysdig.Monitor
             return merged;
         }
         /// <summary>
-        /// Get an existing AlertDashboard resource's state with the given name, ID, and optional extra
+        /// Get an existing Dashboard resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -71,13 +71,13 @@ namespace Pulumi.Sysdig.Monitor
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static AlertDashboard Get(string name, Input<string> id, AlertDashboardState? state = null, CustomResourceOptions? options = null)
+        public static Dashboard Get(string name, Input<string> id, DashboardState? state = null, CustomResourceOptions? options = null)
         {
-            return new AlertDashboard(name, id, state, options);
+            return new Dashboard(name, id, state, options);
         }
     }
 
-    public sealed class AlertDashboardArgs : Pulumi.ResourceArgs
+    public sealed class DashboardArgs : Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -86,10 +86,10 @@ namespace Pulumi.Sysdig.Monitor
         public Input<string>? Name { get; set; }
 
         [Input("panels", required: true)]
-        private InputList<Inputs.AlertDashboardPanelArgs>? _panels;
-        public InputList<Inputs.AlertDashboardPanelArgs> Panels
+        private InputList<Inputs.DashboardPanelArgs>? _panels;
+        public InputList<Inputs.DashboardPanelArgs> Panels
         {
-            get => _panels ?? (_panels = new InputList<Inputs.AlertDashboardPanelArgs>());
+            get => _panels ?? (_panels = new InputList<Inputs.DashboardPanelArgs>());
             set => _panels = value;
         }
 
@@ -97,19 +97,19 @@ namespace Pulumi.Sysdig.Monitor
         public Input<bool>? Public { get; set; }
 
         [Input("scopes")]
-        private InputList<Inputs.AlertDashboardScopeArgs>? _scopes;
-        public InputList<Inputs.AlertDashboardScopeArgs> Scopes
+        private InputList<Inputs.DashboardScopeArgs>? _scopes;
+        public InputList<Inputs.DashboardScopeArgs> Scopes
         {
-            get => _scopes ?? (_scopes = new InputList<Inputs.AlertDashboardScopeArgs>());
+            get => _scopes ?? (_scopes = new InputList<Inputs.DashboardScopeArgs>());
             set => _scopes = value;
         }
 
-        public AlertDashboardArgs()
+        public DashboardArgs()
         {
         }
     }
 
-    public sealed class AlertDashboardState : Pulumi.ResourceArgs
+    public sealed class DashboardState : Pulumi.ResourceArgs
     {
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -118,10 +118,10 @@ namespace Pulumi.Sysdig.Monitor
         public Input<string>? Name { get; set; }
 
         [Input("panels")]
-        private InputList<Inputs.AlertDashboardPanelGetArgs>? _panels;
-        public InputList<Inputs.AlertDashboardPanelGetArgs> Panels
+        private InputList<Inputs.DashboardPanelGetArgs>? _panels;
+        public InputList<Inputs.DashboardPanelGetArgs> Panels
         {
-            get => _panels ?? (_panels = new InputList<Inputs.AlertDashboardPanelGetArgs>());
+            get => _panels ?? (_panels = new InputList<Inputs.DashboardPanelGetArgs>());
             set => _panels = value;
         }
 
@@ -132,17 +132,17 @@ namespace Pulumi.Sysdig.Monitor
         public Input<string>? PublicToken { get; set; }
 
         [Input("scopes")]
-        private InputList<Inputs.AlertDashboardScopeGetArgs>? _scopes;
-        public InputList<Inputs.AlertDashboardScopeGetArgs> Scopes
+        private InputList<Inputs.DashboardScopeGetArgs>? _scopes;
+        public InputList<Inputs.DashboardScopeGetArgs> Scopes
         {
-            get => _scopes ?? (_scopes = new InputList<Inputs.AlertDashboardScopeGetArgs>());
+            get => _scopes ?? (_scopes = new InputList<Inputs.DashboardScopeGetArgs>());
             set => _scopes = value;
         }
 
         [Input("version")]
         public Input<int>? Version { get; set; }
 
-        public AlertDashboardState()
+        public DashboardState()
         {
         }
     }

@@ -11,7 +11,7 @@ namespace Pulumi.Sysdig.Monitor.Outputs
 {
 
     [OutputType]
-    public sealed class AlertDashboardScope
+    public sealed class DashboardScope
     {
         public readonly string? Comparator;
         public readonly string Metric;
@@ -19,7 +19,7 @@ namespace Pulumi.Sysdig.Monitor.Outputs
         public readonly string? Variable;
 
         [OutputConstructor]
-        private AlertDashboardScope(
+        private DashboardScope(
             string? comparator,
 
             string metric,

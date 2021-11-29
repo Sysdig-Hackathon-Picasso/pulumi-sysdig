@@ -11,13 +11,13 @@ namespace Pulumi.Sysdig.Monitor.Outputs
 {
 
     [OutputType]
-    public sealed class AlertDashboardPanelQuery
+    public sealed class DashboardPanelQuery
     {
         public readonly string Promql;
         public readonly string Unit;
 
         [OutputConstructor]
-        private AlertDashboardPanelQuery(
+        private DashboardPanelQuery(
             string promql,
 
             string unit)
