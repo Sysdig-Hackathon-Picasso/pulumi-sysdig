@@ -68,37 +68,37 @@ export namespace Monitor {
         title: string;
     }
 
-    export interface GroupOutlierCapture {
+    export interface AlertGroupOutlierCapture {
         duration: number;
         filename: string;
         filter?: string;
     }
 
-    export interface GroupOutlierCustomNotification {
+    export interface AlertGroupOutlierCustomNotification {
         append?: string;
         prepend?: string;
         title: string;
     }
 
-    export interface MetricCapture {
+    export interface AlertMetricCapture {
         duration: number;
         filename: string;
         filter?: string;
     }
 
-    export interface MetricCustomNotification {
+    export interface AlertMetricCustomNotification {
         append?: string;
         prepend?: string;
         title: string;
     }
 
-    export interface PromqlCapture {
+    export interface AlertPromqlCapture {
         duration: number;
         filename: string;
         filter?: string;
     }
 
-    export interface PromqlCustomNotification {
+    export interface AlertPromqlCustomNotification {
         append?: string;
         prepend?: string;
         title: string;

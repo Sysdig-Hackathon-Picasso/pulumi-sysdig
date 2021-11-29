@@ -19,12 +19,12 @@ __all__ = [
     'AlertDowntimeCustomNotification',
     'AlertEventCapture',
     'AlertEventCustomNotification',
-    'GroupOutlierCapture',
-    'GroupOutlierCustomNotification',
-    'MetricCapture',
-    'MetricCustomNotification',
-    'PromqlCapture',
-    'PromqlCustomNotification',
+    'AlertGroupOutlierCapture',
+    'AlertGroupOutlierCustomNotification',
+    'AlertMetricCapture',
+    'AlertMetricCustomNotification',
+    'AlertPromqlCapture',
+    'AlertPromqlCustomNotification',
     'TeamEntrypoint',
     'TeamUserRole',
 ]
@@ -370,7 +370,7 @@ class AlertEventCustomNotification(dict):
 
 
 @pulumi.output_type
-class GroupOutlierCapture(dict):
+class AlertGroupOutlierCapture(dict):
     def __init__(__self__, *,
                  duration: int,
                  filename: str,
@@ -397,7 +397,7 @@ class GroupOutlierCapture(dict):
 
 
 @pulumi.output_type
-class GroupOutlierCustomNotification(dict):
+class AlertGroupOutlierCustomNotification(dict):
     def __init__(__self__, *,
                  title: str,
                  append: Optional[str] = None,
@@ -425,7 +425,7 @@ class GroupOutlierCustomNotification(dict):
 
 
 @pulumi.output_type
-class MetricCapture(dict):
+class AlertMetricCapture(dict):
     def __init__(__self__, *,
                  duration: int,
                  filename: str,
@@ -452,7 +452,7 @@ class MetricCapture(dict):
 
 
 @pulumi.output_type
-class MetricCustomNotification(dict):
+class AlertMetricCustomNotification(dict):
     def __init__(__self__, *,
                  title: str,
                  append: Optional[str] = None,
@@ -480,7 +480,7 @@ class MetricCustomNotification(dict):
 
 
 @pulumi.output_type
-class PromqlCapture(dict):
+class AlertPromqlCapture(dict):
     def __init__(__self__, *,
                  duration: int,
                  filename: str,
@@ -507,7 +507,7 @@ class PromqlCapture(dict):
 
 
 @pulumi.output_type
-class PromqlCustomNotification(dict):
+class AlertPromqlCustomNotification(dict):
     def __init__(__self__, *,
                  title: str,
                  append: Optional[str] = None,

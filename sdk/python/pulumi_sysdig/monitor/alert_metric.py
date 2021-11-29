@@ -10,15 +10,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MetricArgs', 'Metric']
+__all__ = ['AlertMetricArgs', 'AlertMetric']
 
 @pulumi.input_type
-class MetricArgs:
+class AlertMetricArgs:
     def __init__(__self__, *,
                  metric: pulumi.Input[str],
                  trigger_after_minutes: pulumi.Input[int],
-                 capture: Optional[pulumi.Input['MetricCaptureArgs']] = None,
-                 custom_notification: Optional[pulumi.Input['MetricCustomNotificationArgs']] = None,
+                 capture: Optional[pulumi.Input['AlertMetricCaptureArgs']] = None,
+                 custom_notification: Optional[pulumi.Input['AlertMetricCustomNotificationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  multiple_alerts_bies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -28,7 +28,7 @@ class MetricArgs:
                  scope: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[int]] = None):
         """
-        The set of arguments for constructing a Metric resource.
+        The set of arguments for constructing a AlertMetric resource.
         """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "trigger_after_minutes", trigger_after_minutes)
@@ -73,20 +73,20 @@ class MetricArgs:
 
     @property
     @pulumi.getter
-    def capture(self) -> Optional[pulumi.Input['MetricCaptureArgs']]:
+    def capture(self) -> Optional[pulumi.Input['AlertMetricCaptureArgs']]:
         return pulumi.get(self, "capture")
 
     @capture.setter
-    def capture(self, value: Optional[pulumi.Input['MetricCaptureArgs']]):
+    def capture(self, value: Optional[pulumi.Input['AlertMetricCaptureArgs']]):
         pulumi.set(self, "capture", value)
 
     @property
     @pulumi.getter(name="customNotification")
-    def custom_notification(self) -> Optional[pulumi.Input['MetricCustomNotificationArgs']]:
+    def custom_notification(self) -> Optional[pulumi.Input['AlertMetricCustomNotificationArgs']]:
         return pulumi.get(self, "custom_notification")
 
     @custom_notification.setter
-    def custom_notification(self, value: Optional[pulumi.Input['MetricCustomNotificationArgs']]):
+    def custom_notification(self, value: Optional[pulumi.Input['AlertMetricCustomNotificationArgs']]):
         pulumi.set(self, "custom_notification", value)
 
     @property
@@ -163,10 +163,10 @@ class MetricArgs:
 
 
 @pulumi.input_type
-class _MetricState:
+class _AlertMetricState:
     def __init__(__self__, *,
-                 capture: Optional[pulumi.Input['MetricCaptureArgs']] = None,
-                 custom_notification: Optional[pulumi.Input['MetricCustomNotificationArgs']] = None,
+                 capture: Optional[pulumi.Input['AlertMetricCaptureArgs']] = None,
+                 custom_notification: Optional[pulumi.Input['AlertMetricCustomNotificationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
@@ -180,7 +180,7 @@ class _MetricState:
                  trigger_after_minutes: Optional[pulumi.Input[int]] = None,
                  version: Optional[pulumi.Input[int]] = None):
         """
-        Input properties used for looking up and filtering Metric resources.
+        Input properties used for looking up and filtering AlertMetric resources.
         """
         if capture is not None:
             pulumi.set(__self__, "capture", capture)
@@ -213,20 +213,20 @@ class _MetricState:
 
     @property
     @pulumi.getter
-    def capture(self) -> Optional[pulumi.Input['MetricCaptureArgs']]:
+    def capture(self) -> Optional[pulumi.Input['AlertMetricCaptureArgs']]:
         return pulumi.get(self, "capture")
 
     @capture.setter
-    def capture(self, value: Optional[pulumi.Input['MetricCaptureArgs']]):
+    def capture(self, value: Optional[pulumi.Input['AlertMetricCaptureArgs']]):
         pulumi.set(self, "capture", value)
 
     @property
     @pulumi.getter(name="customNotification")
-    def custom_notification(self) -> Optional[pulumi.Input['MetricCustomNotificationArgs']]:
+    def custom_notification(self) -> Optional[pulumi.Input['AlertMetricCustomNotificationArgs']]:
         return pulumi.get(self, "custom_notification")
 
     @custom_notification.setter
-    def custom_notification(self, value: Optional[pulumi.Input['MetricCustomNotificationArgs']]):
+    def custom_notification(self, value: Optional[pulumi.Input['AlertMetricCustomNotificationArgs']]):
         pulumi.set(self, "custom_notification", value)
 
     @property
@@ -338,13 +338,13 @@ class _MetricState:
         pulumi.set(self, "version", value)
 
 
-class Metric(pulumi.CustomResource):
+class AlertMetric(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture: Optional[pulumi.Input[pulumi.InputType['MetricCaptureArgs']]] = None,
-                 custom_notification: Optional[pulumi.Input[pulumi.InputType['MetricCustomNotificationArgs']]] = None,
+                 capture: Optional[pulumi.Input[pulumi.InputType['AlertMetricCaptureArgs']]] = None,
+                 custom_notification: Optional[pulumi.Input[pulumi.InputType['AlertMetricCustomNotificationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
@@ -357,7 +357,7 @@ class Metric(pulumi.CustomResource):
                  trigger_after_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a Metric resource with the given unique name, props, and options.
+        Create a AlertMetric resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -365,17 +365,17 @@ class Metric(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MetricArgs,
+                 args: AlertMetricArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Metric resource with the given unique name, props, and options.
+        Create a AlertMetric resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param MetricArgs args: The arguments to use to populate this resource's properties.
+        :param AlertMetricArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MetricArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AlertMetricArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -384,8 +384,8 @@ class Metric(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture: Optional[pulumi.Input[pulumi.InputType['MetricCaptureArgs']]] = None,
-                 custom_notification: Optional[pulumi.Input[pulumi.InputType['MetricCustomNotificationArgs']]] = None,
+                 capture: Optional[pulumi.Input[pulumi.InputType['AlertMetricCaptureArgs']]] = None,
+                 custom_notification: Optional[pulumi.Input[pulumi.InputType['AlertMetricCustomNotificationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
@@ -406,7 +406,7 @@ class Metric(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MetricArgs.__new__(MetricArgs)
+            __props__ = AlertMetricArgs.__new__(AlertMetricArgs)
 
             __props__.__dict__["capture"] = capture
             __props__.__dict__["custom_notification"] = custom_notification
@@ -426,8 +426,8 @@ class Metric(pulumi.CustomResource):
             __props__.__dict__["trigger_after_minutes"] = trigger_after_minutes
             __props__.__dict__["team"] = None
             __props__.__dict__["version"] = None
-        super(Metric, __self__).__init__(
-            'sysdig:Monitor/metric:Metric',
+        super(AlertMetric, __self__).__init__(
+            'sysdig:Monitor/alertMetric:AlertMetric',
             resource_name,
             __props__,
             opts)
@@ -436,8 +436,8 @@ class Metric(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capture: Optional[pulumi.Input[pulumi.InputType['MetricCaptureArgs']]] = None,
-            custom_notification: Optional[pulumi.Input[pulumi.InputType['MetricCustomNotificationArgs']]] = None,
+            capture: Optional[pulumi.Input[pulumi.InputType['AlertMetricCaptureArgs']]] = None,
+            custom_notification: Optional[pulumi.Input[pulumi.InputType['AlertMetricCustomNotificationArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             metric: Optional[pulumi.Input[str]] = None,
@@ -449,9 +449,9 @@ class Metric(pulumi.CustomResource):
             severity: Optional[pulumi.Input[int]] = None,
             team: Optional[pulumi.Input[int]] = None,
             trigger_after_minutes: Optional[pulumi.Input[int]] = None,
-            version: Optional[pulumi.Input[int]] = None) -> 'Metric':
+            version: Optional[pulumi.Input[int]] = None) -> 'AlertMetric':
         """
-        Get an existing Metric resource's state with the given name, id, and optional extra
+        Get an existing AlertMetric resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -460,7 +460,7 @@ class Metric(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _MetricState.__new__(_MetricState)
+        __props__ = _AlertMetricState.__new__(_AlertMetricState)
 
         __props__.__dict__["capture"] = capture
         __props__.__dict__["custom_notification"] = custom_notification
@@ -476,16 +476,16 @@ class Metric(pulumi.CustomResource):
         __props__.__dict__["team"] = team
         __props__.__dict__["trigger_after_minutes"] = trigger_after_minutes
         __props__.__dict__["version"] = version
-        return Metric(resource_name, opts=opts, __props__=__props__)
+        return AlertMetric(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
-    def capture(self) -> pulumi.Output[Optional['outputs.MetricCapture']]:
+    def capture(self) -> pulumi.Output[Optional['outputs.AlertMetricCapture']]:
         return pulumi.get(self, "capture")
 
     @property
     @pulumi.getter(name="customNotification")
-    def custom_notification(self) -> pulumi.Output[Optional['outputs.MetricCustomNotification']]:
+    def custom_notification(self) -> pulumi.Output[Optional['outputs.AlertMetricCustomNotification']]:
         return pulumi.get(self, "custom_notification")
 
     @property

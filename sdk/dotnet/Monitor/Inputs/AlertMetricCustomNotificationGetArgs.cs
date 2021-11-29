@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Sysdig.Monitor.Inputs
 {
 
-    public sealed class MetricCustomNotificationArgs : Pulumi.ResourceArgs
+    public sealed class AlertMetricCustomNotificationGetArgs : Pulumi.ResourceArgs
     {
         [Input("append")]
         public Input<string>? Append { get; set; }
@@ -21,7 +21,7 @@ namespace Pulumi.Sysdig.Monitor.Inputs
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
-        public MetricCustomNotificationArgs()
+        public AlertMetricCustomNotificationGetArgs()
         {
         }
     }

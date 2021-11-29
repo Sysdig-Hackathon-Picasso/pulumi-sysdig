@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Monitor
 {
-    [SysdigResourceType("sysdig:Monitor/promql:Promql")]
-    public partial class Promql : Pulumi.CustomResource
+    [SysdigResourceType("sysdig:Monitor/alertGroupOutlier:AlertGroupOutlier")]
+    public partial class AlertGroupOutlier : Pulumi.CustomResource
     {
         [Output("capture")]
-        public Output<Outputs.PromqlCapture?> Capture { get; private set; } = null!;
+        public Output<Outputs.AlertGroupOutlierCapture?> Capture { get; private set; } = null!;
 
         [Output("customNotification")]
-        public Output<Outputs.PromqlCustomNotification?> CustomNotification { get; private set; } = null!;
+        public Output<Outputs.AlertGroupOutlierCustomNotification?> CustomNotification { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -24,14 +24,14 @@ namespace Pulumi.Sysdig.Monitor
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        [Output("monitors")]
+        public Output<ImmutableArray<string>> Monitors { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("notificationChannels")]
         public Output<ImmutableArray<int>> NotificationChannels { get; private set; } = null!;
-
-        [Output("promql")]
-        public Output<string> Promql { get; private set; } = null!;
 
         [Output("renotificationMinutes")]
         public Output<int?> RenotificationMinutes { get; private set; } = null!;
@@ -53,19 +53,19 @@ namespace Pulumi.Sysdig.Monitor
 
 
         /// <summary>
-        /// Create a Promql resource with the given unique name, arguments, and options.
+        /// Create a AlertGroupOutlier resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Promql(string name, PromqlArgs args, CustomResourceOptions? options = null)
-            : base("sysdig:Monitor/promql:Promql", name, args ?? new PromqlArgs(), MakeResourceOptions(options, ""))
+        public AlertGroupOutlier(string name, AlertGroupOutlierArgs args, CustomResourceOptions? options = null)
+            : base("sysdig:Monitor/alertGroupOutlier:AlertGroupOutlier", name, args ?? new AlertGroupOutlierArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private Promql(string name, Input<string> id, PromqlState? state = null, CustomResourceOptions? options = null)
-            : base("sysdig:Monitor/promql:Promql", name, state, MakeResourceOptions(options, id))
+        private AlertGroupOutlier(string name, Input<string> id, AlertGroupOutlierState? state = null, CustomResourceOptions? options = null)
+            : base("sysdig:Monitor/alertGroupOutlier:AlertGroupOutlier", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +81,7 @@ namespace Pulumi.Sysdig.Monitor
             return merged;
         }
         /// <summary>
-        /// Get an existing Promql resource's state with the given name, ID, and optional extra
+        /// Get an existing AlertGroupOutlier resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -89,25 +89,33 @@ namespace Pulumi.Sysdig.Monitor
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Promql Get(string name, Input<string> id, PromqlState? state = null, CustomResourceOptions? options = null)
+        public static AlertGroupOutlier Get(string name, Input<string> id, AlertGroupOutlierState? state = null, CustomResourceOptions? options = null)
         {
-            return new Promql(name, id, state, options);
+            return new AlertGroupOutlier(name, id, state, options);
         }
     }
 
-    public sealed class PromqlArgs : Pulumi.ResourceArgs
+    public sealed class AlertGroupOutlierArgs : Pulumi.ResourceArgs
     {
         [Input("capture")]
-        public Input<Inputs.PromqlCaptureArgs>? Capture { get; set; }
+        public Input<Inputs.AlertGroupOutlierCaptureArgs>? Capture { get; set; }
 
         [Input("customNotification")]
-        public Input<Inputs.PromqlCustomNotificationArgs>? CustomNotification { get; set; }
+        public Input<Inputs.AlertGroupOutlierCustomNotificationArgs>? CustomNotification { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("monitors", required: true)]
+        private InputList<string>? _monitors;
+        public InputList<string> Monitors
+        {
+            get => _monitors ?? (_monitors = new InputList<string>());
+            set => _monitors = value;
+        }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -119,9 +127,6 @@ namespace Pulumi.Sysdig.Monitor
             get => _notificationChannels ?? (_notificationChannels = new InputList<int>());
             set => _notificationChannels = value;
         }
-
-        [Input("promql", required: true)]
-        public Input<string> Promql { get; set; } = null!;
 
         [Input("renotificationMinutes")]
         public Input<int>? RenotificationMinutes { get; set; }
@@ -135,24 +140,32 @@ namespace Pulumi.Sysdig.Monitor
         [Input("triggerAfterMinutes", required: true)]
         public Input<int> TriggerAfterMinutes { get; set; } = null!;
 
-        public PromqlArgs()
+        public AlertGroupOutlierArgs()
         {
         }
     }
 
-    public sealed class PromqlState : Pulumi.ResourceArgs
+    public sealed class AlertGroupOutlierState : Pulumi.ResourceArgs
     {
         [Input("capture")]
-        public Input<Inputs.PromqlCaptureGetArgs>? Capture { get; set; }
+        public Input<Inputs.AlertGroupOutlierCaptureGetArgs>? Capture { get; set; }
 
         [Input("customNotification")]
-        public Input<Inputs.PromqlCustomNotificationGetArgs>? CustomNotification { get; set; }
+        public Input<Inputs.AlertGroupOutlierCustomNotificationGetArgs>? CustomNotification { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("monitors")]
+        private InputList<string>? _monitors;
+        public InputList<string> Monitors
+        {
+            get => _monitors ?? (_monitors = new InputList<string>());
+            set => _monitors = value;
+        }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -164,9 +177,6 @@ namespace Pulumi.Sysdig.Monitor
             get => _notificationChannels ?? (_notificationChannels = new InputList<int>());
             set => _notificationChannels = value;
         }
-
-        [Input("promql")]
-        public Input<string>? Promql { get; set; }
 
         [Input("renotificationMinutes")]
         public Input<int>? RenotificationMinutes { get; set; }
@@ -186,7 +196,7 @@ namespace Pulumi.Sysdig.Monitor
         [Input("version")]
         public Input<int>? Version { get; set; }
 
-        public PromqlState()
+        public AlertGroupOutlierState()
         {
         }
     }

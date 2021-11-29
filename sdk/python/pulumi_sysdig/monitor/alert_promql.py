@@ -10,15 +10,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GroupOutlierArgs', 'GroupOutlier']
+__all__ = ['AlertPromqlArgs', 'AlertPromql']
 
 @pulumi.input_type
-class GroupOutlierArgs:
+class AlertPromqlArgs:
     def __init__(__self__, *,
-                 monitors: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 promql: pulumi.Input[str],
                  trigger_after_minutes: pulumi.Input[int],
-                 capture: Optional[pulumi.Input['GroupOutlierCaptureArgs']] = None,
-                 custom_notification: Optional[pulumi.Input['GroupOutlierCustomNotificationArgs']] = None,
+                 capture: Optional[pulumi.Input['AlertPromqlCaptureArgs']] = None,
+                 custom_notification: Optional[pulumi.Input['AlertPromqlCustomNotificationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -27,9 +27,9 @@ class GroupOutlierArgs:
                  scope: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[int]] = None):
         """
-        The set of arguments for constructing a GroupOutlier resource.
+        The set of arguments for constructing a AlertPromql resource.
         """
-        pulumi.set(__self__, "monitors", monitors)
+        pulumi.set(__self__, "promql", promql)
         pulumi.set(__self__, "trigger_after_minutes", trigger_after_minutes)
         if capture is not None:
             pulumi.set(__self__, "capture", capture)
@@ -52,12 +52,12 @@ class GroupOutlierArgs:
 
     @property
     @pulumi.getter
-    def monitors(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        return pulumi.get(self, "monitors")
+    def promql(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "promql")
 
-    @monitors.setter
-    def monitors(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "monitors", value)
+    @promql.setter
+    def promql(self, value: pulumi.Input[str]):
+        pulumi.set(self, "promql", value)
 
     @property
     @pulumi.getter(name="triggerAfterMinutes")
@@ -70,20 +70,20 @@ class GroupOutlierArgs:
 
     @property
     @pulumi.getter
-    def capture(self) -> Optional[pulumi.Input['GroupOutlierCaptureArgs']]:
+    def capture(self) -> Optional[pulumi.Input['AlertPromqlCaptureArgs']]:
         return pulumi.get(self, "capture")
 
     @capture.setter
-    def capture(self, value: Optional[pulumi.Input['GroupOutlierCaptureArgs']]):
+    def capture(self, value: Optional[pulumi.Input['AlertPromqlCaptureArgs']]):
         pulumi.set(self, "capture", value)
 
     @property
     @pulumi.getter(name="customNotification")
-    def custom_notification(self) -> Optional[pulumi.Input['GroupOutlierCustomNotificationArgs']]:
+    def custom_notification(self) -> Optional[pulumi.Input['AlertPromqlCustomNotificationArgs']]:
         return pulumi.get(self, "custom_notification")
 
     @custom_notification.setter
-    def custom_notification(self, value: Optional[pulumi.Input['GroupOutlierCustomNotificationArgs']]):
+    def custom_notification(self, value: Optional[pulumi.Input['AlertPromqlCustomNotificationArgs']]):
         pulumi.set(self, "custom_notification", value)
 
     @property
@@ -151,15 +151,15 @@ class GroupOutlierArgs:
 
 
 @pulumi.input_type
-class _GroupOutlierState:
+class _AlertPromqlState:
     def __init__(__self__, *,
-                 capture: Optional[pulumi.Input['GroupOutlierCaptureArgs']] = None,
-                 custom_notification: Optional[pulumi.Input['GroupOutlierCustomNotificationArgs']] = None,
+                 capture: Optional[pulumi.Input['AlertPromqlCaptureArgs']] = None,
+                 custom_notification: Optional[pulumi.Input['AlertPromqlCustomNotificationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 promql: Optional[pulumi.Input[str]] = None,
                  renotification_minutes: Optional[pulumi.Input[int]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[int]] = None,
@@ -167,7 +167,7 @@ class _GroupOutlierState:
                  trigger_after_minutes: Optional[pulumi.Input[int]] = None,
                  version: Optional[pulumi.Input[int]] = None):
         """
-        Input properties used for looking up and filtering GroupOutlier resources.
+        Input properties used for looking up and filtering AlertPromql resources.
         """
         if capture is not None:
             pulumi.set(__self__, "capture", capture)
@@ -177,12 +177,12 @@ class _GroupOutlierState:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if monitors is not None:
-            pulumi.set(__self__, "monitors", monitors)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if notification_channels is not None:
             pulumi.set(__self__, "notification_channels", notification_channels)
+        if promql is not None:
+            pulumi.set(__self__, "promql", promql)
         if renotification_minutes is not None:
             pulumi.set(__self__, "renotification_minutes", renotification_minutes)
         if scope is not None:
@@ -198,20 +198,20 @@ class _GroupOutlierState:
 
     @property
     @pulumi.getter
-    def capture(self) -> Optional[pulumi.Input['GroupOutlierCaptureArgs']]:
+    def capture(self) -> Optional[pulumi.Input['AlertPromqlCaptureArgs']]:
         return pulumi.get(self, "capture")
 
     @capture.setter
-    def capture(self, value: Optional[pulumi.Input['GroupOutlierCaptureArgs']]):
+    def capture(self, value: Optional[pulumi.Input['AlertPromqlCaptureArgs']]):
         pulumi.set(self, "capture", value)
 
     @property
     @pulumi.getter(name="customNotification")
-    def custom_notification(self) -> Optional[pulumi.Input['GroupOutlierCustomNotificationArgs']]:
+    def custom_notification(self) -> Optional[pulumi.Input['AlertPromqlCustomNotificationArgs']]:
         return pulumi.get(self, "custom_notification")
 
     @custom_notification.setter
-    def custom_notification(self, value: Optional[pulumi.Input['GroupOutlierCustomNotificationArgs']]):
+    def custom_notification(self, value: Optional[pulumi.Input['AlertPromqlCustomNotificationArgs']]):
         pulumi.set(self, "custom_notification", value)
 
     @property
@@ -234,15 +234,6 @@ class _GroupOutlierState:
 
     @property
     @pulumi.getter
-    def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "monitors")
-
-    @monitors.setter
-    def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "monitors", value)
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
 
@@ -258,6 +249,15 @@ class _GroupOutlierState:
     @notification_channels.setter
     def notification_channels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
         pulumi.set(self, "notification_channels", value)
+
+    @property
+    @pulumi.getter
+    def promql(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "promql")
+
+    @promql.setter
+    def promql(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "promql", value)
 
     @property
     @pulumi.getter(name="renotificationMinutes")
@@ -314,25 +314,25 @@ class _GroupOutlierState:
         pulumi.set(self, "version", value)
 
 
-class GroupOutlier(pulumi.CustomResource):
+class AlertPromql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture: Optional[pulumi.Input[pulumi.InputType['GroupOutlierCaptureArgs']]] = None,
-                 custom_notification: Optional[pulumi.Input[pulumi.InputType['GroupOutlierCustomNotificationArgs']]] = None,
+                 capture: Optional[pulumi.Input[pulumi.InputType['AlertPromqlCaptureArgs']]] = None,
+                 custom_notification: Optional[pulumi.Input[pulumi.InputType['AlertPromqlCustomNotificationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 promql: Optional[pulumi.Input[str]] = None,
                  renotification_minutes: Optional[pulumi.Input[int]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[int]] = None,
                  trigger_after_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a GroupOutlier resource with the given unique name, props, and options.
+        Create a AlertPromql resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -340,17 +340,17 @@ class GroupOutlier(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GroupOutlierArgs,
+                 args: AlertPromqlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a GroupOutlier resource with the given unique name, props, and options.
+        Create a AlertPromql resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param GroupOutlierArgs args: The arguments to use to populate this resource's properties.
+        :param AlertPromqlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GroupOutlierArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AlertPromqlArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -359,13 +359,13 @@ class GroupOutlier(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture: Optional[pulumi.Input[pulumi.InputType['GroupOutlierCaptureArgs']]] = None,
-                 custom_notification: Optional[pulumi.Input[pulumi.InputType['GroupOutlierCustomNotificationArgs']]] = None,
+                 capture: Optional[pulumi.Input[pulumi.InputType['AlertPromqlCaptureArgs']]] = None,
+                 custom_notification: Optional[pulumi.Input[pulumi.InputType['AlertPromqlCustomNotificationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 promql: Optional[pulumi.Input[str]] = None,
                  renotification_minutes: Optional[pulumi.Input[int]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  severity: Optional[pulumi.Input[int]] = None,
@@ -380,17 +380,17 @@ class GroupOutlier(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GroupOutlierArgs.__new__(GroupOutlierArgs)
+            __props__ = AlertPromqlArgs.__new__(AlertPromqlArgs)
 
             __props__.__dict__["capture"] = capture
             __props__.__dict__["custom_notification"] = custom_notification
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
-            if monitors is None and not opts.urn:
-                raise TypeError("Missing required property 'monitors'")
-            __props__.__dict__["monitors"] = monitors
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_channels"] = notification_channels
+            if promql is None and not opts.urn:
+                raise TypeError("Missing required property 'promql'")
+            __props__.__dict__["promql"] = promql
             __props__.__dict__["renotification_minutes"] = renotification_minutes
             __props__.__dict__["scope"] = scope
             __props__.__dict__["severity"] = severity
@@ -399,8 +399,8 @@ class GroupOutlier(pulumi.CustomResource):
             __props__.__dict__["trigger_after_minutes"] = trigger_after_minutes
             __props__.__dict__["team"] = None
             __props__.__dict__["version"] = None
-        super(GroupOutlier, __self__).__init__(
-            'sysdig:Monitor/groupOutlier:GroupOutlier',
+        super(AlertPromql, __self__).__init__(
+            'sysdig:Monitor/alertPromql:AlertPromql',
             resource_name,
             __props__,
             opts)
@@ -409,21 +409,21 @@ class GroupOutlier(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capture: Optional[pulumi.Input[pulumi.InputType['GroupOutlierCaptureArgs']]] = None,
-            custom_notification: Optional[pulumi.Input[pulumi.InputType['GroupOutlierCustomNotificationArgs']]] = None,
+            capture: Optional[pulumi.Input[pulumi.InputType['AlertPromqlCaptureArgs']]] = None,
+            custom_notification: Optional[pulumi.Input[pulumi.InputType['AlertPromqlCustomNotificationArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            monitors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification_channels: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            promql: Optional[pulumi.Input[str]] = None,
             renotification_minutes: Optional[pulumi.Input[int]] = None,
             scope: Optional[pulumi.Input[str]] = None,
             severity: Optional[pulumi.Input[int]] = None,
             team: Optional[pulumi.Input[int]] = None,
             trigger_after_minutes: Optional[pulumi.Input[int]] = None,
-            version: Optional[pulumi.Input[int]] = None) -> 'GroupOutlier':
+            version: Optional[pulumi.Input[int]] = None) -> 'AlertPromql':
         """
-        Get an existing GroupOutlier resource's state with the given name, id, and optional extra
+        Get an existing AlertPromql resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -432,31 +432,31 @@ class GroupOutlier(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _GroupOutlierState.__new__(_GroupOutlierState)
+        __props__ = _AlertPromqlState.__new__(_AlertPromqlState)
 
         __props__.__dict__["capture"] = capture
         __props__.__dict__["custom_notification"] = custom_notification
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
-        __props__.__dict__["monitors"] = monitors
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_channels"] = notification_channels
+        __props__.__dict__["promql"] = promql
         __props__.__dict__["renotification_minutes"] = renotification_minutes
         __props__.__dict__["scope"] = scope
         __props__.__dict__["severity"] = severity
         __props__.__dict__["team"] = team
         __props__.__dict__["trigger_after_minutes"] = trigger_after_minutes
         __props__.__dict__["version"] = version
-        return GroupOutlier(resource_name, opts=opts, __props__=__props__)
+        return AlertPromql(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
-    def capture(self) -> pulumi.Output[Optional['outputs.GroupOutlierCapture']]:
+    def capture(self) -> pulumi.Output[Optional['outputs.AlertPromqlCapture']]:
         return pulumi.get(self, "capture")
 
     @property
     @pulumi.getter(name="customNotification")
-    def custom_notification(self) -> pulumi.Output[Optional['outputs.GroupOutlierCustomNotification']]:
+    def custom_notification(self) -> pulumi.Output[Optional['outputs.AlertPromqlCustomNotification']]:
         return pulumi.get(self, "custom_notification")
 
     @property
@@ -471,11 +471,6 @@ class GroupOutlier(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def monitors(self) -> pulumi.Output[Sequence[str]]:
-        return pulumi.get(self, "monitors")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
 
@@ -483,6 +478,11 @@ class GroupOutlier(pulumi.CustomResource):
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> pulumi.Output[Optional[Sequence[int]]]:
         return pulumi.get(self, "notification_channels")
+
+    @property
+    @pulumi.getter
+    def promql(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "promql")
 
     @property
     @pulumi.getter(name="renotificationMinutes")

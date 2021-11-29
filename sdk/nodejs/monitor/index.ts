@@ -9,8 +9,9 @@ export * from "./alertAnomaly";
 export * from "./alertDashboard";
 export * from "./alertDowntime";
 export * from "./alertEvent";
-export * from "./groupOutlier";
-export * from "./metric";
+export * from "./alertGroupOutlier";
+export * from "./alertMetric";
+export * from "./alertPromql";
 export * from "./notificationChannelEmail";
 export * from "./notificationChannelOpsgenie";
 export * from "./notificationChannelPagerduty";
@@ -18,7 +19,6 @@ export * from "./notificationChannelSlack";
 export * from "./notificationChannelSns";
 export * from "./notificationChannelVictorops";
 export * from "./notificationChannelWebhook";
-export * from "./promql";
 export * from "./team";
 
 // Import resources to register:
@@ -26,8 +26,9 @@ import { AlertAnomaly } from "./alertAnomaly";
 import { AlertDashboard } from "./alertDashboard";
 import { AlertDowntime } from "./alertDowntime";
 import { AlertEvent } from "./alertEvent";
-import { GroupOutlier } from "./groupOutlier";
-import { Metric } from "./metric";
+import { AlertGroupOutlier } from "./alertGroupOutlier";
+import { AlertMetric } from "./alertMetric";
+import { AlertPromql } from "./alertPromql";
 import { NotificationChannelEmail } from "./notificationChannelEmail";
 import { NotificationChannelOpsgenie } from "./notificationChannelOpsgenie";
 import { NotificationChannelPagerduty } from "./notificationChannelPagerduty";
@@ -35,7 +36,6 @@ import { NotificationChannelSlack } from "./notificationChannelSlack";
 import { NotificationChannelSns } from "./notificationChannelSns";
 import { NotificationChannelVictorops } from "./notificationChannelVictorops";
 import { NotificationChannelWebhook } from "./notificationChannelWebhook";
-import { Promql } from "./promql";
 import { Team } from "./team";
 
 const _module = {
@@ -50,10 +50,12 @@ const _module = {
                 return new AlertDowntime(name, <any>undefined, { urn })
             case "sysdig:Monitor/alertEvent:AlertEvent":
                 return new AlertEvent(name, <any>undefined, { urn })
-            case "sysdig:Monitor/groupOutlier:GroupOutlier":
-                return new GroupOutlier(name, <any>undefined, { urn })
-            case "sysdig:Monitor/metric:Metric":
-                return new Metric(name, <any>undefined, { urn })
+            case "sysdig:Monitor/alertGroupOutlier:AlertGroupOutlier":
+                return new AlertGroupOutlier(name, <any>undefined, { urn })
+            case "sysdig:Monitor/alertMetric:AlertMetric":
+                return new AlertMetric(name, <any>undefined, { urn })
+            case "sysdig:Monitor/alertPromql:AlertPromql":
+                return new AlertPromql(name, <any>undefined, { urn })
             case "sysdig:Monitor/notificationChannelEmail:NotificationChannelEmail":
                 return new NotificationChannelEmail(name, <any>undefined, { urn })
             case "sysdig:Monitor/notificationChannelOpsgenie:NotificationChannelOpsgenie":
@@ -68,8 +70,6 @@ const _module = {
                 return new NotificationChannelVictorops(name, <any>undefined, { urn })
             case "sysdig:Monitor/notificationChannelWebhook:NotificationChannelWebhook":
                 return new NotificationChannelWebhook(name, <any>undefined, { urn })
-            case "sysdig:Monitor/promql:Promql":
-                return new Promql(name, <any>undefined, { urn })
             case "sysdig:Monitor/team:Team":
                 return new Team(name, <any>undefined, { urn })
             default:
@@ -81,8 +81,9 @@ pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertAnomaly", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertDashboard", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertDowntime", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertEvent", _module)
-pulumi.runtime.registerResourceModule("sysdig", "Monitor/groupOutlier", _module)
-pulumi.runtime.registerResourceModule("sysdig", "Monitor/metric", _module)
+pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertGroupOutlier", _module)
+pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertMetric", _module)
+pulumi.runtime.registerResourceModule("sysdig", "Monitor/alertPromql", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/notificationChannelEmail", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/notificationChannelOpsgenie", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/notificationChannelPagerduty", _module)
@@ -90,5 +91,4 @@ pulumi.runtime.registerResourceModule("sysdig", "Monitor/notificationChannelSlac
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/notificationChannelSns", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/notificationChannelVictorops", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/notificationChannelWebhook", _module)
-pulumi.runtime.registerResourceModule("sysdig", "Monitor/promql", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Monitor/team", _module)

@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Monitor
 {
-    [SysdigResourceType("sysdig:Monitor/groupOutlier:GroupOutlier")]
-    public partial class GroupOutlier : Pulumi.CustomResource
+    [SysdigResourceType("sysdig:Monitor/alertMetric:AlertMetric")]
+    public partial class AlertMetric : Pulumi.CustomResource
     {
         [Output("capture")]
-        public Output<Outputs.GroupOutlierCapture?> Capture { get; private set; } = null!;
+        public Output<Outputs.AlertMetricCapture?> Capture { get; private set; } = null!;
 
         [Output("customNotification")]
-        public Output<Outputs.GroupOutlierCustomNotification?> CustomNotification { get; private set; } = null!;
+        public Output<Outputs.AlertMetricCustomNotification?> CustomNotification { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -24,8 +24,11 @@ namespace Pulumi.Sysdig.Monitor
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        [Output("monitors")]
-        public Output<ImmutableArray<string>> Monitors { get; private set; } = null!;
+        [Output("metric")]
+        public Output<string> Metric { get; private set; } = null!;
+
+        [Output("multipleAlertsBies")]
+        public Output<ImmutableArray<string>> MultipleAlertsBies { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -53,19 +56,19 @@ namespace Pulumi.Sysdig.Monitor
 
 
         /// <summary>
-        /// Create a GroupOutlier resource with the given unique name, arguments, and options.
+        /// Create a AlertMetric resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public GroupOutlier(string name, GroupOutlierArgs args, CustomResourceOptions? options = null)
-            : base("sysdig:Monitor/groupOutlier:GroupOutlier", name, args ?? new GroupOutlierArgs(), MakeResourceOptions(options, ""))
+        public AlertMetric(string name, AlertMetricArgs args, CustomResourceOptions? options = null)
+            : base("sysdig:Monitor/alertMetric:AlertMetric", name, args ?? new AlertMetricArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private GroupOutlier(string name, Input<string> id, GroupOutlierState? state = null, CustomResourceOptions? options = null)
-            : base("sysdig:Monitor/groupOutlier:GroupOutlier", name, state, MakeResourceOptions(options, id))
+        private AlertMetric(string name, Input<string> id, AlertMetricState? state = null, CustomResourceOptions? options = null)
+            : base("sysdig:Monitor/alertMetric:AlertMetric", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -81,7 +84,7 @@ namespace Pulumi.Sysdig.Monitor
             return merged;
         }
         /// <summary>
-        /// Get an existing GroupOutlier resource's state with the given name, ID, and optional extra
+        /// Get an existing AlertMetric resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -89,19 +92,19 @@ namespace Pulumi.Sysdig.Monitor
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static GroupOutlier Get(string name, Input<string> id, GroupOutlierState? state = null, CustomResourceOptions? options = null)
+        public static AlertMetric Get(string name, Input<string> id, AlertMetricState? state = null, CustomResourceOptions? options = null)
         {
-            return new GroupOutlier(name, id, state, options);
+            return new AlertMetric(name, id, state, options);
         }
     }
 
-    public sealed class GroupOutlierArgs : Pulumi.ResourceArgs
+    public sealed class AlertMetricArgs : Pulumi.ResourceArgs
     {
         [Input("capture")]
-        public Input<Inputs.GroupOutlierCaptureArgs>? Capture { get; set; }
+        public Input<Inputs.AlertMetricCaptureArgs>? Capture { get; set; }
 
         [Input("customNotification")]
-        public Input<Inputs.GroupOutlierCustomNotificationArgs>? CustomNotification { get; set; }
+        public Input<Inputs.AlertMetricCustomNotificationArgs>? CustomNotification { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -109,12 +112,15 @@ namespace Pulumi.Sysdig.Monitor
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        [Input("monitors", required: true)]
-        private InputList<string>? _monitors;
-        public InputList<string> Monitors
+        [Input("metric", required: true)]
+        public Input<string> Metric { get; set; } = null!;
+
+        [Input("multipleAlertsBies")]
+        private InputList<string>? _multipleAlertsBies;
+        public InputList<string> MultipleAlertsBies
         {
-            get => _monitors ?? (_monitors = new InputList<string>());
-            set => _monitors = value;
+            get => _multipleAlertsBies ?? (_multipleAlertsBies = new InputList<string>());
+            set => _multipleAlertsBies = value;
         }
 
         [Input("name")]
@@ -140,18 +146,18 @@ namespace Pulumi.Sysdig.Monitor
         [Input("triggerAfterMinutes", required: true)]
         public Input<int> TriggerAfterMinutes { get; set; } = null!;
 
-        public GroupOutlierArgs()
+        public AlertMetricArgs()
         {
         }
     }
 
-    public sealed class GroupOutlierState : Pulumi.ResourceArgs
+    public sealed class AlertMetricState : Pulumi.ResourceArgs
     {
         [Input("capture")]
-        public Input<Inputs.GroupOutlierCaptureGetArgs>? Capture { get; set; }
+        public Input<Inputs.AlertMetricCaptureGetArgs>? Capture { get; set; }
 
         [Input("customNotification")]
-        public Input<Inputs.GroupOutlierCustomNotificationGetArgs>? CustomNotification { get; set; }
+        public Input<Inputs.AlertMetricCustomNotificationGetArgs>? CustomNotification { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -159,12 +165,15 @@ namespace Pulumi.Sysdig.Monitor
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        [Input("monitors")]
-        private InputList<string>? _monitors;
-        public InputList<string> Monitors
+        [Input("metric")]
+        public Input<string>? Metric { get; set; }
+
+        [Input("multipleAlertsBies")]
+        private InputList<string>? _multipleAlertsBies;
+        public InputList<string> MultipleAlertsBies
         {
-            get => _monitors ?? (_monitors = new InputList<string>());
-            set => _monitors = value;
+            get => _multipleAlertsBies ?? (_multipleAlertsBies = new InputList<string>());
+            set => _multipleAlertsBies = value;
         }
 
         [Input("name")]
@@ -196,7 +205,7 @@ namespace Pulumi.Sysdig.Monitor
         [Input("version")]
         public Input<int>? Version { get; set; }
 
-        public GroupOutlierState()
+        public AlertMetricState()
         {
         }
     }

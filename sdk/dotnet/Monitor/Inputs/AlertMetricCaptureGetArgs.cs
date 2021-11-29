@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Sysdig.Monitor.Inputs
 {
 
-    public sealed class GroupOutlierCaptureArgs : Pulumi.ResourceArgs
+    public sealed class AlertMetricCaptureGetArgs : Pulumi.ResourceArgs
     {
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
@@ -21,7 +21,7 @@ namespace Pulumi.Sysdig.Monitor.Inputs
         [Input("filter")]
         public Input<string>? Filter { get; set; }
 
-        public GroupOutlierCaptureArgs()
+        public AlertMetricCaptureGetArgs()
         {
         }
     }

@@ -10,18 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.Sysdig.Monitor.Inputs
 {
 
-    public sealed class MetricCaptureGetArgs : Pulumi.ResourceArgs
+    public sealed class AlertMetricCustomNotificationArgs : Pulumi.ResourceArgs
     {
-        [Input("duration", required: true)]
-        public Input<int> Duration { get; set; } = null!;
+        [Input("append")]
+        public Input<string>? Append { get; set; }
 
-        [Input("filename", required: true)]
-        public Input<string> Filename { get; set; } = null!;
+        [Input("prepend")]
+        public Input<string>? Prepend { get; set; }
 
-        [Input("filter")]
-        public Input<string>? Filter { get; set; }
+        [Input("title", required: true)]
+        public Input<string> Title { get; set; } = null!;
 
-        public MetricCaptureGetArgs()
+        public AlertMetricCustomNotificationArgs()
         {
         }
     }

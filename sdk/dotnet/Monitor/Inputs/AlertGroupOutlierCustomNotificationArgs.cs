@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Sysdig.Monitor.Inputs
 {
 
-    public sealed class PromqlCustomNotificationArgs : Pulumi.ResourceArgs
+    public sealed class AlertGroupOutlierCustomNotificationArgs : Pulumi.ResourceArgs
     {
         [Input("append")]
         public Input<string>? Append { get; set; }
@@ -21,7 +21,7 @@ namespace Pulumi.Sysdig.Monitor.Inputs
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 
-        public PromqlCustomNotificationArgs()
+        public AlertGroupOutlierCustomNotificationArgs()
         {
         }
     }

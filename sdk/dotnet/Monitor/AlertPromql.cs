@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Monitor
 {
-    [SysdigResourceType("sysdig:Monitor/metric:Metric")]
-    public partial class Metric : Pulumi.CustomResource
+    [SysdigResourceType("sysdig:Monitor/alertPromql:AlertPromql")]
+    public partial class AlertPromql : Pulumi.CustomResource
     {
         [Output("capture")]
-        public Output<Outputs.MetricCapture?> Capture { get; private set; } = null!;
+        public Output<Outputs.AlertPromqlCapture?> Capture { get; private set; } = null!;
 
         [Output("customNotification")]
-        public Output<Outputs.MetricCustomNotification?> CustomNotification { get; private set; } = null!;
+        public Output<Outputs.AlertPromqlCustomNotification?> CustomNotification { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -24,17 +24,14 @@ namespace Pulumi.Sysdig.Monitor
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
-        [Output("metric")]
-        public Output<string> Metric { get; private set; } = null!;
-
-        [Output("multipleAlertsBies")]
-        public Output<ImmutableArray<string>> MultipleAlertsBies { get; private set; } = null!;
-
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         [Output("notificationChannels")]
         public Output<ImmutableArray<int>> NotificationChannels { get; private set; } = null!;
+
+        [Output("promql")]
+        public Output<string> Promql { get; private set; } = null!;
 
         [Output("renotificationMinutes")]
         public Output<int?> RenotificationMinutes { get; private set; } = null!;
@@ -56,19 +53,19 @@ namespace Pulumi.Sysdig.Monitor
 
 
         /// <summary>
-        /// Create a Metric resource with the given unique name, arguments, and options.
+        /// Create a AlertPromql resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Metric(string name, MetricArgs args, CustomResourceOptions? options = null)
-            : base("sysdig:Monitor/metric:Metric", name, args ?? new MetricArgs(), MakeResourceOptions(options, ""))
+        public AlertPromql(string name, AlertPromqlArgs args, CustomResourceOptions? options = null)
+            : base("sysdig:Monitor/alertPromql:AlertPromql", name, args ?? new AlertPromqlArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private Metric(string name, Input<string> id, MetricState? state = null, CustomResourceOptions? options = null)
-            : base("sysdig:Monitor/metric:Metric", name, state, MakeResourceOptions(options, id))
+        private AlertPromql(string name, Input<string> id, AlertPromqlState? state = null, CustomResourceOptions? options = null)
+            : base("sysdig:Monitor/alertPromql:AlertPromql", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -84,7 +81,7 @@ namespace Pulumi.Sysdig.Monitor
             return merged;
         }
         /// <summary>
-        /// Get an existing Metric resource's state with the given name, ID, and optional extra
+        /// Get an existing AlertPromql resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -92,36 +89,25 @@ namespace Pulumi.Sysdig.Monitor
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static Metric Get(string name, Input<string> id, MetricState? state = null, CustomResourceOptions? options = null)
+        public static AlertPromql Get(string name, Input<string> id, AlertPromqlState? state = null, CustomResourceOptions? options = null)
         {
-            return new Metric(name, id, state, options);
+            return new AlertPromql(name, id, state, options);
         }
     }
 
-    public sealed class MetricArgs : Pulumi.ResourceArgs
+    public sealed class AlertPromqlArgs : Pulumi.ResourceArgs
     {
         [Input("capture")]
-        public Input<Inputs.MetricCaptureArgs>? Capture { get; set; }
+        public Input<Inputs.AlertPromqlCaptureArgs>? Capture { get; set; }
 
         [Input("customNotification")]
-        public Input<Inputs.MetricCustomNotificationArgs>? CustomNotification { get; set; }
+        public Input<Inputs.AlertPromqlCustomNotificationArgs>? CustomNotification { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
-
-        [Input("metric", required: true)]
-        public Input<string> Metric { get; set; } = null!;
-
-        [Input("multipleAlertsBies")]
-        private InputList<string>? _multipleAlertsBies;
-        public InputList<string> MultipleAlertsBies
-        {
-            get => _multipleAlertsBies ?? (_multipleAlertsBies = new InputList<string>());
-            set => _multipleAlertsBies = value;
-        }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -133,6 +119,9 @@ namespace Pulumi.Sysdig.Monitor
             get => _notificationChannels ?? (_notificationChannels = new InputList<int>());
             set => _notificationChannels = value;
         }
+
+        [Input("promql", required: true)]
+        public Input<string> Promql { get; set; } = null!;
 
         [Input("renotificationMinutes")]
         public Input<int>? RenotificationMinutes { get; set; }
@@ -146,35 +135,24 @@ namespace Pulumi.Sysdig.Monitor
         [Input("triggerAfterMinutes", required: true)]
         public Input<int> TriggerAfterMinutes { get; set; } = null!;
 
-        public MetricArgs()
+        public AlertPromqlArgs()
         {
         }
     }
 
-    public sealed class MetricState : Pulumi.ResourceArgs
+    public sealed class AlertPromqlState : Pulumi.ResourceArgs
     {
         [Input("capture")]
-        public Input<Inputs.MetricCaptureGetArgs>? Capture { get; set; }
+        public Input<Inputs.AlertPromqlCaptureGetArgs>? Capture { get; set; }
 
         [Input("customNotification")]
-        public Input<Inputs.MetricCustomNotificationGetArgs>? CustomNotification { get; set; }
+        public Input<Inputs.AlertPromqlCustomNotificationGetArgs>? CustomNotification { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
-
-        [Input("metric")]
-        public Input<string>? Metric { get; set; }
-
-        [Input("multipleAlertsBies")]
-        private InputList<string>? _multipleAlertsBies;
-        public InputList<string> MultipleAlertsBies
-        {
-            get => _multipleAlertsBies ?? (_multipleAlertsBies = new InputList<string>());
-            set => _multipleAlertsBies = value;
-        }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -186,6 +164,9 @@ namespace Pulumi.Sysdig.Monitor
             get => _notificationChannels ?? (_notificationChannels = new InputList<int>());
             set => _notificationChannels = value;
         }
+
+        [Input("promql")]
+        public Input<string>? Promql { get; set; }
 
         [Input("renotificationMinutes")]
         public Input<int>? RenotificationMinutes { get; set; }
@@ -205,7 +186,7 @@ namespace Pulumi.Sysdig.Monitor
         [Input("version")]
         public Input<int>? Version { get; set; }
 
-        public MetricState()
+        public AlertPromqlState()
         {
         }
     }

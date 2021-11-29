@@ -416,7 +416,7 @@
                 "title"
             ]
         },
-        "sysdig:Monitor/GroupOutlierCapture:GroupOutlierCapture": {
+        "sysdig:Monitor/AlertGroupOutlierCapture:AlertGroupOutlierCapture": {
             "properties": {
                 "duration": {
                     "type": "integer",
@@ -449,7 +449,7 @@
                 "filename"
             ]
         },
-        "sysdig:Monitor/GroupOutlierCustomNotification:GroupOutlierCustomNotification": {
+        "sysdig:Monitor/AlertGroupOutlierCustomNotification:AlertGroupOutlierCustomNotification": {
             "properties": {
                 "append": {
                     "type": "string",
@@ -481,7 +481,7 @@
                 "title"
             ]
         },
-        "sysdig:Monitor/MetricCapture:MetricCapture": {
+        "sysdig:Monitor/AlertMetricCapture:AlertMetricCapture": {
             "properties": {
                 "duration": {
                     "type": "integer",
@@ -514,7 +514,7 @@
                 "filename"
             ]
         },
-        "sysdig:Monitor/MetricCustomNotification:MetricCustomNotification": {
+        "sysdig:Monitor/AlertMetricCustomNotification:AlertMetricCustomNotification": {
             "properties": {
                 "append": {
                     "type": "string",
@@ -546,7 +546,7 @@
                 "title"
             ]
         },
-        "sysdig:Monitor/PromqlCapture:PromqlCapture": {
+        "sysdig:Monitor/AlertPromqlCapture:AlertPromqlCapture": {
             "properties": {
                 "duration": {
                     "type": "integer",
@@ -579,7 +579,7 @@
                 "filename"
             ]
         },
-        "sysdig:Monitor/PromqlCustomNotification:PromqlCustomNotification": {
+        "sysdig:Monitor/AlertPromqlCustomNotification:AlertPromqlCustomNotification": {
             "properties": {
                 "append": {
                     "type": "string",
@@ -1567,13 +1567,13 @@
                 "type": "object"
             }
         },
-        "sysdig:Monitor/groupOutlier:GroupOutlier": {
+        "sysdig:Monitor/alertGroupOutlier:AlertGroupOutlier": {
             "properties": {
                 "capture": {
-                    "$ref": "#/types/sysdig:Monitor/GroupOutlierCapture:GroupOutlierCapture"
+                    "$ref": "#/types/sysdig:Monitor/AlertGroupOutlierCapture:AlertGroupOutlierCapture"
                 },
                 "customNotification": {
-                    "$ref": "#/types/sysdig:Monitor/GroupOutlierCustomNotification:GroupOutlierCustomNotification"
+                    "$ref": "#/types/sysdig:Monitor/AlertGroupOutlierCustomNotification:AlertGroupOutlierCustomNotification"
                 },
                 "description": {
                     "type": "string"
@@ -1624,10 +1624,10 @@
             ],
             "inputProperties": {
                 "capture": {
-                    "$ref": "#/types/sysdig:Monitor/GroupOutlierCapture:GroupOutlierCapture"
+                    "$ref": "#/types/sysdig:Monitor/AlertGroupOutlierCapture:AlertGroupOutlierCapture"
                 },
                 "customNotification": {
-                    "$ref": "#/types/sysdig:Monitor/GroupOutlierCustomNotification:GroupOutlierCustomNotification"
+                    "$ref": "#/types/sysdig:Monitor/AlertGroupOutlierCustomNotification:AlertGroupOutlierCustomNotification"
                 },
                 "description": {
                     "type": "string"
@@ -1668,13 +1668,13 @@
                 "triggerAfterMinutes"
             ],
             "stateInputs": {
-                "description": "Input properties used for looking up and filtering GroupOutlier resources.\n",
+                "description": "Input properties used for looking up and filtering AlertGroupOutlier resources.\n",
                 "properties": {
                     "capture": {
-                        "$ref": "#/types/sysdig:Monitor/GroupOutlierCapture:GroupOutlierCapture"
+                        "$ref": "#/types/sysdig:Monitor/AlertGroupOutlierCapture:AlertGroupOutlierCapture"
                     },
                     "customNotification": {
-                        "$ref": "#/types/sysdig:Monitor/GroupOutlierCustomNotification:GroupOutlierCustomNotification"
+                        "$ref": "#/types/sysdig:Monitor/AlertGroupOutlierCustomNotification:AlertGroupOutlierCustomNotification"
                     },
                     "description": {
                         "type": "string"
@@ -1719,13 +1719,13 @@
                 "type": "object"
             }
         },
-        "sysdig:Monitor/metric:Metric": {
+        "sysdig:Monitor/alertMetric:AlertMetric": {
             "properties": {
                 "capture": {
-                    "$ref": "#/types/sysdig:Monitor/MetricCapture:MetricCapture"
+                    "$ref": "#/types/sysdig:Monitor/AlertMetricCapture:AlertMetricCapture"
                 },
                 "customNotification": {
-                    "$ref": "#/types/sysdig:Monitor/MetricCustomNotification:MetricCustomNotification"
+                    "$ref": "#/types/sysdig:Monitor/AlertMetricCustomNotification:AlertMetricCustomNotification"
                 },
                 "description": {
                     "type": "string"
@@ -1779,10 +1779,10 @@
             ],
             "inputProperties": {
                 "capture": {
-                    "$ref": "#/types/sysdig:Monitor/MetricCapture:MetricCapture"
+                    "$ref": "#/types/sysdig:Monitor/AlertMetricCapture:AlertMetricCapture"
                 },
                 "customNotification": {
-                    "$ref": "#/types/sysdig:Monitor/MetricCustomNotification:MetricCustomNotification"
+                    "$ref": "#/types/sysdig:Monitor/AlertMetricCustomNotification:AlertMetricCustomNotification"
                 },
                 "description": {
                     "type": "string"
@@ -1826,13 +1826,13 @@
                 "triggerAfterMinutes"
             ],
             "stateInputs": {
-                "description": "Input properties used for looking up and filtering Metric resources.\n",
+                "description": "Input properties used for looking up and filtering AlertMetric resources.\n",
                 "properties": {
                     "capture": {
-                        "$ref": "#/types/sysdig:Monitor/MetricCapture:MetricCapture"
+                        "$ref": "#/types/sysdig:Monitor/AlertMetricCapture:AlertMetricCapture"
                     },
                     "customNotification": {
-                        "$ref": "#/types/sysdig:Monitor/MetricCustomNotification:MetricCustomNotification"
+                        "$ref": "#/types/sysdig:Monitor/AlertMetricCustomNotification:AlertMetricCustomNotification"
                     },
                     "description": {
                         "type": "string"
@@ -1857,6 +1857,149 @@
                         "items": {
                             "type": "integer"
                         }
+                    },
+                    "renotificationMinutes": {
+                        "type": "integer"
+                    },
+                    "scope": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": "integer"
+                    },
+                    "team": {
+                        "type": "integer"
+                    },
+                    "triggerAfterMinutes": {
+                        "type": "integer"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/alertPromql:AlertPromql": {
+            "properties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/AlertPromqlCapture:AlertPromqlCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/AlertPromqlCustomNotification:AlertPromqlCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "promql": {
+                    "type": "string"
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "team": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "promql",
+                "team",
+                "triggerAfterMinutes",
+                "version"
+            ],
+            "inputProperties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/AlertPromqlCapture:AlertPromqlCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/AlertPromqlCustomNotification:AlertPromqlCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "promql": {
+                    "type": "string"
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "promql",
+                "triggerAfterMinutes"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertPromql resources.\n",
+                "properties": {
+                    "capture": {
+                        "$ref": "#/types/sysdig:Monitor/AlertPromqlCapture:AlertPromqlCapture"
+                    },
+                    "customNotification": {
+                        "$ref": "#/types/sysdig:Monitor/AlertPromqlCustomNotification:AlertPromqlCustomNotification"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notificationChannels": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "promql": {
+                        "type": "string"
                     },
                     "renotificationMinutes": {
                         "type": "integer"
@@ -2512,149 +2655,6 @@
                     },
                     "url": {
                         "type": "string"
-                    },
-                    "version": {
-                        "type": "integer"
-                    }
-                },
-                "type": "object"
-            }
-        },
-        "sysdig:Monitor/promql:Promql": {
-            "properties": {
-                "capture": {
-                    "$ref": "#/types/sysdig:Monitor/PromqlCapture:PromqlCapture"
-                },
-                "customNotification": {
-                    "$ref": "#/types/sysdig:Monitor/PromqlCustomNotification:PromqlCustomNotification"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "enabled": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "notificationChannels": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "promql": {
-                    "type": "string"
-                },
-                "renotificationMinutes": {
-                    "type": "integer"
-                },
-                "scope": {
-                    "type": "string"
-                },
-                "severity": {
-                    "type": "integer"
-                },
-                "team": {
-                    "type": "integer"
-                },
-                "triggerAfterMinutes": {
-                    "type": "integer"
-                },
-                "version": {
-                    "type": "integer"
-                }
-            },
-            "required": [
-                "name",
-                "promql",
-                "team",
-                "triggerAfterMinutes",
-                "version"
-            ],
-            "inputProperties": {
-                "capture": {
-                    "$ref": "#/types/sysdig:Monitor/PromqlCapture:PromqlCapture"
-                },
-                "customNotification": {
-                    "$ref": "#/types/sysdig:Monitor/PromqlCustomNotification:PromqlCustomNotification"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "enabled": {
-                    "type": "boolean"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "notificationChannels": {
-                    "type": "array",
-                    "items": {
-                        "type": "integer"
-                    }
-                },
-                "promql": {
-                    "type": "string"
-                },
-                "renotificationMinutes": {
-                    "type": "integer"
-                },
-                "scope": {
-                    "type": "string"
-                },
-                "severity": {
-                    "type": "integer"
-                },
-                "triggerAfterMinutes": {
-                    "type": "integer"
-                }
-            },
-            "requiredInputs": [
-                "promql",
-                "triggerAfterMinutes"
-            ],
-            "stateInputs": {
-                "description": "Input properties used for looking up and filtering Promql resources.\n",
-                "properties": {
-                    "capture": {
-                        "$ref": "#/types/sysdig:Monitor/PromqlCapture:PromqlCapture"
-                    },
-                    "customNotification": {
-                        "$ref": "#/types/sysdig:Monitor/PromqlCustomNotification:PromqlCustomNotification"
-                    },
-                    "description": {
-                        "type": "string"
-                    },
-                    "enabled": {
-                        "type": "boolean"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "notificationChannels": {
-                        "type": "array",
-                        "items": {
-                            "type": "integer"
-                        }
-                    },
-                    "promql": {
-                        "type": "string"
-                    },
-                    "renotificationMinutes": {
-                        "type": "integer"
-                    },
-                    "scope": {
-                        "type": "string"
-                    },
-                    "severity": {
-                        "type": "integer"
-                    },
-                    "team": {
-                        "type": "integer"
-                    },
-                    "triggerAfterMinutes": {
-                        "type": "integer"
                     },
                     "version": {
                         "type": "integer"

@@ -11,23 +11,23 @@ namespace Pulumi.Sysdig.Monitor.Outputs
 {
 
     [OutputType]
-    public sealed class GroupOutlierCustomNotification
+    public sealed class AlertMetricCapture
     {
-        public readonly string? Append;
-        public readonly string? Prepend;
-        public readonly string Title;
+        public readonly int Duration;
+        public readonly string Filename;
+        public readonly string? Filter;
 
         [OutputConstructor]
-        private GroupOutlierCustomNotification(
-            string? append,
+        private AlertMetricCapture(
+            int duration,
 
-            string? prepend,
+            string filename,
 
-            string title)
+            string? filter)
         {
-            Append = append;
-            Prepend = prepend;
-            Title = title;
+            Duration = duration;
+            Filename = filename;
+            Filter = filter;
         }
     }
 }

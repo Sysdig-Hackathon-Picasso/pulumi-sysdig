@@ -29,10 +29,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertDowntime{}
 	case "sysdig:Monitor/alertEvent:AlertEvent":
 		r = &AlertEvent{}
-	case "sysdig:Monitor/groupOutlier:GroupOutlier":
-		r = &GroupOutlier{}
-	case "sysdig:Monitor/metric:Metric":
-		r = &Metric{}
+	case "sysdig:Monitor/alertGroupOutlier:AlertGroupOutlier":
+		r = &AlertGroupOutlier{}
+	case "sysdig:Monitor/alertMetric:AlertMetric":
+		r = &AlertMetric{}
+	case "sysdig:Monitor/alertPromql:AlertPromql":
+		r = &AlertPromql{}
 	case "sysdig:Monitor/notificationChannelEmail:NotificationChannelEmail":
 		r = &NotificationChannelEmail{}
 	case "sysdig:Monitor/notificationChannelOpsgenie:NotificationChannelOpsgenie":
@@ -47,8 +49,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NotificationChannelVictorops{}
 	case "sysdig:Monitor/notificationChannelWebhook:NotificationChannelWebhook":
 		r = &NotificationChannelWebhook{}
-	case "sysdig:Monitor/promql:Promql":
-		r = &Promql{}
 	case "sysdig:Monitor/team:Team":
 		r = &Team{}
 	default:
@@ -86,12 +86,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"sysdig",
-		"Monitor/groupOutlier",
+		"Monitor/alertGroupOutlier",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"sysdig",
-		"Monitor/metric",
+		"Monitor/alertMetric",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sysdig",
+		"Monitor/alertPromql",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -127,11 +132,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"sysdig",
 		"Monitor/notificationChannelWebhook",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"sysdig",
-		"Monitor/promql",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

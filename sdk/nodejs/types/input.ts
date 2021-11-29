@@ -68,37 +68,37 @@ export namespace Monitor {
         title: pulumi.Input<string>;
     }
 
-    export interface GroupOutlierCapture {
+    export interface AlertGroupOutlierCapture {
         duration: pulumi.Input<number>;
         filename: pulumi.Input<string>;
         filter?: pulumi.Input<string>;
     }
 
-    export interface GroupOutlierCustomNotification {
+    export interface AlertGroupOutlierCustomNotification {
         append?: pulumi.Input<string>;
         prepend?: pulumi.Input<string>;
         title: pulumi.Input<string>;
     }
 
-    export interface MetricCapture {
+    export interface AlertMetricCapture {
         duration: pulumi.Input<number>;
         filename: pulumi.Input<string>;
         filter?: pulumi.Input<string>;
     }
 
-    export interface MetricCustomNotification {
+    export interface AlertMetricCustomNotification {
         append?: pulumi.Input<string>;
         prepend?: pulumi.Input<string>;
         title: pulumi.Input<string>;
     }
 
-    export interface PromqlCapture {
+    export interface AlertPromqlCapture {
         duration: pulumi.Input<number>;
         filename: pulumi.Input<string>;
         filter?: pulumi.Input<string>;
     }
 
-    export interface PromqlCustomNotification {
+    export interface AlertPromqlCustomNotification {
         append?: pulumi.Input<string>;
         prepend?: pulumi.Input<string>;
         title: pulumi.Input<string>;

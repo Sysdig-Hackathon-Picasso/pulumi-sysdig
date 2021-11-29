@@ -11,23 +11,23 @@ namespace Pulumi.Sysdig.Monitor.Outputs
 {
 
     [OutputType]
-    public sealed class PromqlCustomNotification
+    public sealed class AlertGroupOutlierCapture
     {
-        public readonly string? Append;
-        public readonly string? Prepend;
-        public readonly string Title;
+        public readonly int Duration;
+        public readonly string Filename;
+        public readonly string? Filter;
 
         [OutputConstructor]
-        private PromqlCustomNotification(
-            string? append,
+        private AlertGroupOutlierCapture(
+            int duration,
 
-            string? prepend,
+            string filename,
 
-            string title)
+            string? filter)
         {
-            Append = append;
-            Prepend = prepend;
-            Title = title;
+            Duration = duration;
+            Filename = filename;
+            Filter = filter;
         }
     }
 }

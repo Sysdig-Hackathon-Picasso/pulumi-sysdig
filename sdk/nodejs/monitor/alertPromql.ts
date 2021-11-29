@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
-export class GroupOutlier extends pulumi.CustomResource {
+export class AlertPromql extends pulumi.CustomResource {
     /**
-     * Get an existing GroupOutlier resource's state with the given name, ID, and optional extra
+     * Get an existing AlertPromql resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -15,31 +15,31 @@ export class GroupOutlier extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GroupOutlierState, opts?: pulumi.CustomResourceOptions): GroupOutlier {
-        return new GroupOutlier(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AlertPromqlState, opts?: pulumi.CustomResourceOptions): AlertPromql {
+        return new AlertPromql(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'sysdig:Monitor/groupOutlier:GroupOutlier';
+    public static readonly __pulumiType = 'sysdig:Monitor/alertPromql:AlertPromql';
 
     /**
-     * Returns true if the given object is an instance of GroupOutlier.  This is designed to work even
+     * Returns true if the given object is an instance of AlertPromql.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is GroupOutlier {
+    public static isInstance(obj: any): obj is AlertPromql {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === GroupOutlier.__pulumiType;
+        return obj['__pulumiType'] === AlertPromql.__pulumiType;
     }
 
-    public readonly capture!: pulumi.Output<outputs.Monitor.GroupOutlierCapture | undefined>;
-    public readonly customNotification!: pulumi.Output<outputs.Monitor.GroupOutlierCustomNotification | undefined>;
+    public readonly capture!: pulumi.Output<outputs.Monitor.AlertPromqlCapture | undefined>;
+    public readonly customNotification!: pulumi.Output<outputs.Monitor.AlertPromqlCustomNotification | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
-    public readonly monitors!: pulumi.Output<string[]>;
     public readonly name!: pulumi.Output<string>;
     public readonly notificationChannels!: pulumi.Output<number[] | undefined>;
+    public readonly promql!: pulumi.Output<string>;
     public readonly renotificationMinutes!: pulumi.Output<number | undefined>;
     public readonly scope!: pulumi.Output<string | undefined>;
     public readonly severity!: pulumi.Output<number | undefined>;
@@ -48,25 +48,25 @@ export class GroupOutlier extends pulumi.CustomResource {
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
-     * Create a GroupOutlier resource with the given unique name, arguments, and options.
+     * Create a AlertPromql resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GroupOutlierArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: GroupOutlierArgs | GroupOutlierState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AlertPromqlArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AlertPromqlArgs | AlertPromqlState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as GroupOutlierState | undefined;
+            const state = argsOrState as AlertPromqlState | undefined;
             inputs["capture"] = state ? state.capture : undefined;
             inputs["customNotification"] = state ? state.customNotification : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["monitors"] = state ? state.monitors : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notificationChannels"] = state ? state.notificationChannels : undefined;
+            inputs["promql"] = state ? state.promql : undefined;
             inputs["renotificationMinutes"] = state ? state.renotificationMinutes : undefined;
             inputs["scope"] = state ? state.scope : undefined;
             inputs["severity"] = state ? state.severity : undefined;
@@ -74,9 +74,9 @@ export class GroupOutlier extends pulumi.CustomResource {
             inputs["triggerAfterMinutes"] = state ? state.triggerAfterMinutes : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
-            const args = argsOrState as GroupOutlierArgs | undefined;
-            if ((!args || args.monitors === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'monitors'");
+            const args = argsOrState as AlertPromqlArgs | undefined;
+            if ((!args || args.promql === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'promql'");
             }
             if ((!args || args.triggerAfterMinutes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'triggerAfterMinutes'");
@@ -85,9 +85,9 @@ export class GroupOutlier extends pulumi.CustomResource {
             inputs["customNotification"] = args ? args.customNotification : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["monitors"] = args ? args.monitors : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notificationChannels"] = args ? args.notificationChannels : undefined;
+            inputs["promql"] = args ? args.promql : undefined;
             inputs["renotificationMinutes"] = args ? args.renotificationMinutes : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["severity"] = args ? args.severity : undefined;
@@ -98,21 +98,21 @@ export class GroupOutlier extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(GroupOutlier.__pulumiType, name, inputs, opts);
+        super(AlertPromql.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering GroupOutlier resources.
+ * Input properties used for looking up and filtering AlertPromql resources.
  */
-export interface GroupOutlierState {
-    capture?: pulumi.Input<inputs.Monitor.GroupOutlierCapture>;
-    customNotification?: pulumi.Input<inputs.Monitor.GroupOutlierCustomNotification>;
+export interface AlertPromqlState {
+    capture?: pulumi.Input<inputs.Monitor.AlertPromqlCapture>;
+    customNotification?: pulumi.Input<inputs.Monitor.AlertPromqlCustomNotification>;
     description?: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
-    monitors?: pulumi.Input<pulumi.Input<string>[]>;
     name?: pulumi.Input<string>;
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    promql?: pulumi.Input<string>;
     renotificationMinutes?: pulumi.Input<number>;
     scope?: pulumi.Input<string>;
     severity?: pulumi.Input<number>;
@@ -122,16 +122,16 @@ export interface GroupOutlierState {
 }
 
 /**
- * The set of arguments for constructing a GroupOutlier resource.
+ * The set of arguments for constructing a AlertPromql resource.
  */
-export interface GroupOutlierArgs {
-    capture?: pulumi.Input<inputs.Monitor.GroupOutlierCapture>;
-    customNotification?: pulumi.Input<inputs.Monitor.GroupOutlierCustomNotification>;
+export interface AlertPromqlArgs {
+    capture?: pulumi.Input<inputs.Monitor.AlertPromqlCapture>;
+    customNotification?: pulumi.Input<inputs.Monitor.AlertPromqlCustomNotification>;
     description?: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
-    monitors: pulumi.Input<pulumi.Input<string>[]>;
     name?: pulumi.Input<string>;
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    promql: pulumi.Input<string>;
     renotificationMinutes?: pulumi.Input<number>;
     scope?: pulumi.Input<string>;
     severity?: pulumi.Input<number>;

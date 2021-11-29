@@ -11,14 +11,14 @@ namespace Pulumi.Sysdig.Monitor.Outputs
 {
 
     [OutputType]
-    public sealed class MetricCustomNotification
+    public sealed class AlertGroupOutlierCustomNotification
     {
         public readonly string? Append;
         public readonly string? Prepend;
         public readonly string Title;
 
         [OutputConstructor]
-        private MetricCustomNotification(
+        private AlertGroupOutlierCustomNotification(
             string? append,
 
             string? prepend,

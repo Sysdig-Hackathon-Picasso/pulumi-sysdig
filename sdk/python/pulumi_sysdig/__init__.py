@@ -59,18 +59,26 @@ _utilities.register(
  },
  {
   "pkg": "sysdig",
-  "mod": "Monitor/groupOutlier",
+  "mod": "Monitor/alertGroupOutlier",
   "fqn": "pulumi_sysdig.monitor",
   "classes": {
-   "sysdig:Monitor/groupOutlier:GroupOutlier": "GroupOutlier"
+   "sysdig:Monitor/alertGroupOutlier:AlertGroupOutlier": "AlertGroupOutlier"
   }
  },
  {
   "pkg": "sysdig",
-  "mod": "Monitor/metric",
+  "mod": "Monitor/alertMetric",
   "fqn": "pulumi_sysdig.monitor",
   "classes": {
-   "sysdig:Monitor/metric:Metric": "Metric"
+   "sysdig:Monitor/alertMetric:AlertMetric": "AlertMetric"
+  }
+ },
+ {
+  "pkg": "sysdig",
+  "mod": "Monitor/alertPromql",
+  "fqn": "pulumi_sysdig.monitor",
+  "classes": {
+   "sysdig:Monitor/alertPromql:AlertPromql": "AlertPromql"
   }
  },
  {
@@ -127,14 +135,6 @@ _utilities.register(
   "fqn": "pulumi_sysdig.monitor",
   "classes": {
    "sysdig:Monitor/notificationChannelWebhook:NotificationChannelWebhook": "NotificationChannelWebhook"
-  }
- },
- {
-  "pkg": "sysdig",
-  "mod": "Monitor/promql",
-  "fqn": "pulumi_sysdig.monitor",
-  "classes": {
-   "sysdig:Monitor/promql:Promql": "Promql"
   }
  },
  {

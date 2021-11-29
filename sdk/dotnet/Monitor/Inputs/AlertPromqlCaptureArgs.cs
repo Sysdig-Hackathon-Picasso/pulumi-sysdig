@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Sysdig.Monitor.Inputs
 {
 
-    public sealed class PromqlCaptureGetArgs : Pulumi.ResourceArgs
+    public sealed class AlertPromqlCaptureArgs : Pulumi.ResourceArgs
     {
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;
@@ -21,7 +21,7 @@ namespace Pulumi.Sysdig.Monitor.Inputs
         [Input("filter")]
         public Input<string>? Filter { get; set; }
 
-        public PromqlCaptureGetArgs()
+        public AlertPromqlCaptureArgs()
         {
         }
     }

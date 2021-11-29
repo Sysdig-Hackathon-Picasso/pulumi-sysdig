@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
-export class Metric extends pulumi.CustomResource {
+export class AlertMetric extends pulumi.CustomResource {
     /**
-     * Get an existing Metric resource's state with the given name, ID, and optional extra
+     * Get an existing AlertMetric resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -15,26 +15,26 @@ export class Metric extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MetricState, opts?: pulumi.CustomResourceOptions): Metric {
-        return new Metric(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AlertMetricState, opts?: pulumi.CustomResourceOptions): AlertMetric {
+        return new AlertMetric(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'sysdig:Monitor/metric:Metric';
+    public static readonly __pulumiType = 'sysdig:Monitor/alertMetric:AlertMetric';
 
     /**
-     * Returns true if the given object is an instance of Metric.  This is designed to work even
+     * Returns true if the given object is an instance of AlertMetric.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Metric {
+    public static isInstance(obj: any): obj is AlertMetric {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Metric.__pulumiType;
+        return obj['__pulumiType'] === AlertMetric.__pulumiType;
     }
 
-    public readonly capture!: pulumi.Output<outputs.Monitor.MetricCapture | undefined>;
-    public readonly customNotification!: pulumi.Output<outputs.Monitor.MetricCustomNotification | undefined>;
+    public readonly capture!: pulumi.Output<outputs.Monitor.AlertMetricCapture | undefined>;
+    public readonly customNotification!: pulumi.Output<outputs.Monitor.AlertMetricCustomNotification | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public readonly metric!: pulumi.Output<string>;
@@ -49,18 +49,18 @@ export class Metric extends pulumi.CustomResource {
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
-     * Create a Metric resource with the given unique name, arguments, and options.
+     * Create a AlertMetric resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: MetricArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: MetricArgs | MetricState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AlertMetricArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AlertMetricArgs | AlertMetricState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as MetricState | undefined;
+            const state = argsOrState as AlertMetricState | undefined;
             inputs["capture"] = state ? state.capture : undefined;
             inputs["customNotification"] = state ? state.customNotification : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -76,7 +76,7 @@ export class Metric extends pulumi.CustomResource {
             inputs["triggerAfterMinutes"] = state ? state.triggerAfterMinutes : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
-            const args = argsOrState as MetricArgs | undefined;
+            const args = argsOrState as AlertMetricArgs | undefined;
             if ((!args || args.metric === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metric'");
             }
@@ -101,16 +101,16 @@ export class Metric extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Metric.__pulumiType, name, inputs, opts);
+        super(AlertMetric.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering Metric resources.
+ * Input properties used for looking up and filtering AlertMetric resources.
  */
-export interface MetricState {
-    capture?: pulumi.Input<inputs.Monitor.MetricCapture>;
-    customNotification?: pulumi.Input<inputs.Monitor.MetricCustomNotification>;
+export interface AlertMetricState {
+    capture?: pulumi.Input<inputs.Monitor.AlertMetricCapture>;
+    customNotification?: pulumi.Input<inputs.Monitor.AlertMetricCustomNotification>;
     description?: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
     metric?: pulumi.Input<string>;
@@ -126,11 +126,11 @@ export interface MetricState {
 }
 
 /**
- * The set of arguments for constructing a Metric resource.
+ * The set of arguments for constructing a AlertMetric resource.
  */
-export interface MetricArgs {
-    capture?: pulumi.Input<inputs.Monitor.MetricCapture>;
-    customNotification?: pulumi.Input<inputs.Monitor.MetricCustomNotification>;
+export interface AlertMetricArgs {
+    capture?: pulumi.Input<inputs.Monitor.AlertMetricCapture>;
+    customNotification?: pulumi.Input<inputs.Monitor.AlertMetricCustomNotification>;
     description?: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
     metric: pulumi.Input<string>;

@@ -1360,144 +1360,144 @@ func (o AlertEventCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type GroupOutlierCapture struct {
+type AlertGroupOutlierCapture struct {
 	Duration int     `pulumi:"duration"`
 	Filename string  `pulumi:"filename"`
 	Filter   *string `pulumi:"filter"`
 }
 
-// GroupOutlierCaptureInput is an input type that accepts GroupOutlierCaptureArgs and GroupOutlierCaptureOutput values.
-// You can construct a concrete instance of `GroupOutlierCaptureInput` via:
+// AlertGroupOutlierCaptureInput is an input type that accepts AlertGroupOutlierCaptureArgs and AlertGroupOutlierCaptureOutput values.
+// You can construct a concrete instance of `AlertGroupOutlierCaptureInput` via:
 //
-//          GroupOutlierCaptureArgs{...}
-type GroupOutlierCaptureInput interface {
+//          AlertGroupOutlierCaptureArgs{...}
+type AlertGroupOutlierCaptureInput interface {
 	pulumi.Input
 
-	ToGroupOutlierCaptureOutput() GroupOutlierCaptureOutput
-	ToGroupOutlierCaptureOutputWithContext(context.Context) GroupOutlierCaptureOutput
+	ToAlertGroupOutlierCaptureOutput() AlertGroupOutlierCaptureOutput
+	ToAlertGroupOutlierCaptureOutputWithContext(context.Context) AlertGroupOutlierCaptureOutput
 }
 
-type GroupOutlierCaptureArgs struct {
+type AlertGroupOutlierCaptureArgs struct {
 	Duration pulumi.IntInput       `pulumi:"duration"`
 	Filename pulumi.StringInput    `pulumi:"filename"`
 	Filter   pulumi.StringPtrInput `pulumi:"filter"`
 }
 
-func (GroupOutlierCaptureArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupOutlierCapture)(nil)).Elem()
+func (AlertGroupOutlierCaptureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertGroupOutlierCapture)(nil)).Elem()
 }
 
-func (i GroupOutlierCaptureArgs) ToGroupOutlierCaptureOutput() GroupOutlierCaptureOutput {
-	return i.ToGroupOutlierCaptureOutputWithContext(context.Background())
+func (i AlertGroupOutlierCaptureArgs) ToAlertGroupOutlierCaptureOutput() AlertGroupOutlierCaptureOutput {
+	return i.ToAlertGroupOutlierCaptureOutputWithContext(context.Background())
 }
 
-func (i GroupOutlierCaptureArgs) ToGroupOutlierCaptureOutputWithContext(ctx context.Context) GroupOutlierCaptureOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupOutlierCaptureOutput)
+func (i AlertGroupOutlierCaptureArgs) ToAlertGroupOutlierCaptureOutputWithContext(ctx context.Context) AlertGroupOutlierCaptureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertGroupOutlierCaptureOutput)
 }
 
-func (i GroupOutlierCaptureArgs) ToGroupOutlierCapturePtrOutput() GroupOutlierCapturePtrOutput {
-	return i.ToGroupOutlierCapturePtrOutputWithContext(context.Background())
+func (i AlertGroupOutlierCaptureArgs) ToAlertGroupOutlierCapturePtrOutput() AlertGroupOutlierCapturePtrOutput {
+	return i.ToAlertGroupOutlierCapturePtrOutputWithContext(context.Background())
 }
 
-func (i GroupOutlierCaptureArgs) ToGroupOutlierCapturePtrOutputWithContext(ctx context.Context) GroupOutlierCapturePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupOutlierCaptureOutput).ToGroupOutlierCapturePtrOutputWithContext(ctx)
+func (i AlertGroupOutlierCaptureArgs) ToAlertGroupOutlierCapturePtrOutputWithContext(ctx context.Context) AlertGroupOutlierCapturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertGroupOutlierCaptureOutput).ToAlertGroupOutlierCapturePtrOutputWithContext(ctx)
 }
 
-// GroupOutlierCapturePtrInput is an input type that accepts GroupOutlierCaptureArgs, GroupOutlierCapturePtr and GroupOutlierCapturePtrOutput values.
-// You can construct a concrete instance of `GroupOutlierCapturePtrInput` via:
+// AlertGroupOutlierCapturePtrInput is an input type that accepts AlertGroupOutlierCaptureArgs, AlertGroupOutlierCapturePtr and AlertGroupOutlierCapturePtrOutput values.
+// You can construct a concrete instance of `AlertGroupOutlierCapturePtrInput` via:
 //
-//          GroupOutlierCaptureArgs{...}
+//          AlertGroupOutlierCaptureArgs{...}
 //
 //  or:
 //
 //          nil
-type GroupOutlierCapturePtrInput interface {
+type AlertGroupOutlierCapturePtrInput interface {
 	pulumi.Input
 
-	ToGroupOutlierCapturePtrOutput() GroupOutlierCapturePtrOutput
-	ToGroupOutlierCapturePtrOutputWithContext(context.Context) GroupOutlierCapturePtrOutput
+	ToAlertGroupOutlierCapturePtrOutput() AlertGroupOutlierCapturePtrOutput
+	ToAlertGroupOutlierCapturePtrOutputWithContext(context.Context) AlertGroupOutlierCapturePtrOutput
 }
 
-type groupOutlierCapturePtrType GroupOutlierCaptureArgs
+type alertGroupOutlierCapturePtrType AlertGroupOutlierCaptureArgs
 
-func GroupOutlierCapturePtr(v *GroupOutlierCaptureArgs) GroupOutlierCapturePtrInput {
-	return (*groupOutlierCapturePtrType)(v)
+func AlertGroupOutlierCapturePtr(v *AlertGroupOutlierCaptureArgs) AlertGroupOutlierCapturePtrInput {
+	return (*alertGroupOutlierCapturePtrType)(v)
 }
 
-func (*groupOutlierCapturePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupOutlierCapture)(nil)).Elem()
+func (*alertGroupOutlierCapturePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertGroupOutlierCapture)(nil)).Elem()
 }
 
-func (i *groupOutlierCapturePtrType) ToGroupOutlierCapturePtrOutput() GroupOutlierCapturePtrOutput {
-	return i.ToGroupOutlierCapturePtrOutputWithContext(context.Background())
+func (i *alertGroupOutlierCapturePtrType) ToAlertGroupOutlierCapturePtrOutput() AlertGroupOutlierCapturePtrOutput {
+	return i.ToAlertGroupOutlierCapturePtrOutputWithContext(context.Background())
 }
 
-func (i *groupOutlierCapturePtrType) ToGroupOutlierCapturePtrOutputWithContext(ctx context.Context) GroupOutlierCapturePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupOutlierCapturePtrOutput)
+func (i *alertGroupOutlierCapturePtrType) ToAlertGroupOutlierCapturePtrOutputWithContext(ctx context.Context) AlertGroupOutlierCapturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertGroupOutlierCapturePtrOutput)
 }
 
-type GroupOutlierCaptureOutput struct{ *pulumi.OutputState }
+type AlertGroupOutlierCaptureOutput struct{ *pulumi.OutputState }
 
-func (GroupOutlierCaptureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupOutlierCapture)(nil)).Elem()
+func (AlertGroupOutlierCaptureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertGroupOutlierCapture)(nil)).Elem()
 }
 
-func (o GroupOutlierCaptureOutput) ToGroupOutlierCaptureOutput() GroupOutlierCaptureOutput {
+func (o AlertGroupOutlierCaptureOutput) ToAlertGroupOutlierCaptureOutput() AlertGroupOutlierCaptureOutput {
 	return o
 }
 
-func (o GroupOutlierCaptureOutput) ToGroupOutlierCaptureOutputWithContext(ctx context.Context) GroupOutlierCaptureOutput {
+func (o AlertGroupOutlierCaptureOutput) ToAlertGroupOutlierCaptureOutputWithContext(ctx context.Context) AlertGroupOutlierCaptureOutput {
 	return o
 }
 
-func (o GroupOutlierCaptureOutput) ToGroupOutlierCapturePtrOutput() GroupOutlierCapturePtrOutput {
-	return o.ToGroupOutlierCapturePtrOutputWithContext(context.Background())
+func (o AlertGroupOutlierCaptureOutput) ToAlertGroupOutlierCapturePtrOutput() AlertGroupOutlierCapturePtrOutput {
+	return o.ToAlertGroupOutlierCapturePtrOutputWithContext(context.Background())
 }
 
-func (o GroupOutlierCaptureOutput) ToGroupOutlierCapturePtrOutputWithContext(ctx context.Context) GroupOutlierCapturePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupOutlierCapture) *GroupOutlierCapture {
+func (o AlertGroupOutlierCaptureOutput) ToAlertGroupOutlierCapturePtrOutputWithContext(ctx context.Context) AlertGroupOutlierCapturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertGroupOutlierCapture) *AlertGroupOutlierCapture {
 		return &v
-	}).(GroupOutlierCapturePtrOutput)
+	}).(AlertGroupOutlierCapturePtrOutput)
 }
 
-func (o GroupOutlierCaptureOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func(v GroupOutlierCapture) int { return v.Duration }).(pulumi.IntOutput)
+func (o AlertGroupOutlierCaptureOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v AlertGroupOutlierCapture) int { return v.Duration }).(pulumi.IntOutput)
 }
 
-func (o GroupOutlierCaptureOutput) Filename() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupOutlierCapture) string { return v.Filename }).(pulumi.StringOutput)
+func (o AlertGroupOutlierCaptureOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertGroupOutlierCapture) string { return v.Filename }).(pulumi.StringOutput)
 }
 
-func (o GroupOutlierCaptureOutput) Filter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupOutlierCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
+func (o AlertGroupOutlierCaptureOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertGroupOutlierCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
-type GroupOutlierCapturePtrOutput struct{ *pulumi.OutputState }
+type AlertGroupOutlierCapturePtrOutput struct{ *pulumi.OutputState }
 
-func (GroupOutlierCapturePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupOutlierCapture)(nil)).Elem()
+func (AlertGroupOutlierCapturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertGroupOutlierCapture)(nil)).Elem()
 }
 
-func (o GroupOutlierCapturePtrOutput) ToGroupOutlierCapturePtrOutput() GroupOutlierCapturePtrOutput {
+func (o AlertGroupOutlierCapturePtrOutput) ToAlertGroupOutlierCapturePtrOutput() AlertGroupOutlierCapturePtrOutput {
 	return o
 }
 
-func (o GroupOutlierCapturePtrOutput) ToGroupOutlierCapturePtrOutputWithContext(ctx context.Context) GroupOutlierCapturePtrOutput {
+func (o AlertGroupOutlierCapturePtrOutput) ToAlertGroupOutlierCapturePtrOutputWithContext(ctx context.Context) AlertGroupOutlierCapturePtrOutput {
 	return o
 }
 
-func (o GroupOutlierCapturePtrOutput) Elem() GroupOutlierCaptureOutput {
-	return o.ApplyT(func(v *GroupOutlierCapture) GroupOutlierCapture {
+func (o AlertGroupOutlierCapturePtrOutput) Elem() AlertGroupOutlierCaptureOutput {
+	return o.ApplyT(func(v *AlertGroupOutlierCapture) AlertGroupOutlierCapture {
 		if v != nil {
 			return *v
 		}
-		var ret GroupOutlierCapture
+		var ret AlertGroupOutlierCapture
 		return ret
-	}).(GroupOutlierCaptureOutput)
+	}).(AlertGroupOutlierCaptureOutput)
 }
 
-func (o GroupOutlierCapturePtrOutput) Duration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GroupOutlierCapture) *int {
+func (o AlertGroupOutlierCapturePtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertGroupOutlierCapture) *int {
 		if v == nil {
 			return nil
 		}
@@ -1505,8 +1505,8 @@ func (o GroupOutlierCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o GroupOutlierCapturePtrOutput) Filename() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupOutlierCapture) *string {
+func (o AlertGroupOutlierCapturePtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertGroupOutlierCapture) *string {
 		if v == nil {
 			return nil
 		}
@@ -1514,8 +1514,8 @@ func (o GroupOutlierCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GroupOutlierCapturePtrOutput) Filter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupOutlierCapture) *string {
+func (o AlertGroupOutlierCapturePtrOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertGroupOutlierCapture) *string {
 		if v == nil {
 			return nil
 		}
@@ -1523,144 +1523,144 @@ func (o GroupOutlierCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type GroupOutlierCustomNotification struct {
+type AlertGroupOutlierCustomNotification struct {
 	Append  *string `pulumi:"append"`
 	Prepend *string `pulumi:"prepend"`
 	Title   string  `pulumi:"title"`
 }
 
-// GroupOutlierCustomNotificationInput is an input type that accepts GroupOutlierCustomNotificationArgs and GroupOutlierCustomNotificationOutput values.
-// You can construct a concrete instance of `GroupOutlierCustomNotificationInput` via:
+// AlertGroupOutlierCustomNotificationInput is an input type that accepts AlertGroupOutlierCustomNotificationArgs and AlertGroupOutlierCustomNotificationOutput values.
+// You can construct a concrete instance of `AlertGroupOutlierCustomNotificationInput` via:
 //
-//          GroupOutlierCustomNotificationArgs{...}
-type GroupOutlierCustomNotificationInput interface {
+//          AlertGroupOutlierCustomNotificationArgs{...}
+type AlertGroupOutlierCustomNotificationInput interface {
 	pulumi.Input
 
-	ToGroupOutlierCustomNotificationOutput() GroupOutlierCustomNotificationOutput
-	ToGroupOutlierCustomNotificationOutputWithContext(context.Context) GroupOutlierCustomNotificationOutput
+	ToAlertGroupOutlierCustomNotificationOutput() AlertGroupOutlierCustomNotificationOutput
+	ToAlertGroupOutlierCustomNotificationOutputWithContext(context.Context) AlertGroupOutlierCustomNotificationOutput
 }
 
-type GroupOutlierCustomNotificationArgs struct {
+type AlertGroupOutlierCustomNotificationArgs struct {
 	Append  pulumi.StringPtrInput `pulumi:"append"`
 	Prepend pulumi.StringPtrInput `pulumi:"prepend"`
 	Title   pulumi.StringInput    `pulumi:"title"`
 }
 
-func (GroupOutlierCustomNotificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupOutlierCustomNotification)(nil)).Elem()
+func (AlertGroupOutlierCustomNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertGroupOutlierCustomNotification)(nil)).Elem()
 }
 
-func (i GroupOutlierCustomNotificationArgs) ToGroupOutlierCustomNotificationOutput() GroupOutlierCustomNotificationOutput {
-	return i.ToGroupOutlierCustomNotificationOutputWithContext(context.Background())
+func (i AlertGroupOutlierCustomNotificationArgs) ToAlertGroupOutlierCustomNotificationOutput() AlertGroupOutlierCustomNotificationOutput {
+	return i.ToAlertGroupOutlierCustomNotificationOutputWithContext(context.Background())
 }
 
-func (i GroupOutlierCustomNotificationArgs) ToGroupOutlierCustomNotificationOutputWithContext(ctx context.Context) GroupOutlierCustomNotificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupOutlierCustomNotificationOutput)
+func (i AlertGroupOutlierCustomNotificationArgs) ToAlertGroupOutlierCustomNotificationOutputWithContext(ctx context.Context) AlertGroupOutlierCustomNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertGroupOutlierCustomNotificationOutput)
 }
 
-func (i GroupOutlierCustomNotificationArgs) ToGroupOutlierCustomNotificationPtrOutput() GroupOutlierCustomNotificationPtrOutput {
-	return i.ToGroupOutlierCustomNotificationPtrOutputWithContext(context.Background())
+func (i AlertGroupOutlierCustomNotificationArgs) ToAlertGroupOutlierCustomNotificationPtrOutput() AlertGroupOutlierCustomNotificationPtrOutput {
+	return i.ToAlertGroupOutlierCustomNotificationPtrOutputWithContext(context.Background())
 }
 
-func (i GroupOutlierCustomNotificationArgs) ToGroupOutlierCustomNotificationPtrOutputWithContext(ctx context.Context) GroupOutlierCustomNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupOutlierCustomNotificationOutput).ToGroupOutlierCustomNotificationPtrOutputWithContext(ctx)
+func (i AlertGroupOutlierCustomNotificationArgs) ToAlertGroupOutlierCustomNotificationPtrOutputWithContext(ctx context.Context) AlertGroupOutlierCustomNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertGroupOutlierCustomNotificationOutput).ToAlertGroupOutlierCustomNotificationPtrOutputWithContext(ctx)
 }
 
-// GroupOutlierCustomNotificationPtrInput is an input type that accepts GroupOutlierCustomNotificationArgs, GroupOutlierCustomNotificationPtr and GroupOutlierCustomNotificationPtrOutput values.
-// You can construct a concrete instance of `GroupOutlierCustomNotificationPtrInput` via:
+// AlertGroupOutlierCustomNotificationPtrInput is an input type that accepts AlertGroupOutlierCustomNotificationArgs, AlertGroupOutlierCustomNotificationPtr and AlertGroupOutlierCustomNotificationPtrOutput values.
+// You can construct a concrete instance of `AlertGroupOutlierCustomNotificationPtrInput` via:
 //
-//          GroupOutlierCustomNotificationArgs{...}
+//          AlertGroupOutlierCustomNotificationArgs{...}
 //
 //  or:
 //
 //          nil
-type GroupOutlierCustomNotificationPtrInput interface {
+type AlertGroupOutlierCustomNotificationPtrInput interface {
 	pulumi.Input
 
-	ToGroupOutlierCustomNotificationPtrOutput() GroupOutlierCustomNotificationPtrOutput
-	ToGroupOutlierCustomNotificationPtrOutputWithContext(context.Context) GroupOutlierCustomNotificationPtrOutput
+	ToAlertGroupOutlierCustomNotificationPtrOutput() AlertGroupOutlierCustomNotificationPtrOutput
+	ToAlertGroupOutlierCustomNotificationPtrOutputWithContext(context.Context) AlertGroupOutlierCustomNotificationPtrOutput
 }
 
-type groupOutlierCustomNotificationPtrType GroupOutlierCustomNotificationArgs
+type alertGroupOutlierCustomNotificationPtrType AlertGroupOutlierCustomNotificationArgs
 
-func GroupOutlierCustomNotificationPtr(v *GroupOutlierCustomNotificationArgs) GroupOutlierCustomNotificationPtrInput {
-	return (*groupOutlierCustomNotificationPtrType)(v)
+func AlertGroupOutlierCustomNotificationPtr(v *AlertGroupOutlierCustomNotificationArgs) AlertGroupOutlierCustomNotificationPtrInput {
+	return (*alertGroupOutlierCustomNotificationPtrType)(v)
 }
 
-func (*groupOutlierCustomNotificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupOutlierCustomNotification)(nil)).Elem()
+func (*alertGroupOutlierCustomNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertGroupOutlierCustomNotification)(nil)).Elem()
 }
 
-func (i *groupOutlierCustomNotificationPtrType) ToGroupOutlierCustomNotificationPtrOutput() GroupOutlierCustomNotificationPtrOutput {
-	return i.ToGroupOutlierCustomNotificationPtrOutputWithContext(context.Background())
+func (i *alertGroupOutlierCustomNotificationPtrType) ToAlertGroupOutlierCustomNotificationPtrOutput() AlertGroupOutlierCustomNotificationPtrOutput {
+	return i.ToAlertGroupOutlierCustomNotificationPtrOutputWithContext(context.Background())
 }
 
-func (i *groupOutlierCustomNotificationPtrType) ToGroupOutlierCustomNotificationPtrOutputWithContext(ctx context.Context) GroupOutlierCustomNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupOutlierCustomNotificationPtrOutput)
+func (i *alertGroupOutlierCustomNotificationPtrType) ToAlertGroupOutlierCustomNotificationPtrOutputWithContext(ctx context.Context) AlertGroupOutlierCustomNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertGroupOutlierCustomNotificationPtrOutput)
 }
 
-type GroupOutlierCustomNotificationOutput struct{ *pulumi.OutputState }
+type AlertGroupOutlierCustomNotificationOutput struct{ *pulumi.OutputState }
 
-func (GroupOutlierCustomNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupOutlierCustomNotification)(nil)).Elem()
+func (AlertGroupOutlierCustomNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertGroupOutlierCustomNotification)(nil)).Elem()
 }
 
-func (o GroupOutlierCustomNotificationOutput) ToGroupOutlierCustomNotificationOutput() GroupOutlierCustomNotificationOutput {
+func (o AlertGroupOutlierCustomNotificationOutput) ToAlertGroupOutlierCustomNotificationOutput() AlertGroupOutlierCustomNotificationOutput {
 	return o
 }
 
-func (o GroupOutlierCustomNotificationOutput) ToGroupOutlierCustomNotificationOutputWithContext(ctx context.Context) GroupOutlierCustomNotificationOutput {
+func (o AlertGroupOutlierCustomNotificationOutput) ToAlertGroupOutlierCustomNotificationOutputWithContext(ctx context.Context) AlertGroupOutlierCustomNotificationOutput {
 	return o
 }
 
-func (o GroupOutlierCustomNotificationOutput) ToGroupOutlierCustomNotificationPtrOutput() GroupOutlierCustomNotificationPtrOutput {
-	return o.ToGroupOutlierCustomNotificationPtrOutputWithContext(context.Background())
+func (o AlertGroupOutlierCustomNotificationOutput) ToAlertGroupOutlierCustomNotificationPtrOutput() AlertGroupOutlierCustomNotificationPtrOutput {
+	return o.ToAlertGroupOutlierCustomNotificationPtrOutputWithContext(context.Background())
 }
 
-func (o GroupOutlierCustomNotificationOutput) ToGroupOutlierCustomNotificationPtrOutputWithContext(ctx context.Context) GroupOutlierCustomNotificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupOutlierCustomNotification) *GroupOutlierCustomNotification {
+func (o AlertGroupOutlierCustomNotificationOutput) ToAlertGroupOutlierCustomNotificationPtrOutputWithContext(ctx context.Context) AlertGroupOutlierCustomNotificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertGroupOutlierCustomNotification) *AlertGroupOutlierCustomNotification {
 		return &v
-	}).(GroupOutlierCustomNotificationPtrOutput)
+	}).(AlertGroupOutlierCustomNotificationPtrOutput)
 }
 
-func (o GroupOutlierCustomNotificationOutput) Append() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupOutlierCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
+func (o AlertGroupOutlierCustomNotificationOutput) Append() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertGroupOutlierCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
 }
 
-func (o GroupOutlierCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupOutlierCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
+func (o AlertGroupOutlierCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertGroupOutlierCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
 }
 
-func (o GroupOutlierCustomNotificationOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupOutlierCustomNotification) string { return v.Title }).(pulumi.StringOutput)
+func (o AlertGroupOutlierCustomNotificationOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertGroupOutlierCustomNotification) string { return v.Title }).(pulumi.StringOutput)
 }
 
-type GroupOutlierCustomNotificationPtrOutput struct{ *pulumi.OutputState }
+type AlertGroupOutlierCustomNotificationPtrOutput struct{ *pulumi.OutputState }
 
-func (GroupOutlierCustomNotificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupOutlierCustomNotification)(nil)).Elem()
+func (AlertGroupOutlierCustomNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertGroupOutlierCustomNotification)(nil)).Elem()
 }
 
-func (o GroupOutlierCustomNotificationPtrOutput) ToGroupOutlierCustomNotificationPtrOutput() GroupOutlierCustomNotificationPtrOutput {
+func (o AlertGroupOutlierCustomNotificationPtrOutput) ToAlertGroupOutlierCustomNotificationPtrOutput() AlertGroupOutlierCustomNotificationPtrOutput {
 	return o
 }
 
-func (o GroupOutlierCustomNotificationPtrOutput) ToGroupOutlierCustomNotificationPtrOutputWithContext(ctx context.Context) GroupOutlierCustomNotificationPtrOutput {
+func (o AlertGroupOutlierCustomNotificationPtrOutput) ToAlertGroupOutlierCustomNotificationPtrOutputWithContext(ctx context.Context) AlertGroupOutlierCustomNotificationPtrOutput {
 	return o
 }
 
-func (o GroupOutlierCustomNotificationPtrOutput) Elem() GroupOutlierCustomNotificationOutput {
-	return o.ApplyT(func(v *GroupOutlierCustomNotification) GroupOutlierCustomNotification {
+func (o AlertGroupOutlierCustomNotificationPtrOutput) Elem() AlertGroupOutlierCustomNotificationOutput {
+	return o.ApplyT(func(v *AlertGroupOutlierCustomNotification) AlertGroupOutlierCustomNotification {
 		if v != nil {
 			return *v
 		}
-		var ret GroupOutlierCustomNotification
+		var ret AlertGroupOutlierCustomNotification
 		return ret
-	}).(GroupOutlierCustomNotificationOutput)
+	}).(AlertGroupOutlierCustomNotificationOutput)
 }
 
-func (o GroupOutlierCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupOutlierCustomNotification) *string {
+func (o AlertGroupOutlierCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertGroupOutlierCustomNotification) *string {
 		if v == nil {
 			return nil
 		}
@@ -1668,8 +1668,8 @@ func (o GroupOutlierCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GroupOutlierCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupOutlierCustomNotification) *string {
+func (o AlertGroupOutlierCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertGroupOutlierCustomNotification) *string {
 		if v == nil {
 			return nil
 		}
@@ -1677,8 +1677,8 @@ func (o GroupOutlierCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GroupOutlierCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupOutlierCustomNotification) *string {
+func (o AlertGroupOutlierCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertGroupOutlierCustomNotification) *string {
 		if v == nil {
 			return nil
 		}
@@ -1686,144 +1686,144 @@ func (o GroupOutlierCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-type MetricCapture struct {
+type AlertMetricCapture struct {
 	Duration int     `pulumi:"duration"`
 	Filename string  `pulumi:"filename"`
 	Filter   *string `pulumi:"filter"`
 }
 
-// MetricCaptureInput is an input type that accepts MetricCaptureArgs and MetricCaptureOutput values.
-// You can construct a concrete instance of `MetricCaptureInput` via:
+// AlertMetricCaptureInput is an input type that accepts AlertMetricCaptureArgs and AlertMetricCaptureOutput values.
+// You can construct a concrete instance of `AlertMetricCaptureInput` via:
 //
-//          MetricCaptureArgs{...}
-type MetricCaptureInput interface {
+//          AlertMetricCaptureArgs{...}
+type AlertMetricCaptureInput interface {
 	pulumi.Input
 
-	ToMetricCaptureOutput() MetricCaptureOutput
-	ToMetricCaptureOutputWithContext(context.Context) MetricCaptureOutput
+	ToAlertMetricCaptureOutput() AlertMetricCaptureOutput
+	ToAlertMetricCaptureOutputWithContext(context.Context) AlertMetricCaptureOutput
 }
 
-type MetricCaptureArgs struct {
+type AlertMetricCaptureArgs struct {
 	Duration pulumi.IntInput       `pulumi:"duration"`
 	Filename pulumi.StringInput    `pulumi:"filename"`
 	Filter   pulumi.StringPtrInput `pulumi:"filter"`
 }
 
-func (MetricCaptureArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricCapture)(nil)).Elem()
+func (AlertMetricCaptureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMetricCapture)(nil)).Elem()
 }
 
-func (i MetricCaptureArgs) ToMetricCaptureOutput() MetricCaptureOutput {
-	return i.ToMetricCaptureOutputWithContext(context.Background())
+func (i AlertMetricCaptureArgs) ToAlertMetricCaptureOutput() AlertMetricCaptureOutput {
+	return i.ToAlertMetricCaptureOutputWithContext(context.Background())
 }
 
-func (i MetricCaptureArgs) ToMetricCaptureOutputWithContext(ctx context.Context) MetricCaptureOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricCaptureOutput)
+func (i AlertMetricCaptureArgs) ToAlertMetricCaptureOutputWithContext(ctx context.Context) AlertMetricCaptureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMetricCaptureOutput)
 }
 
-func (i MetricCaptureArgs) ToMetricCapturePtrOutput() MetricCapturePtrOutput {
-	return i.ToMetricCapturePtrOutputWithContext(context.Background())
+func (i AlertMetricCaptureArgs) ToAlertMetricCapturePtrOutput() AlertMetricCapturePtrOutput {
+	return i.ToAlertMetricCapturePtrOutputWithContext(context.Background())
 }
 
-func (i MetricCaptureArgs) ToMetricCapturePtrOutputWithContext(ctx context.Context) MetricCapturePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricCaptureOutput).ToMetricCapturePtrOutputWithContext(ctx)
+func (i AlertMetricCaptureArgs) ToAlertMetricCapturePtrOutputWithContext(ctx context.Context) AlertMetricCapturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMetricCaptureOutput).ToAlertMetricCapturePtrOutputWithContext(ctx)
 }
 
-// MetricCapturePtrInput is an input type that accepts MetricCaptureArgs, MetricCapturePtr and MetricCapturePtrOutput values.
-// You can construct a concrete instance of `MetricCapturePtrInput` via:
+// AlertMetricCapturePtrInput is an input type that accepts AlertMetricCaptureArgs, AlertMetricCapturePtr and AlertMetricCapturePtrOutput values.
+// You can construct a concrete instance of `AlertMetricCapturePtrInput` via:
 //
-//          MetricCaptureArgs{...}
+//          AlertMetricCaptureArgs{...}
 //
 //  or:
 //
 //          nil
-type MetricCapturePtrInput interface {
+type AlertMetricCapturePtrInput interface {
 	pulumi.Input
 
-	ToMetricCapturePtrOutput() MetricCapturePtrOutput
-	ToMetricCapturePtrOutputWithContext(context.Context) MetricCapturePtrOutput
+	ToAlertMetricCapturePtrOutput() AlertMetricCapturePtrOutput
+	ToAlertMetricCapturePtrOutputWithContext(context.Context) AlertMetricCapturePtrOutput
 }
 
-type metricCapturePtrType MetricCaptureArgs
+type alertMetricCapturePtrType AlertMetricCaptureArgs
 
-func MetricCapturePtr(v *MetricCaptureArgs) MetricCapturePtrInput {
-	return (*metricCapturePtrType)(v)
+func AlertMetricCapturePtr(v *AlertMetricCaptureArgs) AlertMetricCapturePtrInput {
+	return (*alertMetricCapturePtrType)(v)
 }
 
-func (*metricCapturePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricCapture)(nil)).Elem()
+func (*alertMetricCapturePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertMetricCapture)(nil)).Elem()
 }
 
-func (i *metricCapturePtrType) ToMetricCapturePtrOutput() MetricCapturePtrOutput {
-	return i.ToMetricCapturePtrOutputWithContext(context.Background())
+func (i *alertMetricCapturePtrType) ToAlertMetricCapturePtrOutput() AlertMetricCapturePtrOutput {
+	return i.ToAlertMetricCapturePtrOutputWithContext(context.Background())
 }
 
-func (i *metricCapturePtrType) ToMetricCapturePtrOutputWithContext(ctx context.Context) MetricCapturePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricCapturePtrOutput)
+func (i *alertMetricCapturePtrType) ToAlertMetricCapturePtrOutputWithContext(ctx context.Context) AlertMetricCapturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMetricCapturePtrOutput)
 }
 
-type MetricCaptureOutput struct{ *pulumi.OutputState }
+type AlertMetricCaptureOutput struct{ *pulumi.OutputState }
 
-func (MetricCaptureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricCapture)(nil)).Elem()
+func (AlertMetricCaptureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMetricCapture)(nil)).Elem()
 }
 
-func (o MetricCaptureOutput) ToMetricCaptureOutput() MetricCaptureOutput {
+func (o AlertMetricCaptureOutput) ToAlertMetricCaptureOutput() AlertMetricCaptureOutput {
 	return o
 }
 
-func (o MetricCaptureOutput) ToMetricCaptureOutputWithContext(ctx context.Context) MetricCaptureOutput {
+func (o AlertMetricCaptureOutput) ToAlertMetricCaptureOutputWithContext(ctx context.Context) AlertMetricCaptureOutput {
 	return o
 }
 
-func (o MetricCaptureOutput) ToMetricCapturePtrOutput() MetricCapturePtrOutput {
-	return o.ToMetricCapturePtrOutputWithContext(context.Background())
+func (o AlertMetricCaptureOutput) ToAlertMetricCapturePtrOutput() AlertMetricCapturePtrOutput {
+	return o.ToAlertMetricCapturePtrOutputWithContext(context.Background())
 }
 
-func (o MetricCaptureOutput) ToMetricCapturePtrOutputWithContext(ctx context.Context) MetricCapturePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricCapture) *MetricCapture {
+func (o AlertMetricCaptureOutput) ToAlertMetricCapturePtrOutputWithContext(ctx context.Context) AlertMetricCapturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertMetricCapture) *AlertMetricCapture {
 		return &v
-	}).(MetricCapturePtrOutput)
+	}).(AlertMetricCapturePtrOutput)
 }
 
-func (o MetricCaptureOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func(v MetricCapture) int { return v.Duration }).(pulumi.IntOutput)
+func (o AlertMetricCaptureOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v AlertMetricCapture) int { return v.Duration }).(pulumi.IntOutput)
 }
 
-func (o MetricCaptureOutput) Filename() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricCapture) string { return v.Filename }).(pulumi.StringOutput)
+func (o AlertMetricCaptureOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertMetricCapture) string { return v.Filename }).(pulumi.StringOutput)
 }
 
-func (o MetricCaptureOutput) Filter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MetricCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
+func (o AlertMetricCaptureOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertMetricCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
-type MetricCapturePtrOutput struct{ *pulumi.OutputState }
+type AlertMetricCapturePtrOutput struct{ *pulumi.OutputState }
 
-func (MetricCapturePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricCapture)(nil)).Elem()
+func (AlertMetricCapturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertMetricCapture)(nil)).Elem()
 }
 
-func (o MetricCapturePtrOutput) ToMetricCapturePtrOutput() MetricCapturePtrOutput {
+func (o AlertMetricCapturePtrOutput) ToAlertMetricCapturePtrOutput() AlertMetricCapturePtrOutput {
 	return o
 }
 
-func (o MetricCapturePtrOutput) ToMetricCapturePtrOutputWithContext(ctx context.Context) MetricCapturePtrOutput {
+func (o AlertMetricCapturePtrOutput) ToAlertMetricCapturePtrOutputWithContext(ctx context.Context) AlertMetricCapturePtrOutput {
 	return o
 }
 
-func (o MetricCapturePtrOutput) Elem() MetricCaptureOutput {
-	return o.ApplyT(func(v *MetricCapture) MetricCapture {
+func (o AlertMetricCapturePtrOutput) Elem() AlertMetricCaptureOutput {
+	return o.ApplyT(func(v *AlertMetricCapture) AlertMetricCapture {
 		if v != nil {
 			return *v
 		}
-		var ret MetricCapture
+		var ret AlertMetricCapture
 		return ret
-	}).(MetricCaptureOutput)
+	}).(AlertMetricCaptureOutput)
 }
 
-func (o MetricCapturePtrOutput) Duration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MetricCapture) *int {
+func (o AlertMetricCapturePtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertMetricCapture) *int {
 		if v == nil {
 			return nil
 		}
@@ -1831,8 +1831,8 @@ func (o MetricCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o MetricCapturePtrOutput) Filename() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MetricCapture) *string {
+func (o AlertMetricCapturePtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMetricCapture) *string {
 		if v == nil {
 			return nil
 		}
@@ -1840,8 +1840,8 @@ func (o MetricCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MetricCapturePtrOutput) Filter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MetricCapture) *string {
+func (o AlertMetricCapturePtrOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMetricCapture) *string {
 		if v == nil {
 			return nil
 		}
@@ -1849,144 +1849,144 @@ func (o MetricCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type MetricCustomNotification struct {
+type AlertMetricCustomNotification struct {
 	Append  *string `pulumi:"append"`
 	Prepend *string `pulumi:"prepend"`
 	Title   string  `pulumi:"title"`
 }
 
-// MetricCustomNotificationInput is an input type that accepts MetricCustomNotificationArgs and MetricCustomNotificationOutput values.
-// You can construct a concrete instance of `MetricCustomNotificationInput` via:
+// AlertMetricCustomNotificationInput is an input type that accepts AlertMetricCustomNotificationArgs and AlertMetricCustomNotificationOutput values.
+// You can construct a concrete instance of `AlertMetricCustomNotificationInput` via:
 //
-//          MetricCustomNotificationArgs{...}
-type MetricCustomNotificationInput interface {
+//          AlertMetricCustomNotificationArgs{...}
+type AlertMetricCustomNotificationInput interface {
 	pulumi.Input
 
-	ToMetricCustomNotificationOutput() MetricCustomNotificationOutput
-	ToMetricCustomNotificationOutputWithContext(context.Context) MetricCustomNotificationOutput
+	ToAlertMetricCustomNotificationOutput() AlertMetricCustomNotificationOutput
+	ToAlertMetricCustomNotificationOutputWithContext(context.Context) AlertMetricCustomNotificationOutput
 }
 
-type MetricCustomNotificationArgs struct {
+type AlertMetricCustomNotificationArgs struct {
 	Append  pulumi.StringPtrInput `pulumi:"append"`
 	Prepend pulumi.StringPtrInput `pulumi:"prepend"`
 	Title   pulumi.StringInput    `pulumi:"title"`
 }
 
-func (MetricCustomNotificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricCustomNotification)(nil)).Elem()
+func (AlertMetricCustomNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMetricCustomNotification)(nil)).Elem()
 }
 
-func (i MetricCustomNotificationArgs) ToMetricCustomNotificationOutput() MetricCustomNotificationOutput {
-	return i.ToMetricCustomNotificationOutputWithContext(context.Background())
+func (i AlertMetricCustomNotificationArgs) ToAlertMetricCustomNotificationOutput() AlertMetricCustomNotificationOutput {
+	return i.ToAlertMetricCustomNotificationOutputWithContext(context.Background())
 }
 
-func (i MetricCustomNotificationArgs) ToMetricCustomNotificationOutputWithContext(ctx context.Context) MetricCustomNotificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricCustomNotificationOutput)
+func (i AlertMetricCustomNotificationArgs) ToAlertMetricCustomNotificationOutputWithContext(ctx context.Context) AlertMetricCustomNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMetricCustomNotificationOutput)
 }
 
-func (i MetricCustomNotificationArgs) ToMetricCustomNotificationPtrOutput() MetricCustomNotificationPtrOutput {
-	return i.ToMetricCustomNotificationPtrOutputWithContext(context.Background())
+func (i AlertMetricCustomNotificationArgs) ToAlertMetricCustomNotificationPtrOutput() AlertMetricCustomNotificationPtrOutput {
+	return i.ToAlertMetricCustomNotificationPtrOutputWithContext(context.Background())
 }
 
-func (i MetricCustomNotificationArgs) ToMetricCustomNotificationPtrOutputWithContext(ctx context.Context) MetricCustomNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricCustomNotificationOutput).ToMetricCustomNotificationPtrOutputWithContext(ctx)
+func (i AlertMetricCustomNotificationArgs) ToAlertMetricCustomNotificationPtrOutputWithContext(ctx context.Context) AlertMetricCustomNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMetricCustomNotificationOutput).ToAlertMetricCustomNotificationPtrOutputWithContext(ctx)
 }
 
-// MetricCustomNotificationPtrInput is an input type that accepts MetricCustomNotificationArgs, MetricCustomNotificationPtr and MetricCustomNotificationPtrOutput values.
-// You can construct a concrete instance of `MetricCustomNotificationPtrInput` via:
+// AlertMetricCustomNotificationPtrInput is an input type that accepts AlertMetricCustomNotificationArgs, AlertMetricCustomNotificationPtr and AlertMetricCustomNotificationPtrOutput values.
+// You can construct a concrete instance of `AlertMetricCustomNotificationPtrInput` via:
 //
-//          MetricCustomNotificationArgs{...}
+//          AlertMetricCustomNotificationArgs{...}
 //
 //  or:
 //
 //          nil
-type MetricCustomNotificationPtrInput interface {
+type AlertMetricCustomNotificationPtrInput interface {
 	pulumi.Input
 
-	ToMetricCustomNotificationPtrOutput() MetricCustomNotificationPtrOutput
-	ToMetricCustomNotificationPtrOutputWithContext(context.Context) MetricCustomNotificationPtrOutput
+	ToAlertMetricCustomNotificationPtrOutput() AlertMetricCustomNotificationPtrOutput
+	ToAlertMetricCustomNotificationPtrOutputWithContext(context.Context) AlertMetricCustomNotificationPtrOutput
 }
 
-type metricCustomNotificationPtrType MetricCustomNotificationArgs
+type alertMetricCustomNotificationPtrType AlertMetricCustomNotificationArgs
 
-func MetricCustomNotificationPtr(v *MetricCustomNotificationArgs) MetricCustomNotificationPtrInput {
-	return (*metricCustomNotificationPtrType)(v)
+func AlertMetricCustomNotificationPtr(v *AlertMetricCustomNotificationArgs) AlertMetricCustomNotificationPtrInput {
+	return (*alertMetricCustomNotificationPtrType)(v)
 }
 
-func (*metricCustomNotificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricCustomNotification)(nil)).Elem()
+func (*alertMetricCustomNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertMetricCustomNotification)(nil)).Elem()
 }
 
-func (i *metricCustomNotificationPtrType) ToMetricCustomNotificationPtrOutput() MetricCustomNotificationPtrOutput {
-	return i.ToMetricCustomNotificationPtrOutputWithContext(context.Background())
+func (i *alertMetricCustomNotificationPtrType) ToAlertMetricCustomNotificationPtrOutput() AlertMetricCustomNotificationPtrOutput {
+	return i.ToAlertMetricCustomNotificationPtrOutputWithContext(context.Background())
 }
 
-func (i *metricCustomNotificationPtrType) ToMetricCustomNotificationPtrOutputWithContext(ctx context.Context) MetricCustomNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricCustomNotificationPtrOutput)
+func (i *alertMetricCustomNotificationPtrType) ToAlertMetricCustomNotificationPtrOutputWithContext(ctx context.Context) AlertMetricCustomNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertMetricCustomNotificationPtrOutput)
 }
 
-type MetricCustomNotificationOutput struct{ *pulumi.OutputState }
+type AlertMetricCustomNotificationOutput struct{ *pulumi.OutputState }
 
-func (MetricCustomNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricCustomNotification)(nil)).Elem()
+func (AlertMetricCustomNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertMetricCustomNotification)(nil)).Elem()
 }
 
-func (o MetricCustomNotificationOutput) ToMetricCustomNotificationOutput() MetricCustomNotificationOutput {
+func (o AlertMetricCustomNotificationOutput) ToAlertMetricCustomNotificationOutput() AlertMetricCustomNotificationOutput {
 	return o
 }
 
-func (o MetricCustomNotificationOutput) ToMetricCustomNotificationOutputWithContext(ctx context.Context) MetricCustomNotificationOutput {
+func (o AlertMetricCustomNotificationOutput) ToAlertMetricCustomNotificationOutputWithContext(ctx context.Context) AlertMetricCustomNotificationOutput {
 	return o
 }
 
-func (o MetricCustomNotificationOutput) ToMetricCustomNotificationPtrOutput() MetricCustomNotificationPtrOutput {
-	return o.ToMetricCustomNotificationPtrOutputWithContext(context.Background())
+func (o AlertMetricCustomNotificationOutput) ToAlertMetricCustomNotificationPtrOutput() AlertMetricCustomNotificationPtrOutput {
+	return o.ToAlertMetricCustomNotificationPtrOutputWithContext(context.Background())
 }
 
-func (o MetricCustomNotificationOutput) ToMetricCustomNotificationPtrOutputWithContext(ctx context.Context) MetricCustomNotificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricCustomNotification) *MetricCustomNotification {
+func (o AlertMetricCustomNotificationOutput) ToAlertMetricCustomNotificationPtrOutputWithContext(ctx context.Context) AlertMetricCustomNotificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertMetricCustomNotification) *AlertMetricCustomNotification {
 		return &v
-	}).(MetricCustomNotificationPtrOutput)
+	}).(AlertMetricCustomNotificationPtrOutput)
 }
 
-func (o MetricCustomNotificationOutput) Append() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MetricCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
+func (o AlertMetricCustomNotificationOutput) Append() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertMetricCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
 }
 
-func (o MetricCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MetricCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
+func (o AlertMetricCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertMetricCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
 }
 
-func (o MetricCustomNotificationOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricCustomNotification) string { return v.Title }).(pulumi.StringOutput)
+func (o AlertMetricCustomNotificationOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertMetricCustomNotification) string { return v.Title }).(pulumi.StringOutput)
 }
 
-type MetricCustomNotificationPtrOutput struct{ *pulumi.OutputState }
+type AlertMetricCustomNotificationPtrOutput struct{ *pulumi.OutputState }
 
-func (MetricCustomNotificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricCustomNotification)(nil)).Elem()
+func (AlertMetricCustomNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertMetricCustomNotification)(nil)).Elem()
 }
 
-func (o MetricCustomNotificationPtrOutput) ToMetricCustomNotificationPtrOutput() MetricCustomNotificationPtrOutput {
+func (o AlertMetricCustomNotificationPtrOutput) ToAlertMetricCustomNotificationPtrOutput() AlertMetricCustomNotificationPtrOutput {
 	return o
 }
 
-func (o MetricCustomNotificationPtrOutput) ToMetricCustomNotificationPtrOutputWithContext(ctx context.Context) MetricCustomNotificationPtrOutput {
+func (o AlertMetricCustomNotificationPtrOutput) ToAlertMetricCustomNotificationPtrOutputWithContext(ctx context.Context) AlertMetricCustomNotificationPtrOutput {
 	return o
 }
 
-func (o MetricCustomNotificationPtrOutput) Elem() MetricCustomNotificationOutput {
-	return o.ApplyT(func(v *MetricCustomNotification) MetricCustomNotification {
+func (o AlertMetricCustomNotificationPtrOutput) Elem() AlertMetricCustomNotificationOutput {
+	return o.ApplyT(func(v *AlertMetricCustomNotification) AlertMetricCustomNotification {
 		if v != nil {
 			return *v
 		}
-		var ret MetricCustomNotification
+		var ret AlertMetricCustomNotification
 		return ret
-	}).(MetricCustomNotificationOutput)
+	}).(AlertMetricCustomNotificationOutput)
 }
 
-func (o MetricCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MetricCustomNotification) *string {
+func (o AlertMetricCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMetricCustomNotification) *string {
 		if v == nil {
 			return nil
 		}
@@ -1994,8 +1994,8 @@ func (o MetricCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MetricCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MetricCustomNotification) *string {
+func (o AlertMetricCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMetricCustomNotification) *string {
 		if v == nil {
 			return nil
 		}
@@ -2003,8 +2003,8 @@ func (o MetricCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MetricCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MetricCustomNotification) *string {
+func (o AlertMetricCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertMetricCustomNotification) *string {
 		if v == nil {
 			return nil
 		}
@@ -2012,144 +2012,144 @@ func (o MetricCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type PromqlCapture struct {
+type AlertPromqlCapture struct {
 	Duration int     `pulumi:"duration"`
 	Filename string  `pulumi:"filename"`
 	Filter   *string `pulumi:"filter"`
 }
 
-// PromqlCaptureInput is an input type that accepts PromqlCaptureArgs and PromqlCaptureOutput values.
-// You can construct a concrete instance of `PromqlCaptureInput` via:
+// AlertPromqlCaptureInput is an input type that accepts AlertPromqlCaptureArgs and AlertPromqlCaptureOutput values.
+// You can construct a concrete instance of `AlertPromqlCaptureInput` via:
 //
-//          PromqlCaptureArgs{...}
-type PromqlCaptureInput interface {
+//          AlertPromqlCaptureArgs{...}
+type AlertPromqlCaptureInput interface {
 	pulumi.Input
 
-	ToPromqlCaptureOutput() PromqlCaptureOutput
-	ToPromqlCaptureOutputWithContext(context.Context) PromqlCaptureOutput
+	ToAlertPromqlCaptureOutput() AlertPromqlCaptureOutput
+	ToAlertPromqlCaptureOutputWithContext(context.Context) AlertPromqlCaptureOutput
 }
 
-type PromqlCaptureArgs struct {
+type AlertPromqlCaptureArgs struct {
 	Duration pulumi.IntInput       `pulumi:"duration"`
 	Filename pulumi.StringInput    `pulumi:"filename"`
 	Filter   pulumi.StringPtrInput `pulumi:"filter"`
 }
 
-func (PromqlCaptureArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromqlCapture)(nil)).Elem()
+func (AlertPromqlCaptureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPromqlCapture)(nil)).Elem()
 }
 
-func (i PromqlCaptureArgs) ToPromqlCaptureOutput() PromqlCaptureOutput {
-	return i.ToPromqlCaptureOutputWithContext(context.Background())
+func (i AlertPromqlCaptureArgs) ToAlertPromqlCaptureOutput() AlertPromqlCaptureOutput {
+	return i.ToAlertPromqlCaptureOutputWithContext(context.Background())
 }
 
-func (i PromqlCaptureArgs) ToPromqlCaptureOutputWithContext(ctx context.Context) PromqlCaptureOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromqlCaptureOutput)
+func (i AlertPromqlCaptureArgs) ToAlertPromqlCaptureOutputWithContext(ctx context.Context) AlertPromqlCaptureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPromqlCaptureOutput)
 }
 
-func (i PromqlCaptureArgs) ToPromqlCapturePtrOutput() PromqlCapturePtrOutput {
-	return i.ToPromqlCapturePtrOutputWithContext(context.Background())
+func (i AlertPromqlCaptureArgs) ToAlertPromqlCapturePtrOutput() AlertPromqlCapturePtrOutput {
+	return i.ToAlertPromqlCapturePtrOutputWithContext(context.Background())
 }
 
-func (i PromqlCaptureArgs) ToPromqlCapturePtrOutputWithContext(ctx context.Context) PromqlCapturePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromqlCaptureOutput).ToPromqlCapturePtrOutputWithContext(ctx)
+func (i AlertPromqlCaptureArgs) ToAlertPromqlCapturePtrOutputWithContext(ctx context.Context) AlertPromqlCapturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPromqlCaptureOutput).ToAlertPromqlCapturePtrOutputWithContext(ctx)
 }
 
-// PromqlCapturePtrInput is an input type that accepts PromqlCaptureArgs, PromqlCapturePtr and PromqlCapturePtrOutput values.
-// You can construct a concrete instance of `PromqlCapturePtrInput` via:
+// AlertPromqlCapturePtrInput is an input type that accepts AlertPromqlCaptureArgs, AlertPromqlCapturePtr and AlertPromqlCapturePtrOutput values.
+// You can construct a concrete instance of `AlertPromqlCapturePtrInput` via:
 //
-//          PromqlCaptureArgs{...}
+//          AlertPromqlCaptureArgs{...}
 //
 //  or:
 //
 //          nil
-type PromqlCapturePtrInput interface {
+type AlertPromqlCapturePtrInput interface {
 	pulumi.Input
 
-	ToPromqlCapturePtrOutput() PromqlCapturePtrOutput
-	ToPromqlCapturePtrOutputWithContext(context.Context) PromqlCapturePtrOutput
+	ToAlertPromqlCapturePtrOutput() AlertPromqlCapturePtrOutput
+	ToAlertPromqlCapturePtrOutputWithContext(context.Context) AlertPromqlCapturePtrOutput
 }
 
-type promqlCapturePtrType PromqlCaptureArgs
+type alertPromqlCapturePtrType AlertPromqlCaptureArgs
 
-func PromqlCapturePtr(v *PromqlCaptureArgs) PromqlCapturePtrInput {
-	return (*promqlCapturePtrType)(v)
+func AlertPromqlCapturePtr(v *AlertPromqlCaptureArgs) AlertPromqlCapturePtrInput {
+	return (*alertPromqlCapturePtrType)(v)
 }
 
-func (*promqlCapturePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PromqlCapture)(nil)).Elem()
+func (*alertPromqlCapturePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertPromqlCapture)(nil)).Elem()
 }
 
-func (i *promqlCapturePtrType) ToPromqlCapturePtrOutput() PromqlCapturePtrOutput {
-	return i.ToPromqlCapturePtrOutputWithContext(context.Background())
+func (i *alertPromqlCapturePtrType) ToAlertPromqlCapturePtrOutput() AlertPromqlCapturePtrOutput {
+	return i.ToAlertPromqlCapturePtrOutputWithContext(context.Background())
 }
 
-func (i *promqlCapturePtrType) ToPromqlCapturePtrOutputWithContext(ctx context.Context) PromqlCapturePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromqlCapturePtrOutput)
+func (i *alertPromqlCapturePtrType) ToAlertPromqlCapturePtrOutputWithContext(ctx context.Context) AlertPromqlCapturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPromqlCapturePtrOutput)
 }
 
-type PromqlCaptureOutput struct{ *pulumi.OutputState }
+type AlertPromqlCaptureOutput struct{ *pulumi.OutputState }
 
-func (PromqlCaptureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromqlCapture)(nil)).Elem()
+func (AlertPromqlCaptureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPromqlCapture)(nil)).Elem()
 }
 
-func (o PromqlCaptureOutput) ToPromqlCaptureOutput() PromqlCaptureOutput {
+func (o AlertPromqlCaptureOutput) ToAlertPromqlCaptureOutput() AlertPromqlCaptureOutput {
 	return o
 }
 
-func (o PromqlCaptureOutput) ToPromqlCaptureOutputWithContext(ctx context.Context) PromqlCaptureOutput {
+func (o AlertPromqlCaptureOutput) ToAlertPromqlCaptureOutputWithContext(ctx context.Context) AlertPromqlCaptureOutput {
 	return o
 }
 
-func (o PromqlCaptureOutput) ToPromqlCapturePtrOutput() PromqlCapturePtrOutput {
-	return o.ToPromqlCapturePtrOutputWithContext(context.Background())
+func (o AlertPromqlCaptureOutput) ToAlertPromqlCapturePtrOutput() AlertPromqlCapturePtrOutput {
+	return o.ToAlertPromqlCapturePtrOutputWithContext(context.Background())
 }
 
-func (o PromqlCaptureOutput) ToPromqlCapturePtrOutputWithContext(ctx context.Context) PromqlCapturePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromqlCapture) *PromqlCapture {
+func (o AlertPromqlCaptureOutput) ToAlertPromqlCapturePtrOutputWithContext(ctx context.Context) AlertPromqlCapturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertPromqlCapture) *AlertPromqlCapture {
 		return &v
-	}).(PromqlCapturePtrOutput)
+	}).(AlertPromqlCapturePtrOutput)
 }
 
-func (o PromqlCaptureOutput) Duration() pulumi.IntOutput {
-	return o.ApplyT(func(v PromqlCapture) int { return v.Duration }).(pulumi.IntOutput)
+func (o AlertPromqlCaptureOutput) Duration() pulumi.IntOutput {
+	return o.ApplyT(func(v AlertPromqlCapture) int { return v.Duration }).(pulumi.IntOutput)
 }
 
-func (o PromqlCaptureOutput) Filename() pulumi.StringOutput {
-	return o.ApplyT(func(v PromqlCapture) string { return v.Filename }).(pulumi.StringOutput)
+func (o AlertPromqlCaptureOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertPromqlCapture) string { return v.Filename }).(pulumi.StringOutput)
 }
 
-func (o PromqlCaptureOutput) Filter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PromqlCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
+func (o AlertPromqlCaptureOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertPromqlCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
 
-type PromqlCapturePtrOutput struct{ *pulumi.OutputState }
+type AlertPromqlCapturePtrOutput struct{ *pulumi.OutputState }
 
-func (PromqlCapturePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PromqlCapture)(nil)).Elem()
+func (AlertPromqlCapturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertPromqlCapture)(nil)).Elem()
 }
 
-func (o PromqlCapturePtrOutput) ToPromqlCapturePtrOutput() PromqlCapturePtrOutput {
+func (o AlertPromqlCapturePtrOutput) ToAlertPromqlCapturePtrOutput() AlertPromqlCapturePtrOutput {
 	return o
 }
 
-func (o PromqlCapturePtrOutput) ToPromqlCapturePtrOutputWithContext(ctx context.Context) PromqlCapturePtrOutput {
+func (o AlertPromqlCapturePtrOutput) ToAlertPromqlCapturePtrOutputWithContext(ctx context.Context) AlertPromqlCapturePtrOutput {
 	return o
 }
 
-func (o PromqlCapturePtrOutput) Elem() PromqlCaptureOutput {
-	return o.ApplyT(func(v *PromqlCapture) PromqlCapture {
+func (o AlertPromqlCapturePtrOutput) Elem() AlertPromqlCaptureOutput {
+	return o.ApplyT(func(v *AlertPromqlCapture) AlertPromqlCapture {
 		if v != nil {
 			return *v
 		}
-		var ret PromqlCapture
+		var ret AlertPromqlCapture
 		return ret
-	}).(PromqlCaptureOutput)
+	}).(AlertPromqlCaptureOutput)
 }
 
-func (o PromqlCapturePtrOutput) Duration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PromqlCapture) *int {
+func (o AlertPromqlCapturePtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AlertPromqlCapture) *int {
 		if v == nil {
 			return nil
 		}
@@ -2157,8 +2157,8 @@ func (o PromqlCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PromqlCapturePtrOutput) Filename() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PromqlCapture) *string {
+func (o AlertPromqlCapturePtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPromqlCapture) *string {
 		if v == nil {
 			return nil
 		}
@@ -2166,8 +2166,8 @@ func (o PromqlCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PromqlCapturePtrOutput) Filter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PromqlCapture) *string {
+func (o AlertPromqlCapturePtrOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPromqlCapture) *string {
 		if v == nil {
 			return nil
 		}
@@ -2175,144 +2175,144 @@ func (o PromqlCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type PromqlCustomNotification struct {
+type AlertPromqlCustomNotification struct {
 	Append  *string `pulumi:"append"`
 	Prepend *string `pulumi:"prepend"`
 	Title   string  `pulumi:"title"`
 }
 
-// PromqlCustomNotificationInput is an input type that accepts PromqlCustomNotificationArgs and PromqlCustomNotificationOutput values.
-// You can construct a concrete instance of `PromqlCustomNotificationInput` via:
+// AlertPromqlCustomNotificationInput is an input type that accepts AlertPromqlCustomNotificationArgs and AlertPromqlCustomNotificationOutput values.
+// You can construct a concrete instance of `AlertPromqlCustomNotificationInput` via:
 //
-//          PromqlCustomNotificationArgs{...}
-type PromqlCustomNotificationInput interface {
+//          AlertPromqlCustomNotificationArgs{...}
+type AlertPromqlCustomNotificationInput interface {
 	pulumi.Input
 
-	ToPromqlCustomNotificationOutput() PromqlCustomNotificationOutput
-	ToPromqlCustomNotificationOutputWithContext(context.Context) PromqlCustomNotificationOutput
+	ToAlertPromqlCustomNotificationOutput() AlertPromqlCustomNotificationOutput
+	ToAlertPromqlCustomNotificationOutputWithContext(context.Context) AlertPromqlCustomNotificationOutput
 }
 
-type PromqlCustomNotificationArgs struct {
+type AlertPromqlCustomNotificationArgs struct {
 	Append  pulumi.StringPtrInput `pulumi:"append"`
 	Prepend pulumi.StringPtrInput `pulumi:"prepend"`
 	Title   pulumi.StringInput    `pulumi:"title"`
 }
 
-func (PromqlCustomNotificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromqlCustomNotification)(nil)).Elem()
+func (AlertPromqlCustomNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPromqlCustomNotification)(nil)).Elem()
 }
 
-func (i PromqlCustomNotificationArgs) ToPromqlCustomNotificationOutput() PromqlCustomNotificationOutput {
-	return i.ToPromqlCustomNotificationOutputWithContext(context.Background())
+func (i AlertPromqlCustomNotificationArgs) ToAlertPromqlCustomNotificationOutput() AlertPromqlCustomNotificationOutput {
+	return i.ToAlertPromqlCustomNotificationOutputWithContext(context.Background())
 }
 
-func (i PromqlCustomNotificationArgs) ToPromqlCustomNotificationOutputWithContext(ctx context.Context) PromqlCustomNotificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromqlCustomNotificationOutput)
+func (i AlertPromqlCustomNotificationArgs) ToAlertPromqlCustomNotificationOutputWithContext(ctx context.Context) AlertPromqlCustomNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPromqlCustomNotificationOutput)
 }
 
-func (i PromqlCustomNotificationArgs) ToPromqlCustomNotificationPtrOutput() PromqlCustomNotificationPtrOutput {
-	return i.ToPromqlCustomNotificationPtrOutputWithContext(context.Background())
+func (i AlertPromqlCustomNotificationArgs) ToAlertPromqlCustomNotificationPtrOutput() AlertPromqlCustomNotificationPtrOutput {
+	return i.ToAlertPromqlCustomNotificationPtrOutputWithContext(context.Background())
 }
 
-func (i PromqlCustomNotificationArgs) ToPromqlCustomNotificationPtrOutputWithContext(ctx context.Context) PromqlCustomNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromqlCustomNotificationOutput).ToPromqlCustomNotificationPtrOutputWithContext(ctx)
+func (i AlertPromqlCustomNotificationArgs) ToAlertPromqlCustomNotificationPtrOutputWithContext(ctx context.Context) AlertPromqlCustomNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPromqlCustomNotificationOutput).ToAlertPromqlCustomNotificationPtrOutputWithContext(ctx)
 }
 
-// PromqlCustomNotificationPtrInput is an input type that accepts PromqlCustomNotificationArgs, PromqlCustomNotificationPtr and PromqlCustomNotificationPtrOutput values.
-// You can construct a concrete instance of `PromqlCustomNotificationPtrInput` via:
+// AlertPromqlCustomNotificationPtrInput is an input type that accepts AlertPromqlCustomNotificationArgs, AlertPromqlCustomNotificationPtr and AlertPromqlCustomNotificationPtrOutput values.
+// You can construct a concrete instance of `AlertPromqlCustomNotificationPtrInput` via:
 //
-//          PromqlCustomNotificationArgs{...}
+//          AlertPromqlCustomNotificationArgs{...}
 //
 //  or:
 //
 //          nil
-type PromqlCustomNotificationPtrInput interface {
+type AlertPromqlCustomNotificationPtrInput interface {
 	pulumi.Input
 
-	ToPromqlCustomNotificationPtrOutput() PromqlCustomNotificationPtrOutput
-	ToPromqlCustomNotificationPtrOutputWithContext(context.Context) PromqlCustomNotificationPtrOutput
+	ToAlertPromqlCustomNotificationPtrOutput() AlertPromqlCustomNotificationPtrOutput
+	ToAlertPromqlCustomNotificationPtrOutputWithContext(context.Context) AlertPromqlCustomNotificationPtrOutput
 }
 
-type promqlCustomNotificationPtrType PromqlCustomNotificationArgs
+type alertPromqlCustomNotificationPtrType AlertPromqlCustomNotificationArgs
 
-func PromqlCustomNotificationPtr(v *PromqlCustomNotificationArgs) PromqlCustomNotificationPtrInput {
-	return (*promqlCustomNotificationPtrType)(v)
+func AlertPromqlCustomNotificationPtr(v *AlertPromqlCustomNotificationArgs) AlertPromqlCustomNotificationPtrInput {
+	return (*alertPromqlCustomNotificationPtrType)(v)
 }
 
-func (*promqlCustomNotificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PromqlCustomNotification)(nil)).Elem()
+func (*alertPromqlCustomNotificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertPromqlCustomNotification)(nil)).Elem()
 }
 
-func (i *promqlCustomNotificationPtrType) ToPromqlCustomNotificationPtrOutput() PromqlCustomNotificationPtrOutput {
-	return i.ToPromqlCustomNotificationPtrOutputWithContext(context.Background())
+func (i *alertPromqlCustomNotificationPtrType) ToAlertPromqlCustomNotificationPtrOutput() AlertPromqlCustomNotificationPtrOutput {
+	return i.ToAlertPromqlCustomNotificationPtrOutputWithContext(context.Background())
 }
 
-func (i *promqlCustomNotificationPtrType) ToPromqlCustomNotificationPtrOutputWithContext(ctx context.Context) PromqlCustomNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromqlCustomNotificationPtrOutput)
+func (i *alertPromqlCustomNotificationPtrType) ToAlertPromqlCustomNotificationPtrOutputWithContext(ctx context.Context) AlertPromqlCustomNotificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertPromqlCustomNotificationPtrOutput)
 }
 
-type PromqlCustomNotificationOutput struct{ *pulumi.OutputState }
+type AlertPromqlCustomNotificationOutput struct{ *pulumi.OutputState }
 
-func (PromqlCustomNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromqlCustomNotification)(nil)).Elem()
+func (AlertPromqlCustomNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertPromqlCustomNotification)(nil)).Elem()
 }
 
-func (o PromqlCustomNotificationOutput) ToPromqlCustomNotificationOutput() PromqlCustomNotificationOutput {
+func (o AlertPromqlCustomNotificationOutput) ToAlertPromqlCustomNotificationOutput() AlertPromqlCustomNotificationOutput {
 	return o
 }
 
-func (o PromqlCustomNotificationOutput) ToPromqlCustomNotificationOutputWithContext(ctx context.Context) PromqlCustomNotificationOutput {
+func (o AlertPromqlCustomNotificationOutput) ToAlertPromqlCustomNotificationOutputWithContext(ctx context.Context) AlertPromqlCustomNotificationOutput {
 	return o
 }
 
-func (o PromqlCustomNotificationOutput) ToPromqlCustomNotificationPtrOutput() PromqlCustomNotificationPtrOutput {
-	return o.ToPromqlCustomNotificationPtrOutputWithContext(context.Background())
+func (o AlertPromqlCustomNotificationOutput) ToAlertPromqlCustomNotificationPtrOutput() AlertPromqlCustomNotificationPtrOutput {
+	return o.ToAlertPromqlCustomNotificationPtrOutputWithContext(context.Background())
 }
 
-func (o PromqlCustomNotificationOutput) ToPromqlCustomNotificationPtrOutputWithContext(ctx context.Context) PromqlCustomNotificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromqlCustomNotification) *PromqlCustomNotification {
+func (o AlertPromqlCustomNotificationOutput) ToAlertPromqlCustomNotificationPtrOutputWithContext(ctx context.Context) AlertPromqlCustomNotificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertPromqlCustomNotification) *AlertPromqlCustomNotification {
 		return &v
-	}).(PromqlCustomNotificationPtrOutput)
+	}).(AlertPromqlCustomNotificationPtrOutput)
 }
 
-func (o PromqlCustomNotificationOutput) Append() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PromqlCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
+func (o AlertPromqlCustomNotificationOutput) Append() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertPromqlCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
 }
 
-func (o PromqlCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PromqlCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
+func (o AlertPromqlCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertPromqlCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
 }
 
-func (o PromqlCustomNotificationOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v PromqlCustomNotification) string { return v.Title }).(pulumi.StringOutput)
+func (o AlertPromqlCustomNotificationOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertPromqlCustomNotification) string { return v.Title }).(pulumi.StringOutput)
 }
 
-type PromqlCustomNotificationPtrOutput struct{ *pulumi.OutputState }
+type AlertPromqlCustomNotificationPtrOutput struct{ *pulumi.OutputState }
 
-func (PromqlCustomNotificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PromqlCustomNotification)(nil)).Elem()
+func (AlertPromqlCustomNotificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertPromqlCustomNotification)(nil)).Elem()
 }
 
-func (o PromqlCustomNotificationPtrOutput) ToPromqlCustomNotificationPtrOutput() PromqlCustomNotificationPtrOutput {
+func (o AlertPromqlCustomNotificationPtrOutput) ToAlertPromqlCustomNotificationPtrOutput() AlertPromqlCustomNotificationPtrOutput {
 	return o
 }
 
-func (o PromqlCustomNotificationPtrOutput) ToPromqlCustomNotificationPtrOutputWithContext(ctx context.Context) PromqlCustomNotificationPtrOutput {
+func (o AlertPromqlCustomNotificationPtrOutput) ToAlertPromqlCustomNotificationPtrOutputWithContext(ctx context.Context) AlertPromqlCustomNotificationPtrOutput {
 	return o
 }
 
-func (o PromqlCustomNotificationPtrOutput) Elem() PromqlCustomNotificationOutput {
-	return o.ApplyT(func(v *PromqlCustomNotification) PromqlCustomNotification {
+func (o AlertPromqlCustomNotificationPtrOutput) Elem() AlertPromqlCustomNotificationOutput {
+	return o.ApplyT(func(v *AlertPromqlCustomNotification) AlertPromqlCustomNotification {
 		if v != nil {
 			return *v
 		}
-		var ret PromqlCustomNotification
+		var ret AlertPromqlCustomNotification
 		return ret
-	}).(PromqlCustomNotificationOutput)
+	}).(AlertPromqlCustomNotificationOutput)
 }
 
-func (o PromqlCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PromqlCustomNotification) *string {
+func (o AlertPromqlCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPromqlCustomNotification) *string {
 		if v == nil {
 			return nil
 		}
@@ -2320,8 +2320,8 @@ func (o PromqlCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PromqlCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PromqlCustomNotification) *string {
+func (o AlertPromqlCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPromqlCustomNotification) *string {
 		if v == nil {
 			return nil
 		}
@@ -2329,8 +2329,8 @@ func (o PromqlCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PromqlCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PromqlCustomNotification) *string {
+func (o AlertPromqlCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertPromqlCustomNotification) *string {
 		if v == nil {
 			return nil
 		}
@@ -2557,18 +2557,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertEventCapturePtrInput)(nil)).Elem(), AlertEventCaptureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertEventCustomNotificationInput)(nil)).Elem(), AlertEventCustomNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertEventCustomNotificationPtrInput)(nil)).Elem(), AlertEventCustomNotificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupOutlierCaptureInput)(nil)).Elem(), GroupOutlierCaptureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupOutlierCapturePtrInput)(nil)).Elem(), GroupOutlierCaptureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupOutlierCustomNotificationInput)(nil)).Elem(), GroupOutlierCustomNotificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupOutlierCustomNotificationPtrInput)(nil)).Elem(), GroupOutlierCustomNotificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MetricCaptureInput)(nil)).Elem(), MetricCaptureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MetricCapturePtrInput)(nil)).Elem(), MetricCaptureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MetricCustomNotificationInput)(nil)).Elem(), MetricCustomNotificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MetricCustomNotificationPtrInput)(nil)).Elem(), MetricCustomNotificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromqlCaptureInput)(nil)).Elem(), PromqlCaptureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromqlCapturePtrInput)(nil)).Elem(), PromqlCaptureArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromqlCustomNotificationInput)(nil)).Elem(), PromqlCustomNotificationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromqlCustomNotificationPtrInput)(nil)).Elem(), PromqlCustomNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertGroupOutlierCaptureInput)(nil)).Elem(), AlertGroupOutlierCaptureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertGroupOutlierCapturePtrInput)(nil)).Elem(), AlertGroupOutlierCaptureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertGroupOutlierCustomNotificationInput)(nil)).Elem(), AlertGroupOutlierCustomNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertGroupOutlierCustomNotificationPtrInput)(nil)).Elem(), AlertGroupOutlierCustomNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertMetricCaptureInput)(nil)).Elem(), AlertMetricCaptureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertMetricCapturePtrInput)(nil)).Elem(), AlertMetricCaptureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertMetricCustomNotificationInput)(nil)).Elem(), AlertMetricCustomNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertMetricCustomNotificationPtrInput)(nil)).Elem(), AlertMetricCustomNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPromqlCaptureInput)(nil)).Elem(), AlertPromqlCaptureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPromqlCapturePtrInput)(nil)).Elem(), AlertPromqlCaptureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPromqlCustomNotificationInput)(nil)).Elem(), AlertPromqlCustomNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertPromqlCustomNotificationPtrInput)(nil)).Elem(), AlertPromqlCustomNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamEntrypointInput)(nil)).Elem(), TeamEntrypointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamEntrypointArrayInput)(nil)).Elem(), TeamEntrypointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamUserRoleInput)(nil)).Elem(), TeamUserRoleArgs{})
@@ -2591,18 +2591,18 @@ func init() {
 	pulumi.RegisterOutputType(AlertEventCapturePtrOutput{})
 	pulumi.RegisterOutputType(AlertEventCustomNotificationOutput{})
 	pulumi.RegisterOutputType(AlertEventCustomNotificationPtrOutput{})
-	pulumi.RegisterOutputType(GroupOutlierCaptureOutput{})
-	pulumi.RegisterOutputType(GroupOutlierCapturePtrOutput{})
-	pulumi.RegisterOutputType(GroupOutlierCustomNotificationOutput{})
-	pulumi.RegisterOutputType(GroupOutlierCustomNotificationPtrOutput{})
-	pulumi.RegisterOutputType(MetricCaptureOutput{})
-	pulumi.RegisterOutputType(MetricCapturePtrOutput{})
-	pulumi.RegisterOutputType(MetricCustomNotificationOutput{})
-	pulumi.RegisterOutputType(MetricCustomNotificationPtrOutput{})
-	pulumi.RegisterOutputType(PromqlCaptureOutput{})
-	pulumi.RegisterOutputType(PromqlCapturePtrOutput{})
-	pulumi.RegisterOutputType(PromqlCustomNotificationOutput{})
-	pulumi.RegisterOutputType(PromqlCustomNotificationPtrOutput{})
+	pulumi.RegisterOutputType(AlertGroupOutlierCaptureOutput{})
+	pulumi.RegisterOutputType(AlertGroupOutlierCapturePtrOutput{})
+	pulumi.RegisterOutputType(AlertGroupOutlierCustomNotificationOutput{})
+	pulumi.RegisterOutputType(AlertGroupOutlierCustomNotificationPtrOutput{})
+	pulumi.RegisterOutputType(AlertMetricCaptureOutput{})
+	pulumi.RegisterOutputType(AlertMetricCapturePtrOutput{})
+	pulumi.RegisterOutputType(AlertMetricCustomNotificationOutput{})
+	pulumi.RegisterOutputType(AlertMetricCustomNotificationPtrOutput{})
+	pulumi.RegisterOutputType(AlertPromqlCaptureOutput{})
+	pulumi.RegisterOutputType(AlertPromqlCapturePtrOutput{})
+	pulumi.RegisterOutputType(AlertPromqlCustomNotificationOutput{})
+	pulumi.RegisterOutputType(AlertPromqlCustomNotificationPtrOutput{})
 	pulumi.RegisterOutputType(TeamEntrypointOutput{})
 	pulumi.RegisterOutputType(TeamEntrypointArrayOutput{})
 	pulumi.RegisterOutputType(TeamUserRoleOutput{})

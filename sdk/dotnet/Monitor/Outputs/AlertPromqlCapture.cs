@@ -11,14 +11,14 @@ namespace Pulumi.Sysdig.Monitor.Outputs
 {
 
     [OutputType]
-    public sealed class PromqlCapture
+    public sealed class AlertPromqlCapture
     {
         public readonly int Duration;
         public readonly string Filename;
         public readonly string? Filter;
 
         [OutputConstructor]
-        private PromqlCapture(
+        private AlertPromqlCapture(
             int duration,
 
             string filename,

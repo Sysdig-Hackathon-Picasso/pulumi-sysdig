@@ -18,12 +18,12 @@ __all__ = [
     'AlertDowntimeCustomNotificationArgs',
     'AlertEventCaptureArgs',
     'AlertEventCustomNotificationArgs',
-    'GroupOutlierCaptureArgs',
-    'GroupOutlierCustomNotificationArgs',
-    'MetricCaptureArgs',
-    'MetricCustomNotificationArgs',
-    'PromqlCaptureArgs',
-    'PromqlCustomNotificationArgs',
+    'AlertGroupOutlierCaptureArgs',
+    'AlertGroupOutlierCustomNotificationArgs',
+    'AlertMetricCaptureArgs',
+    'AlertMetricCustomNotificationArgs',
+    'AlertPromqlCaptureArgs',
+    'AlertPromqlCustomNotificationArgs',
     'TeamEntrypointArgs',
     'TeamUserRoleArgs',
 ]
@@ -488,7 +488,7 @@ class AlertEventCustomNotificationArgs:
 
 
 @pulumi.input_type
-class GroupOutlierCaptureArgs:
+class AlertGroupOutlierCaptureArgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[int],
                  filename: pulumi.Input[str],
@@ -527,7 +527,7 @@ class GroupOutlierCaptureArgs:
 
 
 @pulumi.input_type
-class GroupOutlierCustomNotificationArgs:
+class AlertGroupOutlierCustomNotificationArgs:
     def __init__(__self__, *,
                  title: pulumi.Input[str],
                  append: Optional[pulumi.Input[str]] = None,
@@ -567,7 +567,7 @@ class GroupOutlierCustomNotificationArgs:
 
 
 @pulumi.input_type
-class MetricCaptureArgs:
+class AlertMetricCaptureArgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[int],
                  filename: pulumi.Input[str],
@@ -606,7 +606,7 @@ class MetricCaptureArgs:
 
 
 @pulumi.input_type
-class MetricCustomNotificationArgs:
+class AlertMetricCustomNotificationArgs:
     def __init__(__self__, *,
                  title: pulumi.Input[str],
                  append: Optional[pulumi.Input[str]] = None,
@@ -646,7 +646,7 @@ class MetricCustomNotificationArgs:
 
 
 @pulumi.input_type
-class PromqlCaptureArgs:
+class AlertPromqlCaptureArgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[int],
                  filename: pulumi.Input[str],
@@ -685,7 +685,7 @@ class PromqlCaptureArgs:
 
 
 @pulumi.input_type
-class PromqlCustomNotificationArgs:
+class AlertPromqlCustomNotificationArgs:
     def __init__(__self__, *,
                  title: pulumi.Input[str],
                  append: Optional[pulumi.Input[str]] = None,
