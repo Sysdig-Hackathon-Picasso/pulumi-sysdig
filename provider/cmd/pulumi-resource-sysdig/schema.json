@@ -4658,67 +4658,6 @@
                 },
                 "type": "object"
             }
-        },
-        "sysdig:index/user:User": {
-            "properties": {
-                "email": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "systemRole": {
-                    "type": "string"
-                },
-                "version": {
-                    "type": "integer"
-                }
-            },
-            "required": [
-                "email",
-                "version"
-            ],
-            "inputProperties": {
-                "email": {
-                    "type": "string"
-                },
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "systemRole": {
-                    "type": "string"
-                }
-            },
-            "requiredInputs": [
-                "email"
-            ],
-            "stateInputs": {
-                "description": "Input properties used for looking up and filtering User resources.\n",
-                "properties": {
-                    "email": {
-                        "type": "string"
-                    },
-                    "firstName": {
-                        "type": "string"
-                    },
-                    "lastName": {
-                        "type": "string"
-                    },
-                    "systemRole": {
-                        "type": "string"
-                    },
-                    "version": {
-                        "type": "integer"
-                    }
-                },
-                "type": "object"
-            }
         }
     },
     "functions": {
@@ -4972,53 +4911,6 @@
                     "outputContainerDefinitions",
                     "sysdigAccessKey",
                     "workloadAgentImage",
-                    "id"
-                ]
-            }
-        },
-        "sysdig:index/user:User": {
-            "inputs": {
-                "description": "A collection of arguments for invoking User.\n",
-                "properties": {
-                    "email": {
-                        "type": "string"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "email"
-                ]
-            },
-            "outputs": {
-                "description": "A collection of values returned by User.\n",
-                "properties": {
-                    "email": {
-                        "type": "string"
-                    },
-                    "firstName": {
-                        "type": "string"
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "The provider-assigned unique ID for this managed resource.\n"
-                    },
-                    "lastName": {
-                        "type": "string"
-                    },
-                    "systemRole": {
-                        "type": "string"
-                    },
-                    "version": {
-                        "type": "integer"
-                    }
-                },
-                "type": "object",
-                "required": [
-                    "email",
-                    "firstName",
-                    "lastName",
-                    "systemRole",
-                    "version",
                     "id"
                 ]
             }
