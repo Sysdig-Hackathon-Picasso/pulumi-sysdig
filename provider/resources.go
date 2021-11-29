@@ -37,7 +37,6 @@ const (
 	mainMod    = "index"   // the sysdig module
 	monitorMod = "Monitor" // the sysdig module
 	secureMod  = "Secure"  // the sysdig module
-	iamMod     = "Iam"     // the sysdig module
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -135,7 +134,7 @@ func Provider() tfbridge.ProviderInfo {
 			"sysdig_monitor_alert_group_outlier":            {Tok: makeResource(monitorMod, "AlertGroupOutlier")},
 			"sysdig_monitor_alert_metric":                   {Tok: makeResource(monitorMod, "AlertMetric")},
 			"sysdig_monitor_alert_promql":                   {Tok: makeResource(monitorMod, "AlertPromql")},
-			"sysdig_monitor_dashboard":                      {Tok: makeResource(monitorMod, "AlertDashboard")},
+			"sysdig_monitor_dashboard":                      {Tok: makeResource(monitorMod, "Dashboard")},
 			"sysdig_monitor_notification_channel_email":     {Tok: makeResource(monitorMod, "NotificationChannelEmail")},
 			"sysdig_monitor_notification_channel_opsgenie":  {Tok: makeResource(monitorMod, "NotificationChannelOpsgenie")},
 			"sysdig_monitor_notification_channel_pagerduty": {Tok: makeResource(monitorMod, "NotificationChannelPagerduty")},

@@ -106,186 +106,6 @@
                 "title"
             ]
         },
-        "sysdig:Monitor/AlertDashboardPanel:AlertDashboardPanel": {
-            "properties": {
-                "autosizeText": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "content": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "description": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "height": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "posX": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "posY": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "queries": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/sysdig:Monitor/AlertDashboardPanelQuery:AlertDashboardPanelQuery"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "transparentBackground": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "type": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "visibleTitle": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "width": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "height",
-                "name",
-                "posX",
-                "posY",
-                "type",
-                "width"
-            ]
-        },
-        "sysdig:Monitor/AlertDashboardPanelQuery:AlertDashboardPanelQuery": {
-            "properties": {
-                "promql": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "unit": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "promql",
-                "unit"
-            ]
-        },
-        "sysdig:Monitor/AlertDashboardScope:AlertDashboardScope": {
-            "properties": {
-                "comparator": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "metric": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "values": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "variable": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "metric"
-            ]
-        },
         "sysdig:Monitor/AlertDowntimeCapture:AlertDowntimeCapture": {
             "properties": {
                 "duration": {
@@ -609,6 +429,186 @@
             "type": "object",
             "required": [
                 "title"
+            ]
+        },
+        "sysdig:Monitor/DashboardPanel:DashboardPanel": {
+            "properties": {
+                "autosizeText": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "content": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "posX": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "posY": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/DashboardPanelQuery:DashboardPanelQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "transparentBackground": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "visibleTitle": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "height",
+                "name",
+                "posX",
+                "posY",
+                "type",
+                "width"
+            ]
+        },
+        "sysdig:Monitor/DashboardPanelQuery:DashboardPanelQuery": {
+            "properties": {
+                "promql": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "unit": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "promql",
+                "unit"
+            ]
+        },
+        "sysdig:Monitor/DashboardScope:DashboardScope": {
+            "properties": {
+                "comparator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "variable": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "metric"
             ]
         },
         "sysdig:Monitor/TeamEntrypoint:TeamEntrypoint": {
@@ -1108,102 +1108,6 @@
                     },
                     "triggerAfterMinutes": {
                         "type": "integer"
-                    },
-                    "version": {
-                        "type": "integer"
-                    }
-                },
-                "type": "object"
-            }
-        },
-        "sysdig:Monitor/alertDashboard:AlertDashboard": {
-            "properties": {
-                "description": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "panels": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/sysdig:Monitor/AlertDashboardPanel:AlertDashboardPanel"
-                    }
-                },
-                "public": {
-                    "type": "boolean"
-                },
-                "publicToken": {
-                    "type": "string"
-                },
-                "scopes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/sysdig:Monitor/AlertDashboardScope:AlertDashboardScope"
-                    }
-                },
-                "version": {
-                    "type": "integer"
-                }
-            },
-            "required": [
-                "name",
-                "panels",
-                "publicToken",
-                "version"
-            ],
-            "inputProperties": {
-                "description": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "panels": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/sysdig:Monitor/AlertDashboardPanel:AlertDashboardPanel"
-                    }
-                },
-                "public": {
-                    "type": "boolean"
-                },
-                "scopes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/sysdig:Monitor/AlertDashboardScope:AlertDashboardScope"
-                    }
-                }
-            },
-            "requiredInputs": [
-                "panels"
-            ],
-            "stateInputs": {
-                "description": "Input properties used for looking up and filtering AlertDashboard resources.\n",
-                "properties": {
-                    "description": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "panels": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/sysdig:Monitor/AlertDashboardPanel:AlertDashboardPanel"
-                        }
-                    },
-                    "public": {
-                        "type": "boolean"
-                    },
-                    "publicToken": {
-                        "type": "string"
-                    },
-                    "scopes": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/types/sysdig:Monitor/AlertDashboardScope:AlertDashboardScope"
-                        }
                     },
                     "version": {
                         "type": "integer"
@@ -2015,6 +1919,102 @@
                     },
                     "triggerAfterMinutes": {
                         "type": "integer"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/dashboard:Dashboard": {
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "panels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/DashboardPanel:DashboardPanel"
+                    }
+                },
+                "public": {
+                    "type": "boolean"
+                },
+                "publicToken": {
+                    "type": "string"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/DashboardScope:DashboardScope"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "panels",
+                "publicToken",
+                "version"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "panels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/DashboardPanel:DashboardPanel"
+                    }
+                },
+                "public": {
+                    "type": "boolean"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/DashboardScope:DashboardScope"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "panels"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Dashboard resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "panels": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Monitor/DashboardPanel:DashboardPanel"
+                        }
+                    },
+                    "public": {
+                        "type": "boolean"
+                    },
+                    "publicToken": {
+                        "type": "string"
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Monitor/DashboardScope:DashboardScope"
+                        }
                     },
                     "version": {
                         "type": "integer"
