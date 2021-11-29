@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/sdk
+module github.com/pulumi/pulumi-sysdig/sdk
 
 go 1.16
 

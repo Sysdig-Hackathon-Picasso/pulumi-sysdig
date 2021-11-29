@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/provider
+module github.com/pulumi/pulumi-sysdig/provider
 
 go 1.16
 
@@ -8,7 +8,8 @@ replace (
 )
 
 require (
-	github.com/hashicorp/terraform-plugin-sdk v1.9.1
+	github.com/draios/terraform-provider-sysdig v0.5.27
+	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.9.0
-	github.com/pulumi/pulumi/sdk/v3 v3.14.0
+	github.com/pulumi/pulumi/sdk/v3 v3.14.1-0.20211007222624-789e39219452
 )

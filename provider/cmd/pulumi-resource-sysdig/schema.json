@@ -1,0 +1,5062 @@
+{
+    "name": "sysdig",
+    "description": "A Pulumi package for creating and managing sysdig cloud resources.",
+    "keywords": [
+        "pulumi",
+        "sysdig"
+    ],
+    "homepage": "https://pulumi.io",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`sysdig` Terraform Provider](https://github.com/terraform-providers/terraform-provider-sysdig).",
+    "repository": "https://github.com/pulumi/pulumi-sysdig",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "config": {
+        "variables": {
+            "extraHeaders": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            },
+            "sysdigMonitorApiToken": {
+                "type": "string"
+            },
+            "sysdigMonitorInsecureTls": {
+                "type": "boolean"
+            },
+            "sysdigMonitorUrl": {
+                "type": "string"
+            },
+            "sysdigSecureApiToken": {
+                "type": "string"
+            },
+            "sysdigSecureInsecureTls": {
+                "type": "boolean"
+            },
+            "sysdigSecureUrl": {
+                "type": "string"
+            }
+        }
+    },
+    "types": {
+        "sysdig:Monitor/AlertAnomalyCapture:AlertAnomalyCapture": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filename": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "filename"
+            ]
+        },
+        "sysdig:Monitor/AlertAnomalyCustomNotification:AlertAnomalyCustomNotification": {
+            "properties": {
+                "append": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "prepend": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "title"
+            ]
+        },
+        "sysdig:Monitor/AlertDashboardPanel:AlertDashboardPanel": {
+            "properties": {
+                "autosizeText": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "content": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "height": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "posX": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "posY": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/AlertDashboardPanelQuery:AlertDashboardPanelQuery"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "transparentBackground": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "visibleTitle": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "width": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "height",
+                "name",
+                "posX",
+                "posY",
+                "type",
+                "width"
+            ]
+        },
+        "sysdig:Monitor/AlertDashboardPanelQuery:AlertDashboardPanelQuery": {
+            "properties": {
+                "promql": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "unit": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "promql",
+                "unit"
+            ]
+        },
+        "sysdig:Monitor/AlertDashboardScope:AlertDashboardScope": {
+            "properties": {
+                "comparator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "variable": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "metric"
+            ]
+        },
+        "sysdig:Monitor/AlertDowntimeCapture:AlertDowntimeCapture": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filename": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "filename"
+            ]
+        },
+        "sysdig:Monitor/AlertDowntimeCustomNotification:AlertDowntimeCustomNotification": {
+            "properties": {
+                "append": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "prepend": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "title"
+            ]
+        },
+        "sysdig:Monitor/AlertEventCapture:AlertEventCapture": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filename": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "filename"
+            ]
+        },
+        "sysdig:Monitor/AlertEventCustomNotification:AlertEventCustomNotification": {
+            "properties": {
+                "append": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "prepend": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "title"
+            ]
+        },
+        "sysdig:Monitor/GroupOutlierCapture:GroupOutlierCapture": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filename": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "filename"
+            ]
+        },
+        "sysdig:Monitor/GroupOutlierCustomNotification:GroupOutlierCustomNotification": {
+            "properties": {
+                "append": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "prepend": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "title"
+            ]
+        },
+        "sysdig:Monitor/MetricCapture:MetricCapture": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filename": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "filename"
+            ]
+        },
+        "sysdig:Monitor/MetricCustomNotification:MetricCustomNotification": {
+            "properties": {
+                "append": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "prepend": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "title"
+            ]
+        },
+        "sysdig:Monitor/PromqlCapture:PromqlCapture": {
+            "properties": {
+                "duration": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filename": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filter": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "duration",
+                "filename"
+            ]
+        },
+        "sysdig:Monitor/PromqlCustomNotification:PromqlCustomNotification": {
+            "properties": {
+                "append": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "prepend": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "title": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "title"
+            ]
+        },
+        "sysdig:Monitor/TeamEntrypoint:TeamEntrypoint": {
+            "properties": {
+                "selection": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "sysdig:Monitor/TeamUserRole:TeamUserRole": {
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "role": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "email"
+            ]
+        },
+        "sysdig:Secure/PolicyAction:PolicyAction": {
+            "properties": {
+                "captures": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/PolicyActionCapture:PolicyActionCapture"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "container": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "sysdig:Secure/PolicyActionCapture:PolicyActionCapture": {
+            "properties": {
+                "secondsAfterEvent": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secondsBeforeEvent": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "secondsAfterEvent",
+                "secondsBeforeEvent"
+            ]
+        },
+        "sysdig:Secure/RuleFalcoException:RuleFalcoException": {
+            "properties": {
+                "comps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "comps",
+                "fields",
+                "name",
+                "values"
+            ]
+        },
+        "sysdig:Secure/RuleFilesystemReadOnly:RuleFilesystemReadOnly": {
+            "properties": {
+                "matching": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "paths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "paths"
+            ]
+        },
+        "sysdig:Secure/RuleFilesystemReadWrite:RuleFilesystemReadWrite": {
+            "properties": {
+                "matching": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "paths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "paths"
+            ]
+        },
+        "sysdig:Secure/RuleNetworkTcp:RuleNetworkTcp": {
+            "properties": {
+                "matching": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "ports"
+            ]
+        },
+        "sysdig:Secure/RuleNetworkUdp:RuleNetworkUdp": {
+            "properties": {
+                "matching": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "ports"
+            ]
+        },
+        "sysdig:Secure/TeamUserRole:TeamUserRole": {
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "role": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "email"
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the sysdig package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "extraHeaders": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            },
+            "sysdigMonitorApiToken": {
+                "type": "string"
+            },
+            "sysdigMonitorInsecureTls": {
+                "type": "boolean"
+            },
+            "sysdigMonitorUrl": {
+                "type": "string"
+            },
+            "sysdigSecureApiToken": {
+                "type": "string"
+            },
+            "sysdigSecureInsecureTls": {
+                "type": "boolean"
+            },
+            "sysdigSecureUrl": {
+                "type": "string"
+            }
+        },
+        "inputProperties": {
+            "extraHeaders": {
+                "type": "object",
+                "additionalProperties": {
+                    "type": "string"
+                }
+            },
+            "sysdigMonitorApiToken": {
+                "type": "string"
+            },
+            "sysdigMonitorInsecureTls": {
+                "type": "boolean"
+            },
+            "sysdigMonitorUrl": {
+                "type": "string"
+            },
+            "sysdigSecureApiToken": {
+                "type": "string"
+            },
+            "sysdigSecureInsecureTls": {
+                "type": "boolean"
+            },
+            "sysdigSecureUrl": {
+                "type": "string"
+            }
+        }
+    },
+    "resources": {
+        "sysdig:Monitor/alertAnomaly:AlertAnomaly": {
+            "properties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/AlertAnomalyCapture:AlertAnomalyCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/AlertAnomalyCustomNotification:AlertAnomalyCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "monitors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "multipleAlertsBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "team": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "monitors",
+                "name",
+                "team",
+                "triggerAfterMinutes",
+                "version"
+            ],
+            "inputProperties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/AlertAnomalyCapture:AlertAnomalyCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/AlertAnomalyCustomNotification:AlertAnomalyCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "monitors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "multipleAlertsBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "monitors",
+                "triggerAfterMinutes"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertAnomaly resources.\n",
+                "properties": {
+                    "capture": {
+                        "$ref": "#/types/sysdig:Monitor/AlertAnomalyCapture:AlertAnomalyCapture"
+                    },
+                    "customNotification": {
+                        "$ref": "#/types/sysdig:Monitor/AlertAnomalyCustomNotification:AlertAnomalyCustomNotification"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "monitors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "multipleAlertsBies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notificationChannels": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "renotificationMinutes": {
+                        "type": "integer"
+                    },
+                    "scope": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": "integer"
+                    },
+                    "team": {
+                        "type": "integer"
+                    },
+                    "triggerAfterMinutes": {
+                        "type": "integer"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/alertDashboard:AlertDashboard": {
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "panels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/AlertDashboardPanel:AlertDashboardPanel"
+                    }
+                },
+                "public": {
+                    "type": "boolean"
+                },
+                "publicToken": {
+                    "type": "string"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/AlertDashboardScope:AlertDashboardScope"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "panels",
+                "publicToken",
+                "version"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "panels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/AlertDashboardPanel:AlertDashboardPanel"
+                    }
+                },
+                "public": {
+                    "type": "boolean"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/AlertDashboardScope:AlertDashboardScope"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "panels"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertDashboard resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "panels": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Monitor/AlertDashboardPanel:AlertDashboardPanel"
+                        }
+                    },
+                    "public": {
+                        "type": "boolean"
+                    },
+                    "publicToken": {
+                        "type": "string"
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Monitor/AlertDashboardScope:AlertDashboardScope"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/alertDowntime:AlertDowntime": {
+            "properties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/AlertDowntimeCapture:AlertDowntimeCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/AlertDowntimeCustomNotification:AlertDowntimeCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "entitiesToMonitors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "team": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                },
+                "triggerAfterPct": {
+                    "type": "integer"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "entitiesToMonitors",
+                "name",
+                "team",
+                "triggerAfterMinutes",
+                "version"
+            ],
+            "inputProperties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/AlertDowntimeCapture:AlertDowntimeCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/AlertDowntimeCustomNotification:AlertDowntimeCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "entitiesToMonitors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                },
+                "triggerAfterPct": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "entitiesToMonitors",
+                "triggerAfterMinutes"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertDowntime resources.\n",
+                "properties": {
+                    "capture": {
+                        "$ref": "#/types/sysdig:Monitor/AlertDowntimeCapture:AlertDowntimeCapture"
+                    },
+                    "customNotification": {
+                        "$ref": "#/types/sysdig:Monitor/AlertDowntimeCustomNotification:AlertDowntimeCustomNotification"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "entitiesToMonitors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notificationChannels": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "renotificationMinutes": {
+                        "type": "integer"
+                    },
+                    "scope": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": "integer"
+                    },
+                    "team": {
+                        "type": "integer"
+                    },
+                    "triggerAfterMinutes": {
+                        "type": "integer"
+                    },
+                    "triggerAfterPct": {
+                        "type": "integer"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/alertEvent:AlertEvent": {
+            "properties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/AlertEventCapture:AlertEventCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/AlertEventCustomNotification:AlertEventCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "eventCount": {
+                    "type": "integer"
+                },
+                "eventName": {
+                    "type": "string"
+                },
+                "eventRel": {
+                    "type": "string"
+                },
+                "multipleAlertsBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "team": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "eventCount",
+                "eventName",
+                "eventRel",
+                "name",
+                "source",
+                "team",
+                "triggerAfterMinutes",
+                "version"
+            ],
+            "inputProperties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/AlertEventCapture:AlertEventCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/AlertEventCustomNotification:AlertEventCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "eventCount": {
+                    "type": "integer"
+                },
+                "eventName": {
+                    "type": "string"
+                },
+                "eventRel": {
+                    "type": "string"
+                },
+                "multipleAlertsBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "eventCount",
+                "eventName",
+                "eventRel",
+                "source",
+                "triggerAfterMinutes"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AlertEvent resources.\n",
+                "properties": {
+                    "capture": {
+                        "$ref": "#/types/sysdig:Monitor/AlertEventCapture:AlertEventCapture"
+                    },
+                    "customNotification": {
+                        "$ref": "#/types/sysdig:Monitor/AlertEventCustomNotification:AlertEventCustomNotification"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "eventCount": {
+                        "type": "integer"
+                    },
+                    "eventName": {
+                        "type": "string"
+                    },
+                    "eventRel": {
+                        "type": "string"
+                    },
+                    "multipleAlertsBies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notificationChannels": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "renotificationMinutes": {
+                        "type": "integer"
+                    },
+                    "scope": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": "integer"
+                    },
+                    "source": {
+                        "type": "string"
+                    },
+                    "team": {
+                        "type": "integer"
+                    },
+                    "triggerAfterMinutes": {
+                        "type": "integer"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/groupOutlier:GroupOutlier": {
+            "properties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/GroupOutlierCapture:GroupOutlierCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/GroupOutlierCustomNotification:GroupOutlierCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "monitors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "team": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "monitors",
+                "name",
+                "team",
+                "triggerAfterMinutes",
+                "version"
+            ],
+            "inputProperties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/GroupOutlierCapture:GroupOutlierCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/GroupOutlierCustomNotification:GroupOutlierCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "monitors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "monitors",
+                "triggerAfterMinutes"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering GroupOutlier resources.\n",
+                "properties": {
+                    "capture": {
+                        "$ref": "#/types/sysdig:Monitor/GroupOutlierCapture:GroupOutlierCapture"
+                    },
+                    "customNotification": {
+                        "$ref": "#/types/sysdig:Monitor/GroupOutlierCustomNotification:GroupOutlierCustomNotification"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "monitors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notificationChannels": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "renotificationMinutes": {
+                        "type": "integer"
+                    },
+                    "scope": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": "integer"
+                    },
+                    "team": {
+                        "type": "integer"
+                    },
+                    "triggerAfterMinutes": {
+                        "type": "integer"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/metric:Metric": {
+            "properties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/MetricCapture:MetricCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/MetricCustomNotification:MetricCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "metric": {
+                    "type": "string"
+                },
+                "multipleAlertsBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "team": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "metric",
+                "name",
+                "team",
+                "triggerAfterMinutes",
+                "version"
+            ],
+            "inputProperties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/MetricCapture:MetricCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/MetricCustomNotification:MetricCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "metric": {
+                    "type": "string"
+                },
+                "multipleAlertsBies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "metric",
+                "triggerAfterMinutes"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Metric resources.\n",
+                "properties": {
+                    "capture": {
+                        "$ref": "#/types/sysdig:Monitor/MetricCapture:MetricCapture"
+                    },
+                    "customNotification": {
+                        "$ref": "#/types/sysdig:Monitor/MetricCustomNotification:MetricCustomNotification"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "metric": {
+                        "type": "string"
+                    },
+                    "multipleAlertsBies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notificationChannels": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "renotificationMinutes": {
+                        "type": "integer"
+                    },
+                    "scope": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": "integer"
+                    },
+                    "team": {
+                        "type": "integer"
+                    },
+                    "triggerAfterMinutes": {
+                        "type": "integer"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/notificationChannelEmail:NotificationChannelEmail": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "recipients": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "recipients",
+                "version"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "recipients": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "recipients"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelEmail resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "recipients": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/notificationChannelOpsgenie:NotificationChannelOpsgenie": {
+            "properties": {
+                "apiKey": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "apiKey",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "apiKey": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "apiKey"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelOpsgenie resources.\n",
+                "properties": {
+                    "apiKey": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/notificationChannelPagerduty:NotificationChannelPagerduty": {
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "serviceKey": {
+                    "type": "string"
+                },
+                "serviceName": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "account",
+                "name",
+                "serviceKey",
+                "serviceName",
+                "version"
+            ],
+            "inputProperties": {
+                "account": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "serviceKey": {
+                    "type": "string"
+                },
+                "serviceName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "account",
+                "serviceKey",
+                "serviceName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelPagerduty resources.\n",
+                "properties": {
+                    "account": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "serviceKey": {
+                        "type": "string"
+                    },
+                    "serviceName": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/notificationChannelSlack:NotificationChannelSlack": {
+            "properties": {
+                "channel": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "channel",
+                "name",
+                "url",
+                "version"
+            ],
+            "inputProperties": {
+                "channel": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "channel",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelSlack resources.\n",
+                "properties": {
+                    "channel": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/notificationChannelSns:NotificationChannelSns": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "topics",
+                "version"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "topics"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelSns resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "topics": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/notificationChannelVictorops:NotificationChannelVictorops": {
+            "properties": {
+                "apiKey": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "routingKey": {
+                    "type": "string"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "apiKey",
+                "name",
+                "routingKey",
+                "version"
+            ],
+            "inputProperties": {
+                "apiKey": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "routingKey": {
+                    "type": "string"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "apiKey",
+                "routingKey"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelVictorops resources.\n",
+                "properties": {
+                    "apiKey": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "routingKey": {
+                        "type": "string"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/notificationChannelWebhook:NotificationChannelWebhook": {
+            "properties": {
+                "additionalHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "url",
+                "version"
+            ],
+            "inputProperties": {
+                "additionalHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelWebhook resources.\n",
+                "properties": {
+                    "additionalHeaders": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/promql:Promql": {
+            "properties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/PromqlCapture:PromqlCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/PromqlCustomNotification:PromqlCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "promql": {
+                    "type": "string"
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "team": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "promql",
+                "team",
+                "triggerAfterMinutes",
+                "version"
+            ],
+            "inputProperties": {
+                "capture": {
+                    "$ref": "#/types/sysdig:Monitor/PromqlCapture:PromqlCapture"
+                },
+                "customNotification": {
+                    "$ref": "#/types/sysdig:Monitor/PromqlCustomNotification:PromqlCustomNotification"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "promql": {
+                    "type": "string"
+                },
+                "renotificationMinutes": {
+                    "type": "integer"
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "triggerAfterMinutes": {
+                    "type": "integer"
+                }
+            },
+            "requiredInputs": [
+                "promql",
+                "triggerAfterMinutes"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Promql resources.\n",
+                "properties": {
+                    "capture": {
+                        "$ref": "#/types/sysdig:Monitor/PromqlCapture:PromqlCapture"
+                    },
+                    "customNotification": {
+                        "$ref": "#/types/sysdig:Monitor/PromqlCustomNotification:PromqlCustomNotification"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notificationChannels": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "promql": {
+                        "type": "string"
+                    },
+                    "renotificationMinutes": {
+                        "type": "integer"
+                    },
+                    "scope": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": "integer"
+                    },
+                    "team": {
+                        "type": "integer"
+                    },
+                    "triggerAfterMinutes": {
+                        "type": "integer"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Monitor/team:Team": {
+            "properties": {
+                "canSeeInfrastructureEvents": {
+                    "type": "boolean"
+                },
+                "canUseAwsData": {
+                    "type": "boolean"
+                },
+                "canUseSysdigCapture": {
+                    "type": "boolean"
+                },
+                "defaultTeam": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "entrypoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/TeamEntrypoint:TeamEntrypoint"
+                    }
+                },
+                "filter": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "scopeBy": {
+                    "type": "string"
+                },
+                "theme": {
+                    "type": "string"
+                },
+                "userRoles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/TeamUserRole:TeamUserRole"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "entrypoints",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "canSeeInfrastructureEvents": {
+                    "type": "boolean"
+                },
+                "canUseAwsData": {
+                    "type": "boolean"
+                },
+                "canUseSysdigCapture": {
+                    "type": "boolean"
+                },
+                "defaultTeam": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "entrypoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/TeamEntrypoint:TeamEntrypoint"
+                    }
+                },
+                "filter": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "scopeBy": {
+                    "type": "string"
+                },
+                "theme": {
+                    "type": "string"
+                },
+                "userRoles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Monitor/TeamUserRole:TeamUserRole"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "entrypoints"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Team resources.\n",
+                "properties": {
+                    "canSeeInfrastructureEvents": {
+                        "type": "boolean"
+                    },
+                    "canUseAwsData": {
+                        "type": "boolean"
+                    },
+                    "canUseSysdigCapture": {
+                        "type": "boolean"
+                    },
+                    "defaultTeam": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "entrypoints": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Monitor/TeamEntrypoint:TeamEntrypoint"
+                        }
+                    },
+                    "filter": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "scopeBy": {
+                        "type": "string"
+                    },
+                    "theme": {
+                        "type": "string"
+                    },
+                    "userRoles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Monitor/TeamUserRole:TeamUserRole"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/benchmarkTask:BenchmarkTask": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "schedule": {
+                    "type": "string"
+                },
+                "schema": {
+                    "type": "string"
+                },
+                "scope": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "name",
+                "schedule",
+                "schema",
+                "scope"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "schedule": {
+                    "type": "string"
+                },
+                "schema": {
+                    "type": "string"
+                },
+                "scope": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "schedule",
+                "schema",
+                "scope"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BenchmarkTask resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "schedule": {
+                        "type": "string"
+                    },
+                    "schema": {
+                        "type": "string"
+                    },
+                    "scope": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/cloudAccount:CloudAccount": {
+            "properties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "alias": {
+                    "type": "string"
+                },
+                "cloudProvider": {
+                    "type": "string"
+                },
+                "externalId": {
+                    "type": "string"
+                },
+                "roleEnabled": {
+                    "type": "boolean"
+                },
+                "roleName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "accountId",
+                "cloudProvider",
+                "externalId"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string"
+                },
+                "alias": {
+                    "type": "string"
+                },
+                "cloudProvider": {
+                    "type": "string"
+                },
+                "roleEnabled": {
+                    "type": "boolean"
+                },
+                "roleName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "accountId",
+                "cloudProvider"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CloudAccount resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string"
+                    },
+                    "alias": {
+                        "type": "string"
+                    },
+                    "cloudProvider": {
+                        "type": "string"
+                    },
+                    "externalId": {
+                        "type": "string"
+                    },
+                    "roleEnabled": {
+                        "type": "boolean"
+                    },
+                    "roleName": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/list:List": {
+            "properties": {
+                "append": {
+                    "type": "boolean"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "items",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "append": {
+                    "type": "boolean"
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "items"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering List resources.\n",
+                "properties": {
+                    "append": {
+                        "type": "boolean"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/macro:Macro": {
+            "properties": {
+                "append": {
+                    "type": "boolean"
+                },
+                "condition": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "condition",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "append": {
+                    "type": "boolean"
+                },
+                "condition": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "condition"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Macro resources.\n",
+                "properties": {
+                    "append": {
+                        "type": "boolean"
+                    },
+                    "condition": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/notificationChannelEmail:NotificationChannelEmail": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "recipients": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "enabled",
+                "name",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "recipients",
+                "version"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "recipients": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "enabled",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "recipients"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelEmail resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "recipients": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/notificationChannelOpsgenie:NotificationChannelOpsgenie": {
+            "properties": {
+                "apiKey": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "apiKey",
+                "enabled",
+                "name",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "version"
+            ],
+            "inputProperties": {
+                "apiKey": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "apiKey",
+                "enabled",
+                "notifyWhenOk",
+                "notifyWhenResolved"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelOpsgenie resources.\n",
+                "properties": {
+                    "apiKey": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/notificationChannelPagerduty:NotificationChannelPagerduty": {
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "serviceKey": {
+                    "type": "string"
+                },
+                "serviceName": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "account",
+                "enabled",
+                "name",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "serviceKey",
+                "serviceName",
+                "version"
+            ],
+            "inputProperties": {
+                "account": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "serviceKey": {
+                    "type": "string"
+                },
+                "serviceName": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "account",
+                "enabled",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "serviceKey",
+                "serviceName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelPagerduty resources.\n",
+                "properties": {
+                    "account": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "serviceKey": {
+                        "type": "string"
+                    },
+                    "serviceName": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/notificationChannelSlack:NotificationChannelSlack": {
+            "properties": {
+                "channel": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "channel",
+                "enabled",
+                "name",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "url",
+                "version"
+            ],
+            "inputProperties": {
+                "channel": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "channel",
+                "enabled",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelSlack resources.\n",
+                "properties": {
+                    "channel": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/notificationChannelSns:NotificationChannelSns": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "enabled",
+                "name",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "topics",
+                "version"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "enabled",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "topics"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelSns resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "topics": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/notificationChannelVictorops:NotificationChannelVictorops": {
+            "properties": {
+                "apiKey": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "routingKey": {
+                    "type": "string"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "apiKey",
+                "enabled",
+                "name",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "routingKey",
+                "version"
+            ],
+            "inputProperties": {
+                "apiKey": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "routingKey": {
+                    "type": "string"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "apiKey",
+                "enabled",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "routingKey"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelVictorops resources.\n",
+                "properties": {
+                    "apiKey": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "routingKey": {
+                        "type": "string"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/notificationChannelWebhook:NotificationChannelWebhook": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "enabled",
+                "name",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "url",
+                "version"
+            ],
+            "inputProperties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notifyWhenOk": {
+                    "type": "boolean"
+                },
+                "notifyWhenResolved": {
+                    "type": "boolean"
+                },
+                "sendTestNotification": {
+                    "type": "boolean"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "enabled",
+                "notifyWhenOk",
+                "notifyWhenResolved",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NotificationChannelWebhook resources.\n",
+                "properties": {
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/policy:Policy": {
+            "properties": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/PolicyAction:PolicyAction"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "ruleNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "description",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/PolicyAction:PolicyAction"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "notificationChannels": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "ruleNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "scope": {
+                    "type": "string"
+                },
+                "severity": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "description"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Policy resources.\n",
+                "properties": {
+                    "actions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Secure/PolicyAction:PolicyAction"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notificationChannels": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "ruleNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "scope": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/ruleContainer:RuleContainer": {
+            "properties": {
+                "containers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "matching": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "containers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "matching": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RuleContainer resources.\n",
+                "properties": {
+                    "containers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "matching": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/ruleFalco:RuleFalco": {
+            "properties": {
+                "append": {
+                    "type": "boolean"
+                },
+                "condition": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "exceptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/RuleFalcoException:RuleFalcoException"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "output": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "condition",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "append": {
+                    "type": "boolean"
+                },
+                "condition": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "exceptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/RuleFalcoException:RuleFalcoException"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "output": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "condition"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RuleFalco resources.\n",
+                "properties": {
+                    "append": {
+                        "type": "boolean"
+                    },
+                    "condition": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "exceptions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Secure/RuleFalcoException:RuleFalcoException"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "output": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/ruleFilesystem:RuleFilesystem": {
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "readOnlies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/RuleFilesystemReadOnly:RuleFilesystemReadOnly"
+                    }
+                },
+                "readWrites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/RuleFilesystemReadWrite:RuleFilesystemReadWrite"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "readOnlies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/RuleFilesystemReadOnly:RuleFilesystemReadOnly"
+                    }
+                },
+                "readWrites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/RuleFilesystemReadWrite:RuleFilesystemReadWrite"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RuleFilesystem resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "readOnlies": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Secure/RuleFilesystemReadOnly:RuleFilesystemReadOnly"
+                        }
+                    },
+                    "readWrites": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Secure/RuleFilesystemReadWrite:RuleFilesystemReadWrite"
+                        }
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/ruleNetwork:RuleNetwork": {
+            "properties": {
+                "blockInbound": {
+                    "type": "boolean"
+                },
+                "blockOutbound": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tcps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/RuleNetworkTcp:RuleNetworkTcp"
+                    }
+                },
+                "udps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/RuleNetworkUdp:RuleNetworkUdp"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "blockInbound",
+                "blockOutbound",
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "blockInbound": {
+                    "type": "boolean"
+                },
+                "blockOutbound": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tcps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/RuleNetworkTcp:RuleNetworkTcp"
+                    }
+                },
+                "udps": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/RuleNetworkUdp:RuleNetworkUdp"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "blockInbound",
+                "blockOutbound"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RuleNetwork resources.\n",
+                "properties": {
+                    "blockInbound": {
+                        "type": "boolean"
+                    },
+                    "blockOutbound": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "tcps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Secure/RuleNetworkTcp:RuleNetworkTcp"
+                        }
+                    },
+                    "udps": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Secure/RuleNetworkUdp:RuleNetworkUdp"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/ruleProcess:RuleProcess": {
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "matching": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "processes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "matching": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "processes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RuleProcess resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "matching": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "processes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/ruleSyscall:RuleSyscall": {
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "matching": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "syscalls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "matching": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "syscalls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RuleSyscall resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "matching": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "syscalls": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/team:Team": {
+            "properties": {
+                "defaultTeam": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "filter": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "scopeBy": {
+                    "type": "string"
+                },
+                "theme": {
+                    "type": "string"
+                },
+                "useSysdigCapture": {
+                    "type": "boolean"
+                },
+                "userRoles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/TeamUserRole:TeamUserRole"
+                    }
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "version"
+            ],
+            "inputProperties": {
+                "defaultTeam": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "filter": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "scopeBy": {
+                    "type": "string"
+                },
+                "theme": {
+                    "type": "string"
+                },
+                "useSysdigCapture": {
+                    "type": "boolean"
+                },
+                "userRoles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/sysdig:Secure/TeamUserRole:TeamUserRole"
+                    }
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Team resources.\n",
+                "properties": {
+                    "defaultTeam": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "filter": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "scopeBy": {
+                        "type": "string"
+                    },
+                    "theme": {
+                        "type": "string"
+                    },
+                    "useSysdigCapture": {
+                        "type": "boolean"
+                    },
+                    "userRoles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/sysdig:Secure/TeamUserRole:TeamUserRole"
+                        }
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/vulnerabilityException:VulnerabilityException": {
+            "properties": {
+                "cve": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "expirationDate": {
+                    "type": "integer"
+                },
+                "listId": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cve",
+                "listId"
+            ],
+            "inputProperties": {
+                "cve": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "expirationDate": {
+                    "type": "integer"
+                },
+                "listId": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "cve",
+                "listId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering VulnerabilityException resources.\n",
+                "properties": {
+                    "cve": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "expirationDate": {
+                        "type": "integer"
+                    },
+                    "listId": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:Secure/vulnerabilityExceptionList:VulnerabilityExceptionList": {
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering VulnerabilityExceptionList resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "sysdig:index/user:User": {
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "systemRole": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "email",
+                "version"
+            ],
+            "inputProperties": {
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "systemRole": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "email"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering User resources.\n",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "systemRole": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "sysdig:Secure/notificationChannel:NotificationChannel": {
+            "inputs": {
+                "description": "A collection of arguments for invoking NotificationChannel.\n",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by NotificationChannel.\n",
+                "properties": {
+                    "account": {
+                        "type": "string"
+                    },
+                    "apiKey": {
+                        "type": "string"
+                    },
+                    "channel": {
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "notifyWhenOk": {
+                        "type": "boolean"
+                    },
+                    "notifyWhenResolved": {
+                        "type": "boolean"
+                    },
+                    "recipients": {
+                        "type": "string"
+                    },
+                    "routingKey": {
+                        "type": "string"
+                    },
+                    "sendTestNotification": {
+                        "type": "boolean"
+                    },
+                    "serviceKey": {
+                        "type": "string"
+                    },
+                    "serviceName": {
+                        "type": "string"
+                    },
+                    "topics": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "account",
+                    "apiKey",
+                    "channel",
+                    "enabled",
+                    "name",
+                    "notifyWhenOk",
+                    "notifyWhenResolved",
+                    "recipients",
+                    "routingKey",
+                    "sendTestNotification",
+                    "serviceKey",
+                    "serviceName",
+                    "topics",
+                    "type",
+                    "url",
+                    "version",
+                    "id"
+                ]
+            }
+        },
+        "sysdig:Secure/trustedCloudIdentity:TrustedCloudIdentity": {
+            "inputs": {
+                "description": "A collection of arguments for invoking TrustedCloudIdentity.\n",
+                "properties": {
+                    "cloudProvider": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "cloudProvider"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by TrustedCloudIdentity.\n",
+                "properties": {
+                    "awsAccountId": {
+                        "type": "string"
+                    },
+                    "awsRoleName": {
+                        "type": "string"
+                    },
+                    "azureServicePrincipalId": {
+                        "type": "string"
+                    },
+                    "azureTenantId": {
+                        "type": "string"
+                    },
+                    "cloudProvider": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "identity": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "awsAccountId",
+                    "awsRoleName",
+                    "azureServicePrincipalId",
+                    "azureTenantId",
+                    "cloudProvider",
+                    "identity",
+                    "id"
+                ]
+            }
+        },
+        "sysdig:index/currentUser:CurrentUser": {
+            "outputs": {
+                "description": "A collection of values returned by CurrentUser.\n",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "systemRole": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "email",
+                    "lastName",
+                    "name",
+                    "systemRole",
+                    "id"
+                ]
+            }
+        },
+        "sysdig:index/fargateWorkloadAgent:FargateWorkloadAgent": {
+            "inputs": {
+                "description": "A collection of arguments for invoking FargateWorkloadAgent.\n",
+                "properties": {
+                    "collectorHost": {
+                        "type": "string"
+                    },
+                    "collectorPort": {
+                        "type": "string"
+                    },
+                    "containerDefinitions": {
+                        "type": "string"
+                    },
+                    "imageAuthSecret": {
+                        "type": "string"
+                    },
+                    "orchestratorHost": {
+                        "type": "string"
+                    },
+                    "orchestratorPort": {
+                        "type": "string"
+                    },
+                    "sysdigAccessKey": {
+                        "type": "string"
+                    },
+                    "workloadAgentImage": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "containerDefinitions",
+                    "sysdigAccessKey",
+                    "workloadAgentImage"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by FargateWorkloadAgent.\n",
+                "properties": {
+                    "collectorHost": {
+                        "type": "string"
+                    },
+                    "collectorPort": {
+                        "type": "string"
+                    },
+                    "containerDefinitions": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "imageAuthSecret": {
+                        "type": "string"
+                    },
+                    "orchestratorHost": {
+                        "type": "string"
+                    },
+                    "orchestratorPort": {
+                        "type": "string"
+                    },
+                    "outputContainerDefinitions": {
+                        "type": "string"
+                    },
+                    "sysdigAccessKey": {
+                        "type": "string"
+                    },
+                    "workloadAgentImage": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "containerDefinitions",
+                    "outputContainerDefinitions",
+                    "sysdigAccessKey",
+                    "workloadAgentImage",
+                    "id"
+                ]
+            }
+        },
+        "sysdig:index/user:User": {
+            "inputs": {
+                "description": "A collection of arguments for invoking User.\n",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "email"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by User.\n",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "systemRole": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "email",
+                    "firstName",
+                    "lastName",
+                    "systemRole",
+                    "version",
+                    "id"
+                ]
+            }
+        }
+    },
+    "language": {
+        "csharp": {
+            "compatibility": "tfbridge20",
+            "namespaces": null,
+            "packageReferences": {
+                "Pulumi": "3.*"
+            }
+        },
+        "go": {
+            "generateResourceContainerTypes": true,
+            "importBasePath": "github.com/pulumi/pulumi-sysdig/sdk/go/sysdig"
+        },
+        "nodejs": {
+            "compatibility": "tfbridge20",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "disableUnionOutputTypes": true,
+            "packageDescription": "A Pulumi package for creating and managing sysdig cloud resources.",
+            "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-sysdig)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-sysdig` repo](https://github.com/pulumi/pulumi-sysdig/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-sysdig` repo](https://github.com/terraform-providers/terraform-provider-sysdig/issues).",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "compatibility": "tfbridge20",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-sysdig)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-sysdig` repo](https://github.com/pulumi/pulumi-sysdig/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-sysdig` repo](https://github.com/terraform-providers/terraform-provider-sysdig/issues).",
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            }
+        }
+    }
+}
