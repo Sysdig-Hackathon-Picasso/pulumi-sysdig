@@ -9,16 +9,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'TrustedCloudIdentityResult',
-    'AwaitableTrustedCloudIdentityResult',
-    'trusted_cloud_identity',
-    'trusted_cloud_identity_output',
+    'GetTrustedCloudIdentityResult',
+    'AwaitableGetTrustedCloudIdentityResult',
+    'get_trusted_cloud_identity',
+    'get_trusted_cloud_identity_output',
 ]
 
 @pulumi.output_type
-class TrustedCloudIdentityResult:
+class GetTrustedCloudIdentityResult:
     """
-    A collection of values returned by TrustedCloudIdentity.
+    A collection of values returned by GetTrustedCloudIdentity.
     """
     def __init__(__self__, aws_account_id=None, aws_role_name=None, azure_service_principal_id=None, azure_tenant_id=None, cloud_provider=None, id=None, identity=None):
         if aws_account_id and not isinstance(aws_account_id, str):
@@ -82,12 +82,12 @@ class TrustedCloudIdentityResult:
         return pulumi.get(self, "identity")
 
 
-class AwaitableTrustedCloudIdentityResult(TrustedCloudIdentityResult):
+class AwaitableGetTrustedCloudIdentityResult(GetTrustedCloudIdentityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return TrustedCloudIdentityResult(
+        return GetTrustedCloudIdentityResult(
             aws_account_id=self.aws_account_id,
             aws_role_name=self.aws_role_name,
             azure_service_principal_id=self.azure_service_principal_id,
@@ -97,8 +97,8 @@ class AwaitableTrustedCloudIdentityResult(TrustedCloudIdentityResult):
             identity=self.identity)
 
 
-def trusted_cloud_identity(cloud_provider: Optional[str] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableTrustedCloudIdentityResult:
+def get_trusted_cloud_identity(cloud_provider: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustedCloudIdentityResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -108,9 +108,9 @@ def trusted_cloud_identity(cloud_provider: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('sysdig:Secure/trustedCloudIdentity:TrustedCloudIdentity', __args__, opts=opts, typ=TrustedCloudIdentityResult).value
+    __ret__ = pulumi.runtime.invoke('sysdig:Secure/getTrustedCloudIdentity:GetTrustedCloudIdentity', __args__, opts=opts, typ=GetTrustedCloudIdentityResult).value
 
-    return AwaitableTrustedCloudIdentityResult(
+    return AwaitableGetTrustedCloudIdentityResult(
         aws_account_id=__ret__.aws_account_id,
         aws_role_name=__ret__.aws_role_name,
         azure_service_principal_id=__ret__.azure_service_principal_id,
@@ -120,9 +120,9 @@ def trusted_cloud_identity(cloud_provider: Optional[str] = None,
         identity=__ret__.identity)
 
 
-@_utilities.lift_output_func(trusted_cloud_identity)
-def trusted_cloud_identity_output(cloud_provider: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[TrustedCloudIdentityResult]:
+@_utilities.lift_output_func(get_trusted_cloud_identity)
+def get_trusted_cloud_identity_output(cloud_provider: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustedCloudIdentityResult]:
     """
     Use this data source to access information about an existing resource.
     """

@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-export function trustedCloudIdentity(args: TrustedCloudIdentityArgs, opts?: pulumi.InvokeOptions): Promise<TrustedCloudIdentityResult> {
+export function getTrustedCloudIdentity(args: GetTrustedCloudIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedCloudIdentityResult> {
     if (!opts) {
         opts = {}
     }
@@ -12,22 +12,22 @@ export function trustedCloudIdentity(args: TrustedCloudIdentityArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("sysdig:Secure/trustedCloudIdentity:TrustedCloudIdentity", {
+    return pulumi.runtime.invoke("sysdig:Secure/getTrustedCloudIdentity:GetTrustedCloudIdentity", {
         "cloudProvider": args.cloudProvider,
     }, opts);
 }
 
 /**
- * A collection of arguments for invoking TrustedCloudIdentity.
+ * A collection of arguments for invoking GetTrustedCloudIdentity.
  */
-export interface TrustedCloudIdentityArgs {
+export interface GetTrustedCloudIdentityArgs {
     cloudProvider: string;
 }
 
 /**
- * A collection of values returned by TrustedCloudIdentity.
+ * A collection of values returned by GetTrustedCloudIdentity.
  */
-export interface TrustedCloudIdentityResult {
+export interface GetTrustedCloudIdentityResult {
     readonly awsAccountId: string;
     readonly awsRoleName: string;
     readonly azureServicePrincipalId: string;
@@ -40,13 +40,13 @@ export interface TrustedCloudIdentityResult {
     readonly identity: string;
 }
 
-export function trustedCloudIdentityOutput(args: TrustedCloudIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<TrustedCloudIdentityResult> {
-    return pulumi.output(args).apply(a => trustedCloudIdentity(a, opts))
+export function getTrustedCloudIdentityOutput(args: GetTrustedCloudIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedCloudIdentityResult> {
+    return pulumi.output(args).apply(a => getTrustedCloudIdentity(a, opts))
 }
 
 /**
- * A collection of arguments for invoking TrustedCloudIdentity.
+ * A collection of arguments for invoking GetTrustedCloudIdentity.
  */
-export interface TrustedCloudIdentityOutputArgs {
+export interface GetTrustedCloudIdentityOutputArgs {
     cloudProvider: pulumi.Input<string>;
 }

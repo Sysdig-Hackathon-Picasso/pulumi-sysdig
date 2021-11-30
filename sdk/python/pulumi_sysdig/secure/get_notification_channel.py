@@ -9,16 +9,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'NotificationChannelResult',
-    'AwaitableNotificationChannelResult',
-    'notification_channel',
-    'notification_channel_output',
+    'GetNotificationChannelResult',
+    'AwaitableGetNotificationChannelResult',
+    'get_notification_channel',
+    'get_notification_channel_output',
 ]
 
 @pulumi.output_type
-class NotificationChannelResult:
+class GetNotificationChannelResult:
     """
-    A collection of values returned by NotificationChannel.
+    A collection of values returned by GetNotificationChannel.
     """
     def __init__(__self__, account=None, api_key=None, channel=None, enabled=None, id=None, name=None, notify_when_ok=None, notify_when_resolved=None, recipients=None, routing_key=None, send_test_notification=None, service_key=None, service_name=None, topics=None, type=None, url=None, version=None):
         if account and not isinstance(account, str):
@@ -162,12 +162,12 @@ class NotificationChannelResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableNotificationChannelResult(NotificationChannelResult):
+class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return NotificationChannelResult(
+        return GetNotificationChannelResult(
             account=self.account,
             api_key=self.api_key,
             channel=self.channel,
@@ -187,8 +187,8 @@ class AwaitableNotificationChannelResult(NotificationChannelResult):
             version=self.version)
 
 
-def notification_channel(name: Optional[str] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableNotificationChannelResult:
+def get_notification_channel(name: Optional[str] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationChannelResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -198,9 +198,9 @@ def notification_channel(name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('sysdig:Secure/notificationChannel:NotificationChannel', __args__, opts=opts, typ=NotificationChannelResult).value
+    __ret__ = pulumi.runtime.invoke('sysdig:Secure/getNotificationChannel:GetNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult).value
 
-    return AwaitableNotificationChannelResult(
+    return AwaitableGetNotificationChannelResult(
         account=__ret__.account,
         api_key=__ret__.api_key,
         channel=__ret__.channel,
@@ -220,9 +220,9 @@ def notification_channel(name: Optional[str] = None,
         version=__ret__.version)
 
 
-@_utilities.lift_output_func(notification_channel)
-def notification_channel_output(name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[NotificationChannelResult]:
+@_utilities.lift_output_func(get_notification_channel)
+def get_notification_channel_output(name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
     Use this data source to access information about an existing resource.
     """

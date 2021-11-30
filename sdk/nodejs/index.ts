@@ -5,9 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./currentUser";
-export * from "./fargateWorkloadAgent";
+export * from "./getCurrentUser";
+export * from "./getFargateWorkloadAgent";
+export * from "./getUser";
 export * from "./provider";
+export * from "./user";
 
 // Export sub-modules:
 import * as config from "./config";
@@ -21,6 +23,22 @@ export {
     secure,
     types,
 };
+
+// Import resources to register:
+import { User } from "./user";
+
+const _module = {
+    version: utilities.getVersion(),
+    construct: (name: string, type: string, urn: string): pulumi.Resource => {
+        switch (type) {
+            case "sysdig:index/user:User":
+                return new User(name, <any>undefined, { urn })
+            default:
+                throw new Error(`unknown resource type ${type}`);
+        }
+    },
+};
+pulumi.runtime.registerResourceModule("sysdig", "index/user", _module)
 
 import { Provider } from "./provider";
 

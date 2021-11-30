@@ -9,15 +9,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
-    'CurrentUserResult',
-    'AwaitableCurrentUserResult',
-    'current_user',
+    'GetCurrentUserResult',
+    'AwaitableGetCurrentUserResult',
+    'get_current_user',
 ]
 
 @pulumi.output_type
-class CurrentUserResult:
+class GetCurrentUserResult:
     """
-    A collection of values returned by CurrentUser.
+    A collection of values returned by GetCurrentUser.
     """
     def __init__(__self__, email=None, id=None, last_name=None, name=None, system_role=None):
         if email and not isinstance(email, str):
@@ -65,12 +65,12 @@ class CurrentUserResult:
         return pulumi.get(self, "system_role")
 
 
-class AwaitableCurrentUserResult(CurrentUserResult):
+class AwaitableGetCurrentUserResult(GetCurrentUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return CurrentUserResult(
+        return GetCurrentUserResult(
             email=self.email,
             id=self.id,
             last_name=self.last_name,
@@ -78,7 +78,7 @@ class AwaitableCurrentUserResult(CurrentUserResult):
             system_role=self.system_role)
 
 
-def current_user(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableCurrentUserResult:
+def get_current_user(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCurrentUserResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -87,9 +87,9 @@ def current_user(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableCurren
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('sysdig:index/currentUser:CurrentUser', __args__, opts=opts, typ=CurrentUserResult).value
+    __ret__ = pulumi.runtime.invoke('sysdig:index/getCurrentUser:GetCurrentUser', __args__, opts=opts, typ=GetCurrentUserResult).value
 
-    return AwaitableCurrentUserResult(
+    return AwaitableGetCurrentUserResult(
         email=__ret__.email,
         id=__ret__.id,
         last_name=__ret__.last_name,

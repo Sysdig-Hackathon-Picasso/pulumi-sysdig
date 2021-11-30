@@ -5,9 +5,11 @@
 from . import _utilities
 import typing
 # Export this package's modules as members:
-from .current_user import *
-from .fargate_workload_agent import *
+from .get_current_user import *
+from .get_fargate_workload_agent import *
+from .get_user import *
 from .provider import *
+from .user import *
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
@@ -311,6 +313,14 @@ _utilities.register(
   "fqn": "pulumi_sysdig.secure",
   "classes": {
    "sysdig:Secure/vulnerabilityExceptionList:VulnerabilityExceptionList": "VulnerabilityExceptionList"
+  }
+ },
+ {
+  "pkg": "sysdig",
+  "mod": "index/user",
+  "fqn": "pulumi_sysdig",
+  "classes": {
+   "sysdig:index/user:User": "User"
   }
  }
 ]

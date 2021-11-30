@@ -9,16 +9,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
-    'FargateWorkloadAgentResult',
-    'AwaitableFargateWorkloadAgentResult',
-    'fargate_workload_agent',
-    'fargate_workload_agent_output',
+    'GetFargateWorkloadAgentResult',
+    'AwaitableGetFargateWorkloadAgentResult',
+    'get_fargate_workload_agent',
+    'get_fargate_workload_agent_output',
 ]
 
 @pulumi.output_type
-class FargateWorkloadAgentResult:
+class GetFargateWorkloadAgentResult:
     """
-    A collection of values returned by FargateWorkloadAgent.
+    A collection of values returned by GetFargateWorkloadAgent.
     """
     def __init__(__self__, collector_host=None, collector_port=None, container_definitions=None, id=None, image_auth_secret=None, orchestrator_host=None, orchestrator_port=None, output_container_definitions=None, sysdig_access_key=None, workload_agent_image=None):
         if collector_host and not isinstance(collector_host, str):
@@ -106,12 +106,12 @@ class FargateWorkloadAgentResult:
         return pulumi.get(self, "workload_agent_image")
 
 
-class AwaitableFargateWorkloadAgentResult(FargateWorkloadAgentResult):
+class AwaitableGetFargateWorkloadAgentResult(GetFargateWorkloadAgentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return FargateWorkloadAgentResult(
+        return GetFargateWorkloadAgentResult(
             collector_host=self.collector_host,
             collector_port=self.collector_port,
             container_definitions=self.container_definitions,
@@ -124,15 +124,15 @@ class AwaitableFargateWorkloadAgentResult(FargateWorkloadAgentResult):
             workload_agent_image=self.workload_agent_image)
 
 
-def fargate_workload_agent(collector_host: Optional[str] = None,
-                           collector_port: Optional[str] = None,
-                           container_definitions: Optional[str] = None,
-                           image_auth_secret: Optional[str] = None,
-                           orchestrator_host: Optional[str] = None,
-                           orchestrator_port: Optional[str] = None,
-                           sysdig_access_key: Optional[str] = None,
-                           workload_agent_image: Optional[str] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableFargateWorkloadAgentResult:
+def get_fargate_workload_agent(collector_host: Optional[str] = None,
+                               collector_port: Optional[str] = None,
+                               container_definitions: Optional[str] = None,
+                               image_auth_secret: Optional[str] = None,
+                               orchestrator_host: Optional[str] = None,
+                               orchestrator_port: Optional[str] = None,
+                               sysdig_access_key: Optional[str] = None,
+                               workload_agent_image: Optional[str] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFargateWorkloadAgentResult:
     """
     Use this data source to access information about an existing resource.
     """
@@ -149,9 +149,9 @@ def fargate_workload_agent(collector_host: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('sysdig:index/fargateWorkloadAgent:FargateWorkloadAgent', __args__, opts=opts, typ=FargateWorkloadAgentResult).value
+    __ret__ = pulumi.runtime.invoke('sysdig:index/getFargateWorkloadAgent:GetFargateWorkloadAgent', __args__, opts=opts, typ=GetFargateWorkloadAgentResult).value
 
-    return AwaitableFargateWorkloadAgentResult(
+    return AwaitableGetFargateWorkloadAgentResult(
         collector_host=__ret__.collector_host,
         collector_port=__ret__.collector_port,
         container_definitions=__ret__.container_definitions,
@@ -164,16 +164,16 @@ def fargate_workload_agent(collector_host: Optional[str] = None,
         workload_agent_image=__ret__.workload_agent_image)
 
 
-@_utilities.lift_output_func(fargate_workload_agent)
-def fargate_workload_agent_output(collector_host: Optional[pulumi.Input[Optional[str]]] = None,
-                                  collector_port: Optional[pulumi.Input[Optional[str]]] = None,
-                                  container_definitions: Optional[pulumi.Input[str]] = None,
-                                  image_auth_secret: Optional[pulumi.Input[Optional[str]]] = None,
-                                  orchestrator_host: Optional[pulumi.Input[Optional[str]]] = None,
-                                  orchestrator_port: Optional[pulumi.Input[Optional[str]]] = None,
-                                  sysdig_access_key: Optional[pulumi.Input[str]] = None,
-                                  workload_agent_image: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[FargateWorkloadAgentResult]:
+@_utilities.lift_output_func(get_fargate_workload_agent)
+def get_fargate_workload_agent_output(collector_host: Optional[pulumi.Input[Optional[str]]] = None,
+                                      collector_port: Optional[pulumi.Input[Optional[str]]] = None,
+                                      container_definitions: Optional[pulumi.Input[str]] = None,
+                                      image_auth_secret: Optional[pulumi.Input[Optional[str]]] = None,
+                                      orchestrator_host: Optional[pulumi.Input[Optional[str]]] = None,
+                                      orchestrator_port: Optional[pulumi.Input[Optional[str]]] = None,
+                                      sysdig_access_key: Optional[pulumi.Input[str]] = None,
+                                      workload_agent_image: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFargateWorkloadAgentResult]:
     """
     Use this data source to access information about an existing resource.
     """

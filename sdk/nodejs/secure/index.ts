@@ -7,9 +7,10 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./benchmarkTask";
 export * from "./cloudAccount";
+export * from "./getNotificationChannel";
+export * from "./getTrustedCloudIdentity";
 export * from "./list";
 export * from "./macro";
-export * from "./notificationChannel";
 export * from "./notificationChannelEmail";
 export * from "./notificationChannelOpsgenie";
 export * from "./notificationChannelPagerduty";
@@ -25,7 +26,6 @@ export * from "./ruleNetwork";
 export * from "./ruleProcess";
 export * from "./ruleSyscall";
 export * from "./team";
-export * from "./trustedCloudIdentity";
 export * from "./vulnerabilityException";
 export * from "./vulnerabilityExceptionList";
 

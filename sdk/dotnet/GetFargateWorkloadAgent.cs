@@ -9,14 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig
 {
-    public static class FargateWorkloadAgent
+    public static class GetFargateWorkloadAgent
     {
-        public static Task<FargateWorkloadAgentResult> InvokeAsync(FargateWorkloadAgentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<FargateWorkloadAgentResult>("sysdig:index/fargateWorkloadAgent:FargateWorkloadAgent", args ?? new FargateWorkloadAgentArgs(), options.WithVersion());
+        public static Task<GetFargateWorkloadAgentResult> InvokeAsync(GetFargateWorkloadAgentArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFargateWorkloadAgentResult>("sysdig:index/getFargateWorkloadAgent:GetFargateWorkloadAgent", args ?? new GetFargateWorkloadAgentArgs(), options.WithVersion());
     }
 
 
-    public sealed class FargateWorkloadAgentArgs : Pulumi.InvokeArgs
+    public sealed class GetFargateWorkloadAgentArgs : Pulumi.InvokeArgs
     {
         [Input("collectorHost")]
         public string? CollectorHost { get; set; }
@@ -42,14 +42,14 @@ namespace Pulumi.Sysdig
         [Input("workloadAgentImage", required: true)]
         public string WorkloadAgentImage { get; set; } = null!;
 
-        public FargateWorkloadAgentArgs()
+        public GetFargateWorkloadAgentArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class FargateWorkloadAgentResult
+    public sealed class GetFargateWorkloadAgentResult
     {
         public readonly string? CollectorHost;
         public readonly string? CollectorPort;
@@ -66,7 +66,7 @@ namespace Pulumi.Sysdig
         public readonly string WorkloadAgentImage;
 
         [OutputConstructor]
-        private FargateWorkloadAgentResult(
+        private GetFargateWorkloadAgentResult(
             string? collectorHost,
 
             string? collectorPort,

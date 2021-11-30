@@ -9,15 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig
 {
-    public static class CurrentUser
+    public static class GetCurrentUser
     {
-        public static Task<CurrentUserResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<CurrentUserResult>("sysdig:index/currentUser:CurrentUser", InvokeArgs.Empty, options.WithVersion());
+        public static Task<GetCurrentUserResult> InvokeAsync(InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCurrentUserResult>("sysdig:index/getCurrentUser:GetCurrentUser", InvokeArgs.Empty, options.WithVersion());
     }
 
 
     [OutputType]
-    public sealed class CurrentUserResult
+    public sealed class GetCurrentUserResult
     {
         public readonly string Email;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.Sysdig
         public readonly string SystemRole;
 
         [OutputConstructor]
-        private CurrentUserResult(
+        private GetCurrentUserResult(
             string email,
 
             string id,

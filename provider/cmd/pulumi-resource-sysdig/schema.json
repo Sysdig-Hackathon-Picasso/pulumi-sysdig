@@ -4658,12 +4658,73 @@
                 },
                 "type": "object"
             }
+        },
+        "sysdig:index/user:User": {
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "systemRole": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "email",
+                "version"
+            ],
+            "inputProperties": {
+                "email": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "systemRole": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "email"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering User resources.\n",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "systemRole": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
         }
     },
     "functions": {
-        "sysdig:Secure/notificationChannel:NotificationChannel": {
+        "sysdig:Secure/getNotificationChannel:GetNotificationChannel": {
             "inputs": {
-                "description": "A collection of arguments for invoking NotificationChannel.\n",
+                "description": "A collection of arguments for invoking GetNotificationChannel.\n",
                 "properties": {
                     "name": {
                         "type": "string"
@@ -4675,7 +4736,7 @@
                 ]
             },
             "outputs": {
-                "description": "A collection of values returned by NotificationChannel.\n",
+                "description": "A collection of values returned by GetNotificationChannel.\n",
                 "properties": {
                     "account": {
                         "type": "string"
@@ -4752,9 +4813,9 @@
                 ]
             }
         },
-        "sysdig:Secure/trustedCloudIdentity:TrustedCloudIdentity": {
+        "sysdig:Secure/getTrustedCloudIdentity:GetTrustedCloudIdentity": {
             "inputs": {
-                "description": "A collection of arguments for invoking TrustedCloudIdentity.\n",
+                "description": "A collection of arguments for invoking GetTrustedCloudIdentity.\n",
                 "properties": {
                     "cloudProvider": {
                         "type": "string"
@@ -4766,7 +4827,7 @@
                 ]
             },
             "outputs": {
-                "description": "A collection of values returned by TrustedCloudIdentity.\n",
+                "description": "A collection of values returned by GetTrustedCloudIdentity.\n",
                 "properties": {
                     "awsAccountId": {
                         "type": "string"
@@ -4803,9 +4864,9 @@
                 ]
             }
         },
-        "sysdig:index/currentUser:CurrentUser": {
+        "sysdig:index/getCurrentUser:GetCurrentUser": {
             "outputs": {
-                "description": "A collection of values returned by CurrentUser.\n",
+                "description": "A collection of values returned by GetCurrentUser.\n",
                 "properties": {
                     "email": {
                         "type": "string"
@@ -4834,9 +4895,9 @@
                 ]
             }
         },
-        "sysdig:index/fargateWorkloadAgent:FargateWorkloadAgent": {
+        "sysdig:index/getFargateWorkloadAgent:GetFargateWorkloadAgent": {
             "inputs": {
-                "description": "A collection of arguments for invoking FargateWorkloadAgent.\n",
+                "description": "A collection of arguments for invoking GetFargateWorkloadAgent.\n",
                 "properties": {
                     "collectorHost": {
                         "type": "string"
@@ -4871,7 +4932,7 @@
                 ]
             },
             "outputs": {
-                "description": "A collection of values returned by FargateWorkloadAgent.\n",
+                "description": "A collection of values returned by GetFargateWorkloadAgent.\n",
                 "properties": {
                     "collectorHost": {
                         "type": "string"
@@ -4911,6 +4972,53 @@
                     "outputContainerDefinitions",
                     "sysdigAccessKey",
                     "workloadAgentImage",
+                    "id"
+                ]
+            }
+        },
+        "sysdig:index/getUser:GetUser": {
+            "inputs": {
+                "description": "A collection of arguments for invoking GetUser.\n",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "email"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by GetUser.\n",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "systemRole": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "email",
+                    "firstName",
+                    "lastName",
+                    "systemRole",
+                    "version",
                     "id"
                 ]
             }

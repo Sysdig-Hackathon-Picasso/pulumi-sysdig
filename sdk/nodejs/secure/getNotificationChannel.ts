@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-export function notificationChannel(args: NotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<NotificationChannelResult> {
+export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
     if (!opts) {
         opts = {}
     }
@@ -12,22 +12,22 @@ export function notificationChannel(args: NotificationChannelArgs, opts?: pulumi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("sysdig:Secure/notificationChannel:NotificationChannel", {
+    return pulumi.runtime.invoke("sysdig:Secure/getNotificationChannel:GetNotificationChannel", {
         "name": args.name,
     }, opts);
 }
 
 /**
- * A collection of arguments for invoking NotificationChannel.
+ * A collection of arguments for invoking GetNotificationChannel.
  */
-export interface NotificationChannelArgs {
+export interface GetNotificationChannelArgs {
     name: string;
 }
 
 /**
- * A collection of values returned by NotificationChannel.
+ * A collection of values returned by GetNotificationChannel.
  */
-export interface NotificationChannelResult {
+export interface GetNotificationChannelResult {
     readonly account: string;
     readonly apiKey: string;
     readonly channel: string;
@@ -50,13 +50,13 @@ export interface NotificationChannelResult {
     readonly version: number;
 }
 
-export function notificationChannelOutput(args: NotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<NotificationChannelResult> {
-    return pulumi.output(args).apply(a => notificationChannel(a, opts))
+export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
+    return pulumi.output(args).apply(a => getNotificationChannel(a, opts))
 }
 
 /**
- * A collection of arguments for invoking NotificationChannel.
+ * A collection of arguments for invoking GetNotificationChannel.
  */
-export interface NotificationChannelOutputArgs {
+export interface GetNotificationChannelOutputArgs {
     name: pulumi.Input<string>;
 }

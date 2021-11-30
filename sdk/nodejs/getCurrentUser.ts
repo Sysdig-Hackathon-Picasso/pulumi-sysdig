@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-export function currentUser(opts?: pulumi.InvokeOptions): Promise<CurrentUserResult> {
+export function getCurrentUser(opts?: pulumi.InvokeOptions): Promise<GetCurrentUserResult> {
     if (!opts) {
         opts = {}
     }
@@ -12,14 +12,14 @@ export function currentUser(opts?: pulumi.InvokeOptions): Promise<CurrentUserRes
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("sysdig:index/currentUser:CurrentUser", {
+    return pulumi.runtime.invoke("sysdig:index/getCurrentUser:GetCurrentUser", {
     }, opts);
 }
 
 /**
- * A collection of values returned by CurrentUser.
+ * A collection of values returned by GetCurrentUser.
  */
-export interface CurrentUserResult {
+export interface GetCurrentUserResult {
     readonly email: string;
     /**
      * The provider-assigned unique ID for this managed resource.

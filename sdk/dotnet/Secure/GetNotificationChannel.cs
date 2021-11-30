@@ -9,26 +9,26 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
-    public static class NotificationChannel
+    public static class GetNotificationChannel
     {
-        public static Task<NotificationChannelResult> InvokeAsync(NotificationChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<NotificationChannelResult>("sysdig:Secure/notificationChannel:NotificationChannel", args ?? new NotificationChannelArgs(), options.WithVersion());
+        public static Task<GetNotificationChannelResult> InvokeAsync(GetNotificationChannelArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNotificationChannelResult>("sysdig:Secure/getNotificationChannel:GetNotificationChannel", args ?? new GetNotificationChannelArgs(), options.WithVersion());
     }
 
 
-    public sealed class NotificationChannelArgs : Pulumi.InvokeArgs
+    public sealed class GetNotificationChannelArgs : Pulumi.InvokeArgs
     {
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        public NotificationChannelArgs()
+        public GetNotificationChannelArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class NotificationChannelResult
+    public sealed class GetNotificationChannelResult
     {
         public readonly string Account;
         public readonly string ApiKey;
@@ -52,7 +52,7 @@ namespace Pulumi.Sysdig.Secure
         public readonly int Version;
 
         [OutputConstructor]
-        private NotificationChannelResult(
+        private GetNotificationChannelResult(
             string account,
 
             string apiKey,

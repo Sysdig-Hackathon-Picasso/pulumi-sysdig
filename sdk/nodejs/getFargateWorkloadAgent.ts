@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-export function fargateWorkloadAgent(args: FargateWorkloadAgentArgs, opts?: pulumi.InvokeOptions): Promise<FargateWorkloadAgentResult> {
+export function getFargateWorkloadAgent(args: GetFargateWorkloadAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetFargateWorkloadAgentResult> {
     if (!opts) {
         opts = {}
     }
@@ -12,7 +12,7 @@ export function fargateWorkloadAgent(args: FargateWorkloadAgentArgs, opts?: pulu
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("sysdig:index/fargateWorkloadAgent:FargateWorkloadAgent", {
+    return pulumi.runtime.invoke("sysdig:index/getFargateWorkloadAgent:GetFargateWorkloadAgent", {
         "collectorHost": args.collectorHost,
         "collectorPort": args.collectorPort,
         "containerDefinitions": args.containerDefinitions,
@@ -25,9 +25,9 @@ export function fargateWorkloadAgent(args: FargateWorkloadAgentArgs, opts?: pulu
 }
 
 /**
- * A collection of arguments for invoking FargateWorkloadAgent.
+ * A collection of arguments for invoking GetFargateWorkloadAgent.
  */
-export interface FargateWorkloadAgentArgs {
+export interface GetFargateWorkloadAgentArgs {
     collectorHost?: string;
     collectorPort?: string;
     containerDefinitions: string;
@@ -39,9 +39,9 @@ export interface FargateWorkloadAgentArgs {
 }
 
 /**
- * A collection of values returned by FargateWorkloadAgent.
+ * A collection of values returned by GetFargateWorkloadAgent.
  */
-export interface FargateWorkloadAgentResult {
+export interface GetFargateWorkloadAgentResult {
     readonly collectorHost?: string;
     readonly collectorPort?: string;
     readonly containerDefinitions: string;
@@ -57,14 +57,14 @@ export interface FargateWorkloadAgentResult {
     readonly workloadAgentImage: string;
 }
 
-export function fargateWorkloadAgentOutput(args: FargateWorkloadAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<FargateWorkloadAgentResult> {
-    return pulumi.output(args).apply(a => fargateWorkloadAgent(a, opts))
+export function getFargateWorkloadAgentOutput(args: GetFargateWorkloadAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFargateWorkloadAgentResult> {
+    return pulumi.output(args).apply(a => getFargateWorkloadAgent(a, opts))
 }
 
 /**
- * A collection of arguments for invoking FargateWorkloadAgent.
+ * A collection of arguments for invoking GetFargateWorkloadAgent.
  */
-export interface FargateWorkloadAgentOutputArgs {
+export interface GetFargateWorkloadAgentOutputArgs {
     collectorHost?: pulumi.Input<string>;
     collectorPort?: pulumi.Input<string>;
     containerDefinitions: pulumi.Input<string>;

@@ -15,8 +15,9 @@
     "files": [
         "config/index.ts",
         "config/vars.ts",
-        "currentUser.ts",
-        "fargateWorkloadAgent.ts",
+        "getCurrentUser.ts",
+        "getFargateWorkloadAgent.ts",
+        "getUser.ts",
         "index.ts",
         "monitor/alertAnomaly.ts",
         "monitor/alertDowntime.ts",
@@ -37,10 +38,11 @@
         "provider.ts",
         "secure/benchmarkTask.ts",
         "secure/cloudAccount.ts",
+        "secure/getNotificationChannel.ts",
+        "secure/getTrustedCloudIdentity.ts",
         "secure/index.ts",
         "secure/list.ts",
         "secure/macro.ts",
-        "secure/notificationChannel.ts",
         "secure/notificationChannelEmail.ts",
         "secure/notificationChannelOpsgenie.ts",
         "secure/notificationChannelPagerduty.ts",
@@ -56,12 +58,12 @@
         "secure/ruleProcess.ts",
         "secure/ruleSyscall.ts",
         "secure/team.ts",
-        "secure/trustedCloudIdentity.ts",
         "secure/vulnerabilityException.ts",
         "secure/vulnerabilityExceptionList.ts",
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",
+        "user.ts",
         "utilities.ts"
     ]
 }

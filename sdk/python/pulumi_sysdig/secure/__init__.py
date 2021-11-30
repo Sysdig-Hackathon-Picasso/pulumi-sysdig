@@ -7,9 +7,10 @@ import typing
 # Export this package's modules as members:
 from .benchmark_task import *
 from .cloud_account import *
+from .get_notification_channel import *
+from .get_trusted_cloud_identity import *
 from .list import *
 from .macro import *
-from .notification_channel import *
 from .notification_channel_email import *
 from .notification_channel_opsgenie import *
 from .notification_channel_pagerduty import *
@@ -25,7 +26,6 @@ from .rule_network import *
 from .rule_process import *
 from .rule_syscall import *
 from .team import *
-from .trusted_cloud_identity import *
 from .vulnerability_exception import *
 from .vulnerability_exception_list import *
 from ._inputs import *

@@ -9,26 +9,26 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
-    public static class TrustedCloudIdentity
+    public static class GetTrustedCloudIdentity
     {
-        public static Task<TrustedCloudIdentityResult> InvokeAsync(TrustedCloudIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<TrustedCloudIdentityResult>("sysdig:Secure/trustedCloudIdentity:TrustedCloudIdentity", args ?? new TrustedCloudIdentityArgs(), options.WithVersion());
+        public static Task<GetTrustedCloudIdentityResult> InvokeAsync(GetTrustedCloudIdentityArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTrustedCloudIdentityResult>("sysdig:Secure/getTrustedCloudIdentity:GetTrustedCloudIdentity", args ?? new GetTrustedCloudIdentityArgs(), options.WithVersion());
     }
 
 
-    public sealed class TrustedCloudIdentityArgs : Pulumi.InvokeArgs
+    public sealed class GetTrustedCloudIdentityArgs : Pulumi.InvokeArgs
     {
         [Input("cloudProvider", required: true)]
         public string CloudProvider { get; set; } = null!;
 
-        public TrustedCloudIdentityArgs()
+        public GetTrustedCloudIdentityArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class TrustedCloudIdentityResult
+    public sealed class GetTrustedCloudIdentityResult
     {
         public readonly string AwsAccountId;
         public readonly string AwsRoleName;
@@ -42,7 +42,7 @@ namespace Pulumi.Sysdig.Secure
         public readonly string Identity;
 
         [OutputConstructor]
-        private TrustedCloudIdentityResult(
+        private GetTrustedCloudIdentityResult(
             string awsAccountId,
 
             string awsRoleName,

@@ -128,6 +128,7 @@ func Provider() tfbridge.ProviderInfo {
 			// 		"tags": {Type: makeType(mainPkg, "Tags")},
 			// 	},
 			// },
+			"sysdig_user":                                   {Tok: makeResource(mainMod, "User")},
 			"sysdig_monitor_alert_anomaly":                  {Tok: makeResource(monitorMod, "AlertAnomaly")},
 			"sysdig_monitor_alert_downtime":                 {Tok: makeResource(monitorMod, "AlertDowntime")},
 			"sysdig_monitor_alert_event":                    {Tok: makeResource(monitorMod, "AlertEvent")},
@@ -164,17 +165,16 @@ func Provider() tfbridge.ProviderInfo {
 			"sysdig_secure_team":                            {Tok: makeResource(secureMod, "Team")},
 			"sysdig_secure_vulnerability_exception":         {Tok: makeResource(secureMod, "VulnerabilityException")},
 			"sysdig_secure_vulnerability_exception_list":    {Tok: makeResource(secureMod, "VulnerabilityExceptionList")},
-			//"sysdig_user": {Tok: makeResource(mainMod, "User")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi function. An example
 			// is below.
 			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
-			"sysdig_current_user":                  {Tok: makeDataSource(mainMod, "CurrentUser")},
-			"sysdig_fargate_workload_agent":        {Tok: makeDataSource(mainMod, "FargateWorkloadAgent")},
-			"sysdig_secure_notification_channel":   {Tok: makeDataSource(secureMod, "NotificationChannel")},
-			"sysdig_secure_trusted_cloud_identity": {Tok: makeDataSource(secureMod, "TrustedCloudIdentity")},
-			//"sysdig_user":                          {Tok: makeDataSource(mainMod, "User")},
+			"sysdig_user":                          {Tok: makeDataSource(mainMod, "GetUser")},
+			"sysdig_current_user":                  {Tok: makeDataSource(mainMod, "GetCurrentUser")},
+			"sysdig_fargate_workload_agent":        {Tok: makeDataSource(mainMod, "GetFargateWorkloadAgent")},
+			"sysdig_secure_notification_channel":   {Tok: makeDataSource(secureMod, "GetNotificationChannel")},
+			"sysdig_secure_trusted_cloud_identity": {Tok: makeDataSource(secureMod, "GetTrustedCloudIdentity")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
