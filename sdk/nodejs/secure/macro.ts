@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Secure macros can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/macro:Macro example 12345
+ * ```
+ */
 export class Macro extends pulumi.CustomResource {
     /**
      * Get an existing Macro resource's state with the given name, ID, and optional extra
@@ -32,8 +41,19 @@ export class Macro extends pulumi.CustomResource {
         return obj['__pulumiType'] === Macro.__pulumiType;
     }
 
+    /**
+     * Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+     * The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+     * append macro called "foo" but not a second one. By default this is false.
+     */
     public readonly append!: pulumi.Output<boolean | undefined>;
+    /**
+     * Macro condition. It can contain lists or other macros.
+     */
     public readonly condition!: pulumi.Output<string>;
+    /**
+     * The name of the macro. It must be unique if it's not in append mode.
+     */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly version!: pulumi.Output<number>;
 
@@ -75,8 +95,19 @@ export class Macro extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Macro resources.
  */
 export interface MacroState {
+    /**
+     * Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+     * The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+     * append macro called "foo" but not a second one. By default this is false.
+     */
     append?: pulumi.Input<boolean>;
+    /**
+     * Macro condition. It can contain lists or other macros.
+     */
     condition?: pulumi.Input<string>;
+    /**
+     * The name of the macro. It must be unique if it's not in append mode.
+     */
     name?: pulumi.Input<string>;
     version?: pulumi.Input<number>;
 }
@@ -85,7 +116,18 @@ export interface MacroState {
  * The set of arguments for constructing a Macro resource.
  */
 export interface MacroArgs {
+    /**
+     * Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+     * The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+     * append macro called "foo" but not a second one. By default this is false.
+     */
     append?: pulumi.Input<boolean>;
+    /**
+     * Macro condition. It can contain lists or other macros.
+     */
     condition: pulumi.Input<string>;
+    /**
+     * The name of the macro. It must be unique if it's not in append mode.
+     */
     name?: pulumi.Input<string>;
 }

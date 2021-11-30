@@ -12,20 +12,33 @@ namespace Pulumi.Sysdig.Monitor.Inputs
 
     public sealed class DashboardScopeGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Operator to relate the metric with some value. It is only required if the value to filter by is set, or the variable field is not set. Valid values are: `in`, `notIn`, `equals`, `notEquals`, `contains`, `notContains` and `startsWith`.
+        /// </summary>
         [Input("comparator")]
         public Input<string>? Comparator { get; set; }
 
+        /// <summary>
+        /// Metric to scope by, common examples are `host.hostName`, `kubernetes.namespace.name` or `kubernetes.cluster.name`, but you can use all the Sysdig-supported values shown in the UI. Note that kubernetes-related values only appear when Sysdig detects Kubernetes metadata.
+        /// </summary>
         [Input("metric", required: true)]
         public Input<string> Metric { get; set; } = null!;
 
         [Input("values")]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// List of values to filter by, if comparator is set. If the comparator is not `in` or `notIn` the list must contain only 1 value.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());
             set => _values = value;
         }
 
+        /// <summary>
+        /// Assigns this metric to a value name and allows PromQL to reference it.
+        /// </summary>
         [Input("variable")]
         public Input<string>? Variable { get; set; }
 

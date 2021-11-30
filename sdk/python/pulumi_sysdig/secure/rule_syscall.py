@@ -20,6 +20,10 @@ class RuleSyscallArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RuleSyscall resource.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[bool] matching: Defines if the syscall name matches or not with the provided list. Default is true.
+        :param pulumi.Input[str] name: The name of the Secure rule. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -35,6 +39,9 @@ class RuleSyscallArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Secure rule. By default is empty.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -44,6 +51,9 @@ class RuleSyscallArgs:
     @property
     @pulumi.getter
     def matching(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defines if the syscall name matches or not with the provided list. Default is true.
+        """
         return pulumi.get(self, "matching")
 
     @matching.setter
@@ -53,6 +63,9 @@ class RuleSyscallArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secure rule. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -71,6 +84,9 @@ class RuleSyscallArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags for this rule.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -89,6 +105,11 @@ class _RuleSyscallState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering RuleSyscall resources.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[bool] matching: Defines if the syscall name matches or not with the provided list. Default is true.
+        :param pulumi.Input[str] name: The name of the Secure rule. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Secure.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -106,6 +127,9 @@ class _RuleSyscallState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Secure rule. By default is empty.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -115,6 +139,9 @@ class _RuleSyscallState:
     @property
     @pulumi.getter
     def matching(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defines if the syscall name matches or not with the provided list. Default is true.
+        """
         return pulumi.get(self, "matching")
 
     @matching.setter
@@ -124,6 +151,9 @@ class _RuleSyscallState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secure rule. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -142,6 +172,9 @@ class _RuleSyscallState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags for this rule.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -151,6 +184,9 @@ class _RuleSyscallState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        Current version of the resource in Sysdig Secure.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -170,9 +206,20 @@ class RuleSyscall(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a RuleSyscall resource with the given unique name, props, and options.
+        ## Import
+
+        Secure syscall runtime rules can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/ruleSyscall:RuleSyscall example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[bool] matching: Defines if the syscall name matches or not with the provided list. Default is true.
+        :param pulumi.Input[str] name: The name of the Secure rule. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
         """
         ...
     @overload
@@ -181,7 +228,14 @@ class RuleSyscall(pulumi.CustomResource):
                  args: Optional[RuleSyscallArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RuleSyscall resource with the given unique name, props, and options.
+        ## Import
+
+        Secure syscall runtime rules can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/ruleSyscall:RuleSyscall example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param RuleSyscallArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,6 +297,11 @@ class RuleSyscall(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[bool] matching: Defines if the syscall name matches or not with the provided list. Default is true.
+        :param pulumi.Input[str] name: The name of the Secure rule. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Secure.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -259,16 +318,25 @@ class RuleSyscall(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of Secure rule. By default is empty.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def matching(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Defines if the syscall name matches or not with the provided list. Default is true.
+        """
         return pulumi.get(self, "matching")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Secure rule. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -279,10 +347,16 @@ class RuleSyscall(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of tags for this rule.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        Current version of the resource in Sysdig Secure.
+        """
         return pulumi.get(self, "version")
 

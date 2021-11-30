@@ -10,15 +10,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure process runtime rules can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/ruleProcess:RuleProcess example 12345
+// ```
 type RuleProcess struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput   `pulumi:"description"`
-	Matching    pulumi.BoolPtrOutput     `pulumi:"matching"`
-	Name        pulumi.StringOutput      `pulumi:"name"`
-	Processes   pulumi.StringArrayOutput `pulumi:"processes"`
-	Tags        pulumi.StringArrayOutput `pulumi:"tags"`
-	Version     pulumi.IntOutput         `pulumi:"version"`
+	// The description of Secure rule. By default is empty.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Defines if the process name matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrOutput `pulumi:"matching"`
+	// The name of the Secure rule. It must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// List of processes to match.
+	Processes pulumi.StringArrayOutput `pulumi:"processes"`
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewRuleProcess registers a new resource with the given unique name, arguments, and options.
@@ -50,21 +63,33 @@ func GetRuleProcess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleProcess resources.
 type ruleProcessState struct {
-	Description *string  `pulumi:"description"`
-	Matching    *bool    `pulumi:"matching"`
-	Name        *string  `pulumi:"name"`
-	Processes   []string `pulumi:"processes"`
-	Tags        []string `pulumi:"tags"`
-	Version     *int     `pulumi:"version"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// Defines if the process name matches or not with the provided list. Default is true.
+	Matching *bool `pulumi:"matching"`
+	// The name of the Secure rule. It must be unique.
+	Name *string `pulumi:"name"`
+	// List of processes to match.
+	Processes []string `pulumi:"processes"`
+	// A list of tags for this rule.
+	Tags []string `pulumi:"tags"`
+	// Current version of the resource in Sysdig Secure.
+	Version *int `pulumi:"version"`
 }
 
 type RuleProcessState struct {
+	// The description of Secure rule. By default is empty.
 	Description pulumi.StringPtrInput
-	Matching    pulumi.BoolPtrInput
-	Name        pulumi.StringPtrInput
-	Processes   pulumi.StringArrayInput
-	Tags        pulumi.StringArrayInput
-	Version     pulumi.IntPtrInput
+	// Defines if the process name matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrInput
+	// The name of the Secure rule. It must be unique.
+	Name pulumi.StringPtrInput
+	// List of processes to match.
+	Processes pulumi.StringArrayInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntPtrInput
 }
 
 func (RuleProcessState) ElementType() reflect.Type {
@@ -72,20 +97,30 @@ func (RuleProcessState) ElementType() reflect.Type {
 }
 
 type ruleProcessArgs struct {
-	Description *string  `pulumi:"description"`
-	Matching    *bool    `pulumi:"matching"`
-	Name        *string  `pulumi:"name"`
-	Processes   []string `pulumi:"processes"`
-	Tags        []string `pulumi:"tags"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// Defines if the process name matches or not with the provided list. Default is true.
+	Matching *bool `pulumi:"matching"`
+	// The name of the Secure rule. It must be unique.
+	Name *string `pulumi:"name"`
+	// List of processes to match.
+	Processes []string `pulumi:"processes"`
+	// A list of tags for this rule.
+	Tags []string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RuleProcess resource.
 type RuleProcessArgs struct {
+	// The description of Secure rule. By default is empty.
 	Description pulumi.StringPtrInput
-	Matching    pulumi.BoolPtrInput
-	Name        pulumi.StringPtrInput
-	Processes   pulumi.StringArrayInput
-	Tags        pulumi.StringArrayInput
+	// Defines if the process name matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrInput
+	// The name of the Secure rule. It must be unique.
+	Name pulumi.StringPtrInput
+	// List of processes to match.
+	Processes pulumi.StringArrayInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
 }
 
 func (RuleProcessArgs) ElementType() reflect.Type {

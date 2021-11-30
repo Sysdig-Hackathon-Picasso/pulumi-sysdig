@@ -11,9 +11,12 @@ import (
 )
 
 type AlertAnomalyCapture struct {
-	Duration int     `pulumi:"duration"`
-	Filename string  `pulumi:"filename"`
-	Filter   *string `pulumi:"filter"`
+	// Time frame in seconds of the capture.
+	Duration int `pulumi:"duration"`
+	// Defines the name of the capture file.
+	Filename string `pulumi:"filename"`
+	// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+	Filter *string `pulumi:"filter"`
 }
 
 // AlertAnomalyCaptureInput is an input type that accepts AlertAnomalyCaptureArgs and AlertAnomalyCaptureOutput values.
@@ -28,9 +31,12 @@ type AlertAnomalyCaptureInput interface {
 }
 
 type AlertAnomalyCaptureArgs struct {
-	Duration pulumi.IntInput       `pulumi:"duration"`
-	Filename pulumi.StringInput    `pulumi:"filename"`
-	Filter   pulumi.StringPtrInput `pulumi:"filter"`
+	// Time frame in seconds of the capture.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Defines the name of the capture file.
+	Filename pulumi.StringInput `pulumi:"filename"`
+	// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
 }
 
 func (AlertAnomalyCaptureArgs) ElementType() reflect.Type {
@@ -110,14 +116,17 @@ func (o AlertAnomalyCaptureOutput) ToAlertAnomalyCapturePtrOutputWithContext(ctx
 	}).(AlertAnomalyCapturePtrOutput)
 }
 
+// Time frame in seconds of the capture.
 func (o AlertAnomalyCaptureOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v AlertAnomalyCapture) int { return v.Duration }).(pulumi.IntOutput)
 }
 
+// Defines the name of the capture file.
 func (o AlertAnomalyCaptureOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertAnomalyCapture) string { return v.Filename }).(pulumi.StringOutput)
 }
 
+// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
 func (o AlertAnomalyCaptureOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertAnomalyCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
@@ -146,6 +155,7 @@ func (o AlertAnomalyCapturePtrOutput) Elem() AlertAnomalyCaptureOutput {
 	}).(AlertAnomalyCaptureOutput)
 }
 
+// Time frame in seconds of the capture.
 func (o AlertAnomalyCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlertAnomalyCapture) *int {
 		if v == nil {
@@ -155,6 +165,7 @@ func (o AlertAnomalyCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Defines the name of the capture file.
 func (o AlertAnomalyCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertAnomalyCapture) *string {
 		if v == nil {
@@ -164,6 +175,7 @@ func (o AlertAnomalyCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
 func (o AlertAnomalyCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertAnomalyCapture) *string {
 		if v == nil {
@@ -174,9 +186,12 @@ func (o AlertAnomalyCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 }
 
 type AlertAnomalyCustomNotification struct {
-	Append  *string `pulumi:"append"`
+	// Text to add after the alert template.
+	Append *string `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend *string `pulumi:"prepend"`
-	Title   string  `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title string `pulumi:"title"`
 }
 
 // AlertAnomalyCustomNotificationInput is an input type that accepts AlertAnomalyCustomNotificationArgs and AlertAnomalyCustomNotificationOutput values.
@@ -191,9 +206,12 @@ type AlertAnomalyCustomNotificationInput interface {
 }
 
 type AlertAnomalyCustomNotificationArgs struct {
-	Append  pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add after the alert template.
+	Append pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend pulumi.StringPtrInput `pulumi:"prepend"`
-	Title   pulumi.StringInput    `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title pulumi.StringInput `pulumi:"title"`
 }
 
 func (AlertAnomalyCustomNotificationArgs) ElementType() reflect.Type {
@@ -273,14 +291,17 @@ func (o AlertAnomalyCustomNotificationOutput) ToAlertAnomalyCustomNotificationPt
 	}).(AlertAnomalyCustomNotificationPtrOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertAnomalyCustomNotificationOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertAnomalyCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertAnomalyCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertAnomalyCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertAnomalyCustomNotificationOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertAnomalyCustomNotification) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -309,6 +330,7 @@ func (o AlertAnomalyCustomNotificationPtrOutput) Elem() AlertAnomalyCustomNotifi
 	}).(AlertAnomalyCustomNotificationOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertAnomalyCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertAnomalyCustomNotification) *string {
 		if v == nil {
@@ -318,6 +340,7 @@ func (o AlertAnomalyCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertAnomalyCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertAnomalyCustomNotification) *string {
 		if v == nil {
@@ -327,6 +350,7 @@ func (o AlertAnomalyCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertAnomalyCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertAnomalyCustomNotification) *string {
 		if v == nil {
@@ -337,9 +361,12 @@ func (o AlertAnomalyCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput 
 }
 
 type AlertDowntimeCapture struct {
-	Duration int     `pulumi:"duration"`
-	Filename string  `pulumi:"filename"`
-	Filter   *string `pulumi:"filter"`
+	// Time frame in seconds of the capture.
+	Duration int `pulumi:"duration"`
+	// Defines the name of the capture file.
+	Filename string `pulumi:"filename"`
+	// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+	Filter *string `pulumi:"filter"`
 }
 
 // AlertDowntimeCaptureInput is an input type that accepts AlertDowntimeCaptureArgs and AlertDowntimeCaptureOutput values.
@@ -354,9 +381,12 @@ type AlertDowntimeCaptureInput interface {
 }
 
 type AlertDowntimeCaptureArgs struct {
-	Duration pulumi.IntInput       `pulumi:"duration"`
-	Filename pulumi.StringInput    `pulumi:"filename"`
-	Filter   pulumi.StringPtrInput `pulumi:"filter"`
+	// Time frame in seconds of the capture.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Defines the name of the capture file.
+	Filename pulumi.StringInput `pulumi:"filename"`
+	// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
 }
 
 func (AlertDowntimeCaptureArgs) ElementType() reflect.Type {
@@ -436,14 +466,17 @@ func (o AlertDowntimeCaptureOutput) ToAlertDowntimeCapturePtrOutputWithContext(c
 	}).(AlertDowntimeCapturePtrOutput)
 }
 
+// Time frame in seconds of the capture.
 func (o AlertDowntimeCaptureOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v AlertDowntimeCapture) int { return v.Duration }).(pulumi.IntOutput)
 }
 
+// Defines the name of the capture file.
 func (o AlertDowntimeCaptureOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertDowntimeCapture) string { return v.Filename }).(pulumi.StringOutput)
 }
 
+// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
 func (o AlertDowntimeCaptureOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDowntimeCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
@@ -472,6 +505,7 @@ func (o AlertDowntimeCapturePtrOutput) Elem() AlertDowntimeCaptureOutput {
 	}).(AlertDowntimeCaptureOutput)
 }
 
+// Time frame in seconds of the capture.
 func (o AlertDowntimeCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlertDowntimeCapture) *int {
 		if v == nil {
@@ -481,6 +515,7 @@ func (o AlertDowntimeCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Defines the name of the capture file.
 func (o AlertDowntimeCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDowntimeCapture) *string {
 		if v == nil {
@@ -490,6 +525,7 @@ func (o AlertDowntimeCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
 func (o AlertDowntimeCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDowntimeCapture) *string {
 		if v == nil {
@@ -500,9 +536,12 @@ func (o AlertDowntimeCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 }
 
 type AlertDowntimeCustomNotification struct {
-	Append  *string `pulumi:"append"`
+	// Text to add after the alert template.
+	Append *string `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend *string `pulumi:"prepend"`
-	Title   string  `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title string `pulumi:"title"`
 }
 
 // AlertDowntimeCustomNotificationInput is an input type that accepts AlertDowntimeCustomNotificationArgs and AlertDowntimeCustomNotificationOutput values.
@@ -517,9 +556,12 @@ type AlertDowntimeCustomNotificationInput interface {
 }
 
 type AlertDowntimeCustomNotificationArgs struct {
-	Append  pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add after the alert template.
+	Append pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend pulumi.StringPtrInput `pulumi:"prepend"`
-	Title   pulumi.StringInput    `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title pulumi.StringInput `pulumi:"title"`
 }
 
 func (AlertDowntimeCustomNotificationArgs) ElementType() reflect.Type {
@@ -599,14 +641,17 @@ func (o AlertDowntimeCustomNotificationOutput) ToAlertDowntimeCustomNotification
 	}).(AlertDowntimeCustomNotificationPtrOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertDowntimeCustomNotificationOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDowntimeCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertDowntimeCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertDowntimeCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertDowntimeCustomNotificationOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertDowntimeCustomNotification) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -635,6 +680,7 @@ func (o AlertDowntimeCustomNotificationPtrOutput) Elem() AlertDowntimeCustomNoti
 	}).(AlertDowntimeCustomNotificationOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertDowntimeCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDowntimeCustomNotification) *string {
 		if v == nil {
@@ -644,6 +690,7 @@ func (o AlertDowntimeCustomNotificationPtrOutput) Append() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertDowntimeCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDowntimeCustomNotification) *string {
 		if v == nil {
@@ -653,6 +700,7 @@ func (o AlertDowntimeCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertDowntimeCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertDowntimeCustomNotification) *string {
 		if v == nil {
@@ -663,9 +711,12 @@ func (o AlertDowntimeCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput
 }
 
 type AlertEventCapture struct {
-	Duration int     `pulumi:"duration"`
-	Filename string  `pulumi:"filename"`
-	Filter   *string `pulumi:"filter"`
+	// Time frame in seconds of the capture.
+	Duration int `pulumi:"duration"`
+	// Defines the name of the capture file.
+	Filename string `pulumi:"filename"`
+	// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+	Filter *string `pulumi:"filter"`
 }
 
 // AlertEventCaptureInput is an input type that accepts AlertEventCaptureArgs and AlertEventCaptureOutput values.
@@ -680,9 +731,12 @@ type AlertEventCaptureInput interface {
 }
 
 type AlertEventCaptureArgs struct {
-	Duration pulumi.IntInput       `pulumi:"duration"`
-	Filename pulumi.StringInput    `pulumi:"filename"`
-	Filter   pulumi.StringPtrInput `pulumi:"filter"`
+	// Time frame in seconds of the capture.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Defines the name of the capture file.
+	Filename pulumi.StringInput `pulumi:"filename"`
+	// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
 }
 
 func (AlertEventCaptureArgs) ElementType() reflect.Type {
@@ -762,14 +816,17 @@ func (o AlertEventCaptureOutput) ToAlertEventCapturePtrOutputWithContext(ctx con
 	}).(AlertEventCapturePtrOutput)
 }
 
+// Time frame in seconds of the capture.
 func (o AlertEventCaptureOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v AlertEventCapture) int { return v.Duration }).(pulumi.IntOutput)
 }
 
+// Defines the name of the capture file.
 func (o AlertEventCaptureOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertEventCapture) string { return v.Filename }).(pulumi.StringOutput)
 }
 
+// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
 func (o AlertEventCaptureOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertEventCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
@@ -798,6 +855,7 @@ func (o AlertEventCapturePtrOutput) Elem() AlertEventCaptureOutput {
 	}).(AlertEventCaptureOutput)
 }
 
+// Time frame in seconds of the capture.
 func (o AlertEventCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlertEventCapture) *int {
 		if v == nil {
@@ -807,6 +865,7 @@ func (o AlertEventCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Defines the name of the capture file.
 func (o AlertEventCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertEventCapture) *string {
 		if v == nil {
@@ -816,6 +875,7 @@ func (o AlertEventCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
 func (o AlertEventCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertEventCapture) *string {
 		if v == nil {
@@ -826,9 +886,12 @@ func (o AlertEventCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 }
 
 type AlertEventCustomNotification struct {
-	Append  *string `pulumi:"append"`
+	// Text to add after the alert template.
+	Append *string `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend *string `pulumi:"prepend"`
-	Title   string  `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title string `pulumi:"title"`
 }
 
 // AlertEventCustomNotificationInput is an input type that accepts AlertEventCustomNotificationArgs and AlertEventCustomNotificationOutput values.
@@ -843,9 +906,12 @@ type AlertEventCustomNotificationInput interface {
 }
 
 type AlertEventCustomNotificationArgs struct {
-	Append  pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add after the alert template.
+	Append pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend pulumi.StringPtrInput `pulumi:"prepend"`
-	Title   pulumi.StringInput    `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title pulumi.StringInput `pulumi:"title"`
 }
 
 func (AlertEventCustomNotificationArgs) ElementType() reflect.Type {
@@ -925,14 +991,17 @@ func (o AlertEventCustomNotificationOutput) ToAlertEventCustomNotificationPtrOut
 	}).(AlertEventCustomNotificationPtrOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertEventCustomNotificationOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertEventCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertEventCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertEventCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertEventCustomNotificationOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertEventCustomNotification) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -961,6 +1030,7 @@ func (o AlertEventCustomNotificationPtrOutput) Elem() AlertEventCustomNotificati
 	}).(AlertEventCustomNotificationOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertEventCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertEventCustomNotification) *string {
 		if v == nil {
@@ -970,6 +1040,7 @@ func (o AlertEventCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertEventCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertEventCustomNotification) *string {
 		if v == nil {
@@ -979,6 +1050,7 @@ func (o AlertEventCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertEventCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertEventCustomNotification) *string {
 		if v == nil {
@@ -989,9 +1061,12 @@ func (o AlertEventCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 type AlertGroupOutlierCapture struct {
-	Duration int     `pulumi:"duration"`
-	Filename string  `pulumi:"filename"`
-	Filter   *string `pulumi:"filter"`
+	// Time frame in seconds of the capture.
+	Duration int `pulumi:"duration"`
+	// Defines the name of the capture file.
+	Filename string `pulumi:"filename"`
+	// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+	Filter *string `pulumi:"filter"`
 }
 
 // AlertGroupOutlierCaptureInput is an input type that accepts AlertGroupOutlierCaptureArgs and AlertGroupOutlierCaptureOutput values.
@@ -1006,9 +1081,12 @@ type AlertGroupOutlierCaptureInput interface {
 }
 
 type AlertGroupOutlierCaptureArgs struct {
-	Duration pulumi.IntInput       `pulumi:"duration"`
-	Filename pulumi.StringInput    `pulumi:"filename"`
-	Filter   pulumi.StringPtrInput `pulumi:"filter"`
+	// Time frame in seconds of the capture.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Defines the name of the capture file.
+	Filename pulumi.StringInput `pulumi:"filename"`
+	// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
 }
 
 func (AlertGroupOutlierCaptureArgs) ElementType() reflect.Type {
@@ -1088,14 +1166,17 @@ func (o AlertGroupOutlierCaptureOutput) ToAlertGroupOutlierCapturePtrOutputWithC
 	}).(AlertGroupOutlierCapturePtrOutput)
 }
 
+// Time frame in seconds of the capture.
 func (o AlertGroupOutlierCaptureOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v AlertGroupOutlierCapture) int { return v.Duration }).(pulumi.IntOutput)
 }
 
+// Defines the name of the capture file.
 func (o AlertGroupOutlierCaptureOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertGroupOutlierCapture) string { return v.Filename }).(pulumi.StringOutput)
 }
 
+// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
 func (o AlertGroupOutlierCaptureOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertGroupOutlierCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
@@ -1124,6 +1205,7 @@ func (o AlertGroupOutlierCapturePtrOutput) Elem() AlertGroupOutlierCaptureOutput
 	}).(AlertGroupOutlierCaptureOutput)
 }
 
+// Time frame in seconds of the capture.
 func (o AlertGroupOutlierCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlertGroupOutlierCapture) *int {
 		if v == nil {
@@ -1133,6 +1215,7 @@ func (o AlertGroupOutlierCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Defines the name of the capture file.
 func (o AlertGroupOutlierCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertGroupOutlierCapture) *string {
 		if v == nil {
@@ -1142,6 +1225,7 @@ func (o AlertGroupOutlierCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
 func (o AlertGroupOutlierCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertGroupOutlierCapture) *string {
 		if v == nil {
@@ -1152,9 +1236,12 @@ func (o AlertGroupOutlierCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 }
 
 type AlertGroupOutlierCustomNotification struct {
-	Append  *string `pulumi:"append"`
+	// Text to add after the alert template.
+	Append *string `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend *string `pulumi:"prepend"`
-	Title   string  `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title string `pulumi:"title"`
 }
 
 // AlertGroupOutlierCustomNotificationInput is an input type that accepts AlertGroupOutlierCustomNotificationArgs and AlertGroupOutlierCustomNotificationOutput values.
@@ -1169,9 +1256,12 @@ type AlertGroupOutlierCustomNotificationInput interface {
 }
 
 type AlertGroupOutlierCustomNotificationArgs struct {
-	Append  pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add after the alert template.
+	Append pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend pulumi.StringPtrInput `pulumi:"prepend"`
-	Title   pulumi.StringInput    `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title pulumi.StringInput `pulumi:"title"`
 }
 
 func (AlertGroupOutlierCustomNotificationArgs) ElementType() reflect.Type {
@@ -1251,14 +1341,17 @@ func (o AlertGroupOutlierCustomNotificationOutput) ToAlertGroupOutlierCustomNoti
 	}).(AlertGroupOutlierCustomNotificationPtrOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertGroupOutlierCustomNotificationOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertGroupOutlierCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertGroupOutlierCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertGroupOutlierCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertGroupOutlierCustomNotificationOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertGroupOutlierCustomNotification) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -1287,6 +1380,7 @@ func (o AlertGroupOutlierCustomNotificationPtrOutput) Elem() AlertGroupOutlierCu
 	}).(AlertGroupOutlierCustomNotificationOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertGroupOutlierCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertGroupOutlierCustomNotification) *string {
 		if v == nil {
@@ -1296,6 +1390,7 @@ func (o AlertGroupOutlierCustomNotificationPtrOutput) Append() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertGroupOutlierCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertGroupOutlierCustomNotification) *string {
 		if v == nil {
@@ -1305,6 +1400,7 @@ func (o AlertGroupOutlierCustomNotificationPtrOutput) Prepend() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertGroupOutlierCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertGroupOutlierCustomNotification) *string {
 		if v == nil {
@@ -1315,9 +1411,12 @@ func (o AlertGroupOutlierCustomNotificationPtrOutput) Title() pulumi.StringPtrOu
 }
 
 type AlertMetricCapture struct {
-	Duration int     `pulumi:"duration"`
-	Filename string  `pulumi:"filename"`
-	Filter   *string `pulumi:"filter"`
+	// Time frame in seconds of the capture.
+	Duration int `pulumi:"duration"`
+	// Defines the name of the capture file.
+	Filename string `pulumi:"filename"`
+	// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+	Filter *string `pulumi:"filter"`
 }
 
 // AlertMetricCaptureInput is an input type that accepts AlertMetricCaptureArgs and AlertMetricCaptureOutput values.
@@ -1332,9 +1431,12 @@ type AlertMetricCaptureInput interface {
 }
 
 type AlertMetricCaptureArgs struct {
-	Duration pulumi.IntInput       `pulumi:"duration"`
-	Filename pulumi.StringInput    `pulumi:"filename"`
-	Filter   pulumi.StringPtrInput `pulumi:"filter"`
+	// Time frame in seconds of the capture.
+	Duration pulumi.IntInput `pulumi:"duration"`
+	// Defines the name of the capture file.
+	Filename pulumi.StringInput `pulumi:"filename"`
+	// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+	Filter pulumi.StringPtrInput `pulumi:"filter"`
 }
 
 func (AlertMetricCaptureArgs) ElementType() reflect.Type {
@@ -1414,14 +1516,17 @@ func (o AlertMetricCaptureOutput) ToAlertMetricCapturePtrOutputWithContext(ctx c
 	}).(AlertMetricCapturePtrOutput)
 }
 
+// Time frame in seconds of the capture.
 func (o AlertMetricCaptureOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v AlertMetricCapture) int { return v.Duration }).(pulumi.IntOutput)
 }
 
+// Defines the name of the capture file.
 func (o AlertMetricCaptureOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMetricCapture) string { return v.Filename }).(pulumi.StringOutput)
 }
 
+// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
 func (o AlertMetricCaptureOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertMetricCapture) *string { return v.Filter }).(pulumi.StringPtrOutput)
 }
@@ -1450,6 +1555,7 @@ func (o AlertMetricCapturePtrOutput) Elem() AlertMetricCaptureOutput {
 	}).(AlertMetricCaptureOutput)
 }
 
+// Time frame in seconds of the capture.
 func (o AlertMetricCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlertMetricCapture) *int {
 		if v == nil {
@@ -1459,6 +1565,7 @@ func (o AlertMetricCapturePtrOutput) Duration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Defines the name of the capture file.
 func (o AlertMetricCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMetricCapture) *string {
 		if v == nil {
@@ -1468,6 +1575,7 @@ func (o AlertMetricCapturePtrOutput) Filename() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
 func (o AlertMetricCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMetricCapture) *string {
 		if v == nil {
@@ -1478,9 +1586,12 @@ func (o AlertMetricCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 }
 
 type AlertMetricCustomNotification struct {
-	Append  *string `pulumi:"append"`
+	// Text to add after the alert template.
+	Append *string `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend *string `pulumi:"prepend"`
-	Title   string  `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title string `pulumi:"title"`
 }
 
 // AlertMetricCustomNotificationInput is an input type that accepts AlertMetricCustomNotificationArgs and AlertMetricCustomNotificationOutput values.
@@ -1495,9 +1606,12 @@ type AlertMetricCustomNotificationInput interface {
 }
 
 type AlertMetricCustomNotificationArgs struct {
-	Append  pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add after the alert template.
+	Append pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend pulumi.StringPtrInput `pulumi:"prepend"`
-	Title   pulumi.StringInput    `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title pulumi.StringInput `pulumi:"title"`
 }
 
 func (AlertMetricCustomNotificationArgs) ElementType() reflect.Type {
@@ -1577,14 +1691,17 @@ func (o AlertMetricCustomNotificationOutput) ToAlertMetricCustomNotificationPtrO
 	}).(AlertMetricCustomNotificationPtrOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertMetricCustomNotificationOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertMetricCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertMetricCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertMetricCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertMetricCustomNotificationOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertMetricCustomNotification) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -1613,6 +1730,7 @@ func (o AlertMetricCustomNotificationPtrOutput) Elem() AlertMetricCustomNotifica
 	}).(AlertMetricCustomNotificationOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertMetricCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMetricCustomNotification) *string {
 		if v == nil {
@@ -1622,6 +1740,7 @@ func (o AlertMetricCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertMetricCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMetricCustomNotification) *string {
 		if v == nil {
@@ -1631,6 +1750,7 @@ func (o AlertMetricCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertMetricCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertMetricCustomNotification) *string {
 		if v == nil {
@@ -1804,9 +1924,12 @@ func (o AlertPromqlCapturePtrOutput) Filter() pulumi.StringPtrOutput {
 }
 
 type AlertPromqlCustomNotification struct {
-	Append  *string `pulumi:"append"`
+	// Text to add after the alert template.
+	Append *string `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend *string `pulumi:"prepend"`
-	Title   string  `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title string `pulumi:"title"`
 }
 
 // AlertPromqlCustomNotificationInput is an input type that accepts AlertPromqlCustomNotificationArgs and AlertPromqlCustomNotificationOutput values.
@@ -1821,9 +1944,12 @@ type AlertPromqlCustomNotificationInput interface {
 }
 
 type AlertPromqlCustomNotificationArgs struct {
-	Append  pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add after the alert template.
+	Append pulumi.StringPtrInput `pulumi:"append"`
+	// Text to add before the alert template.
 	Prepend pulumi.StringPtrInput `pulumi:"prepend"`
-	Title   pulumi.StringInput    `pulumi:"title"`
+	// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+	Title pulumi.StringInput `pulumi:"title"`
 }
 
 func (AlertPromqlCustomNotificationArgs) ElementType() reflect.Type {
@@ -1903,14 +2029,17 @@ func (o AlertPromqlCustomNotificationOutput) ToAlertPromqlCustomNotificationPtrO
 	}).(AlertPromqlCustomNotificationPtrOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertPromqlCustomNotificationOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertPromqlCustomNotification) *string { return v.Append }).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertPromqlCustomNotificationOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertPromqlCustomNotification) *string { return v.Prepend }).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertPromqlCustomNotificationOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertPromqlCustomNotification) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -1939,6 +2068,7 @@ func (o AlertPromqlCustomNotificationPtrOutput) Elem() AlertPromqlCustomNotifica
 	}).(AlertPromqlCustomNotificationOutput)
 }
 
+// Text to add after the alert template.
 func (o AlertPromqlCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertPromqlCustomNotification) *string {
 		if v == nil {
@@ -1948,6 +2078,7 @@ func (o AlertPromqlCustomNotificationPtrOutput) Append() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Text to add before the alert template.
 func (o AlertPromqlCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertPromqlCustomNotification) *string {
 		if v == nil {
@@ -1957,6 +2088,7 @@ func (o AlertPromqlCustomNotificationPtrOutput) Prepend() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
 func (o AlertPromqlCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertPromqlCustomNotification) *string {
 		if v == nil {
@@ -1967,18 +2099,38 @@ func (o AlertPromqlCustomNotificationPtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 type DashboardPanel struct {
-	AutosizeText          *bool                 `pulumi:"autosizeText"`
-	Content               *string               `pulumi:"content"`
-	Description           *string               `pulumi:"description"`
-	Height                int                   `pulumi:"height"`
-	Name                  string                `pulumi:"name"`
-	PosX                  int                   `pulumi:"posX"`
-	PosY                  int                   `pulumi:"posY"`
-	Queries               []DashboardPanelQuery `pulumi:"queries"`
-	TransparentBackground *bool                 `pulumi:"transparentBackground"`
-	Type                  string                `pulumi:"type"`
-	VisibleTitle          *bool                 `pulumi:"visibleTitle"`
-	Width                 int                   `pulumi:"width"`
+	// If true, the text will be autosized in the panel.
+	// This field is ignored for all panel types except `text`.
+	AutosizeText *bool `pulumi:"autosizeText"`
+	// This field is required if the panel type is `text`. It represents the
+	// text that will be displayed in the panel.
+	Content *string `pulumi:"content"`
+	// Description of the panel.
+	Description *string `pulumi:"description"`
+	// Height of the panel. Min value: 1.
+	Height int `pulumi:"height"`
+	// Name of the panel.
+	Name string `pulumi:"name"`
+	// Position of the panel in the X axis. Min value: 0, max value: 23.
+	PosX int `pulumi:"posX"`
+	// Position of the panel in the Y axis. Min value: 0.
+	PosY int `pulumi:"posY"`
+	// The PromQL query that will show information in the panel.
+	// If the type of the panel is `timechart`, then it can be specified multiple
+	// times, to have multiple metrics in the same graph.
+	// If the type of the panel is `number` then only one can be specified.
+	// This field is required if the panel type is `timechart` or `number`.
+	Queries []DashboardPanelQuery `pulumi:"queries"`
+	// If true, the panel will have a transparent background.
+	// This field is ignored for all panel types except `text`.
+	TransparentBackground *bool `pulumi:"transparentBackground"`
+	// Kind of panel, must be either `timechart`, `number` or `text`.
+	Type string `pulumi:"type"`
+	// If true, the title of the panel will be displayed. Default: false.
+	// This field is ignored for all panel types except `text`.
+	VisibleTitle *bool `pulumi:"visibleTitle"`
+	// Width of the panel. Min value: 1, max value: 24.
+	Width int `pulumi:"width"`
 }
 
 // DashboardPanelInput is an input type that accepts DashboardPanelArgs and DashboardPanelOutput values.
@@ -1993,18 +2145,38 @@ type DashboardPanelInput interface {
 }
 
 type DashboardPanelArgs struct {
-	AutosizeText          pulumi.BoolPtrInput           `pulumi:"autosizeText"`
-	Content               pulumi.StringPtrInput         `pulumi:"content"`
-	Description           pulumi.StringPtrInput         `pulumi:"description"`
-	Height                pulumi.IntInput               `pulumi:"height"`
-	Name                  pulumi.StringInput            `pulumi:"name"`
-	PosX                  pulumi.IntInput               `pulumi:"posX"`
-	PosY                  pulumi.IntInput               `pulumi:"posY"`
-	Queries               DashboardPanelQueryArrayInput `pulumi:"queries"`
-	TransparentBackground pulumi.BoolPtrInput           `pulumi:"transparentBackground"`
-	Type                  pulumi.StringInput            `pulumi:"type"`
-	VisibleTitle          pulumi.BoolPtrInput           `pulumi:"visibleTitle"`
-	Width                 pulumi.IntInput               `pulumi:"width"`
+	// If true, the text will be autosized in the panel.
+	// This field is ignored for all panel types except `text`.
+	AutosizeText pulumi.BoolPtrInput `pulumi:"autosizeText"`
+	// This field is required if the panel type is `text`. It represents the
+	// text that will be displayed in the panel.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// Description of the panel.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Height of the panel. Min value: 1.
+	Height pulumi.IntInput `pulumi:"height"`
+	// Name of the panel.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Position of the panel in the X axis. Min value: 0, max value: 23.
+	PosX pulumi.IntInput `pulumi:"posX"`
+	// Position of the panel in the Y axis. Min value: 0.
+	PosY pulumi.IntInput `pulumi:"posY"`
+	// The PromQL query that will show information in the panel.
+	// If the type of the panel is `timechart`, then it can be specified multiple
+	// times, to have multiple metrics in the same graph.
+	// If the type of the panel is `number` then only one can be specified.
+	// This field is required if the panel type is `timechart` or `number`.
+	Queries DashboardPanelQueryArrayInput `pulumi:"queries"`
+	// If true, the panel will have a transparent background.
+	// This field is ignored for all panel types except `text`.
+	TransparentBackground pulumi.BoolPtrInput `pulumi:"transparentBackground"`
+	// Kind of panel, must be either `timechart`, `number` or `text`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// If true, the title of the panel will be displayed. Default: false.
+	// This field is ignored for all panel types except `text`.
+	VisibleTitle pulumi.BoolPtrInput `pulumi:"visibleTitle"`
+	// Width of the panel. Min value: 1, max value: 24.
+	Width pulumi.IntInput `pulumi:"width"`
 }
 
 func (DashboardPanelArgs) ElementType() reflect.Type {
@@ -2058,50 +2230,70 @@ func (o DashboardPanelOutput) ToDashboardPanelOutputWithContext(ctx context.Cont
 	return o
 }
 
+// If true, the text will be autosized in the panel.
+// This field is ignored for all panel types except `text`.
 func (o DashboardPanelOutput) AutosizeText() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardPanel) *bool { return v.AutosizeText }).(pulumi.BoolPtrOutput)
 }
 
+// This field is required if the panel type is `text`. It represents the
+// text that will be displayed in the panel.
 func (o DashboardPanelOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardPanel) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
+// Description of the panel.
 func (o DashboardPanelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardPanel) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Height of the panel. Min value: 1.
 func (o DashboardPanelOutput) Height() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPanel) int { return v.Height }).(pulumi.IntOutput)
 }
 
+// Name of the panel.
 func (o DashboardPanelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardPanel) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Position of the panel in the X axis. Min value: 0, max value: 23.
 func (o DashboardPanelOutput) PosX() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPanel) int { return v.PosX }).(pulumi.IntOutput)
 }
 
+// Position of the panel in the Y axis. Min value: 0.
 func (o DashboardPanelOutput) PosY() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPanel) int { return v.PosY }).(pulumi.IntOutput)
 }
 
+// The PromQL query that will show information in the panel.
+// If the type of the panel is `timechart`, then it can be specified multiple
+// times, to have multiple metrics in the same graph.
+// If the type of the panel is `number` then only one can be specified.
+// This field is required if the panel type is `timechart` or `number`.
 func (o DashboardPanelOutput) Queries() DashboardPanelQueryArrayOutput {
 	return o.ApplyT(func(v DashboardPanel) []DashboardPanelQuery { return v.Queries }).(DashboardPanelQueryArrayOutput)
 }
 
+// If true, the panel will have a transparent background.
+// This field is ignored for all panel types except `text`.
 func (o DashboardPanelOutput) TransparentBackground() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardPanel) *bool { return v.TransparentBackground }).(pulumi.BoolPtrOutput)
 }
 
+// Kind of panel, must be either `timechart`, `number` or `text`.
 func (o DashboardPanelOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardPanel) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// If true, the title of the panel will be displayed. Default: false.
+// This field is ignored for all panel types except `text`.
 func (o DashboardPanelOutput) VisibleTitle() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DashboardPanel) *bool { return v.VisibleTitle }).(pulumi.BoolPtrOutput)
 }
 
+// Width of the panel. Min value: 1, max value: 24.
 func (o DashboardPanelOutput) Width() pulumi.IntOutput {
 	return o.ApplyT(func(v DashboardPanel) int { return v.Width }).(pulumi.IntOutput)
 }
@@ -2127,8 +2319,12 @@ func (o DashboardPanelArrayOutput) Index(i pulumi.IntInput) DashboardPanelOutput
 }
 
 type DashboardPanelQuery struct {
+	// The PromQL query. Must be a valid PromQL query with existing
+	// metrics in Sysdig Monitor.
 	Promql string `pulumi:"promql"`
-	Unit   string `pulumi:"unit"`
+	// The type of metric for this query. Can be one of: `percent`, `data`, `data rate`,
+	// `number`, `number rate`, `time`.
+	Unit string `pulumi:"unit"`
 }
 
 // DashboardPanelQueryInput is an input type that accepts DashboardPanelQueryArgs and DashboardPanelQueryOutput values.
@@ -2143,8 +2339,12 @@ type DashboardPanelQueryInput interface {
 }
 
 type DashboardPanelQueryArgs struct {
+	// The PromQL query. Must be a valid PromQL query with existing
+	// metrics in Sysdig Monitor.
 	Promql pulumi.StringInput `pulumi:"promql"`
-	Unit   pulumi.StringInput `pulumi:"unit"`
+	// The type of metric for this query. Can be one of: `percent`, `data`, `data rate`,
+	// `number`, `number rate`, `time`.
+	Unit pulumi.StringInput `pulumi:"unit"`
 }
 
 func (DashboardPanelQueryArgs) ElementType() reflect.Type {
@@ -2198,10 +2398,14 @@ func (o DashboardPanelQueryOutput) ToDashboardPanelQueryOutputWithContext(ctx co
 	return o
 }
 
+// The PromQL query. Must be a valid PromQL query with existing
+// metrics in Sysdig Monitor.
 func (o DashboardPanelQueryOutput) Promql() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardPanelQuery) string { return v.Promql }).(pulumi.StringOutput)
 }
 
+// The type of metric for this query. Can be one of: `percent`, `data`, `data rate`,
+// `number`, `number rate`, `time`.
 func (o DashboardPanelQueryOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardPanelQuery) string { return v.Unit }).(pulumi.StringOutput)
 }
@@ -2227,10 +2431,14 @@ func (o DashboardPanelQueryArrayOutput) Index(i pulumi.IntInput) DashboardPanelQ
 }
 
 type DashboardScope struct {
-	Comparator *string  `pulumi:"comparator"`
-	Metric     string   `pulumi:"metric"`
-	Values     []string `pulumi:"values"`
-	Variable   *string  `pulumi:"variable"`
+	// Operator to relate the metric with some value. It is only required if the value to filter by is set, or the variable field is not set. Valid values are: `in`, `notIn`, `equals`, `notEquals`, `contains`, `notContains` and `startsWith`.
+	Comparator *string `pulumi:"comparator"`
+	// Metric to scope by, common examples are `host.hostName`, `kubernetes.namespace.name` or `kubernetes.cluster.name`, but you can use all the Sysdig-supported values shown in the UI. Note that kubernetes-related values only appear when Sysdig detects Kubernetes metadata.
+	Metric string `pulumi:"metric"`
+	// List of values to filter by, if comparator is set. If the comparator is not `in` or `notIn` the list must contain only 1 value.
+	Values []string `pulumi:"values"`
+	// Assigns this metric to a value name and allows PromQL to reference it.
+	Variable *string `pulumi:"variable"`
 }
 
 // DashboardScopeInput is an input type that accepts DashboardScopeArgs and DashboardScopeOutput values.
@@ -2245,10 +2453,14 @@ type DashboardScopeInput interface {
 }
 
 type DashboardScopeArgs struct {
-	Comparator pulumi.StringPtrInput   `pulumi:"comparator"`
-	Metric     pulumi.StringInput      `pulumi:"metric"`
-	Values     pulumi.StringArrayInput `pulumi:"values"`
-	Variable   pulumi.StringPtrInput   `pulumi:"variable"`
+	// Operator to relate the metric with some value. It is only required if the value to filter by is set, or the variable field is not set. Valid values are: `in`, `notIn`, `equals`, `notEquals`, `contains`, `notContains` and `startsWith`.
+	Comparator pulumi.StringPtrInput `pulumi:"comparator"`
+	// Metric to scope by, common examples are `host.hostName`, `kubernetes.namespace.name` or `kubernetes.cluster.name`, but you can use all the Sysdig-supported values shown in the UI. Note that kubernetes-related values only appear when Sysdig detects Kubernetes metadata.
+	Metric pulumi.StringInput `pulumi:"metric"`
+	// List of values to filter by, if comparator is set. If the comparator is not `in` or `notIn` the list must contain only 1 value.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+	// Assigns this metric to a value name and allows PromQL to reference it.
+	Variable pulumi.StringPtrInput `pulumi:"variable"`
 }
 
 func (DashboardScopeArgs) ElementType() reflect.Type {
@@ -2302,18 +2514,22 @@ func (o DashboardScopeOutput) ToDashboardScopeOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Operator to relate the metric with some value. It is only required if the value to filter by is set, or the variable field is not set. Valid values are: `in`, `notIn`, `equals`, `notEquals`, `contains`, `notContains` and `startsWith`.
 func (o DashboardScopeOutput) Comparator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardScope) *string { return v.Comparator }).(pulumi.StringPtrOutput)
 }
 
+// Metric to scope by, common examples are `host.hostName`, `kubernetes.namespace.name` or `kubernetes.cluster.name`, but you can use all the Sysdig-supported values shown in the UI. Note that kubernetes-related values only appear when Sysdig detects Kubernetes metadata.
 func (o DashboardScopeOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardScope) string { return v.Metric }).(pulumi.StringOutput)
 }
 
+// List of values to filter by, if comparator is set. If the comparator is not `in` or `notIn` the list must contain only 1 value.
 func (o DashboardScopeOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardScope) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
+// Assigns this metric to a value name and allows PromQL to reference it.
 func (o DashboardScopeOutput) Variable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardScope) *string { return v.Variable }).(pulumi.StringPtrOutput)
 }
@@ -2339,8 +2555,12 @@ func (o DashboardScopeArrayOutput) Index(i pulumi.IntInput) DashboardScopeOutput
 }
 
 type TeamEntrypoint struct {
+	// Sets up the defined Dashboard name as entrypoint.
+	// Warning: This field must only be added if the `type` is "Dashboards".
 	Selection *string `pulumi:"selection"`
-	Type      string  `pulumi:"type"`
+	// Main entrypoint for the team.
+	// Valid options are: Explore, Dashboards, Events, Alerts, Settings.
+	Type string `pulumi:"type"`
 }
 
 // TeamEntrypointInput is an input type that accepts TeamEntrypointArgs and TeamEntrypointOutput values.
@@ -2355,8 +2575,12 @@ type TeamEntrypointInput interface {
 }
 
 type TeamEntrypointArgs struct {
+	// Sets up the defined Dashboard name as entrypoint.
+	// Warning: This field must only be added if the `type` is "Dashboards".
 	Selection pulumi.StringPtrInput `pulumi:"selection"`
-	Type      pulumi.StringInput    `pulumi:"type"`
+	// Main entrypoint for the team.
+	// Valid options are: Explore, Dashboards, Events, Alerts, Settings.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (TeamEntrypointArgs) ElementType() reflect.Type {
@@ -2410,10 +2634,14 @@ func (o TeamEntrypointOutput) ToTeamEntrypointOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Sets up the defined Dashboard name as entrypoint.
+// Warning: This field must only be added if the `type` is "Dashboards".
 func (o TeamEntrypointOutput) Selection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamEntrypoint) *string { return v.Selection }).(pulumi.StringPtrOutput)
 }
 
+// Main entrypoint for the team.
+// Valid options are: Explore, Dashboards, Events, Alerts, Settings.
 func (o TeamEntrypointOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamEntrypoint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2439,8 +2667,12 @@ func (o TeamEntrypointArrayOutput) Index(i pulumi.IntInput) TeamEntrypointOutput
 }
 
 type TeamUserRole struct {
-	Email string  `pulumi:"email"`
-	Role  *string `pulumi:"role"`
+	// The email of the user in the group.
+	Email string `pulumi:"email"`
+	// The role for the user in this group.
+	// Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+	// Default: ROLE_TEAM_STANDARD.
+	Role *string `pulumi:"role"`
 }
 
 // TeamUserRoleInput is an input type that accepts TeamUserRoleArgs and TeamUserRoleOutput values.
@@ -2455,8 +2687,12 @@ type TeamUserRoleInput interface {
 }
 
 type TeamUserRoleArgs struct {
-	Email pulumi.StringInput    `pulumi:"email"`
-	Role  pulumi.StringPtrInput `pulumi:"role"`
+	// The email of the user in the group.
+	Email pulumi.StringInput `pulumi:"email"`
+	// The role for the user in this group.
+	// Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+	// Default: ROLE_TEAM_STANDARD.
+	Role pulumi.StringPtrInput `pulumi:"role"`
 }
 
 func (TeamUserRoleArgs) ElementType() reflect.Type {
@@ -2510,10 +2746,14 @@ func (o TeamUserRoleOutput) ToTeamUserRoleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The email of the user in the group.
 func (o TeamUserRoleOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamUserRole) string { return v.Email }).(pulumi.StringOutput)
 }
 
+// The role for the user in this group.
+// Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+// Default: ROLE_TEAM_STANDARD.
 func (o TeamUserRoleOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamUserRole) *string { return v.Role }).(pulumi.StringPtrOutput)
 }

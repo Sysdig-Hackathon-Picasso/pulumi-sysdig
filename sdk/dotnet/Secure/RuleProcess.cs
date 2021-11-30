@@ -9,24 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Secure process runtime rules can be imported using the ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Secure/ruleProcess:RuleProcess example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Secure/ruleProcess:RuleProcess")]
     public partial class RuleProcess : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines if the process name matches or not with the provided list. Default is true.
+        /// </summary>
         [Output("matching")]
         public Output<bool?> Matching { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Secure rule. It must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// List of processes to match.
+        /// </summary>
         [Output("processes")]
         public Output<ImmutableArray<string>> Processes { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Secure.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -76,17 +103,30 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class RuleProcessArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Defines if the process name matches or not with the provided list. Default is true.
+        /// </summary>
         [Input("matching")]
         public Input<bool>? Matching { get; set; }
 
+        /// <summary>
+        /// The name of the Secure rule. It must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("processes")]
         private InputList<string>? _processes;
+
+        /// <summary>
+        /// List of processes to match.
+        /// </summary>
         public InputList<string> Processes
         {
             get => _processes ?? (_processes = new InputList<string>());
@@ -95,6 +135,10 @@ namespace Pulumi.Sysdig.Secure
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
@@ -108,17 +152,30 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class RuleProcessState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Defines if the process name matches or not with the provided list. Default is true.
+        /// </summary>
         [Input("matching")]
         public Input<bool>? Matching { get; set; }
 
+        /// <summary>
+        /// The name of the Secure rule. It must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("processes")]
         private InputList<string>? _processes;
+
+        /// <summary>
+        /// List of processes to match.
+        /// </summary>
         public InputList<string> Processes
         {
             get => _processes ?? (_processes = new InputList<string>());
@@ -127,12 +184,19 @@ namespace Pulumi.Sysdig.Secure
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Secure.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

@@ -11,15 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure Benchmark Tasks can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/benchmarkTask:BenchmarkTask sample 1
+// ```
 type BenchmarkTask struct {
 	pulumi.CustomResourceState
 
-	Enabled  pulumi.BoolPtrOutput `pulumi:"enabled"`
-	Id       pulumi.StringOutput  `pulumi:"id"`
-	Name     pulumi.StringOutput  `pulumi:"name"`
-	Schedule pulumi.StringOutput  `pulumi:"schedule"`
-	Schema   pulumi.StringOutput  `pulumi:"schema"`
-	Scope    pulumi.StringOutput  `pulumi:"scope"`
+	// Whether or not this task should be enabled. Default: `true`.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	Id      pulumi.StringOutput  `pulumi:"id"`
+	// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+	Schedule pulumi.StringOutput `pulumi:"schedule"`
+	// The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+	Schema pulumi.StringOutput `pulumi:"schema"`
+	// The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+	Scope pulumi.StringOutput `pulumi:"scope"`
 }
 
 // NewBenchmarkTask registers a new resource with the given unique name, arguments, and options.
@@ -60,21 +72,31 @@ func GetBenchmarkTask(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BenchmarkTask resources.
 type benchmarkTaskState struct {
-	Enabled  *bool   `pulumi:"enabled"`
-	Id       *string `pulumi:"id"`
-	Name     *string `pulumi:"name"`
+	// Whether or not this task should be enabled. Default: `true`.
+	Enabled *bool   `pulumi:"enabled"`
+	Id      *string `pulumi:"id"`
+	// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+	Name *string `pulumi:"name"`
+	// The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
 	Schedule *string `pulumi:"schedule"`
-	Schema   *string `pulumi:"schema"`
-	Scope    *string `pulumi:"scope"`
+	// The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+	Schema *string `pulumi:"schema"`
+	// The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+	Scope *string `pulumi:"scope"`
 }
 
 type BenchmarkTaskState struct {
-	Enabled  pulumi.BoolPtrInput
-	Id       pulumi.StringPtrInput
-	Name     pulumi.StringPtrInput
+	// Whether or not this task should be enabled. Default: `true`.
+	Enabled pulumi.BoolPtrInput
+	Id      pulumi.StringPtrInput
+	// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+	Name pulumi.StringPtrInput
+	// The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
 	Schedule pulumi.StringPtrInput
-	Schema   pulumi.StringPtrInput
-	Scope    pulumi.StringPtrInput
+	// The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+	Schema pulumi.StringPtrInput
+	// The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+	Scope pulumi.StringPtrInput
 }
 
 func (BenchmarkTaskState) ElementType() reflect.Type {
@@ -82,20 +104,30 @@ func (BenchmarkTaskState) ElementType() reflect.Type {
 }
 
 type benchmarkTaskArgs struct {
-	Enabled  *bool   `pulumi:"enabled"`
-	Name     *string `pulumi:"name"`
-	Schedule string  `pulumi:"schedule"`
-	Schema   string  `pulumi:"schema"`
-	Scope    string  `pulumi:"scope"`
+	// Whether or not this task should be enabled. Default: `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+	Name *string `pulumi:"name"`
+	// The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+	Schedule string `pulumi:"schedule"`
+	// The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+	Schema string `pulumi:"schema"`
+	// The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a BenchmarkTask resource.
 type BenchmarkTaskArgs struct {
-	Enabled  pulumi.BoolPtrInput
-	Name     pulumi.StringPtrInput
+	// Whether or not this task should be enabled. Default: `true`.
+	Enabled pulumi.BoolPtrInput
+	// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+	Name pulumi.StringPtrInput
+	// The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
 	Schedule pulumi.StringInput
-	Schema   pulumi.StringInput
-	Scope    pulumi.StringInput
+	// The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+	Schema pulumi.StringInput
+	// The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+	Scope pulumi.StringInput
 }
 
 func (BenchmarkTaskArgs) ElementType() reflect.Type {

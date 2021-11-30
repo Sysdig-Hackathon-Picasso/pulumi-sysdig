@@ -11,19 +11,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure runtime policies can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/policy:Policy example 12345
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Actions              PolicyActionArrayOutput  `pulumi:"actions"`
-	Description          pulumi.StringOutput      `pulumi:"description"`
-	Enabled              pulumi.BoolPtrOutput     `pulumi:"enabled"`
-	Name                 pulumi.StringOutput      `pulumi:"name"`
-	NotificationChannels pulumi.IntArrayOutput    `pulumi:"notificationChannels"`
-	RuleNames            pulumi.StringArrayOutput `pulumi:"ruleNames"`
-	Scope                pulumi.StringPtrOutput   `pulumi:"scope"`
-	Severity             pulumi.IntPtrOutput      `pulumi:"severity"`
-	Type                 pulumi.StringPtrOutput   `pulumi:"type"`
-	Version              pulumi.IntOutput         `pulumi:"version"`
+	Actions PolicyActionArrayOutput `pulumi:"actions"`
+	// The description of Secure policy.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// Will secure process with this rule?. By default this is true.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The name of the Secure policy. It must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// IDs of the notification channels to send alerts to
+	// when the policy is fired.
+	NotificationChannels pulumi.IntArrayOutput `pulumi:"notificationChannels"`
+	// Array with the name of the rules to match.
+	RuleNames pulumi.StringArrayOutput `pulumi:"ruleNames"`
+	// Limit appplication scope based in one expresion. For
+	// example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+	// and will target the entire infrastructure.
+	Scope pulumi.StringPtrOutput `pulumi:"scope"`
+	// The severity of Secure policy. The accepted values
+	// are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+	Severity pulumi.IntPtrOutput `pulumi:"severity"`
+	// Specifies the type of the runtime policy. Must be one of: `falco`, `listMatching`, `k8sAudit`, `awsCloudtrail`. By default it is `falco`.
+	Type    pulumi.StringPtrOutput `pulumi:"type"`
+	Version pulumi.IntOutput       `pulumi:"version"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -58,29 +77,53 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	Actions              []PolicyAction `pulumi:"actions"`
-	Description          *string        `pulumi:"description"`
-	Enabled              *bool          `pulumi:"enabled"`
-	Name                 *string        `pulumi:"name"`
-	NotificationChannels []int          `pulumi:"notificationChannels"`
-	RuleNames            []string       `pulumi:"ruleNames"`
-	Scope                *string        `pulumi:"scope"`
-	Severity             *int           `pulumi:"severity"`
-	Type                 *string        `pulumi:"type"`
-	Version              *int           `pulumi:"version"`
+	Actions []PolicyAction `pulumi:"actions"`
+	// The description of Secure policy.
+	Description *string `pulumi:"description"`
+	// Will secure process with this rule?. By default this is true.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Secure policy. It must be unique.
+	Name *string `pulumi:"name"`
+	// IDs of the notification channels to send alerts to
+	// when the policy is fired.
+	NotificationChannels []int `pulumi:"notificationChannels"`
+	// Array with the name of the rules to match.
+	RuleNames []string `pulumi:"ruleNames"`
+	// Limit appplication scope based in one expresion. For
+	// example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+	// and will target the entire infrastructure.
+	Scope *string `pulumi:"scope"`
+	// The severity of Secure policy. The accepted values
+	// are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+	Severity *int `pulumi:"severity"`
+	// Specifies the type of the runtime policy. Must be one of: `falco`, `listMatching`, `k8sAudit`, `awsCloudtrail`. By default it is `falco`.
+	Type    *string `pulumi:"type"`
+	Version *int    `pulumi:"version"`
 }
 
 type PolicyState struct {
-	Actions              PolicyActionArrayInput
-	Description          pulumi.StringPtrInput
-	Enabled              pulumi.BoolPtrInput
-	Name                 pulumi.StringPtrInput
+	Actions PolicyActionArrayInput
+	// The description of Secure policy.
+	Description pulumi.StringPtrInput
+	// Will secure process with this rule?. By default this is true.
+	Enabled pulumi.BoolPtrInput
+	// The name of the Secure policy. It must be unique.
+	Name pulumi.StringPtrInput
+	// IDs of the notification channels to send alerts to
+	// when the policy is fired.
 	NotificationChannels pulumi.IntArrayInput
-	RuleNames            pulumi.StringArrayInput
-	Scope                pulumi.StringPtrInput
-	Severity             pulumi.IntPtrInput
-	Type                 pulumi.StringPtrInput
-	Version              pulumi.IntPtrInput
+	// Array with the name of the rules to match.
+	RuleNames pulumi.StringArrayInput
+	// Limit appplication scope based in one expresion. For
+	// example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+	// and will target the entire infrastructure.
+	Scope pulumi.StringPtrInput
+	// The severity of Secure policy. The accepted values
+	// are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+	Severity pulumi.IntPtrInput
+	// Specifies the type of the runtime policy. Must be one of: `falco`, `listMatching`, `k8sAudit`, `awsCloudtrail`. By default it is `falco`.
+	Type    pulumi.StringPtrInput
+	Version pulumi.IntPtrInput
 }
 
 func (PolicyState) ElementType() reflect.Type {
@@ -88,28 +131,52 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	Actions              []PolicyAction `pulumi:"actions"`
-	Description          string         `pulumi:"description"`
-	Enabled              *bool          `pulumi:"enabled"`
-	Name                 *string        `pulumi:"name"`
-	NotificationChannels []int          `pulumi:"notificationChannels"`
-	RuleNames            []string       `pulumi:"ruleNames"`
-	Scope                *string        `pulumi:"scope"`
-	Severity             *int           `pulumi:"severity"`
-	Type                 *string        `pulumi:"type"`
+	Actions []PolicyAction `pulumi:"actions"`
+	// The description of Secure policy.
+	Description string `pulumi:"description"`
+	// Will secure process with this rule?. By default this is true.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Secure policy. It must be unique.
+	Name *string `pulumi:"name"`
+	// IDs of the notification channels to send alerts to
+	// when the policy is fired.
+	NotificationChannels []int `pulumi:"notificationChannels"`
+	// Array with the name of the rules to match.
+	RuleNames []string `pulumi:"ruleNames"`
+	// Limit appplication scope based in one expresion. For
+	// example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+	// and will target the entire infrastructure.
+	Scope *string `pulumi:"scope"`
+	// The severity of Secure policy. The accepted values
+	// are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+	Severity *int `pulumi:"severity"`
+	// Specifies the type of the runtime policy. Must be one of: `falco`, `listMatching`, `k8sAudit`, `awsCloudtrail`. By default it is `falco`.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	Actions              PolicyActionArrayInput
-	Description          pulumi.StringInput
-	Enabled              pulumi.BoolPtrInput
-	Name                 pulumi.StringPtrInput
+	Actions PolicyActionArrayInput
+	// The description of Secure policy.
+	Description pulumi.StringInput
+	// Will secure process with this rule?. By default this is true.
+	Enabled pulumi.BoolPtrInput
+	// The name of the Secure policy. It must be unique.
+	Name pulumi.StringPtrInput
+	// IDs of the notification channels to send alerts to
+	// when the policy is fired.
 	NotificationChannels pulumi.IntArrayInput
-	RuleNames            pulumi.StringArrayInput
-	Scope                pulumi.StringPtrInput
-	Severity             pulumi.IntPtrInput
-	Type                 pulumi.StringPtrInput
+	// Array with the name of the rules to match.
+	RuleNames pulumi.StringArrayInput
+	// Limit appplication scope based in one expresion. For
+	// example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+	// and will target the entire infrastructure.
+	Scope pulumi.StringPtrInput
+	// The severity of Secure policy. The accepted values
+	// are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+	Severity pulumi.IntPtrInput
+	// Specifies the type of the runtime policy. Must be one of: `falco`, `listMatching`, `k8sAudit`, `awsCloudtrail`. By default it is `falco`.
+	Type pulumi.StringPtrInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {

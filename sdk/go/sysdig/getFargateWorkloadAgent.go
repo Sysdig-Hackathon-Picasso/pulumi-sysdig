@@ -21,14 +21,22 @@ func GetFargateWorkloadAgent(ctx *pulumi.Context, args *GetFargateWorkloadAgentA
 
 // A collection of arguments for invoking GetFargateWorkloadAgent.
 type GetFargateWorkloadAgentArgs struct {
-	CollectorHost        *string `pulumi:"collectorHost"`
-	CollectorPort        *string `pulumi:"collectorPort"`
-	ContainerDefinitions string  `pulumi:"containerDefinitions"`
-	ImageAuthSecret      *string `pulumi:"imageAuthSecret"`
-	OrchestratorHost     *string `pulumi:"orchestratorHost"`
-	OrchestratorPort     *string `pulumi:"orchestratorPort"`
-	SysdigAccessKey      string  `pulumi:"sysdigAccessKey"`
-	WorkloadAgentImage   string  `pulumi:"workloadAgentImage"`
+	// The collector host to connect to.
+	CollectorHost *string `pulumi:"collectorHost"`
+	// The collector port to connect to.
+	CollectorPort *string `pulumi:"collectorPort"`
+	// The input Fargate container definitions to instrument with the Sysdig workload agent.
+	ContainerDefinitions string `pulumi:"containerDefinitions"`
+	// The registry authentication secret.
+	ImageAuthSecret *string `pulumi:"imageAuthSecret"`
+	// The orchestrator host to connect to.
+	OrchestratorHost *string `pulumi:"orchestratorHost"`
+	// The orchestrator port to connect to.
+	OrchestratorPort *string `pulumi:"orchestratorPort"`
+	// The Sysdig Access Key (Agent token).
+	SysdigAccessKey string `pulumi:"sysdigAccessKey"`
+	// The Sysdig workload agent image.
+	WorkloadAgentImage string `pulumi:"workloadAgentImage"`
 }
 
 // A collection of values returned by GetFargateWorkloadAgent.
@@ -37,13 +45,14 @@ type GetFargateWorkloadAgentResult struct {
 	CollectorPort        *string `pulumi:"collectorPort"`
 	ContainerDefinitions string  `pulumi:"containerDefinitions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                         string  `pulumi:"id"`
-	ImageAuthSecret            *string `pulumi:"imageAuthSecret"`
-	OrchestratorHost           *string `pulumi:"orchestratorHost"`
-	OrchestratorPort           *string `pulumi:"orchestratorPort"`
-	OutputContainerDefinitions string  `pulumi:"outputContainerDefinitions"`
-	SysdigAccessKey            string  `pulumi:"sysdigAccessKey"`
-	WorkloadAgentImage         string  `pulumi:"workloadAgentImage"`
+	Id               string  `pulumi:"id"`
+	ImageAuthSecret  *string `pulumi:"imageAuthSecret"`
+	OrchestratorHost *string `pulumi:"orchestratorHost"`
+	OrchestratorPort *string `pulumi:"orchestratorPort"`
+	// The updated container definitions instrumented with the Sysdig workload agent.
+	OutputContainerDefinitions string `pulumi:"outputContainerDefinitions"`
+	SysdigAccessKey            string `pulumi:"sysdigAccessKey"`
+	WorkloadAgentImage         string `pulumi:"workloadAgentImage"`
 }
 
 func GetFargateWorkloadAgentOutput(ctx *pulumi.Context, args GetFargateWorkloadAgentOutputArgs, opts ...pulumi.InvokeOption) GetFargateWorkloadAgentResultOutput {
@@ -57,14 +66,22 @@ func GetFargateWorkloadAgentOutput(ctx *pulumi.Context, args GetFargateWorkloadA
 
 // A collection of arguments for invoking GetFargateWorkloadAgent.
 type GetFargateWorkloadAgentOutputArgs struct {
-	CollectorHost        pulumi.StringPtrInput `pulumi:"collectorHost"`
-	CollectorPort        pulumi.StringPtrInput `pulumi:"collectorPort"`
-	ContainerDefinitions pulumi.StringInput    `pulumi:"containerDefinitions"`
-	ImageAuthSecret      pulumi.StringPtrInput `pulumi:"imageAuthSecret"`
-	OrchestratorHost     pulumi.StringPtrInput `pulumi:"orchestratorHost"`
-	OrchestratorPort     pulumi.StringPtrInput `pulumi:"orchestratorPort"`
-	SysdigAccessKey      pulumi.StringInput    `pulumi:"sysdigAccessKey"`
-	WorkloadAgentImage   pulumi.StringInput    `pulumi:"workloadAgentImage"`
+	// The collector host to connect to.
+	CollectorHost pulumi.StringPtrInput `pulumi:"collectorHost"`
+	// The collector port to connect to.
+	CollectorPort pulumi.StringPtrInput `pulumi:"collectorPort"`
+	// The input Fargate container definitions to instrument with the Sysdig workload agent.
+	ContainerDefinitions pulumi.StringInput `pulumi:"containerDefinitions"`
+	// The registry authentication secret.
+	ImageAuthSecret pulumi.StringPtrInput `pulumi:"imageAuthSecret"`
+	// The orchestrator host to connect to.
+	OrchestratorHost pulumi.StringPtrInput `pulumi:"orchestratorHost"`
+	// The orchestrator port to connect to.
+	OrchestratorPort pulumi.StringPtrInput `pulumi:"orchestratorPort"`
+	// The Sysdig Access Key (Agent token).
+	SysdigAccessKey pulumi.StringInput `pulumi:"sysdigAccessKey"`
+	// The Sysdig workload agent image.
+	WorkloadAgentImage pulumi.StringInput `pulumi:"workloadAgentImage"`
 }
 
 func (GetFargateWorkloadAgentOutputArgs) ElementType() reflect.Type {
@@ -115,6 +132,7 @@ func (o GetFargateWorkloadAgentResultOutput) OrchestratorPort() pulumi.StringPtr
 	return o.ApplyT(func(v GetFargateWorkloadAgentResult) *string { return v.OrchestratorPort }).(pulumi.StringPtrOutput)
 }
 
+// The updated container definitions instrumented with the Sysdig workload agent.
 func (o GetFargateWorkloadAgentResultOutput) OutputContainerDefinitions() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFargateWorkloadAgentResult) string { return v.OutputContainerDefinitions }).(pulumi.StringOutput)
 }

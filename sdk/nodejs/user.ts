@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * Sysdig users can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:index/user:User example 12345
+ * ```
+ */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -32,9 +41,22 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
+    /**
+     * The email for the user to invite.
+     */
     public readonly email!: pulumi.Output<string>;
+    /**
+     * The name of the user.
+     */
     public readonly firstName!: pulumi.Output<string | undefined>;
+    /**
+     * The last name of the user.
+     */
     public readonly lastName!: pulumi.Output<string | undefined>;
+    /**
+     * The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+     * If set to "ROLE_CUSTOMER", the user will be known as an admin.
+     */
     public readonly systemRole!: pulumi.Output<string | undefined>;
     public /*out*/ readonly version!: pulumi.Output<number>;
 
@@ -78,9 +100,22 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
+    /**
+     * The email for the user to invite.
+     */
     email?: pulumi.Input<string>;
+    /**
+     * The name of the user.
+     */
     firstName?: pulumi.Input<string>;
+    /**
+     * The last name of the user.
+     */
     lastName?: pulumi.Input<string>;
+    /**
+     * The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+     * If set to "ROLE_CUSTOMER", the user will be known as an admin.
+     */
     systemRole?: pulumi.Input<string>;
     version?: pulumi.Input<number>;
 }
@@ -89,8 +124,21 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
+    /**
+     * The email for the user to invite.
+     */
     email: pulumi.Input<string>;
+    /**
+     * The name of the user.
+     */
     firstName?: pulumi.Input<string>;
+    /**
+     * The last name of the user.
+     */
     lastName?: pulumi.Input<string>;
+    /**
+     * The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+     * If set to "ROLE_CUSTOMER", the user will be known as an admin.
+     */
     systemRole?: pulumi.Input<string>;
 }

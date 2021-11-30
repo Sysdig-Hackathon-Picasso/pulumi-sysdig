@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Event Monitor alerts can be imported using the alert ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Monitor/alertEvent:AlertEvent example 12345
+ * ```
+ */
 export class AlertEvent extends pulumi.CustomResource {
     /**
      * Get an existing AlertEvent resource's state with the given name, ID, and optional extra
@@ -33,22 +42,74 @@ export class AlertEvent extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlertEvent.__pulumiType;
     }
 
+    /**
+     * Enables the creation of a capture file of the syscalls during the event.
+     */
     public readonly capture!: pulumi.Output<outputs.Monitor.AlertEventCapture | undefined>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     public readonly customNotification!: pulumi.Output<outputs.Monitor.AlertEventCustomNotification | undefined>;
+    /**
+     * The description of Monitor alert.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Number of events to match with event_rel.
+     */
     public readonly eventCount!: pulumi.Output<number>;
+    /**
+     * String that matches part of name, tag or the description of Sysdig Events.
+     */
     public readonly eventName!: pulumi.Output<string>;
+    /**
+     * Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+     */
     public readonly eventRel!: pulumi.Output<string>;
+    /**
+     * List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+     */
     public readonly multipleAlertsBies!: pulumi.Output<string[] | undefined>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     public readonly notificationChannels!: pulumi.Output<number[] | undefined>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     public readonly renotificationMinutes!: pulumi.Output<number | undefined>;
+    /**
+     * Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+     */
     public readonly scope!: pulumi.Output<string | undefined>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     public readonly severity!: pulumi.Output<number | undefined>;
+    /**
+     * Source of the event. It can be `docker` or `kubernetes`.
+     */
     public readonly source!: pulumi.Output<string>;
+    /**
+     * Team ID that owns the alert.
+     */
     public /*out*/ readonly team!: pulumi.Output<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     public readonly triggerAfterMinutes!: pulumi.Output<number>;
+    /**
+     * Current version of the resource in Sysdig Monitor.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -127,22 +188,74 @@ export class AlertEvent extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertEvent resources.
  */
 export interface AlertEventState {
+    /**
+     * Enables the creation of a capture file of the syscalls during the event.
+     */
     capture?: pulumi.Input<inputs.Monitor.AlertEventCapture>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     customNotification?: pulumi.Input<inputs.Monitor.AlertEventCustomNotification>;
+    /**
+     * The description of Monitor alert.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Number of events to match with event_rel.
+     */
     eventCount?: pulumi.Input<number>;
+    /**
+     * String that matches part of name, tag or the description of Sysdig Events.
+     */
     eventName?: pulumi.Input<string>;
+    /**
+     * Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+     */
     eventRel?: pulumi.Input<string>;
+    /**
+     * List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+     */
     multipleAlertsBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     renotificationMinutes?: pulumi.Input<number>;
+    /**
+     * Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+     */
     scope?: pulumi.Input<string>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     severity?: pulumi.Input<number>;
+    /**
+     * Source of the event. It can be `docker` or `kubernetes`.
+     */
     source?: pulumi.Input<string>;
+    /**
+     * Team ID that owns the alert.
+     */
     team?: pulumi.Input<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     triggerAfterMinutes?: pulumi.Input<number>;
+    /**
+     * Current version of the resource in Sysdig Monitor.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -150,19 +263,65 @@ export interface AlertEventState {
  * The set of arguments for constructing a AlertEvent resource.
  */
 export interface AlertEventArgs {
+    /**
+     * Enables the creation of a capture file of the syscalls during the event.
+     */
     capture?: pulumi.Input<inputs.Monitor.AlertEventCapture>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     customNotification?: pulumi.Input<inputs.Monitor.AlertEventCustomNotification>;
+    /**
+     * The description of Monitor alert.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Number of events to match with event_rel.
+     */
     eventCount: pulumi.Input<number>;
+    /**
+     * String that matches part of name, tag or the description of Sysdig Events.
+     */
     eventName: pulumi.Input<string>;
+    /**
+     * Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+     */
     eventRel: pulumi.Input<string>;
+    /**
+     * List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+     */
     multipleAlertsBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     renotificationMinutes?: pulumi.Input<number>;
+    /**
+     * Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+     */
     scope?: pulumi.Input<string>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     severity?: pulumi.Input<number>;
+    /**
+     * Source of the event. It can be `docker` or `kubernetes`.
+     */
     source: pulumi.Input<string>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     triggerAfterMinutes: pulumi.Input<number>;
 }

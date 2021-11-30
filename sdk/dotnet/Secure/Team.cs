@@ -9,27 +9,56 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Secure Teams can be imported using the ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Secure/team:Team example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Secure/team:Team")]
     public partial class Team : Pulumi.CustomResource
     {
         [Output("defaultTeam")]
         public Output<bool?> DefaultTeam { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the team.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// If the team can only see some resources, 
+        /// write down a filter of such resources.
+        /// </summary>
         [Output("filter")]
         public Output<string?> Filter { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Secure Team. It must be unique and must not exist in Monitor.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Scope for the team. Default: "container".
+        /// </summary>
         [Output("scopeBy")]
         public Output<string?> ScopeBy { get; private set; } = null!;
 
+        /// <summary>
+        /// Colour of the team. Default: "#73A1F7".
+        /// </summary>
         [Output("theme")]
         public Output<string?> Theme { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines if the team is able to create Sysdig Capture files. 
+        /// Default: true.
+        /// </summary>
         [Output("useSysdigCapture")]
         public Output<bool?> UseSysdigCapture { get; private set; } = null!;
 
@@ -88,21 +117,41 @@ namespace Pulumi.Sysdig.Secure
         [Input("defaultTeam")]
         public Input<bool>? DefaultTeam { get; set; }
 
+        /// <summary>
+        /// A description of the team.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// If the team can only see some resources, 
+        /// write down a filter of such resources.
+        /// </summary>
         [Input("filter")]
         public Input<string>? Filter { get; set; }
 
+        /// <summary>
+        /// The name of the Secure Team. It must be unique and must not exist in Monitor.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Scope for the team. Default: "container".
+        /// </summary>
         [Input("scopeBy")]
         public Input<string>? ScopeBy { get; set; }
 
+        /// <summary>
+        /// Colour of the team. Default: "#73A1F7".
+        /// </summary>
         [Input("theme")]
         public Input<string>? Theme { get; set; }
 
+        /// <summary>
+        /// Defines if the team is able to create Sysdig Capture files. 
+        /// Default: true.
+        /// </summary>
         [Input("useSysdigCapture")]
         public Input<bool>? UseSysdigCapture { get; set; }
 
@@ -124,21 +173,41 @@ namespace Pulumi.Sysdig.Secure
         [Input("defaultTeam")]
         public Input<bool>? DefaultTeam { get; set; }
 
+        /// <summary>
+        /// A description of the team.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// If the team can only see some resources, 
+        /// write down a filter of such resources.
+        /// </summary>
         [Input("filter")]
         public Input<string>? Filter { get; set; }
 
+        /// <summary>
+        /// The name of the Secure Team. It must be unique and must not exist in Monitor.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Scope for the team. Default: "container".
+        /// </summary>
         [Input("scopeBy")]
         public Input<string>? ScopeBy { get; set; }
 
+        /// <summary>
+        /// Colour of the team. Default: "#73A1F7".
+        /// </summary>
         [Input("theme")]
         public Input<string>? Theme { get; set; }
 
+        /// <summary>
+        /// Defines if the team is able to create Sysdig Capture files. 
+        /// Default: true.
+        /// </summary>
         [Input("useSysdigCapture")]
         public Input<bool>? UseSysdigCapture { get; set; }
 

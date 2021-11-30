@@ -11,8 +11,12 @@ import (
 )
 
 type PolicyAction struct {
-	Captures  []PolicyActionCapture `pulumi:"captures"`
-	Container *string               `pulumi:"container"`
+	// Captures with Sysdig the stream of system calls:
+	Captures []PolicyActionCapture `pulumi:"captures"`
+	// The action applied to container when this Policy is
+	// triggered. Can be *stop*, *pause* or *kill*. If this is not specified,
+	// no action will be applied at the container level.
+	Container *string `pulumi:"container"`
 }
 
 // PolicyActionInput is an input type that accepts PolicyActionArgs and PolicyActionOutput values.
@@ -27,8 +31,12 @@ type PolicyActionInput interface {
 }
 
 type PolicyActionArgs struct {
-	Captures  PolicyActionCaptureArrayInput `pulumi:"captures"`
-	Container pulumi.StringPtrInput         `pulumi:"container"`
+	// Captures with Sysdig the stream of system calls:
+	Captures PolicyActionCaptureArrayInput `pulumi:"captures"`
+	// The action applied to container when this Policy is
+	// triggered. Can be *stop*, *pause* or *kill*. If this is not specified,
+	// no action will be applied at the container level.
+	Container pulumi.StringPtrInput `pulumi:"container"`
 }
 
 func (PolicyActionArgs) ElementType() reflect.Type {
@@ -82,10 +90,14 @@ func (o PolicyActionOutput) ToPolicyActionOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Captures with Sysdig the stream of system calls:
 func (o PolicyActionOutput) Captures() PolicyActionCaptureArrayOutput {
 	return o.ApplyT(func(v PolicyAction) []PolicyActionCapture { return v.Captures }).(PolicyActionCaptureArrayOutput)
 }
 
+// The action applied to container when this Policy is
+// triggered. Can be *stop*, *pause* or *kill*. If this is not specified,
+// no action will be applied at the container level.
 func (o PolicyActionOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyAction) *string { return v.Container }).(pulumi.StringPtrOutput)
 }
@@ -111,7 +123,11 @@ func (o PolicyActionArrayOutput) Index(i pulumi.IntInput) PolicyActionOutput {
 }
 
 type PolicyActionCapture struct {
-	SecondsAfterEvent  int `pulumi:"secondsAfterEvent"`
+	// Captures the system calls for the amount
+	// of seconds after the policy was triggered.
+	SecondsAfterEvent int `pulumi:"secondsAfterEvent"`
+	// Captures the system calls during the
+	// amount of seconds before the policy was triggered.
 	SecondsBeforeEvent int `pulumi:"secondsBeforeEvent"`
 }
 
@@ -127,7 +143,11 @@ type PolicyActionCaptureInput interface {
 }
 
 type PolicyActionCaptureArgs struct {
-	SecondsAfterEvent  pulumi.IntInput `pulumi:"secondsAfterEvent"`
+	// Captures the system calls for the amount
+	// of seconds after the policy was triggered.
+	SecondsAfterEvent pulumi.IntInput `pulumi:"secondsAfterEvent"`
+	// Captures the system calls during the
+	// amount of seconds before the policy was triggered.
 	SecondsBeforeEvent pulumi.IntInput `pulumi:"secondsBeforeEvent"`
 }
 
@@ -182,10 +202,14 @@ func (o PolicyActionCaptureOutput) ToPolicyActionCaptureOutputWithContext(ctx co
 	return o
 }
 
+// Captures the system calls for the amount
+// of seconds after the policy was triggered.
 func (o PolicyActionCaptureOutput) SecondsAfterEvent() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyActionCapture) int { return v.SecondsAfterEvent }).(pulumi.IntOutput)
 }
 
+// Captures the system calls during the
+// amount of seconds before the policy was triggered.
 func (o PolicyActionCaptureOutput) SecondsBeforeEvent() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyActionCapture) int { return v.SecondsBeforeEvent }).(pulumi.IntOutput)
 }
@@ -211,10 +235,14 @@ func (o PolicyActionCaptureArrayOutput) Index(i pulumi.IntInput) PolicyActionCap
 }
 
 type RuleFalcoException struct {
-	Comps  []string `pulumi:"comps"`
+	// Contains comparison operators that align 1-1 with the items in the fields property.
+	Comps []string `pulumi:"comps"`
+	// Contains one or more fields that will extract a value from the syscall/k8s_audit events.
 	Fields []string `pulumi:"fields"`
-	Name   string   `pulumi:"name"`
-	Values string   `pulumi:"values"`
+	// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+	Name string `pulumi:"name"`
+	// Contains tuples of values. Each item in the tuple should align 1-1 with the corresponding field and comparison operator. Since the value can be a string, a list of strings or a list of a list of strings, the value of this field must be supplied in JSON format. You can use the default `jsonencode` function to provide this value. See the usage example on the top.
+	Values string `pulumi:"values"`
 }
 
 // RuleFalcoExceptionInput is an input type that accepts RuleFalcoExceptionArgs and RuleFalcoExceptionOutput values.
@@ -229,10 +257,14 @@ type RuleFalcoExceptionInput interface {
 }
 
 type RuleFalcoExceptionArgs struct {
-	Comps  pulumi.StringArrayInput `pulumi:"comps"`
+	// Contains comparison operators that align 1-1 with the items in the fields property.
+	Comps pulumi.StringArrayInput `pulumi:"comps"`
+	// Contains one or more fields that will extract a value from the syscall/k8s_audit events.
 	Fields pulumi.StringArrayInput `pulumi:"fields"`
-	Name   pulumi.StringInput      `pulumi:"name"`
-	Values pulumi.StringInput      `pulumi:"values"`
+	// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Contains tuples of values. Each item in the tuple should align 1-1 with the corresponding field and comparison operator. Since the value can be a string, a list of strings or a list of a list of strings, the value of this field must be supplied in JSON format. You can use the default `jsonencode` function to provide this value. See the usage example on the top.
+	Values pulumi.StringInput `pulumi:"values"`
 }
 
 func (RuleFalcoExceptionArgs) ElementType() reflect.Type {
@@ -286,18 +318,22 @@ func (o RuleFalcoExceptionOutput) ToRuleFalcoExceptionOutputWithContext(ctx cont
 	return o
 }
 
+// Contains comparison operators that align 1-1 with the items in the fields property.
 func (o RuleFalcoExceptionOutput) Comps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleFalcoException) []string { return v.Comps }).(pulumi.StringArrayOutput)
 }
 
+// Contains one or more fields that will extract a value from the syscall/k8s_audit events.
 func (o RuleFalcoExceptionOutput) Fields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleFalcoException) []string { return v.Fields }).(pulumi.StringArrayOutput)
 }
 
+// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
 func (o RuleFalcoExceptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleFalcoException) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Contains tuples of values. Each item in the tuple should align 1-1 with the corresponding field and comparison operator. Since the value can be a string, a list of strings or a list of a list of strings, the value of this field must be supplied in JSON format. You can use the default `jsonencode` function to provide this value. See the usage example on the top.
 func (o RuleFalcoExceptionOutput) Values() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleFalcoException) string { return v.Values }).(pulumi.StringOutput)
 }
@@ -323,8 +359,10 @@ func (o RuleFalcoExceptionArrayOutput) Index(i pulumi.IntInput) RuleFalcoExcepti
 }
 
 type RuleFilesystemReadOnly struct {
-	Matching *bool    `pulumi:"matching"`
-	Paths    []string `pulumi:"paths"`
+	// Defines if the path matches or not with the provided list. Default is true.
+	Matching *bool `pulumi:"matching"`
+	// List of paths to match.
+	Paths []string `pulumi:"paths"`
 }
 
 // RuleFilesystemReadOnlyInput is an input type that accepts RuleFilesystemReadOnlyArgs and RuleFilesystemReadOnlyOutput values.
@@ -339,8 +377,10 @@ type RuleFilesystemReadOnlyInput interface {
 }
 
 type RuleFilesystemReadOnlyArgs struct {
-	Matching pulumi.BoolPtrInput     `pulumi:"matching"`
-	Paths    pulumi.StringArrayInput `pulumi:"paths"`
+	// Defines if the path matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrInput `pulumi:"matching"`
+	// List of paths to match.
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
 }
 
 func (RuleFilesystemReadOnlyArgs) ElementType() reflect.Type {
@@ -394,10 +434,12 @@ func (o RuleFilesystemReadOnlyOutput) ToRuleFilesystemReadOnlyOutputWithContext(
 	return o
 }
 
+// Defines if the path matches or not with the provided list. Default is true.
 func (o RuleFilesystemReadOnlyOutput) Matching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RuleFilesystemReadOnly) *bool { return v.Matching }).(pulumi.BoolPtrOutput)
 }
 
+// List of paths to match.
 func (o RuleFilesystemReadOnlyOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleFilesystemReadOnly) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
@@ -423,8 +465,10 @@ func (o RuleFilesystemReadOnlyArrayOutput) Index(i pulumi.IntInput) RuleFilesyst
 }
 
 type RuleFilesystemReadWrite struct {
-	Matching *bool    `pulumi:"matching"`
-	Paths    []string `pulumi:"paths"`
+	// Defines if the path matches or not with the provided list. Default is true.
+	Matching *bool `pulumi:"matching"`
+	// List of paths to match.
+	Paths []string `pulumi:"paths"`
 }
 
 // RuleFilesystemReadWriteInput is an input type that accepts RuleFilesystemReadWriteArgs and RuleFilesystemReadWriteOutput values.
@@ -439,8 +483,10 @@ type RuleFilesystemReadWriteInput interface {
 }
 
 type RuleFilesystemReadWriteArgs struct {
-	Matching pulumi.BoolPtrInput     `pulumi:"matching"`
-	Paths    pulumi.StringArrayInput `pulumi:"paths"`
+	// Defines if the path matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrInput `pulumi:"matching"`
+	// List of paths to match.
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
 }
 
 func (RuleFilesystemReadWriteArgs) ElementType() reflect.Type {
@@ -494,10 +540,12 @@ func (o RuleFilesystemReadWriteOutput) ToRuleFilesystemReadWriteOutputWithContex
 	return o
 }
 
+// Defines if the path matches or not with the provided list. Default is true.
 func (o RuleFilesystemReadWriteOutput) Matching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RuleFilesystemReadWrite) *bool { return v.Matching }).(pulumi.BoolPtrOutput)
 }
 
+// List of paths to match.
 func (o RuleFilesystemReadWriteOutput) Paths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleFilesystemReadWrite) []string { return v.Paths }).(pulumi.StringArrayOutput)
 }
@@ -523,8 +571,10 @@ func (o RuleFilesystemReadWriteArrayOutput) Index(i pulumi.IntInput) RuleFilesys
 }
 
 type RuleNetworkTcp struct {
+	// Defines if the port matches or not with the provided list. Default is true.
 	Matching *bool `pulumi:"matching"`
-	Ports    []int `pulumi:"ports"`
+	// List of ports to match.
+	Ports []int `pulumi:"ports"`
 }
 
 // RuleNetworkTcpInput is an input type that accepts RuleNetworkTcpArgs and RuleNetworkTcpOutput values.
@@ -539,8 +589,10 @@ type RuleNetworkTcpInput interface {
 }
 
 type RuleNetworkTcpArgs struct {
-	Matching pulumi.BoolPtrInput  `pulumi:"matching"`
-	Ports    pulumi.IntArrayInput `pulumi:"ports"`
+	// Defines if the port matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrInput `pulumi:"matching"`
+	// List of ports to match.
+	Ports pulumi.IntArrayInput `pulumi:"ports"`
 }
 
 func (RuleNetworkTcpArgs) ElementType() reflect.Type {
@@ -594,10 +646,12 @@ func (o RuleNetworkTcpOutput) ToRuleNetworkTcpOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Defines if the port matches or not with the provided list. Default is true.
 func (o RuleNetworkTcpOutput) Matching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RuleNetworkTcp) *bool { return v.Matching }).(pulumi.BoolPtrOutput)
 }
 
+// List of ports to match.
 func (o RuleNetworkTcpOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RuleNetworkTcp) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
@@ -623,8 +677,10 @@ func (o RuleNetworkTcpArrayOutput) Index(i pulumi.IntInput) RuleNetworkTcpOutput
 }
 
 type RuleNetworkUdp struct {
+	// Defines if the port matches or not with the provided list. Default is true.
 	Matching *bool `pulumi:"matching"`
-	Ports    []int `pulumi:"ports"`
+	// List of ports to match.
+	Ports []int `pulumi:"ports"`
 }
 
 // RuleNetworkUdpInput is an input type that accepts RuleNetworkUdpArgs and RuleNetworkUdpOutput values.
@@ -639,8 +695,10 @@ type RuleNetworkUdpInput interface {
 }
 
 type RuleNetworkUdpArgs struct {
-	Matching pulumi.BoolPtrInput  `pulumi:"matching"`
-	Ports    pulumi.IntArrayInput `pulumi:"ports"`
+	// Defines if the port matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrInput `pulumi:"matching"`
+	// List of ports to match.
+	Ports pulumi.IntArrayInput `pulumi:"ports"`
 }
 
 func (RuleNetworkUdpArgs) ElementType() reflect.Type {
@@ -694,10 +752,12 @@ func (o RuleNetworkUdpOutput) ToRuleNetworkUdpOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Defines if the port matches or not with the provided list. Default is true.
 func (o RuleNetworkUdpOutput) Matching() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RuleNetworkUdp) *bool { return v.Matching }).(pulumi.BoolPtrOutput)
 }
 
+// List of ports to match.
 func (o RuleNetworkUdpOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RuleNetworkUdp) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
@@ -723,8 +783,12 @@ func (o RuleNetworkUdpArrayOutput) Index(i pulumi.IntInput) RuleNetworkUdpOutput
 }
 
 type TeamUserRole struct {
-	Email string  `pulumi:"email"`
-	Role  *string `pulumi:"role"`
+	// The email of the user in the group.
+	Email string `pulumi:"email"`
+	// The role for the user in this group.
+	// Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+	// Default: ROLE_TEAM_STANDARD.
+	Role *string `pulumi:"role"`
 }
 
 // TeamUserRoleInput is an input type that accepts TeamUserRoleArgs and TeamUserRoleOutput values.
@@ -739,8 +803,12 @@ type TeamUserRoleInput interface {
 }
 
 type TeamUserRoleArgs struct {
-	Email pulumi.StringInput    `pulumi:"email"`
-	Role  pulumi.StringPtrInput `pulumi:"role"`
+	// The email of the user in the group.
+	Email pulumi.StringInput `pulumi:"email"`
+	// The role for the user in this group.
+	// Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+	// Default: ROLE_TEAM_STANDARD.
+	Role pulumi.StringPtrInput `pulumi:"role"`
 }
 
 func (TeamUserRoleArgs) ElementType() reflect.Type {
@@ -794,10 +862,14 @@ func (o TeamUserRoleOutput) ToTeamUserRoleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The email of the user in the group.
 func (o TeamUserRoleOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v TeamUserRole) string { return v.Email }).(pulumi.StringOutput)
 }
 
+// The role for the user in this group.
+// Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+// Default: ROLE_TEAM_STANDARD.
 func (o TeamUserRoleOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamUserRole) *string { return v.Role }).(pulumi.StringPtrOutput)
 }

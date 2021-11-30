@@ -10,15 +10,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure container runtime rules can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/ruleContainer:RuleContainer example 12345
+// ```
 type RuleContainer struct {
 	pulumi.CustomResourceState
 
-	Containers  pulumi.StringArrayOutput `pulumi:"containers"`
-	Description pulumi.StringPtrOutput   `pulumi:"description"`
-	Matching    pulumi.BoolPtrOutput     `pulumi:"matching"`
-	Name        pulumi.StringOutput      `pulumi:"name"`
-	Tags        pulumi.StringArrayOutput `pulumi:"tags"`
-	Version     pulumi.IntOutput         `pulumi:"version"`
+	// List of containers to match.
+	Containers pulumi.StringArrayOutput `pulumi:"containers"`
+	// The description of Secure rule. By default is empty.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Defines if the image name matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrOutput `pulumi:"matching"`
+	// The name of the Secure rule. It must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewRuleContainer registers a new resource with the given unique name, arguments, and options.
@@ -50,21 +63,33 @@ func GetRuleContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleContainer resources.
 type ruleContainerState struct {
-	Containers  []string `pulumi:"containers"`
-	Description *string  `pulumi:"description"`
-	Matching    *bool    `pulumi:"matching"`
-	Name        *string  `pulumi:"name"`
-	Tags        []string `pulumi:"tags"`
-	Version     *int     `pulumi:"version"`
+	// List of containers to match.
+	Containers []string `pulumi:"containers"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// Defines if the image name matches or not with the provided list. Default is true.
+	Matching *bool `pulumi:"matching"`
+	// The name of the Secure rule. It must be unique.
+	Name *string `pulumi:"name"`
+	// A list of tags for this rule.
+	Tags []string `pulumi:"tags"`
+	// Current version of the resource in Sysdig Secure.
+	Version *int `pulumi:"version"`
 }
 
 type RuleContainerState struct {
-	Containers  pulumi.StringArrayInput
+	// List of containers to match.
+	Containers pulumi.StringArrayInput
+	// The description of Secure rule. By default is empty.
 	Description pulumi.StringPtrInput
-	Matching    pulumi.BoolPtrInput
-	Name        pulumi.StringPtrInput
-	Tags        pulumi.StringArrayInput
-	Version     pulumi.IntPtrInput
+	// Defines if the image name matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrInput
+	// The name of the Secure rule. It must be unique.
+	Name pulumi.StringPtrInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntPtrInput
 }
 
 func (RuleContainerState) ElementType() reflect.Type {
@@ -72,20 +97,30 @@ func (RuleContainerState) ElementType() reflect.Type {
 }
 
 type ruleContainerArgs struct {
-	Containers  []string `pulumi:"containers"`
-	Description *string  `pulumi:"description"`
-	Matching    *bool    `pulumi:"matching"`
-	Name        *string  `pulumi:"name"`
-	Tags        []string `pulumi:"tags"`
+	// List of containers to match.
+	Containers []string `pulumi:"containers"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// Defines if the image name matches or not with the provided list. Default is true.
+	Matching *bool `pulumi:"matching"`
+	// The name of the Secure rule. It must be unique.
+	Name *string `pulumi:"name"`
+	// A list of tags for this rule.
+	Tags []string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RuleContainer resource.
 type RuleContainerArgs struct {
-	Containers  pulumi.StringArrayInput
+	// List of containers to match.
+	Containers pulumi.StringArrayInput
+	// The description of Secure rule. By default is empty.
 	Description pulumi.StringPtrInput
-	Matching    pulumi.BoolPtrInput
-	Name        pulumi.StringPtrInput
-	Tags        pulumi.StringArrayInput
+	// Defines if the image name matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrInput
+	// The name of the Secure rule. It must be unique.
+	Name pulumi.StringPtrInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
 }
 
 func (RuleContainerArgs) ElementType() reflect.Type {

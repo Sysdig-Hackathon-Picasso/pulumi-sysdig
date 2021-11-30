@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Secure filesystem runtime rules can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/ruleFilesystem:RuleFilesystem example 12345
+ * ```
+ */
 export class RuleFilesystem extends pulumi.CustomResource {
     /**
      * Get an existing RuleFilesystem resource's state with the given name, ID, and optional extra
@@ -33,11 +42,23 @@ export class RuleFilesystem extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleFilesystem.__pulumiType;
     }
 
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
     public readonly readOnlies!: pulumi.Output<outputs.Secure.RuleFilesystemReadOnly[] | undefined>;
     public readonly readWrites!: pulumi.Output<outputs.Secure.RuleFilesystemReadWrite[] | undefined>;
+    /**
+     * A list of tags for this rule.
+     */
     public readonly tags!: pulumi.Output<string[] | undefined>;
+    /**
+     * Current version of the resource in Sysdig Secure.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -79,11 +100,23 @@ export class RuleFilesystem extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RuleFilesystem resources.
  */
 export interface RuleFilesystemState {
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     name?: pulumi.Input<string>;
     readOnlies?: pulumi.Input<pulumi.Input<inputs.Secure.RuleFilesystemReadOnly>[]>;
     readWrites?: pulumi.Input<pulumi.Input<inputs.Secure.RuleFilesystemReadWrite>[]>;
+    /**
+     * A list of tags for this rule.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Current version of the resource in Sysdig Secure.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -91,9 +124,18 @@ export interface RuleFilesystemState {
  * The set of arguments for constructing a RuleFilesystem resource.
  */
 export interface RuleFilesystemArgs {
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     name?: pulumi.Input<string>;
     readOnlies?: pulumi.Input<pulumi.Input<inputs.Secure.RuleFilesystemReadOnly>[]>;
     readWrites?: pulumi.Input<pulumi.Input<inputs.Secure.RuleFilesystemReadWrite>[]>;
+    /**
+     * A list of tags for this rule.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
 }

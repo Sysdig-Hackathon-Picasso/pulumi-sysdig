@@ -11,22 +11,41 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// PromQL Monitor alerts can be imported using the alert ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Monitor/alertPromql:AlertPromql example 12345
+// ```
 type AlertPromql struct {
 	pulumi.CustomResourceState
 
-	Capture               AlertPromqlCapturePtrOutput            `pulumi:"capture"`
-	CustomNotification    AlertPromqlCustomNotificationPtrOutput `pulumi:"customNotification"`
-	Description           pulumi.StringPtrOutput                 `pulumi:"description"`
-	Enabled               pulumi.BoolPtrOutput                   `pulumi:"enabled"`
-	Name                  pulumi.StringOutput                    `pulumi:"name"`
-	NotificationChannels  pulumi.IntArrayOutput                  `pulumi:"notificationChannels"`
-	Promql                pulumi.StringOutput                    `pulumi:"promql"`
-	RenotificationMinutes pulumi.IntPtrOutput                    `pulumi:"renotificationMinutes"`
-	Scope                 pulumi.StringPtrOutput                 `pulumi:"scope"`
-	Severity              pulumi.IntPtrOutput                    `pulumi:"severity"`
-	Team                  pulumi.IntOutput                       `pulumi:"team"`
-	TriggerAfterMinutes   pulumi.IntOutput                       `pulumi:"triggerAfterMinutes"`
-	Version               pulumi.IntOutput                       `pulumi:"version"`
+	Capture AlertPromqlCapturePtrOutput `pulumi:"capture"`
+	// Allows to define a custom notification title, prepend and append text.
+	CustomNotification AlertPromqlCustomNotificationPtrOutput `pulumi:"customNotification"`
+	// The description of Monitor alert.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Boolean that defines if the alert is enabled or not. Defaults to true.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The name of the Monitor alert. It must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// List of notification channel IDs where an alert must be sent to once fired.
+	NotificationChannels pulumi.IntArrayOutput `pulumi:"notificationChannels"`
+	// PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+	Promql pulumi.StringOutput `pulumi:"promql"`
+	// Number of minutes for the alert to re-notify until the status is solved.
+	RenotificationMinutes pulumi.IntPtrOutput    `pulumi:"renotificationMinutes"`
+	Scope                 pulumi.StringPtrOutput `pulumi:"scope"`
+	// Severity of the Monitor alert. It must be a value between 0 and 7,
+	// with 0 being the most critical and 7 the less critical. Defaults to 4.
+	Severity pulumi.IntPtrOutput `pulumi:"severity"`
+	// Team ID that owns the alert.
+	Team pulumi.IntOutput `pulumi:"team"`
+	// Threshold of time for the status to stabilize until the alert is fired.
+	TriggerAfterMinutes pulumi.IntOutput `pulumi:"triggerAfterMinutes"`
+	// Current version of the resource in Sysdig Monitor.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewAlertPromql registers a new resource with the given unique name, arguments, and options.
@@ -64,35 +83,59 @@ func GetAlertPromql(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertPromql resources.
 type alertPromqlState struct {
-	Capture               *AlertPromqlCapture            `pulumi:"capture"`
-	CustomNotification    *AlertPromqlCustomNotification `pulumi:"customNotification"`
-	Description           *string                        `pulumi:"description"`
-	Enabled               *bool                          `pulumi:"enabled"`
-	Name                  *string                        `pulumi:"name"`
-	NotificationChannels  []int                          `pulumi:"notificationChannels"`
-	Promql                *string                        `pulumi:"promql"`
-	RenotificationMinutes *int                           `pulumi:"renotificationMinutes"`
-	Scope                 *string                        `pulumi:"scope"`
-	Severity              *int                           `pulumi:"severity"`
-	Team                  *int                           `pulumi:"team"`
-	TriggerAfterMinutes   *int                           `pulumi:"triggerAfterMinutes"`
-	Version               *int                           `pulumi:"version"`
+	Capture *AlertPromqlCapture `pulumi:"capture"`
+	// Allows to define a custom notification title, prepend and append text.
+	CustomNotification *AlertPromqlCustomNotification `pulumi:"customNotification"`
+	// The description of Monitor alert.
+	Description *string `pulumi:"description"`
+	// Boolean that defines if the alert is enabled or not. Defaults to true.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Monitor alert. It must be unique.
+	Name *string `pulumi:"name"`
+	// List of notification channel IDs where an alert must be sent to once fired.
+	NotificationChannels []int `pulumi:"notificationChannels"`
+	// PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+	Promql *string `pulumi:"promql"`
+	// Number of minutes for the alert to re-notify until the status is solved.
+	RenotificationMinutes *int    `pulumi:"renotificationMinutes"`
+	Scope                 *string `pulumi:"scope"`
+	// Severity of the Monitor alert. It must be a value between 0 and 7,
+	// with 0 being the most critical and 7 the less critical. Defaults to 4.
+	Severity *int `pulumi:"severity"`
+	// Team ID that owns the alert.
+	Team *int `pulumi:"team"`
+	// Threshold of time for the status to stabilize until the alert is fired.
+	TriggerAfterMinutes *int `pulumi:"triggerAfterMinutes"`
+	// Current version of the resource in Sysdig Monitor.
+	Version *int `pulumi:"version"`
 }
 
 type AlertPromqlState struct {
-	Capture               AlertPromqlCapturePtrInput
-	CustomNotification    AlertPromqlCustomNotificationPtrInput
-	Description           pulumi.StringPtrInput
-	Enabled               pulumi.BoolPtrInput
-	Name                  pulumi.StringPtrInput
-	NotificationChannels  pulumi.IntArrayInput
-	Promql                pulumi.StringPtrInput
+	Capture AlertPromqlCapturePtrInput
+	// Allows to define a custom notification title, prepend and append text.
+	CustomNotification AlertPromqlCustomNotificationPtrInput
+	// The description of Monitor alert.
+	Description pulumi.StringPtrInput
+	// Boolean that defines if the alert is enabled or not. Defaults to true.
+	Enabled pulumi.BoolPtrInput
+	// The name of the Monitor alert. It must be unique.
+	Name pulumi.StringPtrInput
+	// List of notification channel IDs where an alert must be sent to once fired.
+	NotificationChannels pulumi.IntArrayInput
+	// PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+	Promql pulumi.StringPtrInput
+	// Number of minutes for the alert to re-notify until the status is solved.
 	RenotificationMinutes pulumi.IntPtrInput
 	Scope                 pulumi.StringPtrInput
-	Severity              pulumi.IntPtrInput
-	Team                  pulumi.IntPtrInput
-	TriggerAfterMinutes   pulumi.IntPtrInput
-	Version               pulumi.IntPtrInput
+	// Severity of the Monitor alert. It must be a value between 0 and 7,
+	// with 0 being the most critical and 7 the less critical. Defaults to 4.
+	Severity pulumi.IntPtrInput
+	// Team ID that owns the alert.
+	Team pulumi.IntPtrInput
+	// Threshold of time for the status to stabilize until the alert is fired.
+	TriggerAfterMinutes pulumi.IntPtrInput
+	// Current version of the resource in Sysdig Monitor.
+	Version pulumi.IntPtrInput
 }
 
 func (AlertPromqlState) ElementType() reflect.Type {
@@ -100,32 +143,52 @@ func (AlertPromqlState) ElementType() reflect.Type {
 }
 
 type alertPromqlArgs struct {
-	Capture               *AlertPromqlCapture            `pulumi:"capture"`
-	CustomNotification    *AlertPromqlCustomNotification `pulumi:"customNotification"`
-	Description           *string                        `pulumi:"description"`
-	Enabled               *bool                          `pulumi:"enabled"`
-	Name                  *string                        `pulumi:"name"`
-	NotificationChannels  []int                          `pulumi:"notificationChannels"`
-	Promql                string                         `pulumi:"promql"`
-	RenotificationMinutes *int                           `pulumi:"renotificationMinutes"`
-	Scope                 *string                        `pulumi:"scope"`
-	Severity              *int                           `pulumi:"severity"`
-	TriggerAfterMinutes   int                            `pulumi:"triggerAfterMinutes"`
+	Capture *AlertPromqlCapture `pulumi:"capture"`
+	// Allows to define a custom notification title, prepend and append text.
+	CustomNotification *AlertPromqlCustomNotification `pulumi:"customNotification"`
+	// The description of Monitor alert.
+	Description *string `pulumi:"description"`
+	// Boolean that defines if the alert is enabled or not. Defaults to true.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Monitor alert. It must be unique.
+	Name *string `pulumi:"name"`
+	// List of notification channel IDs where an alert must be sent to once fired.
+	NotificationChannels []int `pulumi:"notificationChannels"`
+	// PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+	Promql string `pulumi:"promql"`
+	// Number of minutes for the alert to re-notify until the status is solved.
+	RenotificationMinutes *int    `pulumi:"renotificationMinutes"`
+	Scope                 *string `pulumi:"scope"`
+	// Severity of the Monitor alert. It must be a value between 0 and 7,
+	// with 0 being the most critical and 7 the less critical. Defaults to 4.
+	Severity *int `pulumi:"severity"`
+	// Threshold of time for the status to stabilize until the alert is fired.
+	TriggerAfterMinutes int `pulumi:"triggerAfterMinutes"`
 }
 
 // The set of arguments for constructing a AlertPromql resource.
 type AlertPromqlArgs struct {
-	Capture               AlertPromqlCapturePtrInput
-	CustomNotification    AlertPromqlCustomNotificationPtrInput
-	Description           pulumi.StringPtrInput
-	Enabled               pulumi.BoolPtrInput
-	Name                  pulumi.StringPtrInput
-	NotificationChannels  pulumi.IntArrayInput
-	Promql                pulumi.StringInput
+	Capture AlertPromqlCapturePtrInput
+	// Allows to define a custom notification title, prepend and append text.
+	CustomNotification AlertPromqlCustomNotificationPtrInput
+	// The description of Monitor alert.
+	Description pulumi.StringPtrInput
+	// Boolean that defines if the alert is enabled or not. Defaults to true.
+	Enabled pulumi.BoolPtrInput
+	// The name of the Monitor alert. It must be unique.
+	Name pulumi.StringPtrInput
+	// List of notification channel IDs where an alert must be sent to once fired.
+	NotificationChannels pulumi.IntArrayInput
+	// PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+	Promql pulumi.StringInput
+	// Number of minutes for the alert to re-notify until the status is solved.
 	RenotificationMinutes pulumi.IntPtrInput
 	Scope                 pulumi.StringPtrInput
-	Severity              pulumi.IntPtrInput
-	TriggerAfterMinutes   pulumi.IntInput
+	// Severity of the Monitor alert. It must be a value between 0 and 7,
+	// with 0 being the most critical and 7 the less critical. Defaults to 4.
+	Severity pulumi.IntPtrInput
+	// Threshold of time for the status to stabilize until the alert is fired.
+	TriggerAfterMinutes pulumi.IntInput
 }
 
 func (AlertPromqlArgs) ElementType() reflect.Type {

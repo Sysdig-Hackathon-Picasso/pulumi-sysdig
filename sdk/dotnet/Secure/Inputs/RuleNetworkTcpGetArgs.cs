@@ -12,11 +12,18 @@ namespace Pulumi.Sysdig.Secure.Inputs
 
     public sealed class RuleNetworkTcpGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines if the port matches or not with the provided list. Default is true.
+        /// </summary>
         [Input("matching")]
         public Input<bool>? Matching { get; set; }
 
         [Input("ports", required: true)]
         private InputList<int>? _ports;
+
+        /// <summary>
+        /// List of ports to match.
+        /// </summary>
         public InputList<int> Ports
         {
             get => _ports ?? (_ports = new InputList<int>());

@@ -28,6 +28,16 @@ class AlertPromqlArgs:
                  severity: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a AlertPromql resource.
+        :param pulumi.Input[str] promql: PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
+        :param pulumi.Input['AlertPromqlCustomNotificationArgs'] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
         """
         pulumi.set(__self__, "promql", promql)
         pulumi.set(__self__, "trigger_after_minutes", trigger_after_minutes)
@@ -53,6 +63,9 @@ class AlertPromqlArgs:
     @property
     @pulumi.getter
     def promql(self) -> pulumi.Input[str]:
+        """
+        PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+        """
         return pulumi.get(self, "promql")
 
     @promql.setter
@@ -62,6 +75,9 @@ class AlertPromqlArgs:
     @property
     @pulumi.getter(name="triggerAfterMinutes")
     def trigger_after_minutes(self) -> pulumi.Input[int]:
+        """
+        Threshold of time for the status to stabilize until the alert is fired.
+        """
         return pulumi.get(self, "trigger_after_minutes")
 
     @trigger_after_minutes.setter
@@ -80,6 +96,9 @@ class AlertPromqlArgs:
     @property
     @pulumi.getter(name="customNotification")
     def custom_notification(self) -> Optional[pulumi.Input['AlertPromqlCustomNotificationArgs']]:
+        """
+        Allows to define a custom notification title, prepend and append text.
+        """
         return pulumi.get(self, "custom_notification")
 
     @custom_notification.setter
@@ -89,6 +108,9 @@ class AlertPromqlArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Monitor alert.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -98,6 +120,9 @@ class AlertPromqlArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that defines if the alert is enabled or not. Defaults to true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -107,6 +132,9 @@ class AlertPromqlArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Monitor alert. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -116,6 +144,9 @@ class AlertPromqlArgs:
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of notification channel IDs where an alert must be sent to once fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @notification_channels.setter
@@ -125,6 +156,9 @@ class AlertPromqlArgs:
     @property
     @pulumi.getter(name="renotificationMinutes")
     def renotification_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of minutes for the alert to re-notify until the status is solved.
+        """
         return pulumi.get(self, "renotification_minutes")
 
     @renotification_minutes.setter
@@ -143,6 +177,10 @@ class AlertPromqlArgs:
     @property
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Severity of the Monitor alert. It must be a value between 0 and 7,
+        with 0 being the most critical and 7 the less critical. Defaults to 4.
+        """
         return pulumi.get(self, "severity")
 
     @severity.setter
@@ -168,6 +206,18 @@ class _AlertPromqlState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering AlertPromql resources.
+        :param pulumi.Input['AlertPromqlCustomNotificationArgs'] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[str] promql: PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
+        :param pulumi.Input[int] team: Team ID that owns the alert.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Monitor.
         """
         if capture is not None:
             pulumi.set(__self__, "capture", capture)
@@ -208,6 +258,9 @@ class _AlertPromqlState:
     @property
     @pulumi.getter(name="customNotification")
     def custom_notification(self) -> Optional[pulumi.Input['AlertPromqlCustomNotificationArgs']]:
+        """
+        Allows to define a custom notification title, prepend and append text.
+        """
         return pulumi.get(self, "custom_notification")
 
     @custom_notification.setter
@@ -217,6 +270,9 @@ class _AlertPromqlState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Monitor alert.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -226,6 +282,9 @@ class _AlertPromqlState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that defines if the alert is enabled or not. Defaults to true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -235,6 +294,9 @@ class _AlertPromqlState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Monitor alert. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -244,6 +306,9 @@ class _AlertPromqlState:
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of notification channel IDs where an alert must be sent to once fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @notification_channels.setter
@@ -253,6 +318,9 @@ class _AlertPromqlState:
     @property
     @pulumi.getter
     def promql(self) -> Optional[pulumi.Input[str]]:
+        """
+        PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+        """
         return pulumi.get(self, "promql")
 
     @promql.setter
@@ -262,6 +330,9 @@ class _AlertPromqlState:
     @property
     @pulumi.getter(name="renotificationMinutes")
     def renotification_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of minutes for the alert to re-notify until the status is solved.
+        """
         return pulumi.get(self, "renotification_minutes")
 
     @renotification_minutes.setter
@@ -280,6 +351,10 @@ class _AlertPromqlState:
     @property
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Severity of the Monitor alert. It must be a value between 0 and 7,
+        with 0 being the most critical and 7 the less critical. Defaults to 4.
+        """
         return pulumi.get(self, "severity")
 
     @severity.setter
@@ -289,6 +364,9 @@ class _AlertPromqlState:
     @property
     @pulumi.getter
     def team(self) -> Optional[pulumi.Input[int]]:
+        """
+        Team ID that owns the alert.
+        """
         return pulumi.get(self, "team")
 
     @team.setter
@@ -298,6 +376,9 @@ class _AlertPromqlState:
     @property
     @pulumi.getter(name="triggerAfterMinutes")
     def trigger_after_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Threshold of time for the status to stabilize until the alert is fired.
+        """
         return pulumi.get(self, "trigger_after_minutes")
 
     @trigger_after_minutes.setter
@@ -307,6 +388,9 @@ class _AlertPromqlState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        Current version of the resource in Sysdig Monitor.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -332,9 +416,26 @@ class AlertPromql(pulumi.CustomResource):
                  trigger_after_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a AlertPromql resource with the given unique name, props, and options.
+        ## Import
+
+        PromQL Monitor alerts can be imported using the alert ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/alertPromql:AlertPromql example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AlertPromqlCustomNotificationArgs']] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[str] promql: PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
         """
         ...
     @overload
@@ -343,7 +444,14 @@ class AlertPromql(pulumi.CustomResource):
                  args: AlertPromqlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AlertPromql resource with the given unique name, props, and options.
+        ## Import
+
+        PromQL Monitor alerts can be imported using the alert ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/alertPromql:AlertPromql example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param AlertPromqlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -429,6 +537,18 @@ class AlertPromql(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AlertPromqlCustomNotificationArgs']] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[str] promql: PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
+        :param pulumi.Input[int] team: Team ID that owns the alert.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Monitor.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -457,36 +577,57 @@ class AlertPromql(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customNotification")
     def custom_notification(self) -> pulumi.Output[Optional['outputs.AlertPromqlCustomNotification']]:
+        """
+        Allows to define a custom notification title, prepend and append text.
+        """
         return pulumi.get(self, "custom_notification")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of Monitor alert.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean that defines if the alert is enabled or not. Defaults to true.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Monitor alert. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        List of notification channel IDs where an alert must be sent to once fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @property
     @pulumi.getter
     def promql(self) -> pulumi.Output[str]:
+        """
+        PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+        """
         return pulumi.get(self, "promql")
 
     @property
     @pulumi.getter(name="renotificationMinutes")
     def renotification_minutes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Number of minutes for the alert to re-notify until the status is solved.
+        """
         return pulumi.get(self, "renotification_minutes")
 
     @property
@@ -497,20 +638,33 @@ class AlertPromql(pulumi.CustomResource):
     @property
     @pulumi.getter
     def severity(self) -> pulumi.Output[Optional[int]]:
+        """
+        Severity of the Monitor alert. It must be a value between 0 and 7,
+        with 0 being the most critical and 7 the less critical. Defaults to 4.
+        """
         return pulumi.get(self, "severity")
 
     @property
     @pulumi.getter
     def team(self) -> pulumi.Output[int]:
+        """
+        Team ID that owns the alert.
+        """
         return pulumi.get(self, "team")
 
     @property
     @pulumi.getter(name="triggerAfterMinutes")
     def trigger_after_minutes(self) -> pulumi.Output[int]:
+        """
+        Threshold of time for the status to stabilize until the alert is fired.
+        """
         return pulumi.get(self, "trigger_after_minutes")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        Current version of the resource in Sysdig Monitor.
+        """
         return pulumi.get(self, "version")
 

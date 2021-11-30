@@ -13,8 +13,17 @@ namespace Pulumi.Sysdig.Monitor.Outputs
     [OutputType]
     public sealed class AlertDowntimeCapture
     {
+        /// <summary>
+        /// Time frame in seconds of the capture.
+        /// </summary>
         public readonly int Duration;
+        /// <summary>
+        /// Defines the name of the capture file.
+        /// </summary>
         public readonly string Filename;
+        /// <summary>
+        /// Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        /// </summary>
         public readonly string? Filter;
 
         [OutputConstructor]

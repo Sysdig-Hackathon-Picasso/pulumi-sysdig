@@ -20,6 +20,11 @@ class CloudAccountArgs:
                  role_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CloudAccount resource.
+        :param pulumi.Input[str] account_id: The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        :param pulumi.Input[str] cloud_provider: The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+        :param pulumi.Input[str] alias: A human friendly alias for `account_id`.
+        :param pulumi.Input[bool] role_enabled: Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+        :param pulumi.Input[str] role_name: The name of the role Sysdig will have permission to AssumeRole if `role_enaled` is set to `true`. Default: `SysdigCloudBench`.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "cloud_provider", cloud_provider)
@@ -33,6 +38,9 @@ class CloudAccountArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -42,6 +50,9 @@ class CloudAccountArgs:
     @property
     @pulumi.getter(name="cloudProvider")
     def cloud_provider(self) -> pulumi.Input[str]:
+        """
+        The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+        """
         return pulumi.get(self, "cloud_provider")
 
     @cloud_provider.setter
@@ -51,6 +62,9 @@ class CloudAccountArgs:
     @property
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human friendly alias for `account_id`.
+        """
         return pulumi.get(self, "alias")
 
     @alias.setter
@@ -60,6 +74,9 @@ class CloudAccountArgs:
     @property
     @pulumi.getter(name="roleEnabled")
     def role_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+        """
         return pulumi.get(self, "role_enabled")
 
     @role_enabled.setter
@@ -69,6 +86,9 @@ class CloudAccountArgs:
     @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role Sysdig will have permission to AssumeRole if `role_enaled` is set to `true`. Default: `SysdigCloudBench`.
+        """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
@@ -87,6 +107,11 @@ class _CloudAccountState:
                  role_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CloudAccount resources.
+        :param pulumi.Input[str] account_id: The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        :param pulumi.Input[str] alias: A human friendly alias for `account_id`.
+        :param pulumi.Input[str] cloud_provider: The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+        :param pulumi.Input[bool] role_enabled: Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+        :param pulumi.Input[str] role_name: The name of the role Sysdig will have permission to AssumeRole if `role_enaled` is set to `true`. Default: `SysdigCloudBench`.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -104,6 +129,9 @@ class _CloudAccountState:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -113,6 +141,9 @@ class _CloudAccountState:
     @property
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human friendly alias for `account_id`.
+        """
         return pulumi.get(self, "alias")
 
     @alias.setter
@@ -122,6 +153,9 @@ class _CloudAccountState:
     @property
     @pulumi.getter(name="cloudProvider")
     def cloud_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+        """
         return pulumi.get(self, "cloud_provider")
 
     @cloud_provider.setter
@@ -140,6 +174,9 @@ class _CloudAccountState:
     @property
     @pulumi.getter(name="roleEnabled")
     def role_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+        """
         return pulumi.get(self, "role_enabled")
 
     @role_enabled.setter
@@ -149,6 +186,9 @@ class _CloudAccountState:
     @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the role Sysdig will have permission to AssumeRole if `role_enaled` is set to `true`. Default: `SysdigCloudBench`.
+        """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
@@ -168,9 +208,21 @@ class CloudAccount(pulumi.CustomResource):
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a CloudAccount resource with the given unique name, props, and options.
+        ## Import
+
+        Secure Cloud Accounts can be imported using the `account_id`, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/cloudAccount:CloudAccount sample 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        :param pulumi.Input[str] alias: A human friendly alias for `account_id`.
+        :param pulumi.Input[str] cloud_provider: The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+        :param pulumi.Input[bool] role_enabled: Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+        :param pulumi.Input[str] role_name: The name of the role Sysdig will have permission to AssumeRole if `role_enaled` is set to `true`. Default: `SysdigCloudBench`.
         """
         ...
     @overload
@@ -179,7 +231,14 @@ class CloudAccount(pulumi.CustomResource):
                  args: CloudAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a CloudAccount resource with the given unique name, props, and options.
+        ## Import
+
+        Secure Cloud Accounts can be imported using the `account_id`, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/cloudAccount:CloudAccount sample 123456789012
+        ```
+
         :param str resource_name: The name of the resource.
         :param CloudAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,6 +304,11 @@ class CloudAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        :param pulumi.Input[str] alias: A human friendly alias for `account_id`.
+        :param pulumi.Input[str] cloud_provider: The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+        :param pulumi.Input[bool] role_enabled: Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+        :param pulumi.Input[str] role_name: The name of the role Sysdig will have permission to AssumeRole if `role_enaled` is set to `true`. Default: `SysdigCloudBench`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -261,16 +325,25 @@ class CloudAccount(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def alias(self) -> pulumi.Output[Optional[str]]:
+        """
+        A human friendly alias for `account_id`.
+        """
         return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter(name="cloudProvider")
     def cloud_provider(self) -> pulumi.Output[str]:
+        """
+        The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+        """
         return pulumi.get(self, "cloud_provider")
 
     @property
@@ -281,10 +354,16 @@ class CloudAccount(pulumi.CustomResource):
     @property
     @pulumi.getter(name="roleEnabled")
     def role_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+        """
         return pulumi.get(self, "role_enabled")
 
     @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the role Sysdig will have permission to AssumeRole if `role_enaled` is set to `true`. Default: `SysdigCloudBench`.
+        """
         return pulumi.get(self, "role_name")
 

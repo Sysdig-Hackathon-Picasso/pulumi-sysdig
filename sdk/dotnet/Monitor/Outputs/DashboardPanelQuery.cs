@@ -13,7 +13,15 @@ namespace Pulumi.Sysdig.Monitor.Outputs
     [OutputType]
     public sealed class DashboardPanelQuery
     {
+        /// <summary>
+        /// The PromQL query. Must be a valid PromQL query with existing
+        /// metrics in Sysdig Monitor.
+        /// </summary>
         public readonly string Promql;
+        /// <summary>
+        /// The type of metric for this query. Can be one of: `percent`, `data`, `data rate`, 
+        /// `number`, `number rate`, `time`.
+        /// </summary>
         public readonly string Unit;
 
         [OutputConstructor]

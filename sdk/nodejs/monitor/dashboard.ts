@@ -5,6 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Monitor dashboards can be imported using the dashboard ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Monitor/dashboard:Dashboard example 12345
+ * ```
+ *
+ *  Only dashboards that contain supported panels can be imported. Currently supported panel types are- PromQL timecharts - PromQL numbers - Text Only dashboards that contain supported query types can be imported. Currently supported query types- Percent - Data - Data rate - Number - Number rate - Time
+ */
 export class Dashboard extends pulumi.CustomResource {
     /**
      * Get an existing Dashboard resource's state with the given name, ID, and optional extra
@@ -33,12 +44,33 @@ export class Dashboard extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dashboard.__pulumiType;
     }
 
+    /**
+     * Description of the panel.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the panel.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * At least 1 panel is required to define a Dashboard.
+     */
     public readonly panels!: pulumi.Output<outputs.Monitor.DashboardPanel[]>;
+    /**
+     * Define if the dashboard can be accessible without requiring the user to be logged in.
+     */
     public readonly public!: pulumi.Output<boolean | undefined>;
+    /**
+     * (Computed) Token defined when the dashboard is set Public.
+     */
     public /*out*/ readonly publicToken!: pulumi.Output<string>;
+    /**
+     * Define the scope of the dashboard and variables for these metrics.
+     */
     public readonly scopes!: pulumi.Output<outputs.Monitor.DashboardScope[] | undefined>;
+    /**
+     * (Computed)  The current version of the Dashboard.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -85,12 +117,33 @@ export class Dashboard extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Dashboard resources.
  */
 export interface DashboardState {
+    /**
+     * Description of the panel.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Name of the panel.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * At least 1 panel is required to define a Dashboard.
+     */
     panels?: pulumi.Input<pulumi.Input<inputs.Monitor.DashboardPanel>[]>;
+    /**
+     * Define if the dashboard can be accessible without requiring the user to be logged in.
+     */
     public?: pulumi.Input<boolean>;
+    /**
+     * (Computed) Token defined when the dashboard is set Public.
+     */
     publicToken?: pulumi.Input<string>;
+    /**
+     * Define the scope of the dashboard and variables for these metrics.
+     */
     scopes?: pulumi.Input<pulumi.Input<inputs.Monitor.DashboardScope>[]>;
+    /**
+     * (Computed)  The current version of the Dashboard.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -98,9 +151,24 @@ export interface DashboardState {
  * The set of arguments for constructing a Dashboard resource.
  */
 export interface DashboardArgs {
+    /**
+     * Description of the panel.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Name of the panel.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * At least 1 panel is required to define a Dashboard.
+     */
     panels: pulumi.Input<pulumi.Input<inputs.Monitor.DashboardPanel>[]>;
+    /**
+     * Define if the dashboard can be accessible without requiring the user to be logged in.
+     */
     public?: pulumi.Input<boolean>;
+    /**
+     * Define the scope of the dashboard and variables for these metrics.
+     */
     scopes?: pulumi.Input<pulumi.Input<inputs.Monitor.DashboardScope>[]>;
 }

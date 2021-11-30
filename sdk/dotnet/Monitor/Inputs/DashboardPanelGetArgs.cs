@@ -12,44 +12,89 @@ namespace Pulumi.Sysdig.Monitor.Inputs
 
     public sealed class DashboardPanelGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If true, the text will be autosized in the panel.
+        /// This field is ignored for all panel types except `text`.
+        /// </summary>
         [Input("autosizeText")]
         public Input<bool>? AutosizeText { get; set; }
 
+        /// <summary>
+        /// This field is required if the panel type is `text`. It represents the 
+        /// text that will be displayed in the panel.
+        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
+        /// <summary>
+        /// Description of the panel.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Height of the panel. Min value: 1.
+        /// </summary>
         [Input("height", required: true)]
         public Input<int> Height { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the panel.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Position of the panel in the X axis. Min value: 0, max value: 23.
+        /// </summary>
         [Input("posX", required: true)]
         public Input<int> PosX { get; set; } = null!;
 
+        /// <summary>
+        /// Position of the panel in the Y axis. Min value: 0.
+        /// </summary>
         [Input("posY", required: true)]
         public Input<int> PosY { get; set; } = null!;
 
         [Input("queries")]
         private InputList<Inputs.DashboardPanelQueryGetArgs>? _queries;
+
+        /// <summary>
+        /// The PromQL query that will show information in the panel. 
+        /// If the type of the panel is `timechart`, then it can be specified multiple
+        /// times, to have multiple metrics in the same graph.
+        /// If the type of the panel is `number` then only one can be specified.
+        /// This field is required if the panel type is `timechart` or `number`.
+        /// </summary>
         public InputList<Inputs.DashboardPanelQueryGetArgs> Queries
         {
             get => _queries ?? (_queries = new InputList<Inputs.DashboardPanelQueryGetArgs>());
             set => _queries = value;
         }
 
+        /// <summary>
+        /// If true, the panel will have a transparent background.
+        /// This field is ignored for all panel types except `text`.
+        /// </summary>
         [Input("transparentBackground")]
         public Input<bool>? TransparentBackground { get; set; }
 
+        /// <summary>
+        /// Kind of panel, must be either `timechart`, `number` or `text`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// If true, the title of the panel will be displayed. Default: false.
+        /// This field is ignored for all panel types except `text`.
+        /// </summary>
         [Input("visibleTitle")]
         public Input<bool>? VisibleTitle { get; set; }
 
+        /// <summary>
+        /// Width of the panel. Min value: 1, max value: 24.
+        /// </summary>
         [Input("width", required: true)]
         public Input<int> Width { get; set; } = null!;
 

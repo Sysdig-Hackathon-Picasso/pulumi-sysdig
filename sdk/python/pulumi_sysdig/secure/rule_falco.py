@@ -26,6 +26,15 @@ class RuleFalcoArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RuleFalco resource.
+        :param pulumi.Input[str] condition: A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+        :param pulumi.Input[bool] append: This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleFalcoExceptionArgs']]] exceptions: The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+        :param pulumi.Input[str] name: The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        :param pulumi.Input[str] output: Add additional information to each Falco notification's output. Required if append is false.
+        :param pulumi.Input[str] priority: The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+        :param pulumi.Input[str] source: The source of the event. It can be either "syscall", "k8s_audit" or "aws_cloudtrail". Required if append is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
         """
         pulumi.set(__self__, "condition", condition)
         if append is not None:
@@ -48,6 +57,9 @@ class RuleFalcoArgs:
     @property
     @pulumi.getter
     def condition(self) -> pulumi.Input[str]:
+        """
+        A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -57,6 +69,9 @@ class RuleFalcoArgs:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -66,6 +81,9 @@ class RuleFalcoArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Secure rule. By default is empty.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -75,6 +93,9 @@ class RuleFalcoArgs:
     @property
     @pulumi.getter
     def exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleFalcoExceptionArgs']]]]:
+        """
+        The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+        """
         return pulumi.get(self, "exceptions")
 
     @exceptions.setter
@@ -84,6 +105,9 @@ class RuleFalcoArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -93,6 +117,9 @@ class RuleFalcoArgs:
     @property
     @pulumi.getter
     def output(self) -> Optional[pulumi.Input[str]]:
+        """
+        Add additional information to each Falco notification's output. Required if append is false.
+        """
         return pulumi.get(self, "output")
 
     @output.setter
@@ -102,6 +129,9 @@ class RuleFalcoArgs:
     @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -111,6 +141,9 @@ class RuleFalcoArgs:
     @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source of the event. It can be either "syscall", "k8s_audit" or "aws_cloudtrail". Required if append is false.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -120,6 +153,9 @@ class RuleFalcoArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags for this rule.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -142,6 +178,16 @@ class _RuleFalcoState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering RuleFalco resources.
+        :param pulumi.Input[bool] append: This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+        :param pulumi.Input[str] condition: A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleFalcoExceptionArgs']]] exceptions: The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+        :param pulumi.Input[str] name: The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        :param pulumi.Input[str] output: Add additional information to each Falco notification's output. Required if append is false.
+        :param pulumi.Input[str] priority: The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+        :param pulumi.Input[str] source: The source of the event. It can be either "syscall", "k8s_audit" or "aws_cloudtrail". Required if append is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Secure.
         """
         if append is not None:
             pulumi.set(__self__, "append", append)
@@ -167,6 +213,9 @@ class _RuleFalcoState:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -176,6 +225,9 @@ class _RuleFalcoState:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[str]]:
+        """
+        A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -185,6 +237,9 @@ class _RuleFalcoState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Secure rule. By default is empty.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -194,6 +249,9 @@ class _RuleFalcoState:
     @property
     @pulumi.getter
     def exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleFalcoExceptionArgs']]]]:
+        """
+        The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+        """
         return pulumi.get(self, "exceptions")
 
     @exceptions.setter
@@ -203,6 +261,9 @@ class _RuleFalcoState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -212,6 +273,9 @@ class _RuleFalcoState:
     @property
     @pulumi.getter
     def output(self) -> Optional[pulumi.Input[str]]:
+        """
+        Add additional information to each Falco notification's output. Required if append is false.
+        """
         return pulumi.get(self, "output")
 
     @output.setter
@@ -221,6 +285,9 @@ class _RuleFalcoState:
     @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+        """
         return pulumi.get(self, "priority")
 
     @priority.setter
@@ -230,6 +297,9 @@ class _RuleFalcoState:
     @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source of the event. It can be either "syscall", "k8s_audit" or "aws_cloudtrail". Required if append is false.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -239,6 +309,9 @@ class _RuleFalcoState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags for this rule.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -248,6 +321,9 @@ class _RuleFalcoState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        Current version of the resource in Sysdig Secure.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -271,9 +347,25 @@ class RuleFalco(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a RuleFalco resource with the given unique name, props, and options.
+        ## Import
+
+        Secure Falco runtime rules can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/ruleFalco:RuleFalco example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] append: This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+        :param pulumi.Input[str] condition: A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleFalcoExceptionArgs']]]] exceptions: The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+        :param pulumi.Input[str] name: The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        :param pulumi.Input[str] output: Add additional information to each Falco notification's output. Required if append is false.
+        :param pulumi.Input[str] priority: The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+        :param pulumi.Input[str] source: The source of the event. It can be either "syscall", "k8s_audit" or "aws_cloudtrail". Required if append is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
         """
         ...
     @overload
@@ -282,7 +374,14 @@ class RuleFalco(pulumi.CustomResource):
                  args: RuleFalcoArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RuleFalco resource with the given unique name, props, and options.
+        ## Import
+
+        Secure Falco runtime rules can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/ruleFalco:RuleFalco example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param RuleFalcoArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -358,6 +457,16 @@ class RuleFalco(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] append: This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+        :param pulumi.Input[str] condition: A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleFalcoExceptionArgs']]]] exceptions: The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+        :param pulumi.Input[str] name: The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        :param pulumi.Input[str] output: Add additional information to each Falco notification's output. Required if append is false.
+        :param pulumi.Input[str] priority: The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+        :param pulumi.Input[str] source: The source of the event. It can be either "syscall", "k8s_audit" or "aws_cloudtrail". Required if append is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Secure.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -378,50 +487,80 @@ class RuleFalco(pulumi.CustomResource):
     @property
     @pulumi.getter
     def append(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+        """
         return pulumi.get(self, "append")
 
     @property
     @pulumi.getter
     def condition(self) -> pulumi.Output[str]:
+        """
+        A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+        """
         return pulumi.get(self, "condition")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of Secure rule. By default is empty.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def exceptions(self) -> pulumi.Output[Optional[Sequence['outputs.RuleFalcoException']]]:
+        """
+        The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+        """
         return pulumi.get(self, "exceptions")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def output(self) -> pulumi.Output[Optional[str]]:
+        """
+        Add additional information to each Falco notification's output. Required if append is false.
+        """
         return pulumi.get(self, "output")
 
     @property
     @pulumi.getter
     def priority(self) -> pulumi.Output[Optional[str]]:
+        """
+        The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output[Optional[str]]:
+        """
+        The source of the event. It can be either "syscall", "k8s_audit" or "aws_cloudtrail". Required if append is false.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of tags for this rule.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        Current version of the resource in Sysdig Secure.
+        """
         return pulumi.get(self, "version")
 

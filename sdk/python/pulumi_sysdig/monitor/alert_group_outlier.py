@@ -28,6 +28,18 @@ class AlertGroupOutlierArgs:
                  severity: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a AlertGroupOutlier resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: Array of metrics to monitor and alert on. Example: `["cpu.used.percent", "cpu.cores.used", "memory.bytes.used", "fs.used.percent", "thread.count", "net.request.count.in"]`.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
+        :param pulumi.Input['AlertGroupOutlierCaptureArgs'] capture: Enables the creation of a capture file of the syscalls during the event.
+        :param pulumi.Input['AlertGroupOutlierCustomNotificationArgs'] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[str] scope: Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
         """
         pulumi.set(__self__, "monitors", monitors)
         pulumi.set(__self__, "trigger_after_minutes", trigger_after_minutes)
@@ -53,6 +65,9 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter
     def monitors(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Array of metrics to monitor and alert on. Example: `["cpu.used.percent", "cpu.cores.used", "memory.bytes.used", "fs.used.percent", "thread.count", "net.request.count.in"]`.
+        """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
@@ -62,6 +77,9 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter(name="triggerAfterMinutes")
     def trigger_after_minutes(self) -> pulumi.Input[int]:
+        """
+        Threshold of time for the status to stabilize until the alert is fired.
+        """
         return pulumi.get(self, "trigger_after_minutes")
 
     @trigger_after_minutes.setter
@@ -71,6 +89,9 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter
     def capture(self) -> Optional[pulumi.Input['AlertGroupOutlierCaptureArgs']]:
+        """
+        Enables the creation of a capture file of the syscalls during the event.
+        """
         return pulumi.get(self, "capture")
 
     @capture.setter
@@ -80,6 +101,9 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter(name="customNotification")
     def custom_notification(self) -> Optional[pulumi.Input['AlertGroupOutlierCustomNotificationArgs']]:
+        """
+        Allows to define a custom notification title, prepend and append text.
+        """
         return pulumi.get(self, "custom_notification")
 
     @custom_notification.setter
@@ -89,6 +113,9 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Monitor alert.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -98,6 +125,9 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that defines if the alert is enabled or not. Defaults to true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -107,6 +137,9 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Monitor alert. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -116,6 +149,9 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of notification channel IDs where an alert must be sent to once fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @notification_channels.setter
@@ -125,6 +161,9 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter(name="renotificationMinutes")
     def renotification_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of minutes for the alert to re-notify until the status is solved.
+        """
         return pulumi.get(self, "renotification_minutes")
 
     @renotification_minutes.setter
@@ -134,6 +173,9 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -143,6 +185,10 @@ class AlertGroupOutlierArgs:
     @property
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Severity of the Monitor alert. It must be a value between 0 and 7,
+        with 0 being the most critical and 7 the less critical. Defaults to 4.
+        """
         return pulumi.get(self, "severity")
 
     @severity.setter
@@ -168,6 +214,20 @@ class _AlertGroupOutlierState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering AlertGroupOutlier resources.
+        :param pulumi.Input['AlertGroupOutlierCaptureArgs'] capture: Enables the creation of a capture file of the syscalls during the event.
+        :param pulumi.Input['AlertGroupOutlierCustomNotificationArgs'] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: Array of metrics to monitor and alert on. Example: `["cpu.used.percent", "cpu.cores.used", "memory.bytes.used", "fs.used.percent", "thread.count", "net.request.count.in"]`.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[str] scope: Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
+        :param pulumi.Input[int] team: Team ID that owns the alert.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Monitor.
         """
         if capture is not None:
             pulumi.set(__self__, "capture", capture)
@@ -199,6 +259,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter
     def capture(self) -> Optional[pulumi.Input['AlertGroupOutlierCaptureArgs']]:
+        """
+        Enables the creation of a capture file of the syscalls during the event.
+        """
         return pulumi.get(self, "capture")
 
     @capture.setter
@@ -208,6 +271,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter(name="customNotification")
     def custom_notification(self) -> Optional[pulumi.Input['AlertGroupOutlierCustomNotificationArgs']]:
+        """
+        Allows to define a custom notification title, prepend and append text.
+        """
         return pulumi.get(self, "custom_notification")
 
     @custom_notification.setter
@@ -217,6 +283,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Monitor alert.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -226,6 +295,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that defines if the alert is enabled or not. Defaults to true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -235,6 +307,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter
     def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of metrics to monitor and alert on. Example: `["cpu.used.percent", "cpu.cores.used", "memory.bytes.used", "fs.used.percent", "thread.count", "net.request.count.in"]`.
+        """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
@@ -244,6 +319,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Monitor alert. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -253,6 +331,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of notification channel IDs where an alert must be sent to once fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @notification_channels.setter
@@ -262,6 +343,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter(name="renotificationMinutes")
     def renotification_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of minutes for the alert to re-notify until the status is solved.
+        """
         return pulumi.get(self, "renotification_minutes")
 
     @renotification_minutes.setter
@@ -271,6 +355,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -280,6 +367,10 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Severity of the Monitor alert. It must be a value between 0 and 7,
+        with 0 being the most critical and 7 the less critical. Defaults to 4.
+        """
         return pulumi.get(self, "severity")
 
     @severity.setter
@@ -289,6 +380,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter
     def team(self) -> Optional[pulumi.Input[int]]:
+        """
+        Team ID that owns the alert.
+        """
         return pulumi.get(self, "team")
 
     @team.setter
@@ -298,6 +392,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter(name="triggerAfterMinutes")
     def trigger_after_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Threshold of time for the status to stabilize until the alert is fired.
+        """
         return pulumi.get(self, "trigger_after_minutes")
 
     @trigger_after_minutes.setter
@@ -307,6 +404,9 @@ class _AlertGroupOutlierState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        Current version of the resource in Sysdig Monitor.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -332,9 +432,28 @@ class AlertGroupOutlier(pulumi.CustomResource):
                  trigger_after_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a AlertGroupOutlier resource with the given unique name, props, and options.
+        ## Import
+
+        Group Outlier Monitor alerts can be imported using the alert ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/alertGroupOutlier:AlertGroupOutlier example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AlertGroupOutlierCaptureArgs']] capture: Enables the creation of a capture file of the syscalls during the event.
+        :param pulumi.Input[pulumi.InputType['AlertGroupOutlierCustomNotificationArgs']] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: Array of metrics to monitor and alert on. Example: `["cpu.used.percent", "cpu.cores.used", "memory.bytes.used", "fs.used.percent", "thread.count", "net.request.count.in"]`.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[str] scope: Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
         """
         ...
     @overload
@@ -343,7 +462,14 @@ class AlertGroupOutlier(pulumi.CustomResource):
                  args: AlertGroupOutlierArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AlertGroupOutlier resource with the given unique name, props, and options.
+        ## Import
+
+        Group Outlier Monitor alerts can be imported using the alert ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/alertGroupOutlier:AlertGroupOutlier example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param AlertGroupOutlierArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -429,6 +555,20 @@ class AlertGroupOutlier(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AlertGroupOutlierCaptureArgs']] capture: Enables the creation of a capture file of the syscalls during the event.
+        :param pulumi.Input[pulumi.InputType['AlertGroupOutlierCustomNotificationArgs']] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: Array of metrics to monitor and alert on. Example: `["cpu.used.percent", "cpu.cores.used", "memory.bytes.used", "fs.used.percent", "thread.count", "net.request.count.in"]`.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[str] scope: Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
+        :param pulumi.Input[int] team: Team ID that owns the alert.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Monitor.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -452,65 +592,105 @@ class AlertGroupOutlier(pulumi.CustomResource):
     @property
     @pulumi.getter
     def capture(self) -> pulumi.Output[Optional['outputs.AlertGroupOutlierCapture']]:
+        """
+        Enables the creation of a capture file of the syscalls during the event.
+        """
         return pulumi.get(self, "capture")
 
     @property
     @pulumi.getter(name="customNotification")
     def custom_notification(self) -> pulumi.Output[Optional['outputs.AlertGroupOutlierCustomNotification']]:
+        """
+        Allows to define a custom notification title, prepend and append text.
+        """
         return pulumi.get(self, "custom_notification")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of Monitor alert.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean that defines if the alert is enabled or not. Defaults to true.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def monitors(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Array of metrics to monitor and alert on. Example: `["cpu.used.percent", "cpu.cores.used", "memory.bytes.used", "fs.used.percent", "thread.count", "net.request.count.in"]`.
+        """
         return pulumi.get(self, "monitors")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Monitor alert. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        List of notification channel IDs where an alert must be sent to once fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @property
     @pulumi.getter(name="renotificationMinutes")
     def renotification_minutes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Number of minutes for the alert to re-notify until the status is solved.
+        """
         return pulumi.get(self, "renotification_minutes")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def severity(self) -> pulumi.Output[Optional[int]]:
+        """
+        Severity of the Monitor alert. It must be a value between 0 and 7,
+        with 0 being the most critical and 7 the less critical. Defaults to 4.
+        """
         return pulumi.get(self, "severity")
 
     @property
     @pulumi.getter
     def team(self) -> pulumi.Output[int]:
+        """
+        Team ID that owns the alert.
+        """
         return pulumi.get(self, "team")
 
     @property
     @pulumi.getter(name="triggerAfterMinutes")
     def trigger_after_minutes(self) -> pulumi.Output[int]:
+        """
+        Threshold of time for the status to stabilize until the alert is fired.
+        """
         return pulumi.get(self, "trigger_after_minutes")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        Current version of the resource in Sysdig Monitor.
+        """
         return pulumi.get(self, "version")
 

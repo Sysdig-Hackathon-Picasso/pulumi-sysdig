@@ -13,7 +13,13 @@ namespace Pulumi.Sysdig.Secure.Outputs
     [OutputType]
     public sealed class RuleFilesystemReadOnly
     {
+        /// <summary>
+        /// Defines if the path matches or not with the provided list. Default is true.
+        /// </summary>
         public readonly bool? Matching;
+        /// <summary>
+        /// List of paths to match.
+        /// </summary>
         public readonly ImmutableArray<string> Paths;
 
         [OutputConstructor]

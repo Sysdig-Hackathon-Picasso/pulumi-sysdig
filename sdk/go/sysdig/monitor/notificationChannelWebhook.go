@@ -11,17 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Webhook notification channels for Monitor can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Monitor/notificationChannelWebhook:NotificationChannelWebhook example 12345
+// ```
 type NotificationChannelWebhook struct {
 	pulumi.CustomResourceState
 
-	AdditionalHeaders    pulumi.MapOutput     `pulumi:"additionalHeaders"`
-	Enabled              pulumi.BoolPtrOutput `pulumi:"enabled"`
-	Name                 pulumi.StringOutput  `pulumi:"name"`
-	NotifyWhenOk         pulumi.BoolPtrOutput `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   pulumi.BoolPtrOutput `pulumi:"notifyWhenResolved"`
+	// Key value list of custom headers.
+	AdditionalHeaders pulumi.MapOutput `pulumi:"additionalHeaders"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolPtrOutput `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolPtrOutput `pulumi:"notifyWhenResolved"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrOutput `pulumi:"sendTestNotification"`
-	Url                  pulumi.StringOutput  `pulumi:"url"`
-	Version              pulumi.IntOutput     `pulumi:"version"`
+	// URL to send the event.
+	Url pulumi.StringOutput `pulumi:"url"`
+	// (Computed) The current version of the Notification Channel.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewNotificationChannelWebhook registers a new resource with the given unique name, arguments, and options.
@@ -56,25 +74,47 @@ func GetNotificationChannelWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationChannelWebhook resources.
 type notificationChannelWebhookState struct {
-	AdditionalHeaders    map[string]interface{} `pulumi:"additionalHeaders"`
-	Enabled              *bool                  `pulumi:"enabled"`
-	Name                 *string                `pulumi:"name"`
-	NotifyWhenOk         *bool                  `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   *bool                  `pulumi:"notifyWhenResolved"`
-	SendTestNotification *bool                  `pulumi:"sendTestNotification"`
-	Url                  *string                `pulumi:"url"`
-	Version              *int                   `pulumi:"version"`
+	// Key value list of custom headers.
+	AdditionalHeaders map[string]interface{} `pulumi:"additionalHeaders"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name *string `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk *bool `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved *bool `pulumi:"notifyWhenResolved"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
+	SendTestNotification *bool `pulumi:"sendTestNotification"`
+	// URL to send the event.
+	Url *string `pulumi:"url"`
+	// (Computed) The current version of the Notification Channel.
+	Version *int `pulumi:"version"`
 }
 
 type NotificationChannelWebhookState struct {
-	AdditionalHeaders    pulumi.MapInput
-	Enabled              pulumi.BoolPtrInput
-	Name                 pulumi.StringPtrInput
-	NotifyWhenOk         pulumi.BoolPtrInput
-	NotifyWhenResolved   pulumi.BoolPtrInput
+	// Key value list of custom headers.
+	AdditionalHeaders pulumi.MapInput
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolPtrInput
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringPtrInput
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolPtrInput
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolPtrInput
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrInput
-	Url                  pulumi.StringPtrInput
-	Version              pulumi.IntPtrInput
+	// URL to send the event.
+	Url pulumi.StringPtrInput
+	// (Computed) The current version of the Notification Channel.
+	Version pulumi.IntPtrInput
 }
 
 func (NotificationChannelWebhookState) ElementType() reflect.Type {
@@ -82,24 +122,44 @@ func (NotificationChannelWebhookState) ElementType() reflect.Type {
 }
 
 type notificationChannelWebhookArgs struct {
-	AdditionalHeaders    map[string]interface{} `pulumi:"additionalHeaders"`
-	Enabled              *bool                  `pulumi:"enabled"`
-	Name                 *string                `pulumi:"name"`
-	NotifyWhenOk         *bool                  `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   *bool                  `pulumi:"notifyWhenResolved"`
-	SendTestNotification *bool                  `pulumi:"sendTestNotification"`
-	Url                  string                 `pulumi:"url"`
+	// Key value list of custom headers.
+	AdditionalHeaders map[string]interface{} `pulumi:"additionalHeaders"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name *string `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk *bool `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved *bool `pulumi:"notifyWhenResolved"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
+	SendTestNotification *bool `pulumi:"sendTestNotification"`
+	// URL to send the event.
+	Url string `pulumi:"url"`
 }
 
 // The set of arguments for constructing a NotificationChannelWebhook resource.
 type NotificationChannelWebhookArgs struct {
-	AdditionalHeaders    pulumi.MapInput
-	Enabled              pulumi.BoolPtrInput
-	Name                 pulumi.StringPtrInput
-	NotifyWhenOk         pulumi.BoolPtrInput
-	NotifyWhenResolved   pulumi.BoolPtrInput
+	// Key value list of custom headers.
+	AdditionalHeaders pulumi.MapInput
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolPtrInput
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringPtrInput
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolPtrInput
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolPtrInput
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrInput
-	Url                  pulumi.StringInput
+	// URL to send the event.
+	Url pulumi.StringInput
 }
 
 func (NotificationChannelWebhookArgs) ElementType() reflect.Type {

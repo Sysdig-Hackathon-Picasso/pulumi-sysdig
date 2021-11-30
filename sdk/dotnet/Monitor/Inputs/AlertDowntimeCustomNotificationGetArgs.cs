@@ -12,12 +12,21 @@ namespace Pulumi.Sysdig.Monitor.Inputs
 
     public sealed class AlertDowntimeCustomNotificationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Text to add after the alert template.
+        /// </summary>
         [Input("append")]
         public Input<string>? Append { get; set; }
 
+        /// <summary>
+        /// Text to add before the alert template.
+        /// </summary>
         [Input("prepend")]
         public Input<string>? Prepend { get; set; }
 
+        /// <summary>
+        /// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;
 

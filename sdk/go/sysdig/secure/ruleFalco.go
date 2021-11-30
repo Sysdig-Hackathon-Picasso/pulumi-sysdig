@@ -11,19 +11,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure Falco runtime rules can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/ruleFalco:RuleFalco example 12345
+// ```
 type RuleFalco struct {
 	pulumi.CustomResourceState
 
-	Append      pulumi.BoolPtrOutput          `pulumi:"append"`
-	Condition   pulumi.StringOutput           `pulumi:"condition"`
-	Description pulumi.StringPtrOutput        `pulumi:"description"`
-	Exceptions  RuleFalcoExceptionArrayOutput `pulumi:"exceptions"`
-	Name        pulumi.StringOutput           `pulumi:"name"`
-	Output      pulumi.StringPtrOutput        `pulumi:"output"`
-	Priority    pulumi.StringPtrOutput        `pulumi:"priority"`
-	Source      pulumi.StringPtrOutput        `pulumi:"source"`
-	Tags        pulumi.StringArrayOutput      `pulumi:"tags"`
-	Version     pulumi.IntOutput              `pulumi:"version"`
+	// This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+	Append pulumi.BoolPtrOutput `pulumi:"append"`
+	// A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+	Condition pulumi.StringOutput `pulumi:"condition"`
+	// The description of Secure rule. By default is empty.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+	Exceptions RuleFalcoExceptionArrayOutput `pulumi:"exceptions"`
+	// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Add additional information to each Falco notification's output. Required if append is false.
+	Output pulumi.StringPtrOutput `pulumi:"output"`
+	// The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+	Priority pulumi.StringPtrOutput `pulumi:"priority"`
+	// The source of the event. It can be either "syscall", "k8sAudit" or "awsCloudtrail". Required if append is false.
+	Source pulumi.StringPtrOutput `pulumi:"source"`
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewRuleFalco registers a new resource with the given unique name, arguments, and options.
@@ -58,29 +75,49 @@ func GetRuleFalco(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleFalco resources.
 type ruleFalcoState struct {
-	Append      *bool                `pulumi:"append"`
-	Condition   *string              `pulumi:"condition"`
-	Description *string              `pulumi:"description"`
-	Exceptions  []RuleFalcoException `pulumi:"exceptions"`
-	Name        *string              `pulumi:"name"`
-	Output      *string              `pulumi:"output"`
-	Priority    *string              `pulumi:"priority"`
-	Source      *string              `pulumi:"source"`
-	Tags        []string             `pulumi:"tags"`
-	Version     *int                 `pulumi:"version"`
+	// This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+	Append *bool `pulumi:"append"`
+	// A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+	Condition *string `pulumi:"condition"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+	Exceptions []RuleFalcoException `pulumi:"exceptions"`
+	// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+	Name *string `pulumi:"name"`
+	// Add additional information to each Falco notification's output. Required if append is false.
+	Output *string `pulumi:"output"`
+	// The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+	Priority *string `pulumi:"priority"`
+	// The source of the event. It can be either "syscall", "k8sAudit" or "awsCloudtrail". Required if append is false.
+	Source *string `pulumi:"source"`
+	// A list of tags for this rule.
+	Tags []string `pulumi:"tags"`
+	// Current version of the resource in Sysdig Secure.
+	Version *int `pulumi:"version"`
 }
 
 type RuleFalcoState struct {
-	Append      pulumi.BoolPtrInput
-	Condition   pulumi.StringPtrInput
+	// This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+	Append pulumi.BoolPtrInput
+	// A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+	Condition pulumi.StringPtrInput
+	// The description of Secure rule. By default is empty.
 	Description pulumi.StringPtrInput
-	Exceptions  RuleFalcoExceptionArrayInput
-	Name        pulumi.StringPtrInput
-	Output      pulumi.StringPtrInput
-	Priority    pulumi.StringPtrInput
-	Source      pulumi.StringPtrInput
-	Tags        pulumi.StringArrayInput
-	Version     pulumi.IntPtrInput
+	// The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+	Exceptions RuleFalcoExceptionArrayInput
+	// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+	Name pulumi.StringPtrInput
+	// Add additional information to each Falco notification's output. Required if append is false.
+	Output pulumi.StringPtrInput
+	// The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+	Priority pulumi.StringPtrInput
+	// The source of the event. It can be either "syscall", "k8sAudit" or "awsCloudtrail". Required if append is false.
+	Source pulumi.StringPtrInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntPtrInput
 }
 
 func (RuleFalcoState) ElementType() reflect.Type {
@@ -88,28 +125,46 @@ func (RuleFalcoState) ElementType() reflect.Type {
 }
 
 type ruleFalcoArgs struct {
-	Append      *bool                `pulumi:"append"`
-	Condition   string               `pulumi:"condition"`
-	Description *string              `pulumi:"description"`
-	Exceptions  []RuleFalcoException `pulumi:"exceptions"`
-	Name        *string              `pulumi:"name"`
-	Output      *string              `pulumi:"output"`
-	Priority    *string              `pulumi:"priority"`
-	Source      *string              `pulumi:"source"`
-	Tags        []string             `pulumi:"tags"`
+	// This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+	Append *bool `pulumi:"append"`
+	// A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+	Condition string `pulumi:"condition"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+	Exceptions []RuleFalcoException `pulumi:"exceptions"`
+	// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+	Name *string `pulumi:"name"`
+	// Add additional information to each Falco notification's output. Required if append is false.
+	Output *string `pulumi:"output"`
+	// The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+	Priority *string `pulumi:"priority"`
+	// The source of the event. It can be either "syscall", "k8sAudit" or "awsCloudtrail". Required if append is false.
+	Source *string `pulumi:"source"`
+	// A list of tags for this rule.
+	Tags []string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RuleFalco resource.
 type RuleFalcoArgs struct {
-	Append      pulumi.BoolPtrInput
-	Condition   pulumi.StringInput
+	// This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+	Append pulumi.BoolPtrInput
+	// A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+	Condition pulumi.StringInput
+	// The description of Secure rule. By default is empty.
 	Description pulumi.StringPtrInput
-	Exceptions  RuleFalcoExceptionArrayInput
-	Name        pulumi.StringPtrInput
-	Output      pulumi.StringPtrInput
-	Priority    pulumi.StringPtrInput
-	Source      pulumi.StringPtrInput
-	Tags        pulumi.StringArrayInput
+	// The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+	Exceptions RuleFalcoExceptionArrayInput
+	// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+	Name pulumi.StringPtrInput
+	// Add additional information to each Falco notification's output. Required if append is false.
+	Output pulumi.StringPtrInput
+	// The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+	Priority pulumi.StringPtrInput
+	// The source of the event. It can be either "syscall", "k8sAudit" or "awsCloudtrail". Required if append is false.
+	Source pulumi.StringPtrInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
 }
 
 func (RuleFalcoArgs) ElementType() reflect.Type {

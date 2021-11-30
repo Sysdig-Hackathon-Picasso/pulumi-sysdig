@@ -26,11 +26,14 @@ type LookupUserArgs struct {
 
 // A collection of values returned by GetUser.
 type LookupUserResult struct {
-	Email     string `pulumi:"email"`
+	Email string `pulumi:"email"`
+	// The user's first name.
 	FirstName string `pulumi:"firstName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	LastName   string `pulumi:"lastName"`
+	Id string `pulumi:"id"`
+	// The user's last name.
+	LastName string `pulumi:"lastName"`
+	// The user's system role.
 	SystemRole string `pulumi:"systemRole"`
 	Version    int    `pulumi:"version"`
 }
@@ -72,6 +75,7 @@ func (o LookupUserResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Email }).(pulumi.StringOutput)
 }
 
+// The user's first name.
 func (o LookupUserResultOutput) FirstName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.FirstName }).(pulumi.StringOutput)
 }
@@ -81,10 +85,12 @@ func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The user's last name.
 func (o LookupUserResultOutput) LastName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.LastName }).(pulumi.StringOutput)
 }
 
+// The user's system role.
 func (o LookupUserResultOutput) SystemRole() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.SystemRole }).(pulumi.StringOutput)
 }

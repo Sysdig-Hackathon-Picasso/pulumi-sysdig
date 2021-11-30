@@ -12,11 +12,18 @@ namespace Pulumi.Sysdig.Secure.Inputs
 
     public sealed class RuleFilesystemReadOnlyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines if the path matches or not with the provided list. Default is true.
+        /// </summary>
         [Input("matching")]
         public Input<bool>? Matching { get; set; }
 
         [Input("paths", required: true)]
         private InputList<string>? _paths;
+
+        /// <summary>
+        /// List of paths to match.
+        /// </summary>
         public InputList<string> Paths
         {
             get => _paths ?? (_paths = new InputList<string>());

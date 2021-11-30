@@ -13,7 +13,13 @@ namespace Pulumi.Sysdig.Secure.Outputs
     [OutputType]
     public sealed class RuleNetworkUdp
     {
+        /// <summary>
+        /// Defines if the port matches or not with the provided list. Default is true.
+        /// </summary>
         public readonly bool? Matching;
+        /// <summary>
+        /// List of ports to match.
+        /// </summary>
         public readonly ImmutableArray<int> Ports;
 
         [OutputConstructor]

@@ -18,6 +18,9 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class GetTrustedCloudIdentityArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The cloud provider in which the trusted identity will be used. Currently supported providers are `aws`, `gcp` and `azure`
+        /// </summary>
         [Input("cloudProvider", required: true)]
         public string CloudProvider { get; set; } = null!;
 
@@ -30,15 +33,30 @@ namespace Pulumi.Sysdig.Secure
     [OutputType]
     public sealed class GetTrustedCloudIdentityResult
     {
+        /// <summary>
+        /// If `identity` is an AWS ARN, this attribute contains the AWS Account ID to which the ARN belongs, otherwise it contains the empty string. `cloud_provider` must be equal to `aws` or `gcp`.
+        /// </summary>
         public readonly string AwsAccountId;
+        /// <summary>
+        /// If `identity` is a AWS IAM Role ARN, this attribute contains the name of the role, otherwise it contains the empty string. `cloud_provider` must be equal to `aws` or `gcp`.
+        /// </summary>
         public readonly string AwsRoleName;
+        /// <summary>
+        /// If `identity` contains credentials for an Azure Service Principal, this attribute contains the service principal's ID. `cloud_provider` must be equal to `azure`.
+        /// </summary>
         public readonly string AzureServicePrincipalId;
+        /// <summary>
+        /// If `identity` contains credentials for an Azure Service Principal, this attribute contains the service principal's Tenant ID. `cloud_provider` must be equal to `azure`.
+        /// </summary>
         public readonly string AzureTenantId;
         public readonly string CloudProvider;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Sysdig's identity (User/Role/etc) that should be used to create a trust relationship allowing Sysdig access to your cloud account.
+        /// </summary>
         public readonly string Identity;
 
         [OutputConstructor]

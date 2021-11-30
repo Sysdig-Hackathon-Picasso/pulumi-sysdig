@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Secure Teams can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/team:Team example 12345
+ * ```
+ */
 export class Team extends pulumi.CustomResource {
     /**
      * Get an existing Team resource's state with the given name, ID, and optional extra
@@ -34,11 +43,31 @@ export class Team extends pulumi.CustomResource {
     }
 
     public readonly defaultTeam!: pulumi.Output<boolean | undefined>;
+    /**
+     * A description of the team.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * If the team can only see some resources, 
+     * write down a filter of such resources.
+     */
     public readonly filter!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Secure Team. It must be unique and must not exist in Monitor.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Scope for the team. Default: "container".
+     */
     public readonly scopeBy!: pulumi.Output<string | undefined>;
+    /**
+     * Colour of the team. Default: "#73A1F7".
+     */
     public readonly theme!: pulumi.Output<string | undefined>;
+    /**
+     * Defines if the team is able to create Sysdig Capture files. 
+     * Default: true.
+     */
     public readonly useSysdigCapture!: pulumi.Output<boolean | undefined>;
     public readonly userRoles!: pulumi.Output<outputs.Secure.TeamUserRole[] | undefined>;
     public /*out*/ readonly version!: pulumi.Output<number>;
@@ -89,11 +118,31 @@ export class Team extends pulumi.CustomResource {
  */
 export interface TeamState {
     defaultTeam?: pulumi.Input<boolean>;
+    /**
+     * A description of the team.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * If the team can only see some resources, 
+     * write down a filter of such resources.
+     */
     filter?: pulumi.Input<string>;
+    /**
+     * The name of the Secure Team. It must be unique and must not exist in Monitor.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Scope for the team. Default: "container".
+     */
     scopeBy?: pulumi.Input<string>;
+    /**
+     * Colour of the team. Default: "#73A1F7".
+     */
     theme?: pulumi.Input<string>;
+    /**
+     * Defines if the team is able to create Sysdig Capture files. 
+     * Default: true.
+     */
     useSysdigCapture?: pulumi.Input<boolean>;
     userRoles?: pulumi.Input<pulumi.Input<inputs.Secure.TeamUserRole>[]>;
     version?: pulumi.Input<number>;
@@ -104,11 +153,31 @@ export interface TeamState {
  */
 export interface TeamArgs {
     defaultTeam?: pulumi.Input<boolean>;
+    /**
+     * A description of the team.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * If the team can only see some resources, 
+     * write down a filter of such resources.
+     */
     filter?: pulumi.Input<string>;
+    /**
+     * The name of the Secure Team. It must be unique and must not exist in Monitor.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Scope for the team. Default: "container".
+     */
     scopeBy?: pulumi.Input<string>;
+    /**
+     * Colour of the team. Default: "#73A1F7".
+     */
     theme?: pulumi.Input<string>;
+    /**
+     * Defines if the team is able to create Sysdig Capture files. 
+     * Default: true.
+     */
     useSysdigCapture?: pulumi.Input<boolean>;
     userRoles?: pulumi.Input<pulumi.Input<inputs.Secure.TeamUserRole>[]>;
 }

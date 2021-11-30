@@ -18,6 +18,11 @@ class ListArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a List resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: Elements in the list. Elements can be another lists.
+        :param pulumi.Input[bool] append: Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+               The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+               append rule called "foo" but not a second one. By default this is false.
+        :param pulumi.Input[str] name: The name of the Secure list. It must be unique if it's not in append mode.
         """
         pulumi.set(__self__, "items", items)
         if append is not None:
@@ -28,6 +33,9 @@ class ListArgs:
     @property
     @pulumi.getter
     def items(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Elements in the list. Elements can be another lists.
+        """
         return pulumi.get(self, "items")
 
     @items.setter
@@ -37,6 +45,11 @@ class ListArgs:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+        The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+        append rule called "foo" but not a second one. By default this is false.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -46,6 +59,9 @@ class ListArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secure list. It must be unique if it's not in append mode.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62,6 +78,11 @@ class _ListState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering List resources.
+        :param pulumi.Input[bool] append: Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+               The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+               append rule called "foo" but not a second one. By default this is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: Elements in the list. Elements can be another lists.
+        :param pulumi.Input[str] name: The name of the Secure list. It must be unique if it's not in append mode.
         """
         if append is not None:
             pulumi.set(__self__, "append", append)
@@ -75,6 +96,11 @@ class _ListState:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+        The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+        append rule called "foo" but not a second one. By default this is false.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -84,6 +110,9 @@ class _ListState:
     @property
     @pulumi.getter
     def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Elements in the list. Elements can be another lists.
+        """
         return pulumi.get(self, "items")
 
     @items.setter
@@ -93,6 +122,9 @@ class _ListState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secure list. It must be unique if it's not in append mode.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -119,9 +151,21 @@ class List(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a List resource with the given unique name, props, and options.
+        ## Import
+
+        Secure lists can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/list:List example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] append: Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+               The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+               append rule called "foo" but not a second one. By default this is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: Elements in the list. Elements can be another lists.
+        :param pulumi.Input[str] name: The name of the Secure list. It must be unique if it's not in append mode.
         """
         ...
     @overload
@@ -130,7 +174,14 @@ class List(pulumi.CustomResource):
                  args: ListArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a List resource with the given unique name, props, and options.
+        ## Import
+
+        Secure lists can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/list:List example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param ListArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,6 +239,11 @@ class List(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] append: Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+               The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+               append rule called "foo" but not a second one. By default this is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: Elements in the list. Elements can be another lists.
+        :param pulumi.Input[str] name: The name of the Secure list. It must be unique if it's not in append mode.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -202,16 +258,27 @@ class List(pulumi.CustomResource):
     @property
     @pulumi.getter
     def append(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+        The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+        append rule called "foo" but not a second one. By default this is false.
+        """
         return pulumi.get(self, "append")
 
     @property
     @pulumi.getter
     def items(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Elements in the list. Elements can be another lists.
+        """
         return pulumi.get(self, "items")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Secure list. It must be unique if it's not in append mode.
+        """
         return pulumi.get(self, "name")
 
     @property

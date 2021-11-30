@@ -10,15 +10,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure filesystem runtime rules can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/ruleFilesystem:RuleFilesystem example 12345
+// ```
 type RuleFilesystem struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput             `pulumi:"description"`
-	Name        pulumi.StringOutput                `pulumi:"name"`
-	ReadOnlies  RuleFilesystemReadOnlyArrayOutput  `pulumi:"readOnlies"`
-	ReadWrites  RuleFilesystemReadWriteArrayOutput `pulumi:"readWrites"`
-	Tags        pulumi.StringArrayOutput           `pulumi:"tags"`
-	Version     pulumi.IntOutput                   `pulumi:"version"`
+	// The description of Secure rule. By default is empty.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the Secure rule. It must be unique.
+	Name       pulumi.StringOutput                `pulumi:"name"`
+	ReadOnlies RuleFilesystemReadOnlyArrayOutput  `pulumi:"readOnlies"`
+	ReadWrites RuleFilesystemReadWriteArrayOutput `pulumi:"readWrites"`
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewRuleFilesystem registers a new resource with the given unique name, arguments, and options.
@@ -50,21 +61,29 @@ func GetRuleFilesystem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleFilesystem resources.
 type ruleFilesystemState struct {
-	Description *string                   `pulumi:"description"`
-	Name        *string                   `pulumi:"name"`
-	ReadOnlies  []RuleFilesystemReadOnly  `pulumi:"readOnlies"`
-	ReadWrites  []RuleFilesystemReadWrite `pulumi:"readWrites"`
-	Tags        []string                  `pulumi:"tags"`
-	Version     *int                      `pulumi:"version"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// The name of the Secure rule. It must be unique.
+	Name       *string                   `pulumi:"name"`
+	ReadOnlies []RuleFilesystemReadOnly  `pulumi:"readOnlies"`
+	ReadWrites []RuleFilesystemReadWrite `pulumi:"readWrites"`
+	// A list of tags for this rule.
+	Tags []string `pulumi:"tags"`
+	// Current version of the resource in Sysdig Secure.
+	Version *int `pulumi:"version"`
 }
 
 type RuleFilesystemState struct {
+	// The description of Secure rule. By default is empty.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	ReadOnlies  RuleFilesystemReadOnlyArrayInput
-	ReadWrites  RuleFilesystemReadWriteArrayInput
-	Tags        pulumi.StringArrayInput
-	Version     pulumi.IntPtrInput
+	// The name of the Secure rule. It must be unique.
+	Name       pulumi.StringPtrInput
+	ReadOnlies RuleFilesystemReadOnlyArrayInput
+	ReadWrites RuleFilesystemReadWriteArrayInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntPtrInput
 }
 
 func (RuleFilesystemState) ElementType() reflect.Type {
@@ -72,20 +91,26 @@ func (RuleFilesystemState) ElementType() reflect.Type {
 }
 
 type ruleFilesystemArgs struct {
-	Description *string                   `pulumi:"description"`
-	Name        *string                   `pulumi:"name"`
-	ReadOnlies  []RuleFilesystemReadOnly  `pulumi:"readOnlies"`
-	ReadWrites  []RuleFilesystemReadWrite `pulumi:"readWrites"`
-	Tags        []string                  `pulumi:"tags"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// The name of the Secure rule. It must be unique.
+	Name       *string                   `pulumi:"name"`
+	ReadOnlies []RuleFilesystemReadOnly  `pulumi:"readOnlies"`
+	ReadWrites []RuleFilesystemReadWrite `pulumi:"readWrites"`
+	// A list of tags for this rule.
+	Tags []string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RuleFilesystem resource.
 type RuleFilesystemArgs struct {
+	// The description of Secure rule. By default is empty.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	ReadOnlies  RuleFilesystemReadOnlyArrayInput
-	ReadWrites  RuleFilesystemReadWriteArrayInput
-	Tags        pulumi.StringArrayInput
+	// The name of the Secure rule. It must be unique.
+	Name       pulumi.StringPtrInput
+	ReadOnlies RuleFilesystemReadOnlyArrayInput
+	ReadWrites RuleFilesystemReadWriteArrayInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
 }
 
 func (RuleFilesystemArgs) ElementType() reflect.Type {

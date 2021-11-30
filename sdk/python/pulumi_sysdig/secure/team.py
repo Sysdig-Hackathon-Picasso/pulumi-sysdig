@@ -25,6 +25,14 @@ class TeamArgs:
                  user_roles: Optional[pulumi.Input[Sequence[pulumi.Input['TeamUserRoleArgs']]]] = None):
         """
         The set of arguments for constructing a Team resource.
+        :param pulumi.Input[str] description: A description of the team.
+        :param pulumi.Input[str] filter: If the team can only see some resources, 
+               write down a filter of such resources.
+        :param pulumi.Input[str] name: The name of the Secure Team. It must be unique and must not exist in Monitor.
+        :param pulumi.Input[str] scope_by: Scope for the team. Default: "container".
+        :param pulumi.Input[str] theme: Colour of the team. Default: "#73A1F7".
+        :param pulumi.Input[bool] use_sysdig_capture: Defines if the team is able to create Sysdig Capture files. 
+               Default: true.
         """
         if default_team is not None:
             pulumi.set(__self__, "default_team", default_team)
@@ -55,6 +63,9 @@ class TeamArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the team.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -64,6 +75,10 @@ class TeamArgs:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the team can only see some resources, 
+        write down a filter of such resources.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -73,6 +88,9 @@ class TeamArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secure Team. It must be unique and must not exist in Monitor.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -82,6 +100,9 @@ class TeamArgs:
     @property
     @pulumi.getter(name="scopeBy")
     def scope_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scope for the team. Default: "container".
+        """
         return pulumi.get(self, "scope_by")
 
     @scope_by.setter
@@ -91,6 +112,9 @@ class TeamArgs:
     @property
     @pulumi.getter
     def theme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Colour of the team. Default: "#73A1F7".
+        """
         return pulumi.get(self, "theme")
 
     @theme.setter
@@ -100,6 +124,10 @@ class TeamArgs:
     @property
     @pulumi.getter(name="useSysdigCapture")
     def use_sysdig_capture(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defines if the team is able to create Sysdig Capture files. 
+        Default: true.
+        """
         return pulumi.get(self, "use_sysdig_capture")
 
     @use_sysdig_capture.setter
@@ -130,6 +158,14 @@ class _TeamState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Team resources.
+        :param pulumi.Input[str] description: A description of the team.
+        :param pulumi.Input[str] filter: If the team can only see some resources, 
+               write down a filter of such resources.
+        :param pulumi.Input[str] name: The name of the Secure Team. It must be unique and must not exist in Monitor.
+        :param pulumi.Input[str] scope_by: Scope for the team. Default: "container".
+        :param pulumi.Input[str] theme: Colour of the team. Default: "#73A1F7".
+        :param pulumi.Input[bool] use_sysdig_capture: Defines if the team is able to create Sysdig Capture files. 
+               Default: true.
         """
         if default_team is not None:
             pulumi.set(__self__, "default_team", default_team)
@@ -162,6 +198,9 @@ class _TeamState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the team.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -171,6 +210,10 @@ class _TeamState:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the team can only see some resources, 
+        write down a filter of such resources.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -180,6 +223,9 @@ class _TeamState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secure Team. It must be unique and must not exist in Monitor.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -189,6 +235,9 @@ class _TeamState:
     @property
     @pulumi.getter(name="scopeBy")
     def scope_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scope for the team. Default: "container".
+        """
         return pulumi.get(self, "scope_by")
 
     @scope_by.setter
@@ -198,6 +247,9 @@ class _TeamState:
     @property
     @pulumi.getter
     def theme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Colour of the team. Default: "#73A1F7".
+        """
         return pulumi.get(self, "theme")
 
     @theme.setter
@@ -207,6 +259,10 @@ class _TeamState:
     @property
     @pulumi.getter(name="useSysdigCapture")
     def use_sysdig_capture(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defines if the team is able to create Sysdig Capture files. 
+        Default: true.
+        """
         return pulumi.get(self, "use_sysdig_capture")
 
     @use_sysdig_capture.setter
@@ -247,9 +303,24 @@ class Team(pulumi.CustomResource):
                  user_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamUserRoleArgs']]]]] = None,
                  __props__=None):
         """
-        Create a Team resource with the given unique name, props, and options.
+        ## Import
+
+        Secure Teams can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/team:Team example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the team.
+        :param pulumi.Input[str] filter: If the team can only see some resources, 
+               write down a filter of such resources.
+        :param pulumi.Input[str] name: The name of the Secure Team. It must be unique and must not exist in Monitor.
+        :param pulumi.Input[str] scope_by: Scope for the team. Default: "container".
+        :param pulumi.Input[str] theme: Colour of the team. Default: "#73A1F7".
+        :param pulumi.Input[bool] use_sysdig_capture: Defines if the team is able to create Sysdig Capture files. 
+               Default: true.
         """
         ...
     @overload
@@ -258,7 +329,14 @@ class Team(pulumi.CustomResource):
                  args: Optional[TeamArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Team resource with the given unique name, props, and options.
+        ## Import
+
+        Secure Teams can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/team:Team example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param TeamArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -329,6 +407,14 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the team.
+        :param pulumi.Input[str] filter: If the team can only see some resources, 
+               write down a filter of such resources.
+        :param pulumi.Input[str] name: The name of the Secure Team. It must be unique and must not exist in Monitor.
+        :param pulumi.Input[str] scope_by: Scope for the team. Default: "container".
+        :param pulumi.Input[str] theme: Colour of the team. Default: "#73A1F7".
+        :param pulumi.Input[bool] use_sysdig_capture: Defines if the team is able to create Sysdig Capture files. 
+               Default: true.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -353,31 +439,51 @@ class Team(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the team.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Output[Optional[str]]:
+        """
+        If the team can only see some resources, 
+        write down a filter of such resources.
+        """
         return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Secure Team. It must be unique and must not exist in Monitor.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="scopeBy")
     def scope_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        Scope for the team. Default: "container".
+        """
         return pulumi.get(self, "scope_by")
 
     @property
     @pulumi.getter
     def theme(self) -> pulumi.Output[Optional[str]]:
+        """
+        Colour of the team. Default: "#73A1F7".
+        """
         return pulumi.get(self, "theme")
 
     @property
     @pulumi.getter(name="useSysdigCapture")
     def use_sysdig_capture(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Defines if the team is able to create Sysdig Capture files. 
+        Default: true.
+        """
         return pulumi.get(self, "use_sysdig_capture")
 
     @property

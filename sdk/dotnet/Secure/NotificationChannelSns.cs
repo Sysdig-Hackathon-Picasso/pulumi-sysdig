@@ -9,27 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// SNS notification channels for Secure can be imported using the ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Secure/notificationChannelSns:NotificationChannelSns example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Secure/notificationChannelSns:NotificationChannelSns")]
     public partial class NotificationChannelSns : Pulumi.CustomResource
     {
+        /// <summary>
+        /// If false, the channel will not emit notifications. Default is true.
+        /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Notification Channel. Must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Send a new notification when the alert condition is 
+        /// no longer triggered. Default is false.
+        /// </summary>
         [Output("notifyWhenOk")]
         public Output<bool> NotifyWhenOk { get; private set; } = null!;
 
+        /// <summary>
+        /// Send a new notification when the alert is manually 
+        /// acknowledged by a user. Default is false.
+        /// </summary>
         [Output("notifyWhenResolved")]
         public Output<bool> NotifyWhenResolved { get; private set; } = null!;
 
+        /// <summary>
+        /// Send an initial test notification to check
+        /// if the notification channel is working. Default is false.
+        /// </summary>
         [Output("sendTestNotification")]
         public Output<bool?> SendTestNotification { get; private set; } = null!;
 
+        /// <summary>
+        /// List of ARNs from the SNS topics.
+        /// </summary>
         [Output("topics")]
         public Output<ImmutableArray<string>> Topics { get; private set; } = null!;
 
+        /// <summary>
+        /// (Computed) The current version of the Notification Channel.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -79,23 +112,45 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class NotificationChannelSnsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If false, the channel will not emit notifications. Default is true.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the Notification Channel. Must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Send a new notification when the alert condition is 
+        /// no longer triggered. Default is false.
+        /// </summary>
         [Input("notifyWhenOk", required: true)]
         public Input<bool> NotifyWhenOk { get; set; } = null!;
 
+        /// <summary>
+        /// Send a new notification when the alert is manually 
+        /// acknowledged by a user. Default is false.
+        /// </summary>
         [Input("notifyWhenResolved", required: true)]
         public Input<bool> NotifyWhenResolved { get; set; } = null!;
 
+        /// <summary>
+        /// Send an initial test notification to check
+        /// if the notification channel is working. Default is false.
+        /// </summary>
         [Input("sendTestNotification")]
         public Input<bool>? SendTestNotification { get; set; }
 
         [Input("topics", required: true)]
         private InputList<string>? _topics;
+
+        /// <summary>
+        /// List of ARNs from the SNS topics.
+        /// </summary>
         public InputList<string> Topics
         {
             get => _topics ?? (_topics = new InputList<string>());
@@ -109,29 +164,54 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class NotificationChannelSnsState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If false, the channel will not emit notifications. Default is true.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The name of the Notification Channel. Must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Send a new notification when the alert condition is 
+        /// no longer triggered. Default is false.
+        /// </summary>
         [Input("notifyWhenOk")]
         public Input<bool>? NotifyWhenOk { get; set; }
 
+        /// <summary>
+        /// Send a new notification when the alert is manually 
+        /// acknowledged by a user. Default is false.
+        /// </summary>
         [Input("notifyWhenResolved")]
         public Input<bool>? NotifyWhenResolved { get; set; }
 
+        /// <summary>
+        /// Send an initial test notification to check
+        /// if the notification channel is working. Default is false.
+        /// </summary>
         [Input("sendTestNotification")]
         public Input<bool>? SendTestNotification { get; set; }
 
         [Input("topics")]
         private InputList<string>? _topics;
+
+        /// <summary>
+        /// List of ARNs from the SNS topics.
+        /// </summary>
         public InputList<string> Topics
         {
             get => _topics ?? (_topics = new InputList<string>());
             set => _topics = value;
         }
 
+        /// <summary>
+        /// (Computed) The current version of the Notification Channel.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

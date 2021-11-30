@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Webhook notification channels for Secure can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/notificationChannelWebhook:NotificationChannelWebhook example 12345
+ * ```
+ */
 export class NotificationChannelWebhook extends pulumi.CustomResource {
     /**
      * Get an existing NotificationChannelWebhook resource's state with the given name, ID, and optional extra
@@ -32,12 +41,36 @@ export class NotificationChannelWebhook extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationChannelWebhook.__pulumiType;
     }
 
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     public readonly notifyWhenOk!: pulumi.Output<boolean>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     public readonly notifyWhenResolved!: pulumi.Output<boolean>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     public readonly sendTestNotification!: pulumi.Output<boolean | undefined>;
+    /**
+     * URL to send the event.
+     */
     public readonly url!: pulumi.Output<string>;
+    /**
+     * (Computed) The current version of the Notification Channel.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -93,12 +126,36 @@ export class NotificationChannelWebhook extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotificationChannelWebhook resources.
  */
 export interface NotificationChannelWebhookState {
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     notifyWhenOk?: pulumi.Input<boolean>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     notifyWhenResolved?: pulumi.Input<boolean>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     sendTestNotification?: pulumi.Input<boolean>;
+    /**
+     * URL to send the event.
+     */
     url?: pulumi.Input<string>;
+    /**
+     * (Computed) The current version of the Notification Channel.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -106,10 +163,31 @@ export interface NotificationChannelWebhookState {
  * The set of arguments for constructing a NotificationChannelWebhook resource.
  */
 export interface NotificationChannelWebhookArgs {
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     enabled: pulumi.Input<boolean>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     notifyWhenOk: pulumi.Input<boolean>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     notifyWhenResolved: pulumi.Input<boolean>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     sendTestNotification?: pulumi.Input<boolean>;
+    /**
+     * URL to send the event.
+     */
     url: pulumi.Input<string>;
 }

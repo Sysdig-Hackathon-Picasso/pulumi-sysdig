@@ -18,27 +18,51 @@ namespace Pulumi.Sysdig
 
     public sealed class GetFargateWorkloadAgentArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The collector host to connect to.
+        /// </summary>
         [Input("collectorHost")]
         public string? CollectorHost { get; set; }
 
+        /// <summary>
+        /// The collector port to connect to.
+        /// </summary>
         [Input("collectorPort")]
         public string? CollectorPort { get; set; }
 
+        /// <summary>
+        /// The input Fargate container definitions to instrument with the Sysdig workload agent.
+        /// </summary>
         [Input("containerDefinitions", required: true)]
         public string ContainerDefinitions { get; set; } = null!;
 
+        /// <summary>
+        /// The registry authentication secret.
+        /// </summary>
         [Input("imageAuthSecret")]
         public string? ImageAuthSecret { get; set; }
 
+        /// <summary>
+        /// The orchestrator host to connect to.
+        /// </summary>
         [Input("orchestratorHost")]
         public string? OrchestratorHost { get; set; }
 
+        /// <summary>
+        /// The orchestrator port to connect to.
+        /// </summary>
         [Input("orchestratorPort")]
         public string? OrchestratorPort { get; set; }
 
+        /// <summary>
+        /// The Sysdig Access Key (Agent token).
+        /// </summary>
         [Input("sysdigAccessKey", required: true)]
         public string SysdigAccessKey { get; set; } = null!;
 
+        /// <summary>
+        /// The Sysdig workload agent image.
+        /// </summary>
         [Input("workloadAgentImage", required: true)]
         public string WorkloadAgentImage { get; set; } = null!;
 
@@ -61,6 +85,9 @@ namespace Pulumi.Sysdig
         public readonly string? ImageAuthSecret;
         public readonly string? OrchestratorHost;
         public readonly string? OrchestratorPort;
+        /// <summary>
+        /// The updated container definitions instrumented with the Sysdig workload agent.
+        /// </summary>
         public readonly string OutputContainerDefinitions;
         public readonly string SysdigAccessKey;
         public readonly string WorkloadAgentImage;

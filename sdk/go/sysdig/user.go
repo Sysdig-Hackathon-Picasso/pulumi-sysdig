@@ -11,12 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Sysdig users can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:index/user:User example 12345
+// ```
 type User struct {
 	pulumi.CustomResourceState
 
-	Email      pulumi.StringOutput    `pulumi:"email"`
-	FirstName  pulumi.StringPtrOutput `pulumi:"firstName"`
-	LastName   pulumi.StringPtrOutput `pulumi:"lastName"`
+	// The email for the user to invite.
+	Email pulumi.StringOutput `pulumi:"email"`
+	// The name of the user.
+	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
+	// The last name of the user.
+	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
+	// The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+	// If set to "ROLE_CUSTOMER", the user will be known as an admin.
 	SystemRole pulumi.StringPtrOutput `pulumi:"systemRole"`
 	Version    pulumi.IntOutput       `pulumi:"version"`
 }
@@ -53,17 +65,27 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	Email      *string `pulumi:"email"`
-	FirstName  *string `pulumi:"firstName"`
-	LastName   *string `pulumi:"lastName"`
+	// The email for the user to invite.
+	Email *string `pulumi:"email"`
+	// The name of the user.
+	FirstName *string `pulumi:"firstName"`
+	// The last name of the user.
+	LastName *string `pulumi:"lastName"`
+	// The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+	// If set to "ROLE_CUSTOMER", the user will be known as an admin.
 	SystemRole *string `pulumi:"systemRole"`
 	Version    *int    `pulumi:"version"`
 }
 
 type UserState struct {
-	Email      pulumi.StringPtrInput
-	FirstName  pulumi.StringPtrInput
-	LastName   pulumi.StringPtrInput
+	// The email for the user to invite.
+	Email pulumi.StringPtrInput
+	// The name of the user.
+	FirstName pulumi.StringPtrInput
+	// The last name of the user.
+	LastName pulumi.StringPtrInput
+	// The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+	// If set to "ROLE_CUSTOMER", the user will be known as an admin.
 	SystemRole pulumi.StringPtrInput
 	Version    pulumi.IntPtrInput
 }
@@ -73,17 +95,27 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	Email      string  `pulumi:"email"`
-	FirstName  *string `pulumi:"firstName"`
-	LastName   *string `pulumi:"lastName"`
+	// The email for the user to invite.
+	Email string `pulumi:"email"`
+	// The name of the user.
+	FirstName *string `pulumi:"firstName"`
+	// The last name of the user.
+	LastName *string `pulumi:"lastName"`
+	// The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+	// If set to "ROLE_CUSTOMER", the user will be known as an admin.
 	SystemRole *string `pulumi:"systemRole"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	Email      pulumi.StringInput
-	FirstName  pulumi.StringPtrInput
-	LastName   pulumi.StringPtrInput
+	// The email for the user to invite.
+	Email pulumi.StringInput
+	// The name of the user.
+	FirstName pulumi.StringPtrInput
+	// The last name of the user.
+	LastName pulumi.StringPtrInput
+	// The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+	// If set to "ROLE_CUSTOMER", the user will be known as an admin.
 	SystemRole pulumi.StringPtrInput
 }
 

@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * PromQL Monitor alerts can be imported using the alert ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Monitor/alertPromql:AlertPromql example 12345
+ * ```
+ */
 export class AlertPromql extends pulumi.CustomResource {
     /**
      * Get an existing AlertPromql resource's state with the given name, ID, and optional extra
@@ -34,17 +43,51 @@ export class AlertPromql extends pulumi.CustomResource {
     }
 
     public readonly capture!: pulumi.Output<outputs.Monitor.AlertPromqlCapture | undefined>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     public readonly customNotification!: pulumi.Output<outputs.Monitor.AlertPromqlCustomNotification | undefined>;
+    /**
+     * The description of Monitor alert.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     public readonly notificationChannels!: pulumi.Output<number[] | undefined>;
+    /**
+     * PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+     */
     public readonly promql!: pulumi.Output<string>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     public readonly renotificationMinutes!: pulumi.Output<number | undefined>;
     public readonly scope!: pulumi.Output<string | undefined>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     public readonly severity!: pulumi.Output<number | undefined>;
+    /**
+     * Team ID that owns the alert.
+     */
     public /*out*/ readonly team!: pulumi.Output<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     public readonly triggerAfterMinutes!: pulumi.Output<number>;
+    /**
+     * Current version of the resource in Sysdig Monitor.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -107,17 +150,51 @@ export class AlertPromql extends pulumi.CustomResource {
  */
 export interface AlertPromqlState {
     capture?: pulumi.Input<inputs.Monitor.AlertPromqlCapture>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     customNotification?: pulumi.Input<inputs.Monitor.AlertPromqlCustomNotification>;
+    /**
+     * The description of Monitor alert.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+     */
     promql?: pulumi.Input<string>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     renotificationMinutes?: pulumi.Input<number>;
     scope?: pulumi.Input<string>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     severity?: pulumi.Input<number>;
+    /**
+     * Team ID that owns the alert.
+     */
     team?: pulumi.Input<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     triggerAfterMinutes?: pulumi.Input<number>;
+    /**
+     * Current version of the resource in Sysdig Monitor.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -126,14 +203,42 @@ export interface AlertPromqlState {
  */
 export interface AlertPromqlArgs {
     capture?: pulumi.Input<inputs.Monitor.AlertPromqlCapture>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     customNotification?: pulumi.Input<inputs.Monitor.AlertPromqlCustomNotification>;
+    /**
+     * The description of Monitor alert.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) > 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) < 10000000000`.
+     */
     promql: pulumi.Input<string>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     renotificationMinutes?: pulumi.Input<number>;
     scope?: pulumi.Input<string>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     severity?: pulumi.Input<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     triggerAfterMinutes: pulumi.Input<number>;
 }

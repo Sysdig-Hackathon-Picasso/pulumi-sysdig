@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Secure Cloud Accounts can be imported using the `account_id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/cloudAccount:CloudAccount sample 123456789012
+ * ```
+ */
 export class CloudAccount extends pulumi.CustomResource {
     /**
      * Get an existing CloudAccount resource's state with the given name, ID, and optional extra
@@ -32,11 +41,26 @@ export class CloudAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudAccount.__pulumiType;
     }
 
+    /**
+     * The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+     */
     public readonly accountId!: pulumi.Output<string>;
+    /**
+     * A human friendly alias for `accountId`.
+     */
     public readonly alias!: pulumi.Output<string | undefined>;
+    /**
+     * The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+     */
     public readonly cloudProvider!: pulumi.Output<string>;
     public /*out*/ readonly externalId!: pulumi.Output<string>;
+    /**
+     * Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+     */
     public readonly roleEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the role Sysdig will have permission to AssumeRole if `roleEnaled` is set to `true`. Default: `SysdigCloudBench`.
+     */
     public readonly roleName!: pulumi.Output<string | undefined>;
 
     /**
@@ -84,11 +108,26 @@ export class CloudAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CloudAccount resources.
  */
 export interface CloudAccountState {
+    /**
+     * The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+     */
     accountId?: pulumi.Input<string>;
+    /**
+     * A human friendly alias for `accountId`.
+     */
     alias?: pulumi.Input<string>;
+    /**
+     * The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+     */
     cloudProvider?: pulumi.Input<string>;
     externalId?: pulumi.Input<string>;
+    /**
+     * Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+     */
     roleEnabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the role Sysdig will have permission to AssumeRole if `roleEnaled` is set to `true`. Default: `SysdigCloudBench`.
+     */
     roleName?: pulumi.Input<string>;
 }
 
@@ -96,9 +135,24 @@ export interface CloudAccountState {
  * The set of arguments for constructing a CloudAccount resource.
  */
 export interface CloudAccountArgs {
+    /**
+     * The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+     */
     accountId: pulumi.Input<string>;
+    /**
+     * A human friendly alias for `accountId`.
+     */
     alias?: pulumi.Input<string>;
+    /**
+     * The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+     */
     cloudProvider: pulumi.Input<string>;
+    /**
+     * Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+     */
     roleEnabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the role Sysdig will have permission to AssumeRole if `roleEnaled` is set to `true`. Default: `SysdigCloudBench`.
+     */
     roleName?: pulumi.Input<string>;
 }

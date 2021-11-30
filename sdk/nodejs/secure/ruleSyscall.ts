@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Secure syscall runtime rules can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/ruleSyscall:RuleSyscall example 12345
+ * ```
+ */
 export class RuleSyscall extends pulumi.CustomResource {
     /**
      * Get an existing RuleSyscall resource's state with the given name, ID, and optional extra
@@ -32,11 +41,26 @@ export class RuleSyscall extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleSyscall.__pulumiType;
     }
 
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Defines if the syscall name matches or not with the provided list. Default is true.
+     */
     public readonly matching!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
     public readonly syscalls!: pulumi.Output<string[] | undefined>;
+    /**
+     * A list of tags for this rule.
+     */
     public readonly tags!: pulumi.Output<string[] | undefined>;
+    /**
+     * Current version of the resource in Sysdig Secure.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -78,11 +102,26 @@ export class RuleSyscall extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RuleSyscall resources.
  */
 export interface RuleSyscallState {
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Defines if the syscall name matches or not with the provided list. Default is true.
+     */
     matching?: pulumi.Input<boolean>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     name?: pulumi.Input<string>;
     syscalls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of tags for this rule.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Current version of the resource in Sysdig Secure.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -90,9 +129,21 @@ export interface RuleSyscallState {
  * The set of arguments for constructing a RuleSyscall resource.
  */
 export interface RuleSyscallArgs {
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Defines if the syscall name matches or not with the provided list. Default is true.
+     */
     matching?: pulumi.Input<boolean>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     name?: pulumi.Input<string>;
     syscalls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of tags for this rule.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
 }

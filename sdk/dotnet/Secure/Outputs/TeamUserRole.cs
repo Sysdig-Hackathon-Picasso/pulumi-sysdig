@@ -13,7 +13,15 @@ namespace Pulumi.Sysdig.Secure.Outputs
     [OutputType]
     public sealed class TeamUserRole
     {
+        /// <summary>
+        /// The email of the user in the group.
+        /// </summary>
         public readonly string Email;
+        /// <summary>
+        /// The role for the user in this group.
+        /// Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+        /// Default: ROLE_TEAM_STANDARD.
+        /// </summary>
         public readonly string? Role;
 
         [OutputConstructor]

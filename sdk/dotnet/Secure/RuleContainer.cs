@@ -9,24 +9,51 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Secure container runtime rules can be imported using the ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Secure/ruleContainer:RuleContainer example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Secure/ruleContainer:RuleContainer")]
     public partial class RuleContainer : Pulumi.CustomResource
     {
+        /// <summary>
+        /// List of containers to match.
+        /// </summary>
         [Output("containers")]
         public Output<ImmutableArray<string>> Containers { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines if the image name matches or not with the provided list. Default is true.
+        /// </summary>
         [Output("matching")]
         public Output<bool?> Matching { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Secure rule. It must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Secure.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -78,23 +105,40 @@ namespace Pulumi.Sysdig.Secure
     {
         [Input("containers")]
         private InputList<string>? _containers;
+
+        /// <summary>
+        /// List of containers to match.
+        /// </summary>
         public InputList<string> Containers
         {
             get => _containers ?? (_containers = new InputList<string>());
             set => _containers = value;
         }
 
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Defines if the image name matches or not with the provided list. Default is true.
+        /// </summary>
         [Input("matching")]
         public Input<bool>? Matching { get; set; }
 
+        /// <summary>
+        /// The name of the Secure rule. It must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
@@ -110,29 +154,49 @@ namespace Pulumi.Sysdig.Secure
     {
         [Input("containers")]
         private InputList<string>? _containers;
+
+        /// <summary>
+        /// List of containers to match.
+        /// </summary>
         public InputList<string> Containers
         {
             get => _containers ?? (_containers = new InputList<string>());
             set => _containers = value;
         }
 
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Defines if the image name matches or not with the provided list. Default is true.
+        /// </summary>
         [Input("matching")]
         public Input<bool>? Matching { get; set; }
 
+        /// <summary>
+        /// The name of the Secure rule. It must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Secure.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

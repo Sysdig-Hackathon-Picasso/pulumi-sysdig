@@ -11,15 +11,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure Cloud Accounts can be imported using the `account_id`, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/cloudAccount:CloudAccount sample 123456789012
+// ```
 type CloudAccount struct {
 	pulumi.CustomResourceState
 
-	AccountId     pulumi.StringOutput    `pulumi:"accountId"`
-	Alias         pulumi.StringPtrOutput `pulumi:"alias"`
-	CloudProvider pulumi.StringOutput    `pulumi:"cloudProvider"`
-	ExternalId    pulumi.StringOutput    `pulumi:"externalId"`
-	RoleEnabled   pulumi.BoolPtrOutput   `pulumi:"roleEnabled"`
-	RoleName      pulumi.StringPtrOutput `pulumi:"roleName"`
+	// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// A human friendly alias for `accountId`.
+	Alias pulumi.StringPtrOutput `pulumi:"alias"`
+	// The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+	CloudProvider pulumi.StringOutput `pulumi:"cloudProvider"`
+	ExternalId    pulumi.StringOutput `pulumi:"externalId"`
+	// Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+	RoleEnabled pulumi.BoolPtrOutput `pulumi:"roleEnabled"`
+	// The name of the role Sysdig will have permission to AssumeRole if `roleEnaled` is set to `true`. Default: `SysdigCloudBench`.
+	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
 }
 
 // NewCloudAccount registers a new resource with the given unique name, arguments, and options.
@@ -57,21 +69,31 @@ func GetCloudAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudAccount resources.
 type cloudAccountState struct {
-	AccountId     *string `pulumi:"accountId"`
-	Alias         *string `pulumi:"alias"`
+	// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+	AccountId *string `pulumi:"accountId"`
+	// A human friendly alias for `accountId`.
+	Alias *string `pulumi:"alias"`
+	// The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
 	CloudProvider *string `pulumi:"cloudProvider"`
 	ExternalId    *string `pulumi:"externalId"`
-	RoleEnabled   *bool   `pulumi:"roleEnabled"`
-	RoleName      *string `pulumi:"roleName"`
+	// Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+	RoleEnabled *bool `pulumi:"roleEnabled"`
+	// The name of the role Sysdig will have permission to AssumeRole if `roleEnaled` is set to `true`. Default: `SysdigCloudBench`.
+	RoleName *string `pulumi:"roleName"`
 }
 
 type CloudAccountState struct {
-	AccountId     pulumi.StringPtrInput
-	Alias         pulumi.StringPtrInput
+	// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+	AccountId pulumi.StringPtrInput
+	// A human friendly alias for `accountId`.
+	Alias pulumi.StringPtrInput
+	// The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
 	CloudProvider pulumi.StringPtrInput
 	ExternalId    pulumi.StringPtrInput
-	RoleEnabled   pulumi.BoolPtrInput
-	RoleName      pulumi.StringPtrInput
+	// Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+	RoleEnabled pulumi.BoolPtrInput
+	// The name of the role Sysdig will have permission to AssumeRole if `roleEnaled` is set to `true`. Default: `SysdigCloudBench`.
+	RoleName pulumi.StringPtrInput
 }
 
 func (CloudAccountState) ElementType() reflect.Type {
@@ -79,20 +101,30 @@ func (CloudAccountState) ElementType() reflect.Type {
 }
 
 type cloudAccountArgs struct {
-	AccountId     string  `pulumi:"accountId"`
-	Alias         *string `pulumi:"alias"`
-	CloudProvider string  `pulumi:"cloudProvider"`
-	RoleEnabled   *bool   `pulumi:"roleEnabled"`
-	RoleName      *string `pulumi:"roleName"`
+	// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+	AccountId string `pulumi:"accountId"`
+	// A human friendly alias for `accountId`.
+	Alias *string `pulumi:"alias"`
+	// The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+	CloudProvider string `pulumi:"cloudProvider"`
+	// Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+	RoleEnabled *bool `pulumi:"roleEnabled"`
+	// The name of the role Sysdig will have permission to AssumeRole if `roleEnaled` is set to `true`. Default: `SysdigCloudBench`.
+	RoleName *string `pulumi:"roleName"`
 }
 
 // The set of arguments for constructing a CloudAccount resource.
 type CloudAccountArgs struct {
-	AccountId     pulumi.StringInput
-	Alias         pulumi.StringPtrInput
+	// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+	AccountId pulumi.StringInput
+	// A human friendly alias for `accountId`.
+	Alias pulumi.StringPtrInput
+	// The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
 	CloudProvider pulumi.StringInput
-	RoleEnabled   pulumi.BoolPtrInput
-	RoleName      pulumi.StringPtrInput
+	// Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+	RoleEnabled pulumi.BoolPtrInput
+	// The name of the role Sysdig will have permission to AssumeRole if `roleEnaled` is set to `true`. Default: `SysdigCloudBench`.
+	RoleName pulumi.StringPtrInput
 }
 
 func (CloudAccountArgs) ElementType() reflect.Type {

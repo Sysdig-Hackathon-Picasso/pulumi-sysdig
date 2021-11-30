@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Group Outlier Monitor alerts can be imported using the alert ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Monitor/alertGroupOutlier:AlertGroupOutlier example 12345
+ * ```
+ */
 export class AlertGroupOutlier extends pulumi.CustomResource {
     /**
      * Get an existing AlertGroupOutlier resource's state with the given name, ID, and optional extra
@@ -33,18 +42,58 @@ export class AlertGroupOutlier extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlertGroupOutlier.__pulumiType;
     }
 
+    /**
+     * Enables the creation of a capture file of the syscalls during the event.
+     */
     public readonly capture!: pulumi.Output<outputs.Monitor.AlertGroupOutlierCapture | undefined>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     public readonly customNotification!: pulumi.Output<outputs.Monitor.AlertGroupOutlierCustomNotification | undefined>;
+    /**
+     * The description of Monitor alert.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Array of metrics to monitor and alert on. Example: `["cpu.used.percent", "cpu.cores.used", "memory.bytes.used", "fs.used.percent", "thread.count", "net.request.count.in"]`.
+     */
     public readonly monitors!: pulumi.Output<string[]>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     public readonly notificationChannels!: pulumi.Output<number[] | undefined>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     public readonly renotificationMinutes!: pulumi.Output<number | undefined>;
+    /**
+     * Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+     */
     public readonly scope!: pulumi.Output<string | undefined>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     public readonly severity!: pulumi.Output<number | undefined>;
+    /**
+     * Team ID that owns the alert.
+     */
     public /*out*/ readonly team!: pulumi.Output<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     public readonly triggerAfterMinutes!: pulumi.Output<number>;
+    /**
+     * Current version of the resource in Sysdig Monitor.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -106,18 +155,58 @@ export class AlertGroupOutlier extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertGroupOutlier resources.
  */
 export interface AlertGroupOutlierState {
+    /**
+     * Enables the creation of a capture file of the syscalls during the event.
+     */
     capture?: pulumi.Input<inputs.Monitor.AlertGroupOutlierCapture>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     customNotification?: pulumi.Input<inputs.Monitor.AlertGroupOutlierCustomNotification>;
+    /**
+     * The description of Monitor alert.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Array of metrics to monitor and alert on. Example: `["cpu.used.percent", "cpu.cores.used", "memory.bytes.used", "fs.used.percent", "thread.count", "net.request.count.in"]`.
+     */
     monitors?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     renotificationMinutes?: pulumi.Input<number>;
+    /**
+     * Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+     */
     scope?: pulumi.Input<string>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     severity?: pulumi.Input<number>;
+    /**
+     * Team ID that owns the alert.
+     */
     team?: pulumi.Input<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     triggerAfterMinutes?: pulumi.Input<number>;
+    /**
+     * Current version of the resource in Sysdig Monitor.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -125,15 +214,49 @@ export interface AlertGroupOutlierState {
  * The set of arguments for constructing a AlertGroupOutlier resource.
  */
 export interface AlertGroupOutlierArgs {
+    /**
+     * Enables the creation of a capture file of the syscalls during the event.
+     */
     capture?: pulumi.Input<inputs.Monitor.AlertGroupOutlierCapture>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     customNotification?: pulumi.Input<inputs.Monitor.AlertGroupOutlierCustomNotification>;
+    /**
+     * The description of Monitor alert.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Array of metrics to monitor and alert on. Example: `["cpu.used.percent", "cpu.cores.used", "memory.bytes.used", "fs.used.percent", "thread.count", "net.request.count.in"]`.
+     */
     monitors: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     renotificationMinutes?: pulumi.Input<number>;
+    /**
+     * Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+     */
     scope?: pulumi.Input<string>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     severity?: pulumi.Input<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     triggerAfterMinutes: pulumi.Input<number>;
 }

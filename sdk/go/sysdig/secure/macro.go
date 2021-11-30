@@ -11,13 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure macros can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/macro:Macro example 12345
+// ```
 type Macro struct {
 	pulumi.CustomResourceState
 
-	Append    pulumi.BoolPtrOutput `pulumi:"append"`
-	Condition pulumi.StringOutput  `pulumi:"condition"`
-	Name      pulumi.StringOutput  `pulumi:"name"`
-	Version   pulumi.IntOutput     `pulumi:"version"`
+	// Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+	// The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+	// append macro called "foo" but not a second one. By default this is false.
+	Append pulumi.BoolPtrOutput `pulumi:"append"`
+	// Macro condition. It can contain lists or other macros.
+	Condition pulumi.StringOutput `pulumi:"condition"`
+	// The name of the macro. It must be unique if it's not in append mode.
+	Name    pulumi.StringOutput `pulumi:"name"`
+	Version pulumi.IntOutput    `pulumi:"version"`
 }
 
 // NewMacro registers a new resource with the given unique name, arguments, and options.
@@ -52,17 +64,27 @@ func GetMacro(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Macro resources.
 type macroState struct {
-	Append    *bool   `pulumi:"append"`
+	// Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+	// The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+	// append macro called "foo" but not a second one. By default this is false.
+	Append *bool `pulumi:"append"`
+	// Macro condition. It can contain lists or other macros.
 	Condition *string `pulumi:"condition"`
-	Name      *string `pulumi:"name"`
-	Version   *int    `pulumi:"version"`
+	// The name of the macro. It must be unique if it's not in append mode.
+	Name    *string `pulumi:"name"`
+	Version *int    `pulumi:"version"`
 }
 
 type MacroState struct {
-	Append    pulumi.BoolPtrInput
+	// Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+	// The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+	// append macro called "foo" but not a second one. By default this is false.
+	Append pulumi.BoolPtrInput
+	// Macro condition. It can contain lists or other macros.
 	Condition pulumi.StringPtrInput
-	Name      pulumi.StringPtrInput
-	Version   pulumi.IntPtrInput
+	// The name of the macro. It must be unique if it's not in append mode.
+	Name    pulumi.StringPtrInput
+	Version pulumi.IntPtrInput
 }
 
 func (MacroState) ElementType() reflect.Type {
@@ -70,16 +92,26 @@ func (MacroState) ElementType() reflect.Type {
 }
 
 type macroArgs struct {
-	Append    *bool   `pulumi:"append"`
-	Condition string  `pulumi:"condition"`
-	Name      *string `pulumi:"name"`
+	// Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+	// The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+	// append macro called "foo" but not a second one. By default this is false.
+	Append *bool `pulumi:"append"`
+	// Macro condition. It can contain lists or other macros.
+	Condition string `pulumi:"condition"`
+	// The name of the macro. It must be unique if it's not in append mode.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Macro resource.
 type MacroArgs struct {
-	Append    pulumi.BoolPtrInput
+	// Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+	// The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+	// append macro called "foo" but not a second one. By default this is false.
+	Append pulumi.BoolPtrInput
+	// Macro condition. It can contain lists or other macros.
 	Condition pulumi.StringInput
-	Name      pulumi.StringPtrInput
+	// The name of the macro. It must be unique if it's not in append mode.
+	Name pulumi.StringPtrInput
 }
 
 func (MacroArgs) ElementType() reflect.Type {

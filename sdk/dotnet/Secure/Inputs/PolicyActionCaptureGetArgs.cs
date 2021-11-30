@@ -12,9 +12,17 @@ namespace Pulumi.Sysdig.Secure.Inputs
 
     public sealed class PolicyActionCaptureGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Captures the system calls for the amount
+        /// of seconds after the policy was triggered.
+        /// </summary>
         [Input("secondsAfterEvent", required: true)]
         public Input<int> SecondsAfterEvent { get; set; } = null!;
 
+        /// <summary>
+        /// Captures the system calls during the
+        /// amount of seconds before the policy was triggered.
+        /// </summary>
         [Input("secondsBeforeEvent", required: true)]
         public Input<int> SecondsBeforeEvent { get; set; } = null!;
 

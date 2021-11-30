@@ -9,24 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Secure Benchmark Tasks can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Secure/benchmarkTask:BenchmarkTask sample 1
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Secure/benchmarkTask:BenchmarkTask")]
     public partial class BenchmarkTask : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether or not this task should be enabled. Default: `true`.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         [Output("id")]
         public Output<string> Id { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+        /// </summary>
         [Output("schedule")]
         public Output<string> Schedule { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+        /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
+        /// <summary>
+        /// The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+        /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
@@ -76,18 +100,33 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class BenchmarkTaskArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether or not this task should be enabled. Default: `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+        /// </summary>
         [Input("schedule", required: true)]
         public Input<string> Schedule { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+        /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
+        /// <summary>
+        /// The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
@@ -98,21 +137,36 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class BenchmarkTaskState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether or not this task should be enabled. Default: `true`.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+        /// </summary>
         [Input("schedule")]
         public Input<string>? Schedule { get; set; }
 
+        /// <summary>
+        /// The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+        /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
+        /// <summary>
+        /// The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 

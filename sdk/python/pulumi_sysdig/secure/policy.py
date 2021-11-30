@@ -26,6 +26,18 @@ class PolicyArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Policy resource.
+        :param pulumi.Input[str] description: The description of Secure policy.
+        :param pulumi.Input[bool] enabled: Will secure process with this rule?. By default this is true.
+        :param pulumi.Input[str] name: The name of the Secure policy. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: IDs of the notification channels to send alerts to
+               when the policy is fired.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rule_names: Array with the name of the rules to match.
+        :param pulumi.Input[str] scope: Limit appplication scope based in one expresion. For
+               example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+               and will target the entire infrastructure.
+        :param pulumi.Input[int] severity: The severity of Secure policy. The accepted values
+               are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+        :param pulumi.Input[str] type: Specifies the type of the runtime policy. Must be one of: `falco`, `list_matching`, `k8s_audit`, `aws_cloudtrail`. By default it is `falco`.
         """
         pulumi.set(__self__, "description", description)
         if actions is not None:
@@ -48,6 +60,9 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
+        """
+        The description of Secure policy.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -66,6 +81,9 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Will secure process with this rule?. By default this is true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -75,6 +93,9 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secure policy. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -84,6 +105,10 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        IDs of the notification channels to send alerts to
+        when the policy is fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @notification_channels.setter
@@ -93,6 +118,9 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="ruleNames")
     def rule_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array with the name of the rules to match.
+        """
         return pulumi.get(self, "rule_names")
 
     @rule_names.setter
@@ -102,6 +130,11 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Limit appplication scope based in one expresion. For
+        example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+        and will target the entire infrastructure.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -111,6 +144,10 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The severity of Secure policy. The accepted values
+        are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+        """
         return pulumi.get(self, "severity")
 
     @severity.setter
@@ -120,6 +157,9 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of the runtime policy. Must be one of: `falco`, `list_matching`, `k8s_audit`, `aws_cloudtrail`. By default it is `falco`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -142,6 +182,18 @@ class _PolicyState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
+        :param pulumi.Input[str] description: The description of Secure policy.
+        :param pulumi.Input[bool] enabled: Will secure process with this rule?. By default this is true.
+        :param pulumi.Input[str] name: The name of the Secure policy. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: IDs of the notification channels to send alerts to
+               when the policy is fired.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rule_names: Array with the name of the rules to match.
+        :param pulumi.Input[str] scope: Limit appplication scope based in one expresion. For
+               example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+               and will target the entire infrastructure.
+        :param pulumi.Input[int] severity: The severity of Secure policy. The accepted values
+               are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+        :param pulumi.Input[str] type: Specifies the type of the runtime policy. Must be one of: `falco`, `list_matching`, `k8s_audit`, `aws_cloudtrail`. By default it is `falco`.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -176,6 +228,9 @@ class _PolicyState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Secure policy.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -185,6 +240,9 @@ class _PolicyState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Will secure process with this rule?. By default this is true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -194,6 +252,9 @@ class _PolicyState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secure policy. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -203,6 +264,10 @@ class _PolicyState:
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        IDs of the notification channels to send alerts to
+        when the policy is fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @notification_channels.setter
@@ -212,6 +277,9 @@ class _PolicyState:
     @property
     @pulumi.getter(name="ruleNames")
     def rule_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array with the name of the rules to match.
+        """
         return pulumi.get(self, "rule_names")
 
     @rule_names.setter
@@ -221,6 +289,11 @@ class _PolicyState:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Limit appplication scope based in one expresion. For
+        example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+        and will target the entire infrastructure.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -230,6 +303,10 @@ class _PolicyState:
     @property
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The severity of Secure policy. The accepted values
+        are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+        """
         return pulumi.get(self, "severity")
 
     @severity.setter
@@ -239,6 +316,9 @@ class _PolicyState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of the runtime policy. Must be one of: `falco`, `list_matching`, `k8s_audit`, `aws_cloudtrail`. By default it is `falco`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -271,9 +351,28 @@ class Policy(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Policy resource with the given unique name, props, and options.
+        ## Import
+
+        Secure runtime policies can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/policy:Policy example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of Secure policy.
+        :param pulumi.Input[bool] enabled: Will secure process with this rule?. By default this is true.
+        :param pulumi.Input[str] name: The name of the Secure policy. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: IDs of the notification channels to send alerts to
+               when the policy is fired.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rule_names: Array with the name of the rules to match.
+        :param pulumi.Input[str] scope: Limit appplication scope based in one expresion. For
+               example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+               and will target the entire infrastructure.
+        :param pulumi.Input[int] severity: The severity of Secure policy. The accepted values
+               are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+        :param pulumi.Input[str] type: Specifies the type of the runtime policy. Must be one of: `falco`, `list_matching`, `k8s_audit`, `aws_cloudtrail`. By default it is `falco`.
         """
         ...
     @overload
@@ -282,7 +381,14 @@ class Policy(pulumi.CustomResource):
                  args: PolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Policy resource with the given unique name, props, and options.
+        ## Import
+
+        Secure runtime policies can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/policy:Policy example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -358,6 +464,18 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of Secure policy.
+        :param pulumi.Input[bool] enabled: Will secure process with this rule?. By default this is true.
+        :param pulumi.Input[str] name: The name of the Secure policy. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: IDs of the notification channels to send alerts to
+               when the policy is fired.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] rule_names: Array with the name of the rules to match.
+        :param pulumi.Input[str] scope: Limit appplication scope based in one expresion. For
+               example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+               and will target the entire infrastructure.
+        :param pulumi.Input[int] severity: The severity of Secure policy. The accepted values
+               are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+        :param pulumi.Input[str] type: Specifies the type of the runtime policy. Must be one of: `falco`, `list_matching`, `k8s_audit`, `aws_cloudtrail`. By default it is `falco`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,41 +501,69 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        The description of Secure policy.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Will secure process with this rule?. By default this is true.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Secure policy. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        IDs of the notification channels to send alerts to
+        when the policy is fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @property
     @pulumi.getter(name="ruleNames")
     def rule_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Array with the name of the rules to match.
+        """
         return pulumi.get(self, "rule_names")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        Limit appplication scope based in one expresion. For
+        example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+        and will target the entire infrastructure.
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def severity(self) -> pulumi.Output[Optional[int]]:
+        """
+        The severity of Secure policy. The accepted values
+        are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+        """
         return pulumi.get(self, "severity")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the type of the runtime policy. Must be one of: `falco`, `list_matching`, `k8s_audit`, `aws_cloudtrail`. By default it is `falco`.
+        """
         return pulumi.get(self, "type")
 
     @property

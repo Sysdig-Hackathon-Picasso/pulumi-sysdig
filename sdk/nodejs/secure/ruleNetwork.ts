@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Secure network runtime rules can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/ruleNetwork:RuleNetwork example 12345
+ * ```
+ */
 export class RuleNetwork extends pulumi.CustomResource {
     /**
      * Get an existing RuleNetwork resource's state with the given name, ID, and optional extra
@@ -33,13 +42,31 @@ export class RuleNetwork extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleNetwork.__pulumiType;
     }
 
+    /**
+     * Detect if there is an inbound connection.
+     */
     public readonly blockInbound!: pulumi.Output<boolean>;
+    /**
+     * Detect if there is an outbound connection.
+     */
     public readonly blockOutbound!: pulumi.Output<boolean>;
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A list of tags for this rule.
+     */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public readonly tcps!: pulumi.Output<outputs.Secure.RuleNetworkTcp[] | undefined>;
     public readonly udps!: pulumi.Output<outputs.Secure.RuleNetworkUdp[] | undefined>;
+    /**
+     * Current version of the resource in Sysdig Secure.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -91,13 +118,31 @@ export class RuleNetwork extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RuleNetwork resources.
  */
 export interface RuleNetworkState {
+    /**
+     * Detect if there is an inbound connection.
+     */
     blockInbound?: pulumi.Input<boolean>;
+    /**
+     * Detect if there is an outbound connection.
+     */
     blockOutbound?: pulumi.Input<boolean>;
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A list of tags for this rule.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     tcps?: pulumi.Input<pulumi.Input<inputs.Secure.RuleNetworkTcp>[]>;
     udps?: pulumi.Input<pulumi.Input<inputs.Secure.RuleNetworkUdp>[]>;
+    /**
+     * Current version of the resource in Sysdig Secure.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -105,10 +150,25 @@ export interface RuleNetworkState {
  * The set of arguments for constructing a RuleNetwork resource.
  */
 export interface RuleNetworkArgs {
+    /**
+     * Detect if there is an inbound connection.
+     */
     blockInbound: pulumi.Input<boolean>;
+    /**
+     * Detect if there is an outbound connection.
+     */
     blockOutbound: pulumi.Input<boolean>;
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A list of tags for this rule.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     tcps?: pulumi.Input<pulumi.Input<inputs.Secure.RuleNetworkTcp>[]>;
     udps?: pulumi.Input<pulumi.Input<inputs.Secure.RuleNetworkUdp>[]>;

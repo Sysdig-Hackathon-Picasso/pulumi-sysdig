@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Secure runtime policies can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/policy:Policy example 12345
+ * ```
+ */
 export class Policy extends pulumi.CustomResource {
     /**
      * Get an existing Policy resource's state with the given name, ID, and optional extra
@@ -34,13 +43,41 @@ export class Policy extends pulumi.CustomResource {
     }
 
     public readonly actions!: pulumi.Output<outputs.Secure.PolicyAction[] | undefined>;
+    /**
+     * The description of Secure policy.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * Will secure process with this rule?. By default this is true.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the Secure policy. It must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * IDs of the notification channels to send alerts to
+     * when the policy is fired.
+     */
     public readonly notificationChannels!: pulumi.Output<number[] | undefined>;
+    /**
+     * Array with the name of the rules to match.
+     */
     public readonly ruleNames!: pulumi.Output<string[] | undefined>;
+    /**
+     * Limit appplication scope based in one expresion. For
+     * example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+     * and will target the entire infrastructure.
+     */
     public readonly scope!: pulumi.Output<string | undefined>;
+    /**
+     * The severity of Secure policy. The accepted values
+     * are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+     */
     public readonly severity!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies the type of the runtime policy. Must be one of: `falco`, `listMatching`, `k8sAudit`, `awsCloudtrail`. By default it is `falco`.
+     */
     public readonly type!: pulumi.Output<string | undefined>;
     public /*out*/ readonly version!: pulumi.Output<number>;
 
@@ -95,13 +132,41 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyState {
     actions?: pulumi.Input<pulumi.Input<inputs.Secure.PolicyAction>[]>;
+    /**
+     * The description of Secure policy.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Will secure process with this rule?. By default this is true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Secure policy. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * IDs of the notification channels to send alerts to
+     * when the policy is fired.
+     */
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Array with the name of the rules to match.
+     */
     ruleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Limit appplication scope based in one expresion. For
+     * example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+     * and will target the entire infrastructure.
+     */
     scope?: pulumi.Input<string>;
+    /**
+     * The severity of Secure policy. The accepted values
+     * are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+     */
     severity?: pulumi.Input<number>;
+    /**
+     * Specifies the type of the runtime policy. Must be one of: `falco`, `listMatching`, `k8sAudit`, `awsCloudtrail`. By default it is `falco`.
+     */
     type?: pulumi.Input<string>;
     version?: pulumi.Input<number>;
 }
@@ -111,12 +176,40 @@ export interface PolicyState {
  */
 export interface PolicyArgs {
     actions?: pulumi.Input<pulumi.Input<inputs.Secure.PolicyAction>[]>;
+    /**
+     * The description of Secure policy.
+     */
     description: pulumi.Input<string>;
+    /**
+     * Will secure process with this rule?. By default this is true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Secure policy. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * IDs of the notification channels to send alerts to
+     * when the policy is fired.
+     */
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Array with the name of the rules to match.
+     */
     ruleNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Limit appplication scope based in one expresion. For
+     * example: "host.ip.private = \\"10.0.23.1\\"". By default the rule won't be scoped
+     * and will target the entire infrastructure.
+     */
     scope?: pulumi.Input<string>;
+    /**
+     * The severity of Secure policy. The accepted values
+     * are: 0, 1, 2, 3 (High), 4, 5 (Medium), 6 (Low) and 7 (Info). The default value is 4 (Medium).
+     */
     severity?: pulumi.Input<number>;
+    /**
+     * Specifies the type of the runtime policy. Must be one of: `falco`, `listMatching`, `k8sAudit`, `awsCloudtrail`. By default it is `falco`.
+     */
     type?: pulumi.Input<string>;
 }

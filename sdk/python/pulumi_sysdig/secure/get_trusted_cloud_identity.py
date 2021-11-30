@@ -46,21 +46,33 @@ class GetTrustedCloudIdentityResult:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> str:
+        """
+        If `identity` is an AWS ARN, this attribute contains the AWS Account ID to which the ARN belongs, otherwise it contains the empty string. `cloud_provider` must be equal to `aws` or `gcp`.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="awsRoleName")
     def aws_role_name(self) -> str:
+        """
+        If `identity` is a AWS IAM Role ARN, this attribute contains the name of the role, otherwise it contains the empty string. `cloud_provider` must be equal to `aws` or `gcp`.
+        """
         return pulumi.get(self, "aws_role_name")
 
     @property
     @pulumi.getter(name="azureServicePrincipalId")
     def azure_service_principal_id(self) -> str:
+        """
+        If `identity` contains credentials for an Azure Service Principal, this attribute contains the service principal's ID. `cloud_provider` must be equal to `azure`.
+        """
         return pulumi.get(self, "azure_service_principal_id")
 
     @property
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> str:
+        """
+        If `identity` contains credentials for an Azure Service Principal, this attribute contains the service principal's Tenant ID. `cloud_provider` must be equal to `azure`.
+        """
         return pulumi.get(self, "azure_tenant_id")
 
     @property
@@ -79,6 +91,9 @@ class GetTrustedCloudIdentityResult:
     @property
     @pulumi.getter
     def identity(self) -> str:
+        """
+        Sysdig's identity (User/Role/etc) that should be used to create a trust relationship allowing Sysdig access to your cloud account.
+        """
         return pulumi.get(self, "identity")
 
 
@@ -101,6 +116,8 @@ def get_trusted_cloud_identity(cloud_provider: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrustedCloudIdentityResult:
     """
     Use this data source to access information about an existing resource.
+
+    :param str cloud_provider: The cloud provider in which the trusted identity will be used. Currently supported providers are `aws`, `gcp` and `azure`
     """
     __args__ = dict()
     __args__['cloudProvider'] = cloud_provider
@@ -125,5 +142,7 @@ def get_trusted_cloud_identity_output(cloud_provider: Optional[pulumi.Input[str]
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustedCloudIdentityResult]:
     """
     Use this data source to access information about an existing resource.
+
+    :param str cloud_provider: The cloud provider in which the trusted identity will be used. Currently supported providers are `aws`, `gcp` and `azure`
     """
     ...

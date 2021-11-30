@@ -18,10 +18,14 @@ func GetCurrentUser(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCurre
 
 // A collection of values returned by GetCurrentUser.
 type GetCurrentUserResult struct {
+	// The user email.
 	Email string `pulumi:"email"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	LastName   string `pulumi:"lastName"`
-	Name       string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The user's last name.
+	LastName string `pulumi:"lastName"`
+	// The user's first name.
+	Name string `pulumi:"name"`
+	// The user's system role.
 	SystemRole string `pulumi:"systemRole"`
 }

@@ -11,13 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure lists can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/list:List example 12345
+// ```
 type List struct {
 	pulumi.CustomResourceState
 
-	Append  pulumi.BoolPtrOutput     `pulumi:"append"`
-	Items   pulumi.StringArrayOutput `pulumi:"items"`
-	Name    pulumi.StringOutput      `pulumi:"name"`
-	Version pulumi.IntOutput         `pulumi:"version"`
+	// Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+	// The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+	// append rule called "foo" but not a second one. By default this is false.
+	Append pulumi.BoolPtrOutput `pulumi:"append"`
+	// Elements in the list. Elements can be another lists.
+	Items pulumi.StringArrayOutput `pulumi:"items"`
+	// The name of the Secure list. It must be unique if it's not in append mode.
+	Name    pulumi.StringOutput `pulumi:"name"`
+	Version pulumi.IntOutput    `pulumi:"version"`
 }
 
 // NewList registers a new resource with the given unique name, arguments, and options.
@@ -52,15 +64,25 @@ func GetList(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering List resources.
 type listState struct {
-	Append  *bool    `pulumi:"append"`
-	Items   []string `pulumi:"items"`
-	Name    *string  `pulumi:"name"`
-	Version *int     `pulumi:"version"`
+	// Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+	// The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+	// append rule called "foo" but not a second one. By default this is false.
+	Append *bool `pulumi:"append"`
+	// Elements in the list. Elements can be another lists.
+	Items []string `pulumi:"items"`
+	// The name of the Secure list. It must be unique if it's not in append mode.
+	Name    *string `pulumi:"name"`
+	Version *int    `pulumi:"version"`
 }
 
 type ListState struct {
-	Append  pulumi.BoolPtrInput
-	Items   pulumi.StringArrayInput
+	// Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+	// The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+	// append rule called "foo" but not a second one. By default this is false.
+	Append pulumi.BoolPtrInput
+	// Elements in the list. Elements can be another lists.
+	Items pulumi.StringArrayInput
+	// The name of the Secure list. It must be unique if it's not in append mode.
 	Name    pulumi.StringPtrInput
 	Version pulumi.IntPtrInput
 }
@@ -70,16 +92,26 @@ func (ListState) ElementType() reflect.Type {
 }
 
 type listArgs struct {
-	Append *bool    `pulumi:"append"`
-	Items  []string `pulumi:"items"`
-	Name   *string  `pulumi:"name"`
+	// Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+	// The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+	// append rule called "foo" but not a second one. By default this is false.
+	Append *bool `pulumi:"append"`
+	// Elements in the list. Elements can be another lists.
+	Items []string `pulumi:"items"`
+	// The name of the Secure list. It must be unique if it's not in append mode.
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a List resource.
 type ListArgs struct {
+	// Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+	// The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+	// append rule called "foo" but not a second one. By default this is false.
 	Append pulumi.BoolPtrInput
-	Items  pulumi.StringArrayInput
-	Name   pulumi.StringPtrInput
+	// Elements in the list. Elements can be another lists.
+	Items pulumi.StringArrayInput
+	// The name of the Secure list. It must be unique if it's not in append mode.
+	Name pulumi.StringPtrInput
 }
 
 func (ListArgs) ElementType() reflect.Type {

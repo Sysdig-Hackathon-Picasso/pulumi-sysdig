@@ -23,6 +23,17 @@ class NotificationChannelPagerdutyArgs:
                  send_test_notification: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a NotificationChannelPagerduty resource.
+        :param pulumi.Input[str] account: Pagerduty account.
+        :param pulumi.Input[str] service_key: Service Key for the Pagerduty account.
+        :param pulumi.Input[str] service_name: Service name for the Pagerduty account.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
         """
         pulumi.set(__self__, "account", account)
         pulumi.set(__self__, "service_key", service_key)
@@ -41,6 +52,9 @@ class NotificationChannelPagerdutyArgs:
     @property
     @pulumi.getter
     def account(self) -> pulumi.Input[str]:
+        """
+        Pagerduty account.
+        """
         return pulumi.get(self, "account")
 
     @account.setter
@@ -50,6 +64,9 @@ class NotificationChannelPagerdutyArgs:
     @property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Input[str]:
+        """
+        Service Key for the Pagerduty account.
+        """
         return pulumi.get(self, "service_key")
 
     @service_key.setter
@@ -59,6 +76,9 @@ class NotificationChannelPagerdutyArgs:
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[str]:
+        """
+        Service name for the Pagerduty account.
+        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -68,6 +88,9 @@ class NotificationChannelPagerdutyArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If false, the channel will not emit notifications. Default is true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -77,6 +100,9 @@ class NotificationChannelPagerdutyArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Notification Channel. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -86,6 +112,10 @@ class NotificationChannelPagerdutyArgs:
     @property
     @pulumi.getter(name="notifyWhenOk")
     def notify_when_ok(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send a new notification when the alert condition is 
+        no longer triggered. Default is false.
+        """
         return pulumi.get(self, "notify_when_ok")
 
     @notify_when_ok.setter
@@ -95,6 +125,10 @@ class NotificationChannelPagerdutyArgs:
     @property
     @pulumi.getter(name="notifyWhenResolved")
     def notify_when_resolved(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send a new notification when the alert is manually 
+        acknowledged by a user. Default is false.
+        """
         return pulumi.get(self, "notify_when_resolved")
 
     @notify_when_resolved.setter
@@ -104,6 +138,10 @@ class NotificationChannelPagerdutyArgs:
     @property
     @pulumi.getter(name="sendTestNotification")
     def send_test_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send an initial test notification to check
+        if the notification channel is working. Default is false.
+        """
         return pulumi.get(self, "send_test_notification")
 
     @send_test_notification.setter
@@ -125,6 +163,18 @@ class _NotificationChannelPagerdutyState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering NotificationChannelPagerduty resources.
+        :param pulumi.Input[str] account: Pagerduty account.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
+        :param pulumi.Input[str] service_key: Service Key for the Pagerduty account.
+        :param pulumi.Input[str] service_name: Service name for the Pagerduty account.
+        :param pulumi.Input[int] version: (Computed) The current version of the Notification Channel.
         """
         if account is not None:
             pulumi.set(__self__, "account", account)
@@ -148,6 +198,9 @@ class _NotificationChannelPagerdutyState:
     @property
     @pulumi.getter
     def account(self) -> Optional[pulumi.Input[str]]:
+        """
+        Pagerduty account.
+        """
         return pulumi.get(self, "account")
 
     @account.setter
@@ -157,6 +210,9 @@ class _NotificationChannelPagerdutyState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If false, the channel will not emit notifications. Default is true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -166,6 +222,9 @@ class _NotificationChannelPagerdutyState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Notification Channel. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -175,6 +234,10 @@ class _NotificationChannelPagerdutyState:
     @property
     @pulumi.getter(name="notifyWhenOk")
     def notify_when_ok(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send a new notification when the alert condition is 
+        no longer triggered. Default is false.
+        """
         return pulumi.get(self, "notify_when_ok")
 
     @notify_when_ok.setter
@@ -184,6 +247,10 @@ class _NotificationChannelPagerdutyState:
     @property
     @pulumi.getter(name="notifyWhenResolved")
     def notify_when_resolved(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send a new notification when the alert is manually 
+        acknowledged by a user. Default is false.
+        """
         return pulumi.get(self, "notify_when_resolved")
 
     @notify_when_resolved.setter
@@ -193,6 +260,10 @@ class _NotificationChannelPagerdutyState:
     @property
     @pulumi.getter(name="sendTestNotification")
     def send_test_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send an initial test notification to check
+        if the notification channel is working. Default is false.
+        """
         return pulumi.get(self, "send_test_notification")
 
     @send_test_notification.setter
@@ -202,6 +273,9 @@ class _NotificationChannelPagerdutyState:
     @property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Service Key for the Pagerduty account.
+        """
         return pulumi.get(self, "service_key")
 
     @service_key.setter
@@ -211,6 +285,9 @@ class _NotificationChannelPagerdutyState:
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Service name for the Pagerduty account.
+        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -220,6 +297,9 @@ class _NotificationChannelPagerdutyState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        (Computed) The current version of the Notification Channel.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -242,9 +322,27 @@ class NotificationChannelPagerduty(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a NotificationChannelPagerduty resource with the given unique name, props, and options.
+        ## Import
+
+        Pagerduty notification channels for Monitor can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/notificationChannelPagerduty:NotificationChannelPagerduty example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account: Pagerduty account.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
+        :param pulumi.Input[str] service_key: Service Key for the Pagerduty account.
+        :param pulumi.Input[str] service_name: Service name for the Pagerduty account.
         """
         ...
     @overload
@@ -253,7 +351,14 @@ class NotificationChannelPagerduty(pulumi.CustomResource):
                  args: NotificationChannelPagerdutyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NotificationChannelPagerduty resource with the given unique name, props, and options.
+        ## Import
+
+        Pagerduty notification channels for Monitor can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/notificationChannelPagerduty:NotificationChannelPagerduty example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param NotificationChannelPagerdutyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -330,6 +435,18 @@ class NotificationChannelPagerduty(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account: Pagerduty account.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
+        :param pulumi.Input[str] service_key: Service Key for the Pagerduty account.
+        :param pulumi.Input[str] service_name: Service name for the Pagerduty account.
+        :param pulumi.Input[int] version: (Computed) The current version of the Notification Channel.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -349,45 +466,75 @@ class NotificationChannelPagerduty(pulumi.CustomResource):
     @property
     @pulumi.getter
     def account(self) -> pulumi.Output[str]:
+        """
+        Pagerduty account.
+        """
         return pulumi.get(self, "account")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If false, the channel will not emit notifications. Default is true.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Notification Channel. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="notifyWhenOk")
     def notify_when_ok(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Send a new notification when the alert condition is 
+        no longer triggered. Default is false.
+        """
         return pulumi.get(self, "notify_when_ok")
 
     @property
     @pulumi.getter(name="notifyWhenResolved")
     def notify_when_resolved(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Send a new notification when the alert is manually 
+        acknowledged by a user. Default is false.
+        """
         return pulumi.get(self, "notify_when_resolved")
 
     @property
     @pulumi.getter(name="sendTestNotification")
     def send_test_notification(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Send an initial test notification to check
+        if the notification channel is working. Default is false.
+        """
         return pulumi.get(self, "send_test_notification")
 
     @property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> pulumi.Output[str]:
+        """
+        Service Key for the Pagerduty account.
+        """
         return pulumi.get(self, "service_key")
 
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[str]:
+        """
+        Service name for the Pagerduty account.
+        """
         return pulumi.get(self, "service_name")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        (Computed) The current version of the Notification Channel.
+        """
         return pulumi.get(self, "version")
 

@@ -13,7 +13,15 @@ namespace Pulumi.Sysdig.Secure.Outputs
     [OutputType]
     public sealed class PolicyAction
     {
+        /// <summary>
+        /// Captures with Sysdig the stream of system calls:
+        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyActionCapture> Captures;
+        /// <summary>
+        /// The action applied to container when this Policy is
+        /// triggered. Can be *stop*, *pause* or *kill*. If this is not specified,
+        /// no action will be applied at the container level.
+        /// </summary>
         public readonly string? Container;
 
         [OutputConstructor]

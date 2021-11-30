@@ -21,6 +21,9 @@ export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: 
  * A collection of arguments for invoking GetNotificationChannel.
  */
 export interface GetNotificationChannelArgs {
+    /**
+     * The name of the Notification Channel.
+     */
     name: string;
 }
 
@@ -28,24 +31,71 @@ export interface GetNotificationChannelArgs {
  * A collection of values returned by GetNotificationChannel.
  */
 export interface GetNotificationChannelResult {
+    /**
+     * Pagerduty account.
+     */
     readonly account: string;
+    /**
+     * Key for the API.
+     */
     readonly apiKey: string;
+    /**
+     * Channel name from this Slack.
+     */
     readonly channel: string;
+    /**
+     * If false, the channel will not emit notifications.
+     */
     readonly enabled: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered.
+     */
     readonly notifyWhenOk: boolean;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user.
+     */
     readonly notifyWhenResolved: boolean;
+    /**
+     * Comma-separated list of recipients that will receive 
+     * the message.
+     */
     readonly recipients: string;
+    /**
+     * Routing key for VictorOps.
+     */
     readonly routingKey: string;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working.
+     */
     readonly sendTestNotification: boolean;
+    /**
+     * Service Key for the Pagerduty account.
+     */
     readonly serviceKey: string;
+    /**
+     * Service name for the Pagerduty account.
+     */
     readonly serviceName: string;
+    /**
+     * List of ARNs from the SNS topics.
+     */
     readonly topics: string;
+    /**
+     * Will be one of the following:  "EMAIL", "SNS", "OPSGENIE", 
+     * "VICTOROPS", "WEBHOOK", "SLACK", "PAGER_DUTY".
+     */
     readonly type: string;
+    /**
+     * URL of the Slack.
+     */
     readonly url: string;
     readonly version: number;
 }
@@ -58,5 +108,8 @@ export function getNotificationChannelOutput(args: GetNotificationChannelOutputA
  * A collection of arguments for invoking GetNotificationChannel.
  */
 export interface GetNotificationChannelOutputArgs {
+    /**
+     * The name of the Notification Channel.
+     */
     name: pulumi.Input<string>;
 }

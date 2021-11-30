@@ -11,17 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure network runtime rules can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/ruleNetwork:RuleNetwork example 12345
+// ```
 type RuleNetwork struct {
 	pulumi.CustomResourceState
 
-	BlockInbound  pulumi.BoolOutput         `pulumi:"blockInbound"`
-	BlockOutbound pulumi.BoolOutput         `pulumi:"blockOutbound"`
-	Description   pulumi.StringPtrOutput    `pulumi:"description"`
-	Name          pulumi.StringOutput       `pulumi:"name"`
-	Tags          pulumi.StringArrayOutput  `pulumi:"tags"`
-	Tcps          RuleNetworkTcpArrayOutput `pulumi:"tcps"`
-	Udps          RuleNetworkUdpArrayOutput `pulumi:"udps"`
-	Version       pulumi.IntOutput          `pulumi:"version"`
+	// Detect if there is an inbound connection.
+	BlockInbound pulumi.BoolOutput `pulumi:"blockInbound"`
+	// Detect if there is an outbound connection.
+	BlockOutbound pulumi.BoolOutput `pulumi:"blockOutbound"`
+	// The description of Secure rule. By default is empty.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the Secure rule. It must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayOutput  `pulumi:"tags"`
+	Tcps RuleNetworkTcpArrayOutput `pulumi:"tcps"`
+	Udps RuleNetworkUdpArrayOutput `pulumi:"udps"`
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewRuleNetwork registers a new resource with the given unique name, arguments, and options.
@@ -59,25 +72,37 @@ func GetRuleNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleNetwork resources.
 type ruleNetworkState struct {
-	BlockInbound  *bool            `pulumi:"blockInbound"`
-	BlockOutbound *bool            `pulumi:"blockOutbound"`
-	Description   *string          `pulumi:"description"`
-	Name          *string          `pulumi:"name"`
-	Tags          []string         `pulumi:"tags"`
-	Tcps          []RuleNetworkTcp `pulumi:"tcps"`
-	Udps          []RuleNetworkUdp `pulumi:"udps"`
-	Version       *int             `pulumi:"version"`
+	// Detect if there is an inbound connection.
+	BlockInbound *bool `pulumi:"blockInbound"`
+	// Detect if there is an outbound connection.
+	BlockOutbound *bool `pulumi:"blockOutbound"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// The name of the Secure rule. It must be unique.
+	Name *string `pulumi:"name"`
+	// A list of tags for this rule.
+	Tags []string         `pulumi:"tags"`
+	Tcps []RuleNetworkTcp `pulumi:"tcps"`
+	Udps []RuleNetworkUdp `pulumi:"udps"`
+	// Current version of the resource in Sysdig Secure.
+	Version *int `pulumi:"version"`
 }
 
 type RuleNetworkState struct {
-	BlockInbound  pulumi.BoolPtrInput
+	// Detect if there is an inbound connection.
+	BlockInbound pulumi.BoolPtrInput
+	// Detect if there is an outbound connection.
 	BlockOutbound pulumi.BoolPtrInput
-	Description   pulumi.StringPtrInput
-	Name          pulumi.StringPtrInput
-	Tags          pulumi.StringArrayInput
-	Tcps          RuleNetworkTcpArrayInput
-	Udps          RuleNetworkUdpArrayInput
-	Version       pulumi.IntPtrInput
+	// The description of Secure rule. By default is empty.
+	Description pulumi.StringPtrInput
+	// The name of the Secure rule. It must be unique.
+	Name pulumi.StringPtrInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
+	Tcps RuleNetworkTcpArrayInput
+	Udps RuleNetworkUdpArrayInput
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntPtrInput
 }
 
 func (RuleNetworkState) ElementType() reflect.Type {
@@ -85,24 +110,34 @@ func (RuleNetworkState) ElementType() reflect.Type {
 }
 
 type ruleNetworkArgs struct {
-	BlockInbound  bool             `pulumi:"blockInbound"`
-	BlockOutbound bool             `pulumi:"blockOutbound"`
-	Description   *string          `pulumi:"description"`
-	Name          *string          `pulumi:"name"`
-	Tags          []string         `pulumi:"tags"`
-	Tcps          []RuleNetworkTcp `pulumi:"tcps"`
-	Udps          []RuleNetworkUdp `pulumi:"udps"`
+	// Detect if there is an inbound connection.
+	BlockInbound bool `pulumi:"blockInbound"`
+	// Detect if there is an outbound connection.
+	BlockOutbound bool `pulumi:"blockOutbound"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// The name of the Secure rule. It must be unique.
+	Name *string `pulumi:"name"`
+	// A list of tags for this rule.
+	Tags []string         `pulumi:"tags"`
+	Tcps []RuleNetworkTcp `pulumi:"tcps"`
+	Udps []RuleNetworkUdp `pulumi:"udps"`
 }
 
 // The set of arguments for constructing a RuleNetwork resource.
 type RuleNetworkArgs struct {
-	BlockInbound  pulumi.BoolInput
+	// Detect if there is an inbound connection.
+	BlockInbound pulumi.BoolInput
+	// Detect if there is an outbound connection.
 	BlockOutbound pulumi.BoolInput
-	Description   pulumi.StringPtrInput
-	Name          pulumi.StringPtrInput
-	Tags          pulumi.StringArrayInput
-	Tcps          RuleNetworkTcpArrayInput
-	Udps          RuleNetworkUdpArrayInput
+	// The description of Secure rule. By default is empty.
+	Description pulumi.StringPtrInput
+	// The name of the Secure rule. It must be unique.
+	Name pulumi.StringPtrInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
+	Tcps RuleNetworkTcpArrayInput
+	Udps RuleNetworkUdpArrayInput
 }
 
 func (RuleNetworkArgs) ElementType() reflect.Type {

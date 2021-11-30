@@ -12,9 +12,17 @@ namespace Pulumi.Sysdig.Secure.Inputs
 
     public sealed class TeamUserRoleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The email of the user in the group.
+        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
+        /// <summary>
+        /// The role for the user in this group.
+        /// Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+        /// Default: ROLE_TEAM_STANDARD.
+        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 

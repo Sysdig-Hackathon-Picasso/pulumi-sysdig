@@ -21,29 +21,49 @@ func GetNotificationChannel(ctx *pulumi.Context, args *GetNotificationChannelArg
 
 // A collection of arguments for invoking GetNotificationChannel.
 type GetNotificationChannelArgs struct {
+	// The name of the Notification Channel.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by GetNotificationChannel.
 type GetNotificationChannelResult struct {
+	// Pagerduty account.
 	Account string `pulumi:"account"`
-	ApiKey  string `pulumi:"apiKey"`
+	// Key for the API.
+	ApiKey string `pulumi:"apiKey"`
+	// Channel name from this Slack.
 	Channel string `pulumi:"channel"`
-	Enabled bool   `pulumi:"enabled"`
+	// If false, the channel will not emit notifications.
+	Enabled bool `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                   string `pulumi:"id"`
-	Name                 string `pulumi:"name"`
-	NotifyWhenOk         bool   `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   bool   `pulumi:"notifyWhenResolved"`
-	Recipients           string `pulumi:"recipients"`
-	RoutingKey           string `pulumi:"routingKey"`
-	SendTestNotification bool   `pulumi:"sendTestNotification"`
-	ServiceKey           string `pulumi:"serviceKey"`
-	ServiceName          string `pulumi:"serviceName"`
-	Topics               string `pulumi:"topics"`
-	Type                 string `pulumi:"type"`
-	Url                  string `pulumi:"url"`
-	Version              int    `pulumi:"version"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered.
+	NotifyWhenOk bool `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user.
+	NotifyWhenResolved bool `pulumi:"notifyWhenResolved"`
+	// Comma-separated list of recipients that will receive
+	// the message.
+	Recipients string `pulumi:"recipients"`
+	// Routing key for VictorOps.
+	RoutingKey string `pulumi:"routingKey"`
+	// Send an initial test notification to check
+	// if the notification channel is working.
+	SendTestNotification bool `pulumi:"sendTestNotification"`
+	// Service Key for the Pagerduty account.
+	ServiceKey string `pulumi:"serviceKey"`
+	// Service name for the Pagerduty account.
+	ServiceName string `pulumi:"serviceName"`
+	// List of ARNs from the SNS topics.
+	Topics string `pulumi:"topics"`
+	// Will be one of the following:  "EMAIL", "SNS", "OPSGENIE",
+	// "VICTOROPS", "WEBHOOK", "SLACK", "PAGER_DUTY".
+	Type string `pulumi:"type"`
+	// URL of the Slack.
+	Url     string `pulumi:"url"`
+	Version int    `pulumi:"version"`
 }
 
 func GetNotificationChannelOutput(ctx *pulumi.Context, args GetNotificationChannelOutputArgs, opts ...pulumi.InvokeOption) GetNotificationChannelResultOutput {
@@ -57,6 +77,7 @@ func GetNotificationChannelOutput(ctx *pulumi.Context, args GetNotificationChann
 
 // A collection of arguments for invoking GetNotificationChannel.
 type GetNotificationChannelOutputArgs struct {
+	// The name of the Notification Channel.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -79,18 +100,22 @@ func (o GetNotificationChannelResultOutput) ToGetNotificationChannelResultOutput
 	return o
 }
 
+// Pagerduty account.
 func (o GetNotificationChannelResultOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.Account }).(pulumi.StringOutput)
 }
 
+// Key for the API.
 func (o GetNotificationChannelResultOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.ApiKey }).(pulumi.StringOutput)
 }
 
+// Channel name from this Slack.
 func (o GetNotificationChannelResultOutput) Channel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.Channel }).(pulumi.StringOutput)
 }
 
+// If false, the channel will not emit notifications.
 func (o GetNotificationChannelResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -104,42 +129,57 @@ func (o GetNotificationChannelResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Send a new notification when the alert condition is
+// no longer triggered.
 func (o GetNotificationChannelResultOutput) NotifyWhenOk() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) bool { return v.NotifyWhenOk }).(pulumi.BoolOutput)
 }
 
+// Send a new notification when the alert is manually
+// acknowledged by a user.
 func (o GetNotificationChannelResultOutput) NotifyWhenResolved() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) bool { return v.NotifyWhenResolved }).(pulumi.BoolOutput)
 }
 
+// Comma-separated list of recipients that will receive
+// the message.
 func (o GetNotificationChannelResultOutput) Recipients() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.Recipients }).(pulumi.StringOutput)
 }
 
+// Routing key for VictorOps.
 func (o GetNotificationChannelResultOutput) RoutingKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.RoutingKey }).(pulumi.StringOutput)
 }
 
+// Send an initial test notification to check
+// if the notification channel is working.
 func (o GetNotificationChannelResultOutput) SendTestNotification() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) bool { return v.SendTestNotification }).(pulumi.BoolOutput)
 }
 
+// Service Key for the Pagerduty account.
 func (o GetNotificationChannelResultOutput) ServiceKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.ServiceKey }).(pulumi.StringOutput)
 }
 
+// Service name for the Pagerduty account.
 func (o GetNotificationChannelResultOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
+// List of ARNs from the SNS topics.
 func (o GetNotificationChannelResultOutput) Topics() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.Topics }).(pulumi.StringOutput)
 }
 
+// Will be one of the following:  "EMAIL", "SNS", "OPSGENIE",
+// "VICTOROPS", "WEBHOOK", "SLACK", "PAGER_DUTY".
 func (o GetNotificationChannelResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// URL of the Slack.
 func (o GetNotificationChannelResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelResult) string { return v.Url }).(pulumi.StringOutput)
 }

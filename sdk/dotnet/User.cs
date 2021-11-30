@@ -9,18 +9,40 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Sysdig users can be imported using the ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:index/user:User example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:index/user:User")]
     public partial class User : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The email for the user to invite.
+        /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
         [Output("firstName")]
         public Output<string?> FirstName { get; private set; } = null!;
 
+        /// <summary>
+        /// The last name of the user.
+        /// </summary>
         [Output("lastName")]
         public Output<string?> LastName { get; private set; } = null!;
 
+        /// <summary>
+        /// The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+        /// If set to "ROLE_CUSTOMER", the user will be known as an admin.
+        /// </summary>
         [Output("systemRole")]
         public Output<string?> SystemRole { get; private set; } = null!;
 
@@ -73,15 +95,28 @@ namespace Pulumi.Sysdig
 
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The email for the user to invite.
+        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
         [Input("firstName")]
         public Input<string>? FirstName { get; set; }
 
+        /// <summary>
+        /// The last name of the user.
+        /// </summary>
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
 
+        /// <summary>
+        /// The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+        /// If set to "ROLE_CUSTOMER", the user will be known as an admin.
+        /// </summary>
         [Input("systemRole")]
         public Input<string>? SystemRole { get; set; }
 
@@ -92,15 +127,28 @@ namespace Pulumi.Sysdig
 
     public sealed class UserState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The email for the user to invite.
+        /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
+        /// <summary>
+        /// The name of the user.
+        /// </summary>
         [Input("firstName")]
         public Input<string>? FirstName { get; set; }
 
+        /// <summary>
+        /// The last name of the user.
+        /// </summary>
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
 
+        /// <summary>
+        /// The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+        /// If set to "ROLE_CUSTOMER", the user will be known as an admin.
+        /// </summary>
         [Input("systemRole")]
         public Input<string>? SystemRole { get; set; }
 

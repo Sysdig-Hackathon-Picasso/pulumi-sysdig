@@ -9,15 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Secure macros can be imported using the ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Secure/macro:Macro example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Secure/macro:Macro")]
     public partial class Macro : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+        /// The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+        /// append macro called "foo" but not a second one. By default this is false.
+        /// </summary>
         [Output("append")]
         public Output<bool?> Append { get; private set; } = null!;
 
+        /// <summary>
+        /// Macro condition. It can contain lists or other macros.
+        /// </summary>
         [Output("condition")]
         public Output<string> Condition { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the macro. It must be unique if it's not in append mode.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -70,12 +90,23 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class MacroArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+        /// The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+        /// append macro called "foo" but not a second one. By default this is false.
+        /// </summary>
         [Input("append")]
         public Input<bool>? Append { get; set; }
 
+        /// <summary>
+        /// Macro condition. It can contain lists or other macros.
+        /// </summary>
         [Input("condition", required: true)]
         public Input<string> Condition { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the macro. It must be unique if it's not in append mode.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -86,12 +117,23 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class MacroState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+        /// The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+        /// append macro called "foo" but not a second one. By default this is false.
+        /// </summary>
         [Input("append")]
         public Input<bool>? Append { get; set; }
 
+        /// <summary>
+        /// Macro condition. It can contain lists or other macros.
+        /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
+        /// <summary>
+        /// The name of the macro. It must be unique if it's not in append mode.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

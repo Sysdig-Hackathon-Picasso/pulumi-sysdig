@@ -9,36 +9,75 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Secure Falco runtime rules can be imported using the ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Secure/ruleFalco:RuleFalco example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Secure/ruleFalco:RuleFalco")]
     public partial class RuleFalco : Pulumi.CustomResource
     {
+        /// <summary>
+        /// This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+        /// </summary>
         [Output("append")]
         public Output<bool?> Append { get; private set; } = null!;
 
+        /// <summary>
+        /// A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+        /// </summary>
         [Output("condition")]
         public Output<string> Condition { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+        /// </summary>
         [Output("exceptions")]
         public Output<ImmutableArray<Outputs.RuleFalcoException>> Exceptions { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Add additional information to each Falco notification's output. Required if append is false.
+        /// </summary>
         [Output("output")]
         public Output<string?> Output { get; private set; } = null!;
 
+        /// <summary>
+        /// The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+        /// </summary>
         [Output("priority")]
         public Output<string?> Priority { get; private set; } = null!;
 
+        /// <summary>
+        /// The source of the event. It can be either "syscall", "k8s_audit" or "aws_cloudtrail". Required if append is false.
+        /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Secure.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -88,37 +127,66 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class RuleFalcoArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+        /// </summary>
         [Input("append")]
         public Input<bool>? Append { get; set; }
 
+        /// <summary>
+        /// A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+        /// </summary>
         [Input("condition", required: true)]
         public Input<string> Condition { get; set; } = null!;
 
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("exceptions")]
         private InputList<Inputs.RuleFalcoExceptionArgs>? _exceptions;
+
+        /// <summary>
+        /// The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+        /// </summary>
         public InputList<Inputs.RuleFalcoExceptionArgs> Exceptions
         {
             get => _exceptions ?? (_exceptions = new InputList<Inputs.RuleFalcoExceptionArgs>());
             set => _exceptions = value;
         }
 
+        /// <summary>
+        /// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Add additional information to each Falco notification's output. Required if append is false.
+        /// </summary>
         [Input("output")]
         public Input<string>? Output { get; set; }
 
+        /// <summary>
+        /// The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+        /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
+        /// <summary>
+        /// The source of the event. It can be either "syscall", "k8s_audit" or "aws_cloudtrail". Required if append is false.
+        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
@@ -132,43 +200,75 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class RuleFalcoState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This indicates that the rule being created appends the condition to an existing Sysdig-provided rule. By default this is false. Appending to user-created rules is not supported by the API.
+        /// </summary>
         [Input("append")]
         public Input<bool>? Append { get; set; }
 
+        /// <summary>
+        /// A [Falco condition](https://falco.org/docs/rules/) is simply a Boolean predicate on Sysdig events expressed using the Sysdig [filter syntax](http://www.sysdig.org/wiki/sysdig-user-guide/#filtering) and macro terms.
+        /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("exceptions")]
         private InputList<Inputs.RuleFalcoExceptionGetArgs>? _exceptions;
+
+        /// <summary>
+        /// The exceptions key is a list of identifier plus list of tuples of filtercheck fields. See below for details.
+        /// </summary>
         public InputList<Inputs.RuleFalcoExceptionGetArgs> Exceptions
         {
             get => _exceptions ?? (_exceptions = new InputList<Inputs.RuleFalcoExceptionGetArgs>());
             set => _exceptions = value;
         }
 
+        /// <summary>
+        /// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Add additional information to each Falco notification's output. Required if append is false.
+        /// </summary>
         [Input("output")]
         public Input<string>? Output { get; set; }
 
+        /// <summary>
+        /// The priority of the Falco rule. It can be: "emergency", "alert", "critical", "error", "warning", "notice", "info" or "debug". By default is "warning".
+        /// </summary>
         [Input("priority")]
         public Input<string>? Priority { get; set; }
 
+        /// <summary>
+        /// The source of the event. It can be either "syscall", "k8s_audit" or "aws_cloudtrail". Required if append is false.
+        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Secure.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

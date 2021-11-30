@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Pagerduty notification channels for Monitor can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Monitor/notificationChannelPagerduty:NotificationChannelPagerduty example 12345
+ * ```
+ */
 export class NotificationChannelPagerduty extends pulumi.CustomResource {
     /**
      * Get an existing NotificationChannelPagerduty resource's state with the given name, ID, and optional extra
@@ -32,14 +41,44 @@ export class NotificationChannelPagerduty extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationChannelPagerduty.__pulumiType;
     }
 
+    /**
+     * Pagerduty account.
+     */
     public readonly account!: pulumi.Output<string>;
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     public readonly notifyWhenOk!: pulumi.Output<boolean | undefined>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     public readonly notifyWhenResolved!: pulumi.Output<boolean | undefined>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     public readonly sendTestNotification!: pulumi.Output<boolean | undefined>;
+    /**
+     * Service Key for the Pagerduty account.
+     */
     public readonly serviceKey!: pulumi.Output<string>;
+    /**
+     * Service name for the Pagerduty account.
+     */
     public readonly serviceName!: pulumi.Output<string>;
+    /**
+     * (Computed) The current version of the Notification Channel.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -96,14 +135,44 @@ export class NotificationChannelPagerduty extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotificationChannelPagerduty resources.
  */
 export interface NotificationChannelPagerdutyState {
+    /**
+     * Pagerduty account.
+     */
     account?: pulumi.Input<string>;
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     notifyWhenOk?: pulumi.Input<boolean>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     notifyWhenResolved?: pulumi.Input<boolean>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     sendTestNotification?: pulumi.Input<boolean>;
+    /**
+     * Service Key for the Pagerduty account.
+     */
     serviceKey?: pulumi.Input<string>;
+    /**
+     * Service name for the Pagerduty account.
+     */
     serviceName?: pulumi.Input<string>;
+    /**
+     * (Computed) The current version of the Notification Channel.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -111,12 +180,39 @@ export interface NotificationChannelPagerdutyState {
  * The set of arguments for constructing a NotificationChannelPagerduty resource.
  */
 export interface NotificationChannelPagerdutyArgs {
+    /**
+     * Pagerduty account.
+     */
     account: pulumi.Input<string>;
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     notifyWhenOk?: pulumi.Input<boolean>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     notifyWhenResolved?: pulumi.Input<boolean>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     sendTestNotification?: pulumi.Input<boolean>;
+    /**
+     * Service Key for the Pagerduty account.
+     */
     serviceKey: pulumi.Input<string>;
+    /**
+     * Service name for the Pagerduty account.
+     */
     serviceName: pulumi.Input<string>;
 }

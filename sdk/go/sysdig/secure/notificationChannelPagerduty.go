@@ -11,18 +11,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Pagerduty notification channels for Secure can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/notificationChannelPagerduty:NotificationChannelPagerduty example 12345
+// ```
 type NotificationChannelPagerduty struct {
 	pulumi.CustomResourceState
 
-	Account              pulumi.StringOutput  `pulumi:"account"`
-	Enabled              pulumi.BoolOutput    `pulumi:"enabled"`
-	Name                 pulumi.StringOutput  `pulumi:"name"`
-	NotifyWhenOk         pulumi.BoolOutput    `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   pulumi.BoolOutput    `pulumi:"notifyWhenResolved"`
+	// Pagerduty account.
+	Account pulumi.StringOutput `pulumi:"account"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolOutput `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolOutput `pulumi:"notifyWhenResolved"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrOutput `pulumi:"sendTestNotification"`
-	ServiceKey           pulumi.StringOutput  `pulumi:"serviceKey"`
-	ServiceName          pulumi.StringOutput  `pulumi:"serviceName"`
-	Version              pulumi.IntOutput     `pulumi:"version"`
+	// Service Key for the Pagerduty account.
+	ServiceKey pulumi.StringOutput `pulumi:"serviceKey"`
+	// Service name for the Pagerduty account.
+	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
+	// (Computed) The current version of the Notification Channel.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewNotificationChannelPagerduty registers a new resource with the given unique name, arguments, and options.
@@ -72,27 +91,51 @@ func GetNotificationChannelPagerduty(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationChannelPagerduty resources.
 type notificationChannelPagerdutyState struct {
-	Account              *string `pulumi:"account"`
-	Enabled              *bool   `pulumi:"enabled"`
-	Name                 *string `pulumi:"name"`
-	NotifyWhenOk         *bool   `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   *bool   `pulumi:"notifyWhenResolved"`
-	SendTestNotification *bool   `pulumi:"sendTestNotification"`
-	ServiceKey           *string `pulumi:"serviceKey"`
-	ServiceName          *string `pulumi:"serviceName"`
-	Version              *int    `pulumi:"version"`
+	// Pagerduty account.
+	Account *string `pulumi:"account"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name *string `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk *bool `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved *bool `pulumi:"notifyWhenResolved"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
+	SendTestNotification *bool `pulumi:"sendTestNotification"`
+	// Service Key for the Pagerduty account.
+	ServiceKey *string `pulumi:"serviceKey"`
+	// Service name for the Pagerduty account.
+	ServiceName *string `pulumi:"serviceName"`
+	// (Computed) The current version of the Notification Channel.
+	Version *int `pulumi:"version"`
 }
 
 type NotificationChannelPagerdutyState struct {
-	Account              pulumi.StringPtrInput
-	Enabled              pulumi.BoolPtrInput
-	Name                 pulumi.StringPtrInput
-	NotifyWhenOk         pulumi.BoolPtrInput
-	NotifyWhenResolved   pulumi.BoolPtrInput
+	// Pagerduty account.
+	Account pulumi.StringPtrInput
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolPtrInput
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringPtrInput
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolPtrInput
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolPtrInput
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrInput
-	ServiceKey           pulumi.StringPtrInput
-	ServiceName          pulumi.StringPtrInput
-	Version              pulumi.IntPtrInput
+	// Service Key for the Pagerduty account.
+	ServiceKey pulumi.StringPtrInput
+	// Service name for the Pagerduty account.
+	ServiceName pulumi.StringPtrInput
+	// (Computed) The current version of the Notification Channel.
+	Version pulumi.IntPtrInput
 }
 
 func (NotificationChannelPagerdutyState) ElementType() reflect.Type {
@@ -100,26 +143,48 @@ func (NotificationChannelPagerdutyState) ElementType() reflect.Type {
 }
 
 type notificationChannelPagerdutyArgs struct {
-	Account              string  `pulumi:"account"`
-	Enabled              bool    `pulumi:"enabled"`
-	Name                 *string `pulumi:"name"`
-	NotifyWhenOk         bool    `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   bool    `pulumi:"notifyWhenResolved"`
-	SendTestNotification *bool   `pulumi:"sendTestNotification"`
-	ServiceKey           string  `pulumi:"serviceKey"`
-	ServiceName          string  `pulumi:"serviceName"`
+	// Pagerduty account.
+	Account string `pulumi:"account"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled bool `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name *string `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk bool `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved bool `pulumi:"notifyWhenResolved"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
+	SendTestNotification *bool `pulumi:"sendTestNotification"`
+	// Service Key for the Pagerduty account.
+	ServiceKey string `pulumi:"serviceKey"`
+	// Service name for the Pagerduty account.
+	ServiceName string `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a NotificationChannelPagerduty resource.
 type NotificationChannelPagerdutyArgs struct {
-	Account              pulumi.StringInput
-	Enabled              pulumi.BoolInput
-	Name                 pulumi.StringPtrInput
-	NotifyWhenOk         pulumi.BoolInput
-	NotifyWhenResolved   pulumi.BoolInput
+	// Pagerduty account.
+	Account pulumi.StringInput
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolInput
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringPtrInput
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolInput
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolInput
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrInput
-	ServiceKey           pulumi.StringInput
-	ServiceName          pulumi.StringInput
+	// Service Key for the Pagerduty account.
+	ServiceKey pulumi.StringInput
+	// Service name for the Pagerduty account.
+	ServiceName pulumi.StringInput
 }
 
 func (NotificationChannelPagerdutyArgs) ElementType() reflect.Type {

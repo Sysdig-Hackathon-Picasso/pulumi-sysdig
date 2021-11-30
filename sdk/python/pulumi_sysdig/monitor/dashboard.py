@@ -22,6 +22,11 @@ class DashboardArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardPanelArgs']]] panels: At least 1 panel is required to define a Dashboard.
+        :param pulumi.Input[str] description: Description of the panel.
+        :param pulumi.Input[str] name: Name of the panel.
+        :param pulumi.Input[bool] public: Define if the dashboard can be accessible without requiring the user to be logged in.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]] scopes: Define the scope of the dashboard and variables for these metrics.
         """
         pulumi.set(__self__, "panels", panels)
         if description is not None:
@@ -36,6 +41,9 @@ class DashboardArgs:
     @property
     @pulumi.getter
     def panels(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardPanelArgs']]]:
+        """
+        At least 1 panel is required to define a Dashboard.
+        """
         return pulumi.get(self, "panels")
 
     @panels.setter
@@ -45,6 +53,9 @@ class DashboardArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the panel.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -54,6 +65,9 @@ class DashboardArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the panel.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,6 +77,9 @@ class DashboardArgs:
     @property
     @pulumi.getter
     def public(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Define if the dashboard can be accessible without requiring the user to be logged in.
+        """
         return pulumi.get(self, "public")
 
     @public.setter
@@ -72,6 +89,9 @@ class DashboardArgs:
     @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]]]:
+        """
+        Define the scope of the dashboard and variables for these metrics.
+        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -91,6 +111,13 @@ class _DashboardState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Dashboard resources.
+        :param pulumi.Input[str] description: Description of the panel.
+        :param pulumi.Input[str] name: Name of the panel.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardPanelArgs']]] panels: At least 1 panel is required to define a Dashboard.
+        :param pulumi.Input[bool] public: Define if the dashboard can be accessible without requiring the user to be logged in.
+        :param pulumi.Input[str] public_token: (Computed) Token defined when the dashboard is set Public.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]] scopes: Define the scope of the dashboard and variables for these metrics.
+        :param pulumi.Input[int] version: (Computed)  The current version of the Dashboard.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -110,6 +137,9 @@ class _DashboardState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the panel.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -119,6 +149,9 @@ class _DashboardState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the panel.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,6 +161,9 @@ class _DashboardState:
     @property
     @pulumi.getter
     def panels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPanelArgs']]]]:
+        """
+        At least 1 panel is required to define a Dashboard.
+        """
         return pulumi.get(self, "panels")
 
     @panels.setter
@@ -137,6 +173,9 @@ class _DashboardState:
     @property
     @pulumi.getter
     def public(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Define if the dashboard can be accessible without requiring the user to be logged in.
+        """
         return pulumi.get(self, "public")
 
     @public.setter
@@ -146,6 +185,9 @@ class _DashboardState:
     @property
     @pulumi.getter(name="publicToken")
     def public_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Computed) Token defined when the dashboard is set Public.
+        """
         return pulumi.get(self, "public_token")
 
     @public_token.setter
@@ -155,6 +197,9 @@ class _DashboardState:
     @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardScopeArgs']]]]:
+        """
+        Define the scope of the dashboard and variables for these metrics.
+        """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
@@ -164,6 +209,9 @@ class _DashboardState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        (Computed)  The current version of the Dashboard.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -183,9 +231,23 @@ class Dashboard(pulumi.CustomResource):
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardScopeArgs']]]]] = None,
                  __props__=None):
         """
-        Create a Dashboard resource with the given unique name, props, and options.
+        ## Import
+
+        Monitor dashboards can be imported using the dashboard ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/dashboard:Dashboard example 12345
+        ```
+
+         Only dashboards that contain supported panels can be imported. Currently supported panel types are- PromQL timecharts - PromQL numbers - Text Only dashboards that contain supported query types can be imported. Currently supported query types- Percent - Data - Data rate - Number - Number rate - Time
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of the panel.
+        :param pulumi.Input[str] name: Name of the panel.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardPanelArgs']]]] panels: At least 1 panel is required to define a Dashboard.
+        :param pulumi.Input[bool] public: Define if the dashboard can be accessible without requiring the user to be logged in.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardScopeArgs']]]] scopes: Define the scope of the dashboard and variables for these metrics.
         """
         ...
     @overload
@@ -194,7 +256,16 @@ class Dashboard(pulumi.CustomResource):
                  args: DashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Dashboard resource with the given unique name, props, and options.
+        ## Import
+
+        Monitor dashboards can be imported using the dashboard ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/dashboard:Dashboard example 12345
+        ```
+
+         Only dashboards that contain supported panels can be imported. Currently supported panel types are- PromQL timecharts - PromQL numbers - Text Only dashboards that contain supported query types can be imported. Currently supported query types- Percent - Data - Data rate - Number - Number rate - Time
+
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,6 +331,13 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of the panel.
+        :param pulumi.Input[str] name: Name of the panel.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardPanelArgs']]]] panels: At least 1 panel is required to define a Dashboard.
+        :param pulumi.Input[bool] public: Define if the dashboard can be accessible without requiring the user to be logged in.
+        :param pulumi.Input[str] public_token: (Computed) Token defined when the dashboard is set Public.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardScopeArgs']]]] scopes: Define the scope of the dashboard and variables for these metrics.
+        :param pulumi.Input[int] version: (Computed)  The current version of the Dashboard.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -277,35 +355,56 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description of the panel.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        Name of the panel.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def panels(self) -> pulumi.Output[Sequence['outputs.DashboardPanel']]:
+        """
+        At least 1 panel is required to define a Dashboard.
+        """
         return pulumi.get(self, "panels")
 
     @property
     @pulumi.getter
     def public(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Define if the dashboard can be accessible without requiring the user to be logged in.
+        """
         return pulumi.get(self, "public")
 
     @property
     @pulumi.getter(name="publicToken")
     def public_token(self) -> pulumi.Output[str]:
+        """
+        (Computed) Token defined when the dashboard is set Public.
+        """
         return pulumi.get(self, "public_token")
 
     @property
     @pulumi.getter
     def scopes(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardScope']]]:
+        """
+        Define the scope of the dashboard and variables for these metrics.
+        """
         return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        (Computed)  The current version of the Dashboard.
+        """
         return pulumi.get(self, "version")
 

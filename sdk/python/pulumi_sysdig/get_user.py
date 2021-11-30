@@ -48,6 +48,9 @@ class GetUserResult:
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> str:
+        """
+        The user's first name.
+        """
         return pulumi.get(self, "first_name")
 
     @property
@@ -61,11 +64,17 @@ class GetUserResult:
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> str:
+        """
+        The user's last name.
+        """
         return pulumi.get(self, "last_name")
 
     @property
     @pulumi.getter(name="systemRole")
     def system_role(self) -> str:
+        """
+        The user's system role.
+        """
         return pulumi.get(self, "system_role")
 
     @property

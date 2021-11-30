@@ -10,15 +10,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure syscall runtime rules can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/ruleSyscall:RuleSyscall example 12345
+// ```
 type RuleSyscall struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput   `pulumi:"description"`
-	Matching    pulumi.BoolPtrOutput     `pulumi:"matching"`
-	Name        pulumi.StringOutput      `pulumi:"name"`
-	Syscalls    pulumi.StringArrayOutput `pulumi:"syscalls"`
-	Tags        pulumi.StringArrayOutput `pulumi:"tags"`
-	Version     pulumi.IntOutput         `pulumi:"version"`
+	// The description of Secure rule. By default is empty.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Defines if the syscall name matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrOutput `pulumi:"matching"`
+	// The name of the Secure rule. It must be unique.
+	Name     pulumi.StringOutput      `pulumi:"name"`
+	Syscalls pulumi.StringArrayOutput `pulumi:"syscalls"`
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayOutput `pulumi:"tags"`
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewRuleSyscall registers a new resource with the given unique name, arguments, and options.
@@ -50,21 +62,31 @@ func GetRuleSyscall(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleSyscall resources.
 type ruleSyscallState struct {
-	Description *string  `pulumi:"description"`
-	Matching    *bool    `pulumi:"matching"`
-	Name        *string  `pulumi:"name"`
-	Syscalls    []string `pulumi:"syscalls"`
-	Tags        []string `pulumi:"tags"`
-	Version     *int     `pulumi:"version"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// Defines if the syscall name matches or not with the provided list. Default is true.
+	Matching *bool `pulumi:"matching"`
+	// The name of the Secure rule. It must be unique.
+	Name     *string  `pulumi:"name"`
+	Syscalls []string `pulumi:"syscalls"`
+	// A list of tags for this rule.
+	Tags []string `pulumi:"tags"`
+	// Current version of the resource in Sysdig Secure.
+	Version *int `pulumi:"version"`
 }
 
 type RuleSyscallState struct {
+	// The description of Secure rule. By default is empty.
 	Description pulumi.StringPtrInput
-	Matching    pulumi.BoolPtrInput
-	Name        pulumi.StringPtrInput
-	Syscalls    pulumi.StringArrayInput
-	Tags        pulumi.StringArrayInput
-	Version     pulumi.IntPtrInput
+	// Defines if the syscall name matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrInput
+	// The name of the Secure rule. It must be unique.
+	Name     pulumi.StringPtrInput
+	Syscalls pulumi.StringArrayInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
+	// Current version of the resource in Sysdig Secure.
+	Version pulumi.IntPtrInput
 }
 
 func (RuleSyscallState) ElementType() reflect.Type {
@@ -72,20 +94,28 @@ func (RuleSyscallState) ElementType() reflect.Type {
 }
 
 type ruleSyscallArgs struct {
-	Description *string  `pulumi:"description"`
-	Matching    *bool    `pulumi:"matching"`
-	Name        *string  `pulumi:"name"`
-	Syscalls    []string `pulumi:"syscalls"`
-	Tags        []string `pulumi:"tags"`
+	// The description of Secure rule. By default is empty.
+	Description *string `pulumi:"description"`
+	// Defines if the syscall name matches or not with the provided list. Default is true.
+	Matching *bool `pulumi:"matching"`
+	// The name of the Secure rule. It must be unique.
+	Name     *string  `pulumi:"name"`
+	Syscalls []string `pulumi:"syscalls"`
+	// A list of tags for this rule.
+	Tags []string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RuleSyscall resource.
 type RuleSyscallArgs struct {
+	// The description of Secure rule. By default is empty.
 	Description pulumi.StringPtrInput
-	Matching    pulumi.BoolPtrInput
-	Name        pulumi.StringPtrInput
-	Syscalls    pulumi.StringArrayInput
-	Tags        pulumi.StringArrayInput
+	// Defines if the syscall name matches or not with the provided list. Default is true.
+	Matching pulumi.BoolPtrInput
+	// The name of the Secure rule. It must be unique.
+	Name     pulumi.StringPtrInput
+	Syscalls pulumi.StringArrayInput
+	// A list of tags for this rule.
+	Tags pulumi.StringArrayInput
 }
 
 func (RuleSyscallArgs) ElementType() reflect.Type {

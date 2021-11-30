@@ -11,17 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// VictorOPS notification channels for Secure can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/notificationChannelVictorops:NotificationChannelVictorops example 12345
+// ```
 type NotificationChannelVictorops struct {
 	pulumi.CustomResourceState
 
-	ApiKey               pulumi.StringOutput  `pulumi:"apiKey"`
-	Enabled              pulumi.BoolOutput    `pulumi:"enabled"`
-	Name                 pulumi.StringOutput  `pulumi:"name"`
-	NotifyWhenOk         pulumi.BoolOutput    `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   pulumi.BoolOutput    `pulumi:"notifyWhenResolved"`
-	RoutingKey           pulumi.StringOutput  `pulumi:"routingKey"`
+	// Key for the API.
+	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolOutput `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolOutput `pulumi:"notifyWhenResolved"`
+	// Routing key for VictorOps.
+	RoutingKey pulumi.StringOutput `pulumi:"routingKey"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrOutput `pulumi:"sendTestNotification"`
-	Version              pulumi.IntOutput     `pulumi:"version"`
+	// (Computed) The current version of the Notification Channel.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewNotificationChannelVictorops registers a new resource with the given unique name, arguments, and options.
@@ -68,25 +86,47 @@ func GetNotificationChannelVictorops(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationChannelVictorops resources.
 type notificationChannelVictoropsState struct {
-	ApiKey               *string `pulumi:"apiKey"`
-	Enabled              *bool   `pulumi:"enabled"`
-	Name                 *string `pulumi:"name"`
-	NotifyWhenOk         *bool   `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   *bool   `pulumi:"notifyWhenResolved"`
-	RoutingKey           *string `pulumi:"routingKey"`
-	SendTestNotification *bool   `pulumi:"sendTestNotification"`
-	Version              *int    `pulumi:"version"`
+	// Key for the API.
+	ApiKey *string `pulumi:"apiKey"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name *string `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk *bool `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved *bool `pulumi:"notifyWhenResolved"`
+	// Routing key for VictorOps.
+	RoutingKey *string `pulumi:"routingKey"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
+	SendTestNotification *bool `pulumi:"sendTestNotification"`
+	// (Computed) The current version of the Notification Channel.
+	Version *int `pulumi:"version"`
 }
 
 type NotificationChannelVictoropsState struct {
-	ApiKey               pulumi.StringPtrInput
-	Enabled              pulumi.BoolPtrInput
-	Name                 pulumi.StringPtrInput
-	NotifyWhenOk         pulumi.BoolPtrInput
-	NotifyWhenResolved   pulumi.BoolPtrInput
-	RoutingKey           pulumi.StringPtrInput
+	// Key for the API.
+	ApiKey pulumi.StringPtrInput
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolPtrInput
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringPtrInput
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolPtrInput
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolPtrInput
+	// Routing key for VictorOps.
+	RoutingKey pulumi.StringPtrInput
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrInput
-	Version              pulumi.IntPtrInput
+	// (Computed) The current version of the Notification Channel.
+	Version pulumi.IntPtrInput
 }
 
 func (NotificationChannelVictoropsState) ElementType() reflect.Type {
@@ -94,23 +134,43 @@ func (NotificationChannelVictoropsState) ElementType() reflect.Type {
 }
 
 type notificationChannelVictoropsArgs struct {
-	ApiKey               string  `pulumi:"apiKey"`
-	Enabled              bool    `pulumi:"enabled"`
-	Name                 *string `pulumi:"name"`
-	NotifyWhenOk         bool    `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   bool    `pulumi:"notifyWhenResolved"`
-	RoutingKey           string  `pulumi:"routingKey"`
-	SendTestNotification *bool   `pulumi:"sendTestNotification"`
+	// Key for the API.
+	ApiKey string `pulumi:"apiKey"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled bool `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name *string `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk bool `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved bool `pulumi:"notifyWhenResolved"`
+	// Routing key for VictorOps.
+	RoutingKey string `pulumi:"routingKey"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
+	SendTestNotification *bool `pulumi:"sendTestNotification"`
 }
 
 // The set of arguments for constructing a NotificationChannelVictorops resource.
 type NotificationChannelVictoropsArgs struct {
-	ApiKey               pulumi.StringInput
-	Enabled              pulumi.BoolInput
-	Name                 pulumi.StringPtrInput
-	NotifyWhenOk         pulumi.BoolInput
-	NotifyWhenResolved   pulumi.BoolInput
-	RoutingKey           pulumi.StringInput
+	// Key for the API.
+	ApiKey pulumi.StringInput
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolInput
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringPtrInput
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolInput
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolInput
+	// Routing key for VictorOps.
+	RoutingKey pulumi.StringInput
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrInput
 }
 

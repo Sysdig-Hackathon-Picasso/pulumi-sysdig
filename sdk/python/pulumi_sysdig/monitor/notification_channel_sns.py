@@ -21,6 +21,15 @@ class NotificationChannelSnsArgs:
                  send_test_notification: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a NotificationChannelSns resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: List of ARNs from the SNS topics.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
         """
         pulumi.set(__self__, "topics", topics)
         if enabled is not None:
@@ -37,6 +46,9 @@ class NotificationChannelSnsArgs:
     @property
     @pulumi.getter
     def topics(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of ARNs from the SNS topics.
+        """
         return pulumi.get(self, "topics")
 
     @topics.setter
@@ -46,6 +58,9 @@ class NotificationChannelSnsArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If false, the channel will not emit notifications. Default is true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -55,6 +70,9 @@ class NotificationChannelSnsArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Notification Channel. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -64,6 +82,10 @@ class NotificationChannelSnsArgs:
     @property
     @pulumi.getter(name="notifyWhenOk")
     def notify_when_ok(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send a new notification when the alert condition is 
+        no longer triggered. Default is false.
+        """
         return pulumi.get(self, "notify_when_ok")
 
     @notify_when_ok.setter
@@ -73,6 +95,10 @@ class NotificationChannelSnsArgs:
     @property
     @pulumi.getter(name="notifyWhenResolved")
     def notify_when_resolved(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send a new notification when the alert is manually 
+        acknowledged by a user. Default is false.
+        """
         return pulumi.get(self, "notify_when_resolved")
 
     @notify_when_resolved.setter
@@ -82,6 +108,10 @@ class NotificationChannelSnsArgs:
     @property
     @pulumi.getter(name="sendTestNotification")
     def send_test_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send an initial test notification to check
+        if the notification channel is working. Default is false.
+        """
         return pulumi.get(self, "send_test_notification")
 
     @send_test_notification.setter
@@ -101,6 +131,16 @@ class _NotificationChannelSnsState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering NotificationChannelSns resources.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: List of ARNs from the SNS topics.
+        :param pulumi.Input[int] version: (Computed) The current version of the Notification Channel.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -120,6 +160,9 @@ class _NotificationChannelSnsState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If false, the channel will not emit notifications. Default is true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -129,6 +172,9 @@ class _NotificationChannelSnsState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Notification Channel. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -138,6 +184,10 @@ class _NotificationChannelSnsState:
     @property
     @pulumi.getter(name="notifyWhenOk")
     def notify_when_ok(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send a new notification when the alert condition is 
+        no longer triggered. Default is false.
+        """
         return pulumi.get(self, "notify_when_ok")
 
     @notify_when_ok.setter
@@ -147,6 +197,10 @@ class _NotificationChannelSnsState:
     @property
     @pulumi.getter(name="notifyWhenResolved")
     def notify_when_resolved(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send a new notification when the alert is manually 
+        acknowledged by a user. Default is false.
+        """
         return pulumi.get(self, "notify_when_resolved")
 
     @notify_when_resolved.setter
@@ -156,6 +210,10 @@ class _NotificationChannelSnsState:
     @property
     @pulumi.getter(name="sendTestNotification")
     def send_test_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send an initial test notification to check
+        if the notification channel is working. Default is false.
+        """
         return pulumi.get(self, "send_test_notification")
 
     @send_test_notification.setter
@@ -165,6 +223,9 @@ class _NotificationChannelSnsState:
     @property
     @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of ARNs from the SNS topics.
+        """
         return pulumi.get(self, "topics")
 
     @topics.setter
@@ -174,6 +235,9 @@ class _NotificationChannelSnsState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        (Computed) The current version of the Notification Channel.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -194,9 +258,25 @@ class NotificationChannelSns(pulumi.CustomResource):
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a NotificationChannelSns resource with the given unique name, props, and options.
+        ## Import
+
+        Amazon SNS notification channels for Monitor can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/notificationChannelSns:NotificationChannelSns example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: List of ARNs from the SNS topics.
         """
         ...
     @overload
@@ -205,7 +285,14 @@ class NotificationChannelSns(pulumi.CustomResource):
                  args: NotificationChannelSnsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NotificationChannelSns resource with the given unique name, props, and options.
+        ## Import
+
+        Amazon SNS notification channels for Monitor can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/notificationChannelSns:NotificationChannelSns example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param NotificationChannelSnsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,6 +359,16 @@ class NotificationChannelSns(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: List of ARNs from the SNS topics.
+        :param pulumi.Input[int] version: (Computed) The current version of the Notification Channel.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -289,35 +386,59 @@ class NotificationChannelSns(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If false, the channel will not emit notifications. Default is true.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Notification Channel. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="notifyWhenOk")
     def notify_when_ok(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Send a new notification when the alert condition is 
+        no longer triggered. Default is false.
+        """
         return pulumi.get(self, "notify_when_ok")
 
     @property
     @pulumi.getter(name="notifyWhenResolved")
     def notify_when_resolved(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Send a new notification when the alert is manually 
+        acknowledged by a user. Default is false.
+        """
         return pulumi.get(self, "notify_when_resolved")
 
     @property
     @pulumi.getter(name="sendTestNotification")
     def send_test_notification(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Send an initial test notification to check
+        if the notification channel is working. Default is false.
+        """
         return pulumi.get(self, "send_test_notification")
 
     @property
     @pulumi.getter
     def topics(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of ARNs from the SNS topics.
+        """
         return pulumi.get(self, "topics")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        (Computed) The current version of the Notification Channel.
+        """
         return pulumi.get(self, "version")
 

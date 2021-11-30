@@ -12,9 +12,17 @@ namespace Pulumi.Sysdig.Monitor.Inputs
 
     public sealed class TeamEntrypointArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Sets up the defined Dashboard name as entrypoint.
+        /// Warning: This field must only be added if the `type` is "Dashboards".
+        /// </summary>
         [Input("selection")]
         public Input<string>? Selection { get; set; }
 
+        /// <summary>
+        /// Main entrypoint for the team.
+        /// Valid options are: Explore, Dashboards, Events, Alerts, Settings.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -20,12 +20,24 @@ export function getCurrentUser(opts?: pulumi.InvokeOptions): Promise<GetCurrentU
  * A collection of values returned by GetCurrentUser.
  */
 export interface GetCurrentUserResult {
+    /**
+     * The user email.
+     */
     readonly email: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The user's last name.
+     */
     readonly lastName: string;
+    /**
+     * The user's first name.
+     */
     readonly name: string;
+    /**
+     * The user's system role.
+     */
     readonly systemRole: string;
 }

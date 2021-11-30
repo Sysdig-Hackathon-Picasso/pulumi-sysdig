@@ -21,6 +21,9 @@ export function getTrustedCloudIdentity(args: GetTrustedCloudIdentityArgs, opts?
  * A collection of arguments for invoking GetTrustedCloudIdentity.
  */
 export interface GetTrustedCloudIdentityArgs {
+    /**
+     * The cloud provider in which the trusted identity will be used. Currently supported providers are `aws`, `gcp` and `azure`
+     */
     cloudProvider: string;
 }
 
@@ -28,15 +31,30 @@ export interface GetTrustedCloudIdentityArgs {
  * A collection of values returned by GetTrustedCloudIdentity.
  */
 export interface GetTrustedCloudIdentityResult {
+    /**
+     * If `identity` is an AWS ARN, this attribute contains the AWS Account ID to which the ARN belongs, otherwise it contains the empty string. `cloudProvider` must be equal to `aws` or `gcp`.
+     */
     readonly awsAccountId: string;
+    /**
+     * If `identity` is a AWS IAM Role ARN, this attribute contains the name of the role, otherwise it contains the empty string. `cloudProvider` must be equal to `aws` or `gcp`.
+     */
     readonly awsRoleName: string;
+    /**
+     * If `identity` contains credentials for an Azure Service Principal, this attribute contains the service principal's ID. `cloudProvider` must be equal to `azure`.
+     */
     readonly azureServicePrincipalId: string;
+    /**
+     * If `identity` contains credentials for an Azure Service Principal, this attribute contains the service principal's Tenant ID. `cloudProvider` must be equal to `azure`.
+     */
     readonly azureTenantId: string;
     readonly cloudProvider: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Sysdig's identity (User/Role/etc) that should be used to create a trust relationship allowing Sysdig access to your cloud account.
+     */
     readonly identity: string;
 }
 
@@ -48,5 +66,8 @@ export function getTrustedCloudIdentityOutput(args: GetTrustedCloudIdentityOutpu
  * A collection of arguments for invoking GetTrustedCloudIdentity.
  */
 export interface GetTrustedCloudIdentityOutputArgs {
+    /**
+     * The cloud provider in which the trusted identity will be used. Currently supported providers are `aws`, `gcp` and `azure`
+     */
     cloudProvider: pulumi.Input<string>;
 }

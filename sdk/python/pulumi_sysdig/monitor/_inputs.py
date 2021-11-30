@@ -34,6 +34,11 @@ class AlertAnomalyCaptureArgs:
                  duration: pulumi.Input[int],
                  filename: pulumi.Input[str],
                  filter: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] duration: Time frame in seconds of the capture.
+        :param pulumi.Input[str] filename: Defines the name of the capture file.
+        :param pulumi.Input[str] filter: Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "filename", filename)
         if filter is not None:
@@ -42,6 +47,9 @@ class AlertAnomalyCaptureArgs:
     @property
     @pulumi.getter
     def duration(self) -> pulumi.Input[int]:
+        """
+        Time frame in seconds of the capture.
+        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -51,6 +59,9 @@ class AlertAnomalyCaptureArgs:
     @property
     @pulumi.getter
     def filename(self) -> pulumi.Input[str]:
+        """
+        Defines the name of the capture file.
+        """
         return pulumi.get(self, "filename")
 
     @filename.setter
@@ -60,6 +71,9 @@ class AlertAnomalyCaptureArgs:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -73,6 +87,11 @@ class AlertAnomalyCustomNotificationArgs:
                  title: pulumi.Input[str],
                  append: Optional[pulumi.Input[str]] = None,
                  prepend: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] title: Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        :param pulumi.Input[str] append: Text to add after the alert template.
+        :param pulumi.Input[str] prepend: Text to add before the alert template.
+        """
         pulumi.set(__self__, "title", title)
         if append is not None:
             pulumi.set(__self__, "append", append)
@@ -82,6 +101,9 @@ class AlertAnomalyCustomNotificationArgs:
     @property
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
+        """
+        Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -91,6 +113,9 @@ class AlertAnomalyCustomNotificationArgs:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add after the alert template.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -100,6 +125,9 @@ class AlertAnomalyCustomNotificationArgs:
     @property
     @pulumi.getter
     def prepend(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add before the alert template.
+        """
         return pulumi.get(self, "prepend")
 
     @prepend.setter
@@ -113,6 +141,11 @@ class AlertDowntimeCaptureArgs:
                  duration: pulumi.Input[int],
                  filename: pulumi.Input[str],
                  filter: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] duration: Time frame in seconds of the capture.
+        :param pulumi.Input[str] filename: Defines the name of the capture file.
+        :param pulumi.Input[str] filter: Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "filename", filename)
         if filter is not None:
@@ -121,6 +154,9 @@ class AlertDowntimeCaptureArgs:
     @property
     @pulumi.getter
     def duration(self) -> pulumi.Input[int]:
+        """
+        Time frame in seconds of the capture.
+        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -130,6 +166,9 @@ class AlertDowntimeCaptureArgs:
     @property
     @pulumi.getter
     def filename(self) -> pulumi.Input[str]:
+        """
+        Defines the name of the capture file.
+        """
         return pulumi.get(self, "filename")
 
     @filename.setter
@@ -139,6 +178,9 @@ class AlertDowntimeCaptureArgs:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -152,6 +194,11 @@ class AlertDowntimeCustomNotificationArgs:
                  title: pulumi.Input[str],
                  append: Optional[pulumi.Input[str]] = None,
                  prepend: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] title: Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        :param pulumi.Input[str] append: Text to add after the alert template.
+        :param pulumi.Input[str] prepend: Text to add before the alert template.
+        """
         pulumi.set(__self__, "title", title)
         if append is not None:
             pulumi.set(__self__, "append", append)
@@ -161,6 +208,9 @@ class AlertDowntimeCustomNotificationArgs:
     @property
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
+        """
+        Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -170,6 +220,9 @@ class AlertDowntimeCustomNotificationArgs:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add after the alert template.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -179,6 +232,9 @@ class AlertDowntimeCustomNotificationArgs:
     @property
     @pulumi.getter
     def prepend(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add before the alert template.
+        """
         return pulumi.get(self, "prepend")
 
     @prepend.setter
@@ -192,6 +248,11 @@ class AlertEventCaptureArgs:
                  duration: pulumi.Input[int],
                  filename: pulumi.Input[str],
                  filter: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] duration: Time frame in seconds of the capture.
+        :param pulumi.Input[str] filename: Defines the name of the capture file.
+        :param pulumi.Input[str] filter: Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "filename", filename)
         if filter is not None:
@@ -200,6 +261,9 @@ class AlertEventCaptureArgs:
     @property
     @pulumi.getter
     def duration(self) -> pulumi.Input[int]:
+        """
+        Time frame in seconds of the capture.
+        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -209,6 +273,9 @@ class AlertEventCaptureArgs:
     @property
     @pulumi.getter
     def filename(self) -> pulumi.Input[str]:
+        """
+        Defines the name of the capture file.
+        """
         return pulumi.get(self, "filename")
 
     @filename.setter
@@ -218,6 +285,9 @@ class AlertEventCaptureArgs:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -231,6 +301,11 @@ class AlertEventCustomNotificationArgs:
                  title: pulumi.Input[str],
                  append: Optional[pulumi.Input[str]] = None,
                  prepend: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] title: Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        :param pulumi.Input[str] append: Text to add after the alert template.
+        :param pulumi.Input[str] prepend: Text to add before the alert template.
+        """
         pulumi.set(__self__, "title", title)
         if append is not None:
             pulumi.set(__self__, "append", append)
@@ -240,6 +315,9 @@ class AlertEventCustomNotificationArgs:
     @property
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
+        """
+        Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -249,6 +327,9 @@ class AlertEventCustomNotificationArgs:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add after the alert template.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -258,6 +339,9 @@ class AlertEventCustomNotificationArgs:
     @property
     @pulumi.getter
     def prepend(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add before the alert template.
+        """
         return pulumi.get(self, "prepend")
 
     @prepend.setter
@@ -271,6 +355,11 @@ class AlertGroupOutlierCaptureArgs:
                  duration: pulumi.Input[int],
                  filename: pulumi.Input[str],
                  filter: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] duration: Time frame in seconds of the capture.
+        :param pulumi.Input[str] filename: Defines the name of the capture file.
+        :param pulumi.Input[str] filter: Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "filename", filename)
         if filter is not None:
@@ -279,6 +368,9 @@ class AlertGroupOutlierCaptureArgs:
     @property
     @pulumi.getter
     def duration(self) -> pulumi.Input[int]:
+        """
+        Time frame in seconds of the capture.
+        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -288,6 +380,9 @@ class AlertGroupOutlierCaptureArgs:
     @property
     @pulumi.getter
     def filename(self) -> pulumi.Input[str]:
+        """
+        Defines the name of the capture file.
+        """
         return pulumi.get(self, "filename")
 
     @filename.setter
@@ -297,6 +392,9 @@ class AlertGroupOutlierCaptureArgs:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -310,6 +408,11 @@ class AlertGroupOutlierCustomNotificationArgs:
                  title: pulumi.Input[str],
                  append: Optional[pulumi.Input[str]] = None,
                  prepend: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] title: Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        :param pulumi.Input[str] append: Text to add after the alert template.
+        :param pulumi.Input[str] prepend: Text to add before the alert template.
+        """
         pulumi.set(__self__, "title", title)
         if append is not None:
             pulumi.set(__self__, "append", append)
@@ -319,6 +422,9 @@ class AlertGroupOutlierCustomNotificationArgs:
     @property
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
+        """
+        Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -328,6 +434,9 @@ class AlertGroupOutlierCustomNotificationArgs:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add after the alert template.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -337,6 +446,9 @@ class AlertGroupOutlierCustomNotificationArgs:
     @property
     @pulumi.getter
     def prepend(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add before the alert template.
+        """
         return pulumi.get(self, "prepend")
 
     @prepend.setter
@@ -350,6 +462,11 @@ class AlertMetricCaptureArgs:
                  duration: pulumi.Input[int],
                  filename: pulumi.Input[str],
                  filter: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] duration: Time frame in seconds of the capture.
+        :param pulumi.Input[str] filename: Defines the name of the capture file.
+        :param pulumi.Input[str] filter: Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "filename", filename)
         if filter is not None:
@@ -358,6 +475,9 @@ class AlertMetricCaptureArgs:
     @property
     @pulumi.getter
     def duration(self) -> pulumi.Input[int]:
+        """
+        Time frame in seconds of the capture.
+        """
         return pulumi.get(self, "duration")
 
     @duration.setter
@@ -367,6 +487,9 @@ class AlertMetricCaptureArgs:
     @property
     @pulumi.getter
     def filename(self) -> pulumi.Input[str]:
+        """
+        Defines the name of the capture file.
+        """
         return pulumi.get(self, "filename")
 
     @filename.setter
@@ -376,6 +499,9 @@ class AlertMetricCaptureArgs:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional filter to apply to the capture. For example: `proc.name contains nginx`.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -389,6 +515,11 @@ class AlertMetricCustomNotificationArgs:
                  title: pulumi.Input[str],
                  append: Optional[pulumi.Input[str]] = None,
                  prepend: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] title: Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        :param pulumi.Input[str] append: Text to add after the alert template.
+        :param pulumi.Input[str] prepend: Text to add before the alert template.
+        """
         pulumi.set(__self__, "title", title)
         if append is not None:
             pulumi.set(__self__, "append", append)
@@ -398,6 +529,9 @@ class AlertMetricCustomNotificationArgs:
     @property
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
+        """
+        Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -407,6 +541,9 @@ class AlertMetricCustomNotificationArgs:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add after the alert template.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -416,6 +553,9 @@ class AlertMetricCustomNotificationArgs:
     @property
     @pulumi.getter
     def prepend(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add before the alert template.
+        """
         return pulumi.get(self, "prepend")
 
     @prepend.setter
@@ -468,6 +608,11 @@ class AlertPromqlCustomNotificationArgs:
                  title: pulumi.Input[str],
                  append: Optional[pulumi.Input[str]] = None,
                  prepend: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] title: Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        :param pulumi.Input[str] append: Text to add after the alert template.
+        :param pulumi.Input[str] prepend: Text to add before the alert template.
+        """
         pulumi.set(__self__, "title", title)
         if append is not None:
             pulumi.set(__self__, "append", append)
@@ -477,6 +622,9 @@ class AlertPromqlCustomNotificationArgs:
     @property
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
+        """
+        Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -486,6 +634,9 @@ class AlertPromqlCustomNotificationArgs:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add after the alert template.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -495,6 +646,9 @@ class AlertPromqlCustomNotificationArgs:
     @property
     @pulumi.getter
     def prepend(self) -> Optional[pulumi.Input[str]]:
+        """
+        Text to add before the alert template.
+        """
         return pulumi.get(self, "prepend")
 
     @prepend.setter
@@ -517,6 +671,28 @@ class DashboardPanelArgs:
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPanelQueryArgs']]]] = None,
                  transparent_background: Optional[pulumi.Input[bool]] = None,
                  visible_title: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[int] height: Height of the panel. Min value: 1.
+        :param pulumi.Input[str] name: Name of the panel.
+        :param pulumi.Input[int] pos_x: Position of the panel in the X axis. Min value: 0, max value: 23.
+        :param pulumi.Input[int] pos_y: Position of the panel in the Y axis. Min value: 0.
+        :param pulumi.Input[str] type: Kind of panel, must be either `timechart`, `number` or `text`.
+        :param pulumi.Input[int] width: Width of the panel. Min value: 1, max value: 24.
+        :param pulumi.Input[bool] autosize_text: If true, the text will be autosized in the panel.
+               This field is ignored for all panel types except `text`.
+        :param pulumi.Input[str] content: This field is required if the panel type is `text`. It represents the 
+               text that will be displayed in the panel.
+        :param pulumi.Input[str] description: Description of the panel.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardPanelQueryArgs']]] queries: The PromQL query that will show information in the panel. 
+               If the type of the panel is `timechart`, then it can be specified multiple
+               times, to have multiple metrics in the same graph.
+               If the type of the panel is `number` then only one can be specified.
+               This field is required if the panel type is `timechart` or `number`.
+        :param pulumi.Input[bool] transparent_background: If true, the panel will have a transparent background.
+               This field is ignored for all panel types except `text`.
+        :param pulumi.Input[bool] visible_title: If true, the title of the panel will be displayed. Default: false.
+               This field is ignored for all panel types except `text`.
+        """
         pulumi.set(__self__, "height", height)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "pos_x", pos_x)
@@ -539,6 +715,9 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter
     def height(self) -> pulumi.Input[int]:
+        """
+        Height of the panel. Min value: 1.
+        """
         return pulumi.get(self, "height")
 
     @height.setter
@@ -548,6 +727,9 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Name of the panel.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -557,6 +739,9 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter(name="posX")
     def pos_x(self) -> pulumi.Input[int]:
+        """
+        Position of the panel in the X axis. Min value: 0, max value: 23.
+        """
         return pulumi.get(self, "pos_x")
 
     @pos_x.setter
@@ -566,6 +751,9 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter(name="posY")
     def pos_y(self) -> pulumi.Input[int]:
+        """
+        Position of the panel in the Y axis. Min value: 0.
+        """
         return pulumi.get(self, "pos_y")
 
     @pos_y.setter
@@ -575,6 +763,9 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Kind of panel, must be either `timechart`, `number` or `text`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -584,6 +775,9 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter
     def width(self) -> pulumi.Input[int]:
+        """
+        Width of the panel. Min value: 1, max value: 24.
+        """
         return pulumi.get(self, "width")
 
     @width.setter
@@ -593,6 +787,10 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter(name="autosizeText")
     def autosize_text(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the text will be autosized in the panel.
+        This field is ignored for all panel types except `text`.
+        """
         return pulumi.get(self, "autosize_text")
 
     @autosize_text.setter
@@ -602,6 +800,10 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        This field is required if the panel type is `text`. It represents the 
+        text that will be displayed in the panel.
+        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -611,6 +813,9 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the panel.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -620,6 +825,13 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter
     def queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPanelQueryArgs']]]]:
+        """
+        The PromQL query that will show information in the panel. 
+        If the type of the panel is `timechart`, then it can be specified multiple
+        times, to have multiple metrics in the same graph.
+        If the type of the panel is `number` then only one can be specified.
+        This field is required if the panel type is `timechart` or `number`.
+        """
         return pulumi.get(self, "queries")
 
     @queries.setter
@@ -629,6 +841,10 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter(name="transparentBackground")
     def transparent_background(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the panel will have a transparent background.
+        This field is ignored for all panel types except `text`.
+        """
         return pulumi.get(self, "transparent_background")
 
     @transparent_background.setter
@@ -638,6 +854,10 @@ class DashboardPanelArgs:
     @property
     @pulumi.getter(name="visibleTitle")
     def visible_title(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, the title of the panel will be displayed. Default: false.
+        This field is ignored for all panel types except `text`.
+        """
         return pulumi.get(self, "visible_title")
 
     @visible_title.setter
@@ -650,12 +870,22 @@ class DashboardPanelQueryArgs:
     def __init__(__self__, *,
                  promql: pulumi.Input[str],
                  unit: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] promql: The PromQL query. Must be a valid PromQL query with existing
+               metrics in Sysdig Monitor.
+        :param pulumi.Input[str] unit: The type of metric for this query. Can be one of: `percent`, `data`, `data rate`, 
+               `number`, `number rate`, `time`.
+        """
         pulumi.set(__self__, "promql", promql)
         pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter
     def promql(self) -> pulumi.Input[str]:
+        """
+        The PromQL query. Must be a valid PromQL query with existing
+        metrics in Sysdig Monitor.
+        """
         return pulumi.get(self, "promql")
 
     @promql.setter
@@ -665,6 +895,10 @@ class DashboardPanelQueryArgs:
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
+        """
+        The type of metric for this query. Can be one of: `percent`, `data`, `data rate`, 
+        `number`, `number rate`, `time`.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -679,6 +913,12 @@ class DashboardScopeArgs:
                  comparator: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  variable: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] metric: Metric to scope by, common examples are `host.hostName`, `kubernetes.namespace.name` or `kubernetes.cluster.name`, but you can use all the Sysdig-supported values shown in the UI. Note that kubernetes-related values only appear when Sysdig detects Kubernetes metadata.
+        :param pulumi.Input[str] comparator: Operator to relate the metric with some value. It is only required if the value to filter by is set, or the variable field is not set. Valid values are: `in`, `notIn`, `equals`, `notEquals`, `contains`, `notContains` and `startsWith`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of values to filter by, if comparator is set. If the comparator is not `in` or `notIn` the list must contain only 1 value.
+        :param pulumi.Input[str] variable: Assigns this metric to a value name and allows PromQL to reference it.
+        """
         pulumi.set(__self__, "metric", metric)
         if comparator is not None:
             pulumi.set(__self__, "comparator", comparator)
@@ -690,6 +930,9 @@ class DashboardScopeArgs:
     @property
     @pulumi.getter
     def metric(self) -> pulumi.Input[str]:
+        """
+        Metric to scope by, common examples are `host.hostName`, `kubernetes.namespace.name` or `kubernetes.cluster.name`, but you can use all the Sysdig-supported values shown in the UI. Note that kubernetes-related values only appear when Sysdig detects Kubernetes metadata.
+        """
         return pulumi.get(self, "metric")
 
     @metric.setter
@@ -699,6 +942,9 @@ class DashboardScopeArgs:
     @property
     @pulumi.getter
     def comparator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operator to relate the metric with some value. It is only required if the value to filter by is set, or the variable field is not set. Valid values are: `in`, `notIn`, `equals`, `notEquals`, `contains`, `notContains` and `startsWith`.
+        """
         return pulumi.get(self, "comparator")
 
     @comparator.setter
@@ -708,6 +954,9 @@ class DashboardScopeArgs:
     @property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of values to filter by, if comparator is set. If the comparator is not `in` or `notIn` the list must contain only 1 value.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -717,6 +966,9 @@ class DashboardScopeArgs:
     @property
     @pulumi.getter
     def variable(self) -> Optional[pulumi.Input[str]]:
+        """
+        Assigns this metric to a value name and allows PromQL to reference it.
+        """
         return pulumi.get(self, "variable")
 
     @variable.setter
@@ -729,6 +981,12 @@ class TeamEntrypointArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  selection: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Main entrypoint for the team.
+               Valid options are: Explore, Dashboards, Events, Alerts, Settings.
+        :param pulumi.Input[str] selection: Sets up the defined Dashboard name as entrypoint.
+               Warning: This field must only be added if the `type` is "Dashboards".
+        """
         pulumi.set(__self__, "type", type)
         if selection is not None:
             pulumi.set(__self__, "selection", selection)
@@ -736,6 +994,10 @@ class TeamEntrypointArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        Main entrypoint for the team.
+        Valid options are: Explore, Dashboards, Events, Alerts, Settings.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -745,6 +1007,10 @@ class TeamEntrypointArgs:
     @property
     @pulumi.getter
     def selection(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets up the defined Dashboard name as entrypoint.
+        Warning: This field must only be added if the `type` is "Dashboards".
+        """
         return pulumi.get(self, "selection")
 
     @selection.setter
@@ -757,6 +1023,12 @@ class TeamUserRoleArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
                  role: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] email: The email of the user in the group.
+        :param pulumi.Input[str] role: The role for the user in this group.
+               Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+               Default: ROLE_TEAM_STANDARD.
+        """
         pulumi.set(__self__, "email", email)
         if role is not None:
             pulumi.set(__self__, "role", role)
@@ -764,6 +1036,9 @@ class TeamUserRoleArgs:
     @property
     @pulumi.getter
     def email(self) -> pulumi.Input[str]:
+        """
+        The email of the user in the group.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -773,6 +1048,11 @@ class TeamUserRoleArgs:
     @property
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The role for the user in this group.
+        Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+        Default: ROLE_TEAM_STANDARD.
+        """
         return pulumi.get(self, "role")
 
     @role.setter

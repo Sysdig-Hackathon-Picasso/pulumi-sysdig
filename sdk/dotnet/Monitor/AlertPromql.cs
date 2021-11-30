@@ -9,45 +9,88 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Monitor
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// PromQL Monitor alerts can be imported using the alert ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Monitor/alertPromql:AlertPromql example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Monitor/alertPromql:AlertPromql")]
     public partial class AlertPromql : Pulumi.CustomResource
     {
         [Output("capture")]
         public Output<Outputs.AlertPromqlCapture?> Capture { get; private set; } = null!;
 
+        /// <summary>
+        /// Allows to define a custom notification title, prepend and append text.
+        /// </summary>
         [Output("customNotification")]
         public Output<Outputs.AlertPromqlCustomNotification?> CustomNotification { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of Monitor alert.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean that defines if the alert is enabled or not. Defaults to true.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Monitor alert. It must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// List of notification channel IDs where an alert must be sent to once fired.
+        /// </summary>
         [Output("notificationChannels")]
         public Output<ImmutableArray<int>> NotificationChannels { get; private set; } = null!;
 
+        /// <summary>
+        /// PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) &gt; 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) &lt; 10000000000`.
+        /// </summary>
         [Output("promql")]
         public Output<string> Promql { get; private set; } = null!;
 
+        /// <summary>
+        /// Number of minutes for the alert to re-notify until the status is solved.
+        /// </summary>
         [Output("renotificationMinutes")]
         public Output<int?> RenotificationMinutes { get; private set; } = null!;
 
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
 
+        /// <summary>
+        /// Severity of the Monitor alert. It must be a value between 0 and 7,
+        /// with 0 being the most critical and 7 the less critical. Defaults to 4.
+        /// </summary>
         [Output("severity")]
         public Output<int?> Severity { get; private set; } = null!;
 
+        /// <summary>
+        /// Team ID that owns the alert.
+        /// </summary>
         [Output("team")]
         public Output<int> Team { get; private set; } = null!;
 
+        /// <summary>
+        /// Threshold of time for the status to stabilize until the alert is fired.
+        /// </summary>
         [Output("triggerAfterMinutes")]
         public Output<int> TriggerAfterMinutes { get; private set; } = null!;
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Monitor.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -100,38 +143,67 @@ namespace Pulumi.Sysdig.Monitor
         [Input("capture")]
         public Input<Inputs.AlertPromqlCaptureArgs>? Capture { get; set; }
 
+        /// <summary>
+        /// Allows to define a custom notification title, prepend and append text.
+        /// </summary>
         [Input("customNotification")]
         public Input<Inputs.AlertPromqlCustomNotificationArgs>? CustomNotification { get; set; }
 
+        /// <summary>
+        /// The description of Monitor alert.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Boolean that defines if the alert is enabled or not. Defaults to true.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The name of the Monitor alert. It must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("notificationChannels")]
         private InputList<int>? _notificationChannels;
+
+        /// <summary>
+        /// List of notification channel IDs where an alert must be sent to once fired.
+        /// </summary>
         public InputList<int> NotificationChannels
         {
             get => _notificationChannels ?? (_notificationChannels = new InputList<int>());
             set => _notificationChannels = value;
         }
 
+        /// <summary>
+        /// PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) &gt; 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) &lt; 10000000000`.
+        /// </summary>
         [Input("promql", required: true)]
         public Input<string> Promql { get; set; } = null!;
 
+        /// <summary>
+        /// Number of minutes for the alert to re-notify until the status is solved.
+        /// </summary>
         [Input("renotificationMinutes")]
         public Input<int>? RenotificationMinutes { get; set; }
 
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
+        /// <summary>
+        /// Severity of the Monitor alert. It must be a value between 0 and 7,
+        /// with 0 being the most critical and 7 the less critical. Defaults to 4.
+        /// </summary>
         [Input("severity")]
         public Input<int>? Severity { get; set; }
 
+        /// <summary>
+        /// Threshold of time for the status to stabilize until the alert is fired.
+        /// </summary>
         [Input("triggerAfterMinutes", required: true)]
         public Input<int> TriggerAfterMinutes { get; set; } = null!;
 
@@ -145,44 +217,79 @@ namespace Pulumi.Sysdig.Monitor
         [Input("capture")]
         public Input<Inputs.AlertPromqlCaptureGetArgs>? Capture { get; set; }
 
+        /// <summary>
+        /// Allows to define a custom notification title, prepend and append text.
+        /// </summary>
         [Input("customNotification")]
         public Input<Inputs.AlertPromqlCustomNotificationGetArgs>? CustomNotification { get; set; }
 
+        /// <summary>
+        /// The description of Monitor alert.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Boolean that defines if the alert is enabled or not. Defaults to true.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// The name of the Monitor alert. It must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("notificationChannels")]
         private InputList<int>? _notificationChannels;
+
+        /// <summary>
+        /// List of notification channel IDs where an alert must be sent to once fired.
+        /// </summary>
         public InputList<int> NotificationChannels
         {
             get => _notificationChannels ?? (_notificationChannels = new InputList<int>());
             set => _notificationChannels = value;
         }
 
+        /// <summary>
+        /// PromQL-based metric expression to alert on. Example: `histogram_quantile(0.99, rate(etcd_http_successful_duration_seconds_bucket[5m]) &gt; 0.15` or `predict_linear(sysdig_fs_free_bytes{fstype!~"tmpfs"}[1h], 24*3600) &lt; 10000000000`.
+        /// </summary>
         [Input("promql")]
         public Input<string>? Promql { get; set; }
 
+        /// <summary>
+        /// Number of minutes for the alert to re-notify until the status is solved.
+        /// </summary>
         [Input("renotificationMinutes")]
         public Input<int>? RenotificationMinutes { get; set; }
 
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
+        /// <summary>
+        /// Severity of the Monitor alert. It must be a value between 0 and 7,
+        /// with 0 being the most critical and 7 the less critical. Defaults to 4.
+        /// </summary>
         [Input("severity")]
         public Input<int>? Severity { get; set; }
 
+        /// <summary>
+        /// Team ID that owns the alert.
+        /// </summary>
         [Input("team")]
         public Input<int>? Team { get; set; }
 
+        /// <summary>
+        /// Threshold of time for the status to stabilize until the alert is fired.
+        /// </summary>
         [Input("triggerAfterMinutes")]
         public Input<int>? TriggerAfterMinutes { get; set; }
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Monitor.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

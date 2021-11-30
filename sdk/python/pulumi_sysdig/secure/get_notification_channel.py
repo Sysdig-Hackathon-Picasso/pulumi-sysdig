@@ -76,21 +76,33 @@ class GetNotificationChannelResult:
     @property
     @pulumi.getter
     def account(self) -> str:
+        """
+        Pagerduty account.
+        """
         return pulumi.get(self, "account")
 
     @property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> str:
+        """
+        Key for the API.
+        """
         return pulumi.get(self, "api_key")
 
     @property
     @pulumi.getter
     def channel(self) -> str:
+        """
+        Channel name from this Slack.
+        """
         return pulumi.get(self, "channel")
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        If false, the channel will not emit notifications.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -109,51 +121,86 @@ class GetNotificationChannelResult:
     @property
     @pulumi.getter(name="notifyWhenOk")
     def notify_when_ok(self) -> bool:
+        """
+        Send a new notification when the alert condition is 
+        no longer triggered.
+        """
         return pulumi.get(self, "notify_when_ok")
 
     @property
     @pulumi.getter(name="notifyWhenResolved")
     def notify_when_resolved(self) -> bool:
+        """
+        Send a new notification when the alert is manually 
+        acknowledged by a user.
+        """
         return pulumi.get(self, "notify_when_resolved")
 
     @property
     @pulumi.getter
     def recipients(self) -> str:
+        """
+        Comma-separated list of recipients that will receive 
+        the message.
+        """
         return pulumi.get(self, "recipients")
 
     @property
     @pulumi.getter(name="routingKey")
     def routing_key(self) -> str:
+        """
+        Routing key for VictorOps.
+        """
         return pulumi.get(self, "routing_key")
 
     @property
     @pulumi.getter(name="sendTestNotification")
     def send_test_notification(self) -> bool:
+        """
+        Send an initial test notification to check
+        if the notification channel is working.
+        """
         return pulumi.get(self, "send_test_notification")
 
     @property
     @pulumi.getter(name="serviceKey")
     def service_key(self) -> str:
+        """
+        Service Key for the Pagerduty account.
+        """
         return pulumi.get(self, "service_key")
 
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> str:
+        """
+        Service name for the Pagerduty account.
+        """
         return pulumi.get(self, "service_name")
 
     @property
     @pulumi.getter
     def topics(self) -> str:
+        """
+        List of ARNs from the SNS topics.
+        """
         return pulumi.get(self, "topics")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Will be one of the following:  "EMAIL", "SNS", "OPSGENIE", 
+        "VICTOROPS", "WEBHOOK", "SLACK", "PAGER_DUTY".
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        URL of the Slack.
+        """
         return pulumi.get(self, "url")
 
     @property
@@ -191,6 +238,8 @@ def get_notification_channel(name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationChannelResult:
     """
     Use this data source to access information about an existing resource.
+
+    :param str name: The name of the Notification Channel.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -225,5 +274,7 @@ def get_notification_channel_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
     Use this data source to access information about an existing resource.
+
+    :param str name: The name of the Notification Channel.
     """
     ...

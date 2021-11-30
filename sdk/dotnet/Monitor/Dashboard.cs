@@ -9,27 +9,59 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Monitor
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Monitor dashboards can be imported using the dashboard ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Monitor/dashboard:Dashboard example 12345
+    /// ```
+    /// 
+    ///  Only dashboards that contain supported panels can be imported. Currently supported panel types are- PromQL timecharts - PromQL numbers - Text Only dashboards that contain supported query types can be imported. Currently supported query types- Percent - Data - Data rate - Number - Number rate - Time
+    /// </summary>
     [SysdigResourceType("sysdig:Monitor/dashboard:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Description of the panel.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the panel.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// At least 1 panel is required to define a Dashboard.
+        /// </summary>
         [Output("panels")]
         public Output<ImmutableArray<Outputs.DashboardPanel>> Panels { get; private set; } = null!;
 
+        /// <summary>
+        /// Define if the dashboard can be accessible without requiring the user to be logged in.
+        /// </summary>
         [Output("public")]
         public Output<bool?> Public { get; private set; } = null!;
 
+        /// <summary>
+        /// (Computed) Token defined when the dashboard is set Public.
+        /// </summary>
         [Output("publicToken")]
         public Output<string> PublicToken { get; private set; } = null!;
 
+        /// <summary>
+        /// Define the scope of the dashboard and variables for these metrics.
+        /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<Outputs.DashboardScope>> Scopes { get; private set; } = null!;
 
+        /// <summary>
+        /// (Computed)  The current version of the Dashboard.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -79,25 +111,42 @@ namespace Pulumi.Sysdig.Monitor
 
     public sealed class DashboardArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the panel.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the panel.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("panels", required: true)]
         private InputList<Inputs.DashboardPanelArgs>? _panels;
+
+        /// <summary>
+        /// At least 1 panel is required to define a Dashboard.
+        /// </summary>
         public InputList<Inputs.DashboardPanelArgs> Panels
         {
             get => _panels ?? (_panels = new InputList<Inputs.DashboardPanelArgs>());
             set => _panels = value;
         }
 
+        /// <summary>
+        /// Define if the dashboard can be accessible without requiring the user to be logged in.
+        /// </summary>
         [Input("public")]
         public Input<bool>? Public { get; set; }
 
         [Input("scopes")]
         private InputList<Inputs.DashboardScopeArgs>? _scopes;
+
+        /// <summary>
+        /// Define the scope of the dashboard and variables for these metrics.
+        /// </summary>
         public InputList<Inputs.DashboardScopeArgs> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<Inputs.DashboardScopeArgs>());
@@ -111,34 +160,57 @@ namespace Pulumi.Sysdig.Monitor
 
     public sealed class DashboardState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of the panel.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the panel.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("panels")]
         private InputList<Inputs.DashboardPanelGetArgs>? _panels;
+
+        /// <summary>
+        /// At least 1 panel is required to define a Dashboard.
+        /// </summary>
         public InputList<Inputs.DashboardPanelGetArgs> Panels
         {
             get => _panels ?? (_panels = new InputList<Inputs.DashboardPanelGetArgs>());
             set => _panels = value;
         }
 
+        /// <summary>
+        /// Define if the dashboard can be accessible without requiring the user to be logged in.
+        /// </summary>
         [Input("public")]
         public Input<bool>? Public { get; set; }
 
+        /// <summary>
+        /// (Computed) Token defined when the dashboard is set Public.
+        /// </summary>
         [Input("publicToken")]
         public Input<string>? PublicToken { get; set; }
 
         [Input("scopes")]
         private InputList<Inputs.DashboardScopeGetArgs>? _scopes;
+
+        /// <summary>
+        /// Define the scope of the dashboard and variables for these metrics.
+        /// </summary>
         public InputList<Inputs.DashboardScopeGetArgs> Scopes
         {
             get => _scopes ?? (_scopes = new InputList<Inputs.DashboardScopeGetArgs>());
             set => _scopes = value;
         }
 
+        /// <summary>
+        /// (Computed)  The current version of the Dashboard.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

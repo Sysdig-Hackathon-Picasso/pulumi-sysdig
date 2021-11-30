@@ -11,16 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Monitor dashboards can be imported using the dashboard ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Monitor/dashboard:Dashboard example 12345
+// ```
+//
+//  Only dashboards that contain supported panels can be imported. Currently supported panel types are- PromQL timecharts - PromQL numbers - Text Only dashboards that contain supported query types can be imported. Currently supported query types- Percent - Data - Data rate - Number - Number rate - Time
 type Dashboard struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringPtrOutput    `pulumi:"description"`
-	Name        pulumi.StringOutput       `pulumi:"name"`
-	Panels      DashboardPanelArrayOutput `pulumi:"panels"`
-	Public      pulumi.BoolPtrOutput      `pulumi:"public"`
-	PublicToken pulumi.StringOutput       `pulumi:"publicToken"`
-	Scopes      DashboardScopeArrayOutput `pulumi:"scopes"`
-	Version     pulumi.IntOutput          `pulumi:"version"`
+	// Description of the panel.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Name of the panel.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// At least 1 panel is required to define a Dashboard.
+	Panels DashboardPanelArrayOutput `pulumi:"panels"`
+	// Define if the dashboard can be accessible without requiring the user to be logged in.
+	Public pulumi.BoolPtrOutput `pulumi:"public"`
+	// (Computed) Token defined when the dashboard is set Public.
+	PublicToken pulumi.StringOutput `pulumi:"publicToken"`
+	// Define the scope of the dashboard and variables for these metrics.
+	Scopes DashboardScopeArrayOutput `pulumi:"scopes"`
+	// (Computed)  The current version of the Dashboard.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -55,23 +71,37 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
-	Description *string          `pulumi:"description"`
-	Name        *string          `pulumi:"name"`
-	Panels      []DashboardPanel `pulumi:"panels"`
-	Public      *bool            `pulumi:"public"`
-	PublicToken *string          `pulumi:"publicToken"`
-	Scopes      []DashboardScope `pulumi:"scopes"`
-	Version     *int             `pulumi:"version"`
+	// Description of the panel.
+	Description *string `pulumi:"description"`
+	// Name of the panel.
+	Name *string `pulumi:"name"`
+	// At least 1 panel is required to define a Dashboard.
+	Panels []DashboardPanel `pulumi:"panels"`
+	// Define if the dashboard can be accessible without requiring the user to be logged in.
+	Public *bool `pulumi:"public"`
+	// (Computed) Token defined when the dashboard is set Public.
+	PublicToken *string `pulumi:"publicToken"`
+	// Define the scope of the dashboard and variables for these metrics.
+	Scopes []DashboardScope `pulumi:"scopes"`
+	// (Computed)  The current version of the Dashboard.
+	Version *int `pulumi:"version"`
 }
 
 type DashboardState struct {
+	// Description of the panel.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Panels      DashboardPanelArrayInput
-	Public      pulumi.BoolPtrInput
+	// Name of the panel.
+	Name pulumi.StringPtrInput
+	// At least 1 panel is required to define a Dashboard.
+	Panels DashboardPanelArrayInput
+	// Define if the dashboard can be accessible without requiring the user to be logged in.
+	Public pulumi.BoolPtrInput
+	// (Computed) Token defined when the dashboard is set Public.
 	PublicToken pulumi.StringPtrInput
-	Scopes      DashboardScopeArrayInput
-	Version     pulumi.IntPtrInput
+	// Define the scope of the dashboard and variables for these metrics.
+	Scopes DashboardScopeArrayInput
+	// (Computed)  The current version of the Dashboard.
+	Version pulumi.IntPtrInput
 }
 
 func (DashboardState) ElementType() reflect.Type {
@@ -79,20 +109,30 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	Description *string          `pulumi:"description"`
-	Name        *string          `pulumi:"name"`
-	Panels      []DashboardPanel `pulumi:"panels"`
-	Public      *bool            `pulumi:"public"`
-	Scopes      []DashboardScope `pulumi:"scopes"`
+	// Description of the panel.
+	Description *string `pulumi:"description"`
+	// Name of the panel.
+	Name *string `pulumi:"name"`
+	// At least 1 panel is required to define a Dashboard.
+	Panels []DashboardPanel `pulumi:"panels"`
+	// Define if the dashboard can be accessible without requiring the user to be logged in.
+	Public *bool `pulumi:"public"`
+	// Define the scope of the dashboard and variables for these metrics.
+	Scopes []DashboardScope `pulumi:"scopes"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
+	// Description of the panel.
 	Description pulumi.StringPtrInput
-	Name        pulumi.StringPtrInput
-	Panels      DashboardPanelArrayInput
-	Public      pulumi.BoolPtrInput
-	Scopes      DashboardScopeArrayInput
+	// Name of the panel.
+	Name pulumi.StringPtrInput
+	// At least 1 panel is required to define a Dashboard.
+	Panels DashboardPanelArrayInput
+	// Define if the dashboard can be accessible without requiring the user to be logged in.
+	Public pulumi.BoolPtrInput
+	// Define the scope of the dashboard and variables for these metrics.
+	Scopes DashboardScopeArrayInput
 }
 
 func (DashboardArgs) ElementType() reflect.Type {

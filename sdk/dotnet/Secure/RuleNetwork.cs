@@ -9,21 +9,45 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Secure network runtime rules can be imported using the ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Secure/ruleNetwork:RuleNetwork example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Secure/ruleNetwork:RuleNetwork")]
     public partial class RuleNetwork : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Detect if there is an inbound connection.
+        /// </summary>
         [Output("blockInbound")]
         public Output<bool> BlockInbound { get; private set; } = null!;
 
+        /// <summary>
+        /// Detect if there is an outbound connection.
+        /// </summary>
         [Output("blockOutbound")]
         public Output<bool> BlockOutbound { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Secure rule. It must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
@@ -33,6 +57,9 @@ namespace Pulumi.Sysdig.Secure
         [Output("udps")]
         public Output<ImmutableArray<Outputs.RuleNetworkUdp>> Udps { get; private set; } = null!;
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Secure.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -82,20 +109,36 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class RuleNetworkArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Detect if there is an inbound connection.
+        /// </summary>
         [Input("blockInbound", required: true)]
         public Input<bool> BlockInbound { get; set; } = null!;
 
+        /// <summary>
+        /// Detect if there is an outbound connection.
+        /// </summary>
         [Input("blockOutbound", required: true)]
         public Input<bool> BlockOutbound { get; set; } = null!;
 
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the Secure rule. It must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
@@ -125,20 +168,36 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class RuleNetworkState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Detect if there is an inbound connection.
+        /// </summary>
         [Input("blockInbound")]
         public Input<bool>? BlockInbound { get; set; }
 
+        /// <summary>
+        /// Detect if there is an outbound connection.
+        /// </summary>
         [Input("blockOutbound")]
         public Input<bool>? BlockOutbound { get; set; }
 
+        /// <summary>
+        /// The description of Secure rule. By default is empty.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the Secure rule. It must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of tags for this rule.
+        /// </summary>
         public InputList<string> Tags
         {
             get => _tags ?? (_tags = new InputList<string>());
@@ -161,6 +220,9 @@ namespace Pulumi.Sysdig.Secure
             set => _udps = value;
         }
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Secure.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Slack notification channels for Monitor can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Monitor/notificationChannelSlack:NotificationChannelSlack example 12345
+ * ```
+ */
 export class NotificationChannelSlack extends pulumi.CustomResource {
     /**
      * Get an existing NotificationChannelSlack resource's state with the given name, ID, and optional extra
@@ -32,13 +41,40 @@ export class NotificationChannelSlack extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationChannelSlack.__pulumiType;
     }
 
+    /**
+     * Channel name from this Slack.
+     */
     public readonly channel!: pulumi.Output<string>;
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     public readonly notifyWhenOk!: pulumi.Output<boolean | undefined>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     public readonly notifyWhenResolved!: pulumi.Output<boolean | undefined>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     public readonly sendTestNotification!: pulumi.Output<boolean | undefined>;
+    /**
+     * URL of the Slack.
+     */
     public readonly url!: pulumi.Output<string>;
+    /**
+     * (Computed) The current version of the Notification Channel.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -90,13 +126,40 @@ export class NotificationChannelSlack extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotificationChannelSlack resources.
  */
 export interface NotificationChannelSlackState {
+    /**
+     * Channel name from this Slack.
+     */
     channel?: pulumi.Input<string>;
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     notifyWhenOk?: pulumi.Input<boolean>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     notifyWhenResolved?: pulumi.Input<boolean>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     sendTestNotification?: pulumi.Input<boolean>;
+    /**
+     * URL of the Slack.
+     */
     url?: pulumi.Input<string>;
+    /**
+     * (Computed) The current version of the Notification Channel.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -104,11 +167,35 @@ export interface NotificationChannelSlackState {
  * The set of arguments for constructing a NotificationChannelSlack resource.
  */
 export interface NotificationChannelSlackArgs {
+    /**
+     * Channel name from this Slack.
+     */
     channel: pulumi.Input<string>;
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     notifyWhenOk?: pulumi.Input<boolean>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     notifyWhenResolved?: pulumi.Input<boolean>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     sendTestNotification?: pulumi.Input<boolean>;
+    /**
+     * URL of the Slack.
+     */
     url: pulumi.Input<string>;
 }

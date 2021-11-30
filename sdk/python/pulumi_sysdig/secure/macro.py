@@ -18,6 +18,11 @@ class MacroArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Macro resource.
+        :param pulumi.Input[str] condition: Macro condition. It can contain lists or other macros.
+        :param pulumi.Input[bool] append: Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+               The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+               append macro called "foo" but not a second one. By default this is false.
+        :param pulumi.Input[str] name: The name of the macro. It must be unique if it's not in append mode.
         """
         pulumi.set(__self__, "condition", condition)
         if append is not None:
@@ -28,6 +33,9 @@ class MacroArgs:
     @property
     @pulumi.getter
     def condition(self) -> pulumi.Input[str]:
+        """
+        Macro condition. It can contain lists or other macros.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -37,6 +45,11 @@ class MacroArgs:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+        The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+        append macro called "foo" but not a second one. By default this is false.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -46,6 +59,9 @@ class MacroArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the macro. It must be unique if it's not in append mode.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -62,6 +78,11 @@ class _MacroState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Macro resources.
+        :param pulumi.Input[bool] append: Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+               The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+               append macro called "foo" but not a second one. By default this is false.
+        :param pulumi.Input[str] condition: Macro condition. It can contain lists or other macros.
+        :param pulumi.Input[str] name: The name of the macro. It must be unique if it's not in append mode.
         """
         if append is not None:
             pulumi.set(__self__, "append", append)
@@ -75,6 +96,11 @@ class _MacroState:
     @property
     @pulumi.getter
     def append(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+        The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+        append macro called "foo" but not a second one. By default this is false.
+        """
         return pulumi.get(self, "append")
 
     @append.setter
@@ -84,6 +110,9 @@ class _MacroState:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Macro condition. It can contain lists or other macros.
+        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -93,6 +122,9 @@ class _MacroState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the macro. It must be unique if it's not in append mode.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -119,9 +151,21 @@ class Macro(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Macro resource with the given unique name, props, and options.
+        ## Import
+
+        Secure macros can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/macro:Macro example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] append: Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+               The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+               append macro called "foo" but not a second one. By default this is false.
+        :param pulumi.Input[str] condition: Macro condition. It can contain lists or other macros.
+        :param pulumi.Input[str] name: The name of the macro. It must be unique if it's not in append mode.
         """
         ...
     @overload
@@ -130,7 +174,14 @@ class Macro(pulumi.CustomResource):
                  args: MacroArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Macro resource with the given unique name, props, and options.
+        ## Import
+
+        Secure macros can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/macro:Macro example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param MacroArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,6 +239,11 @@ class Macro(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] append: Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+               The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+               append macro called "foo" but not a second one. By default this is false.
+        :param pulumi.Input[str] condition: Macro condition. It can contain lists or other macros.
+        :param pulumi.Input[str] name: The name of the macro. It must be unique if it's not in append mode.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -202,16 +258,27 @@ class Macro(pulumi.CustomResource):
     @property
     @pulumi.getter
     def append(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Adds these elements to an existing macro. Used to extend existing macros provided by Sysdig.
+        The macros can only be extended once, for example if there is an existing macro called "foo", one can have another
+        append macro called "foo" but not a second one. By default this is false.
+        """
         return pulumi.get(self, "append")
 
     @property
     @pulumi.getter
     def condition(self) -> pulumi.Output[str]:
+        """
+        Macro condition. It can contain lists or other macros.
+        """
         return pulumi.get(self, "condition")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the macro. It must be unique if it's not in append mode.
+        """
         return pulumi.get(self, "name")
 
     @property

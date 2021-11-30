@@ -24,6 +24,11 @@ class RuleNetworkArgs:
                  udps: Optional[pulumi.Input[Sequence[pulumi.Input['RuleNetworkUdpArgs']]]] = None):
         """
         The set of arguments for constructing a RuleNetwork resource.
+        :param pulumi.Input[bool] block_inbound: Detect if there is an inbound connection.
+        :param pulumi.Input[bool] block_outbound: Detect if there is an outbound connection.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[str] name: The name of the Secure rule. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
         """
         pulumi.set(__self__, "block_inbound", block_inbound)
         pulumi.set(__self__, "block_outbound", block_outbound)
@@ -41,6 +46,9 @@ class RuleNetworkArgs:
     @property
     @pulumi.getter(name="blockInbound")
     def block_inbound(self) -> pulumi.Input[bool]:
+        """
+        Detect if there is an inbound connection.
+        """
         return pulumi.get(self, "block_inbound")
 
     @block_inbound.setter
@@ -50,6 +58,9 @@ class RuleNetworkArgs:
     @property
     @pulumi.getter(name="blockOutbound")
     def block_outbound(self) -> pulumi.Input[bool]:
+        """
+        Detect if there is an outbound connection.
+        """
         return pulumi.get(self, "block_outbound")
 
     @block_outbound.setter
@@ -59,6 +70,9 @@ class RuleNetworkArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Secure rule. By default is empty.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -68,6 +82,9 @@ class RuleNetworkArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secure rule. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -77,6 +94,9 @@ class RuleNetworkArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags for this rule.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,6 +135,12 @@ class _RuleNetworkState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering RuleNetwork resources.
+        :param pulumi.Input[bool] block_inbound: Detect if there is an inbound connection.
+        :param pulumi.Input[bool] block_outbound: Detect if there is an outbound connection.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[str] name: The name of the Secure rule. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Secure.
         """
         if block_inbound is not None:
             pulumi.set(__self__, "block_inbound", block_inbound)
@@ -136,6 +162,9 @@ class _RuleNetworkState:
     @property
     @pulumi.getter(name="blockInbound")
     def block_inbound(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Detect if there is an inbound connection.
+        """
         return pulumi.get(self, "block_inbound")
 
     @block_inbound.setter
@@ -145,6 +174,9 @@ class _RuleNetworkState:
     @property
     @pulumi.getter(name="blockOutbound")
     def block_outbound(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Detect if there is an outbound connection.
+        """
         return pulumi.get(self, "block_outbound")
 
     @block_outbound.setter
@@ -154,6 +186,9 @@ class _RuleNetworkState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Secure rule. By default is empty.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -163,6 +198,9 @@ class _RuleNetworkState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Secure rule. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -172,6 +210,9 @@ class _RuleNetworkState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags for this rule.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -199,6 +240,9 @@ class _RuleNetworkState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        Current version of the resource in Sysdig Secure.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -220,9 +264,21 @@ class RuleNetwork(pulumi.CustomResource):
                  udps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleNetworkUdpArgs']]]]] = None,
                  __props__=None):
         """
-        Create a RuleNetwork resource with the given unique name, props, and options.
+        ## Import
+
+        Secure network runtime rules can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/ruleNetwork:RuleNetwork example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] block_inbound: Detect if there is an inbound connection.
+        :param pulumi.Input[bool] block_outbound: Detect if there is an outbound connection.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[str] name: The name of the Secure rule. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
         """
         ...
     @overload
@@ -231,7 +287,14 @@ class RuleNetwork(pulumi.CustomResource):
                  args: RuleNetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RuleNetwork resource with the given unique name, props, and options.
+        ## Import
+
+        Secure network runtime rules can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/ruleNetwork:RuleNetwork example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param RuleNetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -303,6 +366,12 @@ class RuleNetwork(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] block_inbound: Detect if there is an inbound connection.
+        :param pulumi.Input[bool] block_outbound: Detect if there is an outbound connection.
+        :param pulumi.Input[str] description: The description of Secure rule. By default is empty.
+        :param pulumi.Input[str] name: The name of the Secure rule. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags for this rule.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Secure.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -321,26 +390,41 @@ class RuleNetwork(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blockInbound")
     def block_inbound(self) -> pulumi.Output[bool]:
+        """
+        Detect if there is an inbound connection.
+        """
         return pulumi.get(self, "block_inbound")
 
     @property
     @pulumi.getter(name="blockOutbound")
     def block_outbound(self) -> pulumi.Output[bool]:
+        """
+        Detect if there is an outbound connection.
+        """
         return pulumi.get(self, "block_outbound")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of Secure rule. By default is empty.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Secure rule. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of tags for this rule.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -356,5 +440,8 @@ class RuleNetwork(pulumi.CustomResource):
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        Current version of the resource in Sysdig Secure.
+        """
         return pulumi.get(self, "version")
 

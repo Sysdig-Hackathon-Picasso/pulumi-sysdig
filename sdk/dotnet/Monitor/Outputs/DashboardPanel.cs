@@ -13,17 +13,61 @@ namespace Pulumi.Sysdig.Monitor.Outputs
     [OutputType]
     public sealed class DashboardPanel
     {
+        /// <summary>
+        /// If true, the text will be autosized in the panel.
+        /// This field is ignored for all panel types except `text`.
+        /// </summary>
         public readonly bool? AutosizeText;
+        /// <summary>
+        /// This field is required if the panel type is `text`. It represents the 
+        /// text that will be displayed in the panel.
+        /// </summary>
         public readonly string? Content;
+        /// <summary>
+        /// Description of the panel.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Height of the panel. Min value: 1.
+        /// </summary>
         public readonly int Height;
+        /// <summary>
+        /// Name of the panel.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Position of the panel in the X axis. Min value: 0, max value: 23.
+        /// </summary>
         public readonly int PosX;
+        /// <summary>
+        /// Position of the panel in the Y axis. Min value: 0.
+        /// </summary>
         public readonly int PosY;
+        /// <summary>
+        /// The PromQL query that will show information in the panel. 
+        /// If the type of the panel is `timechart`, then it can be specified multiple
+        /// times, to have multiple metrics in the same graph.
+        /// If the type of the panel is `number` then only one can be specified.
+        /// This field is required if the panel type is `timechart` or `number`.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardPanelQuery> Queries;
+        /// <summary>
+        /// If true, the panel will have a transparent background.
+        /// This field is ignored for all panel types except `text`.
+        /// </summary>
         public readonly bool? TransparentBackground;
+        /// <summary>
+        /// Kind of panel, must be either `timechart`, `number` or `text`.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// If true, the title of the panel will be displayed. Default: false.
+        /// This field is ignored for all panel types except `text`.
+        /// </summary>
         public readonly bool? VisibleTitle;
+        /// <summary>
+        /// Width of the panel. Min value: 1, max value: 24.
+        /// </summary>
         public readonly int Width;
 
         [OutputConstructor]

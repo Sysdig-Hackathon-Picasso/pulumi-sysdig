@@ -11,26 +11,51 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Event Monitor alerts can be imported using the alert ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Monitor/alertEvent:AlertEvent example 12345
+// ```
 type AlertEvent struct {
 	pulumi.CustomResourceState
 
-	Capture               AlertEventCapturePtrOutput            `pulumi:"capture"`
-	CustomNotification    AlertEventCustomNotificationPtrOutput `pulumi:"customNotification"`
-	Description           pulumi.StringPtrOutput                `pulumi:"description"`
-	Enabled               pulumi.BoolPtrOutput                  `pulumi:"enabled"`
-	EventCount            pulumi.IntOutput                      `pulumi:"eventCount"`
-	EventName             pulumi.StringOutput                   `pulumi:"eventName"`
-	EventRel              pulumi.StringOutput                   `pulumi:"eventRel"`
-	MultipleAlertsBies    pulumi.StringArrayOutput              `pulumi:"multipleAlertsBies"`
-	Name                  pulumi.StringOutput                   `pulumi:"name"`
-	NotificationChannels  pulumi.IntArrayOutput                 `pulumi:"notificationChannels"`
-	RenotificationMinutes pulumi.IntPtrOutput                   `pulumi:"renotificationMinutes"`
-	Scope                 pulumi.StringPtrOutput                `pulumi:"scope"`
-	Severity              pulumi.IntPtrOutput                   `pulumi:"severity"`
-	Source                pulumi.StringOutput                   `pulumi:"source"`
-	Team                  pulumi.IntOutput                      `pulumi:"team"`
-	TriggerAfterMinutes   pulumi.IntOutput                      `pulumi:"triggerAfterMinutes"`
-	Version               pulumi.IntOutput                      `pulumi:"version"`
+	// Enables the creation of a capture file of the syscalls during the event.
+	Capture AlertEventCapturePtrOutput `pulumi:"capture"`
+	// Allows to define a custom notification title, prepend and append text.
+	CustomNotification AlertEventCustomNotificationPtrOutput `pulumi:"customNotification"`
+	// The description of Monitor alert.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Boolean that defines if the alert is enabled or not. Defaults to true.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Number of events to match with event_rel.
+	EventCount pulumi.IntOutput `pulumi:"eventCount"`
+	// String that matches part of name, tag or the description of Sysdig Events.
+	EventName pulumi.StringOutput `pulumi:"eventName"`
+	// Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+	EventRel pulumi.StringOutput `pulumi:"eventRel"`
+	// List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+	MultipleAlertsBies pulumi.StringArrayOutput `pulumi:"multipleAlertsBies"`
+	// The name of the Monitor alert. It must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// List of notification channel IDs where an alert must be sent to once fired.
+	NotificationChannels pulumi.IntArrayOutput `pulumi:"notificationChannels"`
+	// Number of minutes for the alert to re-notify until the status is solved.
+	RenotificationMinutes pulumi.IntPtrOutput `pulumi:"renotificationMinutes"`
+	// Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+	Scope pulumi.StringPtrOutput `pulumi:"scope"`
+	// Severity of the Monitor alert. It must be a value between 0 and 7,
+	// with 0 being the most critical and 7 the less critical. Defaults to 4.
+	Severity pulumi.IntPtrOutput `pulumi:"severity"`
+	// Source of the event. It can be `docker` or `kubernetes`.
+	Source pulumi.StringOutput `pulumi:"source"`
+	// Team ID that owns the alert.
+	Team pulumi.IntOutput `pulumi:"team"`
+	// Threshold of time for the status to stabilize until the alert is fired.
+	TriggerAfterMinutes pulumi.IntOutput `pulumi:"triggerAfterMinutes"`
+	// Current version of the resource in Sysdig Monitor.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewAlertEvent registers a new resource with the given unique name, arguments, and options.
@@ -77,43 +102,79 @@ func GetAlertEvent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertEvent resources.
 type alertEventState struct {
-	Capture               *AlertEventCapture            `pulumi:"capture"`
-	CustomNotification    *AlertEventCustomNotification `pulumi:"customNotification"`
-	Description           *string                       `pulumi:"description"`
-	Enabled               *bool                         `pulumi:"enabled"`
-	EventCount            *int                          `pulumi:"eventCount"`
-	EventName             *string                       `pulumi:"eventName"`
-	EventRel              *string                       `pulumi:"eventRel"`
-	MultipleAlertsBies    []string                      `pulumi:"multipleAlertsBies"`
-	Name                  *string                       `pulumi:"name"`
-	NotificationChannels  []int                         `pulumi:"notificationChannels"`
-	RenotificationMinutes *int                          `pulumi:"renotificationMinutes"`
-	Scope                 *string                       `pulumi:"scope"`
-	Severity              *int                          `pulumi:"severity"`
-	Source                *string                       `pulumi:"source"`
-	Team                  *int                          `pulumi:"team"`
-	TriggerAfterMinutes   *int                          `pulumi:"triggerAfterMinutes"`
-	Version               *int                          `pulumi:"version"`
+	// Enables the creation of a capture file of the syscalls during the event.
+	Capture *AlertEventCapture `pulumi:"capture"`
+	// Allows to define a custom notification title, prepend and append text.
+	CustomNotification *AlertEventCustomNotification `pulumi:"customNotification"`
+	// The description of Monitor alert.
+	Description *string `pulumi:"description"`
+	// Boolean that defines if the alert is enabled or not. Defaults to true.
+	Enabled *bool `pulumi:"enabled"`
+	// Number of events to match with event_rel.
+	EventCount *int `pulumi:"eventCount"`
+	// String that matches part of name, tag or the description of Sysdig Events.
+	EventName *string `pulumi:"eventName"`
+	// Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+	EventRel *string `pulumi:"eventRel"`
+	// List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+	MultipleAlertsBies []string `pulumi:"multipleAlertsBies"`
+	// The name of the Monitor alert. It must be unique.
+	Name *string `pulumi:"name"`
+	// List of notification channel IDs where an alert must be sent to once fired.
+	NotificationChannels []int `pulumi:"notificationChannels"`
+	// Number of minutes for the alert to re-notify until the status is solved.
+	RenotificationMinutes *int `pulumi:"renotificationMinutes"`
+	// Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+	Scope *string `pulumi:"scope"`
+	// Severity of the Monitor alert. It must be a value between 0 and 7,
+	// with 0 being the most critical and 7 the less critical. Defaults to 4.
+	Severity *int `pulumi:"severity"`
+	// Source of the event. It can be `docker` or `kubernetes`.
+	Source *string `pulumi:"source"`
+	// Team ID that owns the alert.
+	Team *int `pulumi:"team"`
+	// Threshold of time for the status to stabilize until the alert is fired.
+	TriggerAfterMinutes *int `pulumi:"triggerAfterMinutes"`
+	// Current version of the resource in Sysdig Monitor.
+	Version *int `pulumi:"version"`
 }
 
 type AlertEventState struct {
-	Capture               AlertEventCapturePtrInput
-	CustomNotification    AlertEventCustomNotificationPtrInput
-	Description           pulumi.StringPtrInput
-	Enabled               pulumi.BoolPtrInput
-	EventCount            pulumi.IntPtrInput
-	EventName             pulumi.StringPtrInput
-	EventRel              pulumi.StringPtrInput
-	MultipleAlertsBies    pulumi.StringArrayInput
-	Name                  pulumi.StringPtrInput
-	NotificationChannels  pulumi.IntArrayInput
+	// Enables the creation of a capture file of the syscalls during the event.
+	Capture AlertEventCapturePtrInput
+	// Allows to define a custom notification title, prepend and append text.
+	CustomNotification AlertEventCustomNotificationPtrInput
+	// The description of Monitor alert.
+	Description pulumi.StringPtrInput
+	// Boolean that defines if the alert is enabled or not. Defaults to true.
+	Enabled pulumi.BoolPtrInput
+	// Number of events to match with event_rel.
+	EventCount pulumi.IntPtrInput
+	// String that matches part of name, tag or the description of Sysdig Events.
+	EventName pulumi.StringPtrInput
+	// Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+	EventRel pulumi.StringPtrInput
+	// List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+	MultipleAlertsBies pulumi.StringArrayInput
+	// The name of the Monitor alert. It must be unique.
+	Name pulumi.StringPtrInput
+	// List of notification channel IDs where an alert must be sent to once fired.
+	NotificationChannels pulumi.IntArrayInput
+	// Number of minutes for the alert to re-notify until the status is solved.
 	RenotificationMinutes pulumi.IntPtrInput
-	Scope                 pulumi.StringPtrInput
-	Severity              pulumi.IntPtrInput
-	Source                pulumi.StringPtrInput
-	Team                  pulumi.IntPtrInput
-	TriggerAfterMinutes   pulumi.IntPtrInput
-	Version               pulumi.IntPtrInput
+	// Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+	Scope pulumi.StringPtrInput
+	// Severity of the Monitor alert. It must be a value between 0 and 7,
+	// with 0 being the most critical and 7 the less critical. Defaults to 4.
+	Severity pulumi.IntPtrInput
+	// Source of the event. It can be `docker` or `kubernetes`.
+	Source pulumi.StringPtrInput
+	// Team ID that owns the alert.
+	Team pulumi.IntPtrInput
+	// Threshold of time for the status to stabilize until the alert is fired.
+	TriggerAfterMinutes pulumi.IntPtrInput
+	// Current version of the resource in Sysdig Monitor.
+	Version pulumi.IntPtrInput
 }
 
 func (AlertEventState) ElementType() reflect.Type {
@@ -121,40 +182,72 @@ func (AlertEventState) ElementType() reflect.Type {
 }
 
 type alertEventArgs struct {
-	Capture               *AlertEventCapture            `pulumi:"capture"`
-	CustomNotification    *AlertEventCustomNotification `pulumi:"customNotification"`
-	Description           *string                       `pulumi:"description"`
-	Enabled               *bool                         `pulumi:"enabled"`
-	EventCount            int                           `pulumi:"eventCount"`
-	EventName             string                        `pulumi:"eventName"`
-	EventRel              string                        `pulumi:"eventRel"`
-	MultipleAlertsBies    []string                      `pulumi:"multipleAlertsBies"`
-	Name                  *string                       `pulumi:"name"`
-	NotificationChannels  []int                         `pulumi:"notificationChannels"`
-	RenotificationMinutes *int                          `pulumi:"renotificationMinutes"`
-	Scope                 *string                       `pulumi:"scope"`
-	Severity              *int                          `pulumi:"severity"`
-	Source                string                        `pulumi:"source"`
-	TriggerAfterMinutes   int                           `pulumi:"triggerAfterMinutes"`
+	// Enables the creation of a capture file of the syscalls during the event.
+	Capture *AlertEventCapture `pulumi:"capture"`
+	// Allows to define a custom notification title, prepend and append text.
+	CustomNotification *AlertEventCustomNotification `pulumi:"customNotification"`
+	// The description of Monitor alert.
+	Description *string `pulumi:"description"`
+	// Boolean that defines if the alert is enabled or not. Defaults to true.
+	Enabled *bool `pulumi:"enabled"`
+	// Number of events to match with event_rel.
+	EventCount int `pulumi:"eventCount"`
+	// String that matches part of name, tag or the description of Sysdig Events.
+	EventName string `pulumi:"eventName"`
+	// Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+	EventRel string `pulumi:"eventRel"`
+	// List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+	MultipleAlertsBies []string `pulumi:"multipleAlertsBies"`
+	// The name of the Monitor alert. It must be unique.
+	Name *string `pulumi:"name"`
+	// List of notification channel IDs where an alert must be sent to once fired.
+	NotificationChannels []int `pulumi:"notificationChannels"`
+	// Number of minutes for the alert to re-notify until the status is solved.
+	RenotificationMinutes *int `pulumi:"renotificationMinutes"`
+	// Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+	Scope *string `pulumi:"scope"`
+	// Severity of the Monitor alert. It must be a value between 0 and 7,
+	// with 0 being the most critical and 7 the less critical. Defaults to 4.
+	Severity *int `pulumi:"severity"`
+	// Source of the event. It can be `docker` or `kubernetes`.
+	Source string `pulumi:"source"`
+	// Threshold of time for the status to stabilize until the alert is fired.
+	TriggerAfterMinutes int `pulumi:"triggerAfterMinutes"`
 }
 
 // The set of arguments for constructing a AlertEvent resource.
 type AlertEventArgs struct {
-	Capture               AlertEventCapturePtrInput
-	CustomNotification    AlertEventCustomNotificationPtrInput
-	Description           pulumi.StringPtrInput
-	Enabled               pulumi.BoolPtrInput
-	EventCount            pulumi.IntInput
-	EventName             pulumi.StringInput
-	EventRel              pulumi.StringInput
-	MultipleAlertsBies    pulumi.StringArrayInput
-	Name                  pulumi.StringPtrInput
-	NotificationChannels  pulumi.IntArrayInput
+	// Enables the creation of a capture file of the syscalls during the event.
+	Capture AlertEventCapturePtrInput
+	// Allows to define a custom notification title, prepend and append text.
+	CustomNotification AlertEventCustomNotificationPtrInput
+	// The description of Monitor alert.
+	Description pulumi.StringPtrInput
+	// Boolean that defines if the alert is enabled or not. Defaults to true.
+	Enabled pulumi.BoolPtrInput
+	// Number of events to match with event_rel.
+	EventCount pulumi.IntInput
+	// String that matches part of name, tag or the description of Sysdig Events.
+	EventName pulumi.StringInput
+	// Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+	EventRel pulumi.StringInput
+	// List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+	MultipleAlertsBies pulumi.StringArrayInput
+	// The name of the Monitor alert. It must be unique.
+	Name pulumi.StringPtrInput
+	// List of notification channel IDs where an alert must be sent to once fired.
+	NotificationChannels pulumi.IntArrayInput
+	// Number of minutes for the alert to re-notify until the status is solved.
 	RenotificationMinutes pulumi.IntPtrInput
-	Scope                 pulumi.StringPtrInput
-	Severity              pulumi.IntPtrInput
-	Source                pulumi.StringInput
-	TriggerAfterMinutes   pulumi.IntInput
+	// Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+	Scope pulumi.StringPtrInput
+	// Severity of the Monitor alert. It must be a value between 0 and 7,
+	// with 0 being the most critical and 7 the less critical. Defaults to 4.
+	Severity pulumi.IntPtrInput
+	// Source of the event. It can be `docker` or `kubernetes`.
+	Source pulumi.StringInput
+	// Threshold of time for the status to stabilize until the alert is fired.
+	TriggerAfterMinutes pulumi.IntInput
 }
 
 func (AlertEventArgs) ElementType() reflect.Type {

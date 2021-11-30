@@ -19,6 +19,11 @@ class UserArgs:
                  system_role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
+        :param pulumi.Input[str] email: The email for the user to invite.
+        :param pulumi.Input[str] first_name: The name of the user.
+        :param pulumi.Input[str] last_name: The last name of the user.
+        :param pulumi.Input[str] system_role: The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+               If set to "ROLE_CUSTOMER", the user will be known as an admin.
         """
         pulumi.set(__self__, "email", email)
         if first_name is not None:
@@ -31,6 +36,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def email(self) -> pulumi.Input[str]:
+        """
+        The email for the user to invite.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -40,6 +48,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user.
+        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -49,6 +60,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last name of the user.
+        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -58,6 +72,10 @@ class UserArgs:
     @property
     @pulumi.getter(name="systemRole")
     def system_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+        If set to "ROLE_CUSTOMER", the user will be known as an admin.
+        """
         return pulumi.get(self, "system_role")
 
     @system_role.setter
@@ -75,6 +93,11 @@ class _UserState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering User resources.
+        :param pulumi.Input[str] email: The email for the user to invite.
+        :param pulumi.Input[str] first_name: The name of the user.
+        :param pulumi.Input[str] last_name: The last name of the user.
+        :param pulumi.Input[str] system_role: The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+               If set to "ROLE_CUSTOMER", the user will be known as an admin.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -90,6 +113,9 @@ class _UserState:
     @property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email for the user to invite.
+        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -99,6 +125,9 @@ class _UserState:
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the user.
+        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -108,6 +137,9 @@ class _UserState:
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last name of the user.
+        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -117,6 +149,10 @@ class _UserState:
     @property
     @pulumi.getter(name="systemRole")
     def system_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+        If set to "ROLE_CUSTOMER", the user will be known as an admin.
+        """
         return pulumi.get(self, "system_role")
 
     @system_role.setter
@@ -144,9 +180,21 @@ class User(pulumi.CustomResource):
                  system_role: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a User resource with the given unique name, props, and options.
+        ## Import
+
+        Sysdig users can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:index/user:User example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] email: The email for the user to invite.
+        :param pulumi.Input[str] first_name: The name of the user.
+        :param pulumi.Input[str] last_name: The last name of the user.
+        :param pulumi.Input[str] system_role: The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+               If set to "ROLE_CUSTOMER", the user will be known as an admin.
         """
         ...
     @overload
@@ -155,7 +203,14 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a User resource with the given unique name, props, and options.
+        ## Import
+
+        Sysdig users can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:index/user:User example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,6 +271,11 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] email: The email for the user to invite.
+        :param pulumi.Input[str] first_name: The name of the user.
+        :param pulumi.Input[str] last_name: The last name of the user.
+        :param pulumi.Input[str] system_role: The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+               If set to "ROLE_CUSTOMER", the user will be known as an admin.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -231,21 +291,34 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def email(self) -> pulumi.Output[str]:
+        """
+        The email for the user to invite.
+        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the user.
+        """
         return pulumi.get(self, "first_name")
 
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The last name of the user.
+        """
         return pulumi.get(self, "last_name")
 
     @property
     @pulumi.getter(name="systemRole")
     def system_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The privileges for the user. It can be either "ROLE_USER" or "ROLE_CUSTOMER".
+        If set to "ROLE_CUSTOMER", the user will be known as an admin.
+        """
         return pulumi.get(self, "system_role")
 
     @property

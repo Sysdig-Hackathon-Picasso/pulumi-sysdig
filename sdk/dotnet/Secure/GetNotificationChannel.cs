@@ -18,6 +18,9 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class GetNotificationChannelArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the Notification Channel.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -30,24 +33,71 @@ namespace Pulumi.Sysdig.Secure
     [OutputType]
     public sealed class GetNotificationChannelResult
     {
+        /// <summary>
+        /// Pagerduty account.
+        /// </summary>
         public readonly string Account;
+        /// <summary>
+        /// Key for the API.
+        /// </summary>
         public readonly string ApiKey;
+        /// <summary>
+        /// Channel name from this Slack.
+        /// </summary>
         public readonly string Channel;
+        /// <summary>
+        /// If false, the channel will not emit notifications.
+        /// </summary>
         public readonly bool Enabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// Send a new notification when the alert condition is 
+        /// no longer triggered.
+        /// </summary>
         public readonly bool NotifyWhenOk;
+        /// <summary>
+        /// Send a new notification when the alert is manually 
+        /// acknowledged by a user.
+        /// </summary>
         public readonly bool NotifyWhenResolved;
+        /// <summary>
+        /// Comma-separated list of recipients that will receive 
+        /// the message.
+        /// </summary>
         public readonly string Recipients;
+        /// <summary>
+        /// Routing key for VictorOps.
+        /// </summary>
         public readonly string RoutingKey;
+        /// <summary>
+        /// Send an initial test notification to check
+        /// if the notification channel is working.
+        /// </summary>
         public readonly bool SendTestNotification;
+        /// <summary>
+        /// Service Key for the Pagerduty account.
+        /// </summary>
         public readonly string ServiceKey;
+        /// <summary>
+        /// Service name for the Pagerduty account.
+        /// </summary>
         public readonly string ServiceName;
+        /// <summary>
+        /// List of ARNs from the SNS topics.
+        /// </summary>
         public readonly string Topics;
+        /// <summary>
+        /// Will be one of the following:  "EMAIL", "SNS", "OPSGENIE", 
+        /// "VICTOROPS", "WEBHOOK", "SLACK", "PAGER_DUTY".
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// URL of the Slack.
+        /// </summary>
         public readonly string Url;
         public readonly int Version;
 

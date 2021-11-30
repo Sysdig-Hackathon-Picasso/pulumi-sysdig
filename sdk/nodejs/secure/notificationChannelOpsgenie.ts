@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Opsgenie notification channels for Secure can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/notificationChannelOpsgenie:NotificationChannelOpsgenie example 12345
+ * ```
+ */
 export class NotificationChannelOpsgenie extends pulumi.CustomResource {
     /**
      * Get an existing NotificationChannelOpsgenie resource's state with the given name, ID, and optional extra
@@ -32,12 +41,36 @@ export class NotificationChannelOpsgenie extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationChannelOpsgenie.__pulumiType;
     }
 
+    /**
+     * Key for the API.
+     */
     public readonly apiKey!: pulumi.Output<string>;
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     public readonly notifyWhenOk!: pulumi.Output<boolean>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     public readonly notifyWhenResolved!: pulumi.Output<boolean>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     public readonly sendTestNotification!: pulumi.Output<boolean | undefined>;
+    /**
+     * (Computed) The current version of the Notification Channel.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -93,12 +126,36 @@ export class NotificationChannelOpsgenie extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotificationChannelOpsgenie resources.
  */
 export interface NotificationChannelOpsgenieState {
+    /**
+     * Key for the API.
+     */
     apiKey?: pulumi.Input<string>;
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     notifyWhenOk?: pulumi.Input<boolean>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     notifyWhenResolved?: pulumi.Input<boolean>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     sendTestNotification?: pulumi.Input<boolean>;
+    /**
+     * (Computed) The current version of the Notification Channel.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -106,10 +163,31 @@ export interface NotificationChannelOpsgenieState {
  * The set of arguments for constructing a NotificationChannelOpsgenie resource.
  */
 export interface NotificationChannelOpsgenieArgs {
+    /**
+     * Key for the API.
+     */
     apiKey: pulumi.Input<string>;
+    /**
+     * If false, the channel will not emit notifications. Default is true.
+     */
     enabled: pulumi.Input<boolean>;
+    /**
+     * The name of the Notification Channel. Must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Send a new notification when the alert condition is 
+     * no longer triggered. Default is false.
+     */
     notifyWhenOk: pulumi.Input<boolean>;
+    /**
+     * Send a new notification when the alert is manually 
+     * acknowledged by a user. Default is false.
+     */
     notifyWhenResolved: pulumi.Input<boolean>;
+    /**
+     * Send an initial test notification to check
+     * if the notification channel is working. Default is false.
+     */
     sendTestNotification?: pulumi.Input<boolean>;
 }

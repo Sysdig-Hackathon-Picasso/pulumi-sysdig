@@ -13,8 +13,17 @@ namespace Pulumi.Sysdig.Monitor.Outputs
     [OutputType]
     public sealed class AlertEventCustomNotification
     {
+        /// <summary>
+        /// Text to add after the alert template.
+        /// </summary>
         public readonly string? Append;
+        /// <summary>
+        /// Text to add before the alert template.
+        /// </summary>
         public readonly string? Prepend;
+        /// <summary>
+        /// Sets the title of the alert. It is commonly defined as `{{__alert_name__}} is {{__alert_status__}}`.
+        /// </summary>
         public readonly string Title;
 
         [OutputConstructor]

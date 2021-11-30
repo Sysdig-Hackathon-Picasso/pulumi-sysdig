@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Downtime Monitor alerts can be imported using the alert ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Monitor/alertDowntime:AlertDowntime example 12345
+ * ```
+ */
 export class AlertDowntime extends pulumi.CustomResource {
     /**
      * Get an existing AlertDowntime resource's state with the given name, ID, and optional extra
@@ -33,19 +42,62 @@ export class AlertDowntime extends pulumi.CustomResource {
         return obj['__pulumiType'] === AlertDowntime.__pulumiType;
     }
 
+    /**
+     * Enables the creation of a capture file of the syscalls during the event.
+     */
     public readonly capture!: pulumi.Output<outputs.Monitor.AlertDowntimeCapture | undefined>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     public readonly customNotification!: pulumi.Output<outputs.Monitor.AlertDowntimeCustomNotification | undefined>;
+    /**
+     * The description of Monitor alert.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of metrics to monitor downtime and alert on. Example: `["kubernetes.namespace.name"]` to detect namespace removal or `["host.hostName"]` to detect host downtime.
+     */
     public readonly entitiesToMonitors!: pulumi.Output<string[]>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     public readonly notificationChannels!: pulumi.Output<number[] | undefined>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     public readonly renotificationMinutes!: pulumi.Output<number | undefined>;
+    /**
+     * Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+     */
     public readonly scope!: pulumi.Output<string | undefined>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     public readonly severity!: pulumi.Output<number | undefined>;
+    /**
+     * Team ID that owns the alert.
+     */
     public /*out*/ readonly team!: pulumi.Output<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     public readonly triggerAfterMinutes!: pulumi.Output<number>;
+    /**
+     * Below of this percentage of downtime the alert will be triggered. Defaults to 100.
+     */
     public readonly triggerAfterPct!: pulumi.Output<number | undefined>;
+    /**
+     * Current version of the resource in Sysdig Monitor.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -109,19 +161,62 @@ export class AlertDowntime extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlertDowntime resources.
  */
 export interface AlertDowntimeState {
+    /**
+     * Enables the creation of a capture file of the syscalls during the event.
+     */
     capture?: pulumi.Input<inputs.Monitor.AlertDowntimeCapture>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     customNotification?: pulumi.Input<inputs.Monitor.AlertDowntimeCustomNotification>;
+    /**
+     * The description of Monitor alert.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * List of metrics to monitor downtime and alert on. Example: `["kubernetes.namespace.name"]` to detect namespace removal or `["host.hostName"]` to detect host downtime.
+     */
     entitiesToMonitors?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     renotificationMinutes?: pulumi.Input<number>;
+    /**
+     * Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+     */
     scope?: pulumi.Input<string>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     severity?: pulumi.Input<number>;
+    /**
+     * Team ID that owns the alert.
+     */
     team?: pulumi.Input<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     triggerAfterMinutes?: pulumi.Input<number>;
+    /**
+     * Below of this percentage of downtime the alert will be triggered. Defaults to 100.
+     */
     triggerAfterPct?: pulumi.Input<number>;
+    /**
+     * Current version of the resource in Sysdig Monitor.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -129,16 +224,53 @@ export interface AlertDowntimeState {
  * The set of arguments for constructing a AlertDowntime resource.
  */
 export interface AlertDowntimeArgs {
+    /**
+     * Enables the creation of a capture file of the syscalls during the event.
+     */
     capture?: pulumi.Input<inputs.Monitor.AlertDowntimeCapture>;
+    /**
+     * Allows to define a custom notification title, prepend and append text.
+     */
     customNotification?: pulumi.Input<inputs.Monitor.AlertDowntimeCustomNotification>;
+    /**
+     * The description of Monitor alert.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Boolean that defines if the alert is enabled or not. Defaults to true.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * List of metrics to monitor downtime and alert on. Example: `["kubernetes.namespace.name"]` to detect namespace removal or `["host.hostName"]` to detect host downtime.
+     */
     entitiesToMonitors: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the Monitor alert. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * List of notification channel IDs where an alert must be sent to once fired.
+     */
     notificationChannels?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * Number of minutes for the alert to re-notify until the status is solved.
+     */
     renotificationMinutes?: pulumi.Input<number>;
+    /**
+     * Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+     */
     scope?: pulumi.Input<string>;
+    /**
+     * Severity of the Monitor alert. It must be a value between 0 and 7,
+     * with 0 being the most critical and 7 the less critical. Defaults to 4.
+     */
     severity?: pulumi.Input<number>;
+    /**
+     * Threshold of time for the status to stabilize until the alert is fired.
+     */
     triggerAfterMinutes: pulumi.Input<number>;
+    /**
+     * Below of this percentage of downtime the alert will be triggered. Defaults to 100.
+     */
     triggerAfterPct?: pulumi.Input<number>;
 }

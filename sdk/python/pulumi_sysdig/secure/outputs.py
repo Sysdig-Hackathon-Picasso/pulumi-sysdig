@@ -25,6 +25,12 @@ class PolicyAction(dict):
     def __init__(__self__, *,
                  captures: Optional[Sequence['outputs.PolicyActionCapture']] = None,
                  container: Optional[str] = None):
+        """
+        :param Sequence['PolicyActionCaptureArgs'] captures: Captures with Sysdig the stream of system calls:
+        :param str container: The action applied to container when this Policy is
+               triggered. Can be *stop*, *pause* or *kill*. If this is not specified,
+               no action will be applied at the container level.
+        """
         if captures is not None:
             pulumi.set(__self__, "captures", captures)
         if container is not None:
@@ -33,11 +39,19 @@ class PolicyAction(dict):
     @property
     @pulumi.getter
     def captures(self) -> Optional[Sequence['outputs.PolicyActionCapture']]:
+        """
+        Captures with Sysdig the stream of system calls:
+        """
         return pulumi.get(self, "captures")
 
     @property
     @pulumi.getter
     def container(self) -> Optional[str]:
+        """
+        The action applied to container when this Policy is
+        triggered. Can be *stop*, *pause* or *kill*. If this is not specified,
+        no action will be applied at the container level.
+        """
         return pulumi.get(self, "container")
 
 
@@ -65,17 +79,31 @@ class PolicyActionCapture(dict):
     def __init__(__self__, *,
                  seconds_after_event: int,
                  seconds_before_event: int):
+        """
+        :param int seconds_after_event: Captures the system calls for the amount
+               of seconds after the policy was triggered.
+        :param int seconds_before_event: Captures the system calls during the
+               amount of seconds before the policy was triggered.
+        """
         pulumi.set(__self__, "seconds_after_event", seconds_after_event)
         pulumi.set(__self__, "seconds_before_event", seconds_before_event)
 
     @property
     @pulumi.getter(name="secondsAfterEvent")
     def seconds_after_event(self) -> int:
+        """
+        Captures the system calls for the amount
+        of seconds after the policy was triggered.
+        """
         return pulumi.get(self, "seconds_after_event")
 
     @property
     @pulumi.getter(name="secondsBeforeEvent")
     def seconds_before_event(self) -> int:
+        """
+        Captures the system calls during the
+        amount of seconds before the policy was triggered.
+        """
         return pulumi.get(self, "seconds_before_event")
 
 
@@ -86,6 +114,12 @@ class RuleFalcoException(dict):
                  fields: Sequence[str],
                  name: str,
                  values: str):
+        """
+        :param Sequence[str] comps: Contains comparison operators that align 1-1 with the items in the fields property.
+        :param Sequence[str] fields: Contains one or more fields that will extract a value from the syscall/k8s_audit events.
+        :param str name: The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        :param str values: Contains tuples of values. Each item in the tuple should align 1-1 with the corresponding field and comparison operator. Since the value can be a string, a list of strings or a list of a list of strings, the value of this field must be supplied in JSON format. You can use the default `jsonencode` function to provide this value. See the usage example on the top.
+        """
         pulumi.set(__self__, "comps", comps)
         pulumi.set(__self__, "fields", fields)
         pulumi.set(__self__, "name", name)
@@ -94,21 +128,33 @@ class RuleFalcoException(dict):
     @property
     @pulumi.getter
     def comps(self) -> Sequence[str]:
+        """
+        Contains comparison operators that align 1-1 with the items in the fields property.
+        """
         return pulumi.get(self, "comps")
 
     @property
     @pulumi.getter
     def fields(self) -> Sequence[str]:
+        """
+        Contains one or more fields that will extract a value from the syscall/k8s_audit events.
+        """
         return pulumi.get(self, "fields")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> str:
+        """
+        Contains tuples of values. Each item in the tuple should align 1-1 with the corresponding field and comparison operator. Since the value can be a string, a list of strings or a list of a list of strings, the value of this field must be supplied in JSON format. You can use the default `jsonencode` function to provide this value. See the usage example on the top.
+        """
         return pulumi.get(self, "values")
 
 
@@ -117,6 +163,10 @@ class RuleFilesystemReadOnly(dict):
     def __init__(__self__, *,
                  paths: Sequence[str],
                  matching: Optional[bool] = None):
+        """
+        :param Sequence[str] paths: List of paths to match.
+        :param bool matching: Defines if the path matches or not with the provided list. Default is true.
+        """
         pulumi.set(__self__, "paths", paths)
         if matching is not None:
             pulumi.set(__self__, "matching", matching)
@@ -124,11 +174,17 @@ class RuleFilesystemReadOnly(dict):
     @property
     @pulumi.getter
     def paths(self) -> Sequence[str]:
+        """
+        List of paths to match.
+        """
         return pulumi.get(self, "paths")
 
     @property
     @pulumi.getter
     def matching(self) -> Optional[bool]:
+        """
+        Defines if the path matches or not with the provided list. Default is true.
+        """
         return pulumi.get(self, "matching")
 
 
@@ -137,6 +193,10 @@ class RuleFilesystemReadWrite(dict):
     def __init__(__self__, *,
                  paths: Sequence[str],
                  matching: Optional[bool] = None):
+        """
+        :param Sequence[str] paths: List of paths to match.
+        :param bool matching: Defines if the path matches or not with the provided list. Default is true.
+        """
         pulumi.set(__self__, "paths", paths)
         if matching is not None:
             pulumi.set(__self__, "matching", matching)
@@ -144,11 +204,17 @@ class RuleFilesystemReadWrite(dict):
     @property
     @pulumi.getter
     def paths(self) -> Sequence[str]:
+        """
+        List of paths to match.
+        """
         return pulumi.get(self, "paths")
 
     @property
     @pulumi.getter
     def matching(self) -> Optional[bool]:
+        """
+        Defines if the path matches or not with the provided list. Default is true.
+        """
         return pulumi.get(self, "matching")
 
 
@@ -157,6 +223,10 @@ class RuleNetworkTcp(dict):
     def __init__(__self__, *,
                  ports: Sequence[int],
                  matching: Optional[bool] = None):
+        """
+        :param Sequence[int] ports: List of ports to match.
+        :param bool matching: Defines if the port matches or not with the provided list. Default is true.
+        """
         pulumi.set(__self__, "ports", ports)
         if matching is not None:
             pulumi.set(__self__, "matching", matching)
@@ -164,11 +234,17 @@ class RuleNetworkTcp(dict):
     @property
     @pulumi.getter
     def ports(self) -> Sequence[int]:
+        """
+        List of ports to match.
+        """
         return pulumi.get(self, "ports")
 
     @property
     @pulumi.getter
     def matching(self) -> Optional[bool]:
+        """
+        Defines if the port matches or not with the provided list. Default is true.
+        """
         return pulumi.get(self, "matching")
 
 
@@ -177,6 +253,10 @@ class RuleNetworkUdp(dict):
     def __init__(__self__, *,
                  ports: Sequence[int],
                  matching: Optional[bool] = None):
+        """
+        :param Sequence[int] ports: List of ports to match.
+        :param bool matching: Defines if the port matches or not with the provided list. Default is true.
+        """
         pulumi.set(__self__, "ports", ports)
         if matching is not None:
             pulumi.set(__self__, "matching", matching)
@@ -184,11 +264,17 @@ class RuleNetworkUdp(dict):
     @property
     @pulumi.getter
     def ports(self) -> Sequence[int]:
+        """
+        List of ports to match.
+        """
         return pulumi.get(self, "ports")
 
     @property
     @pulumi.getter
     def matching(self) -> Optional[bool]:
+        """
+        Defines if the port matches or not with the provided list. Default is true.
+        """
         return pulumi.get(self, "matching")
 
 
@@ -197,6 +283,12 @@ class TeamUserRole(dict):
     def __init__(__self__, *,
                  email: str,
                  role: Optional[str] = None):
+        """
+        :param str email: The email of the user in the group.
+        :param str role: The role for the user in this group.
+               Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+               Default: ROLE_TEAM_STANDARD.
+        """
         pulumi.set(__self__, "email", email)
         if role is not None:
             pulumi.set(__self__, "role", role)
@@ -204,11 +296,19 @@ class TeamUserRole(dict):
     @property
     @pulumi.getter
     def email(self) -> str:
+        """
+        The email of the user in the group.
+        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def role(self) -> Optional[str]:
+        """
+        The role for the user in this group.
+        Valid roles are: ROLE_TEAM_STANDARD, ROLE_TEAM_EDIT, ROLE_TEAM_READ, ROLE_TEAM_MANAGER.
+        Default: ROLE_TEAM_STANDARD.
+        """
         return pulumi.get(self, "role")
 
 

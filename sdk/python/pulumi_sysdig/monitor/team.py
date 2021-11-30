@@ -28,6 +28,16 @@ class TeamArgs:
                  user_roles: Optional[pulumi.Input[Sequence[pulumi.Input['TeamUserRoleArgs']]]] = None):
         """
         The set of arguments for constructing a Team resource.
+        :param pulumi.Input[Sequence[pulumi.Input['TeamEntrypointArgs']]] entrypoints: Main entry point for the current team in the product. 
+               See the Entrypoint argument reference section for more information.
+        :param pulumi.Input[bool] can_see_infrastructure_events: TODO. Default: false.
+        :param pulumi.Input[bool] can_use_aws_data: TODO. Default: false.
+        :param pulumi.Input[str] description: A description of the team.
+        :param pulumi.Input[str] filter: If the team can only see some resources, 
+               write down a filter of such resources.
+        :param pulumi.Input[str] name: The name of the Monitor Team. It must be unique and must not exist in Secure.
+        :param pulumi.Input[str] scope_by: Scope for the team. Default: "container".
+        :param pulumi.Input[str] theme: Colour of the team. Default: "#73A1F7".
         """
         pulumi.set(__self__, "entrypoints", entrypoints)
         if can_see_infrastructure_events is not None:
@@ -54,6 +64,10 @@ class TeamArgs:
     @property
     @pulumi.getter
     def entrypoints(self) -> pulumi.Input[Sequence[pulumi.Input['TeamEntrypointArgs']]]:
+        """
+        Main entry point for the current team in the product. 
+        See the Entrypoint argument reference section for more information.
+        """
         return pulumi.get(self, "entrypoints")
 
     @entrypoints.setter
@@ -63,6 +77,9 @@ class TeamArgs:
     @property
     @pulumi.getter(name="canSeeInfrastructureEvents")
     def can_see_infrastructure_events(self) -> Optional[pulumi.Input[bool]]:
+        """
+        TODO. Default: false.
+        """
         return pulumi.get(self, "can_see_infrastructure_events")
 
     @can_see_infrastructure_events.setter
@@ -72,6 +89,9 @@ class TeamArgs:
     @property
     @pulumi.getter(name="canUseAwsData")
     def can_use_aws_data(self) -> Optional[pulumi.Input[bool]]:
+        """
+        TODO. Default: false.
+        """
         return pulumi.get(self, "can_use_aws_data")
 
     @can_use_aws_data.setter
@@ -99,6 +119,9 @@ class TeamArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the team.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -108,6 +131,10 @@ class TeamArgs:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the team can only see some resources, 
+        write down a filter of such resources.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -117,6 +144,9 @@ class TeamArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Monitor Team. It must be unique and must not exist in Secure.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -126,6 +156,9 @@ class TeamArgs:
     @property
     @pulumi.getter(name="scopeBy")
     def scope_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scope for the team. Default: "container".
+        """
         return pulumi.get(self, "scope_by")
 
     @scope_by.setter
@@ -135,6 +168,9 @@ class TeamArgs:
     @property
     @pulumi.getter
     def theme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Colour of the team. Default: "#73A1F7".
+        """
         return pulumi.get(self, "theme")
 
     @theme.setter
@@ -168,6 +204,16 @@ class _TeamState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Team resources.
+        :param pulumi.Input[bool] can_see_infrastructure_events: TODO. Default: false.
+        :param pulumi.Input[bool] can_use_aws_data: TODO. Default: false.
+        :param pulumi.Input[str] description: A description of the team.
+        :param pulumi.Input[Sequence[pulumi.Input['TeamEntrypointArgs']]] entrypoints: Main entry point for the current team in the product. 
+               See the Entrypoint argument reference section for more information.
+        :param pulumi.Input[str] filter: If the team can only see some resources, 
+               write down a filter of such resources.
+        :param pulumi.Input[str] name: The name of the Monitor Team. It must be unique and must not exist in Secure.
+        :param pulumi.Input[str] scope_by: Scope for the team. Default: "container".
+        :param pulumi.Input[str] theme: Colour of the team. Default: "#73A1F7".
         """
         if can_see_infrastructure_events is not None:
             pulumi.set(__self__, "can_see_infrastructure_events", can_see_infrastructure_events)
@@ -197,6 +243,9 @@ class _TeamState:
     @property
     @pulumi.getter(name="canSeeInfrastructureEvents")
     def can_see_infrastructure_events(self) -> Optional[pulumi.Input[bool]]:
+        """
+        TODO. Default: false.
+        """
         return pulumi.get(self, "can_see_infrastructure_events")
 
     @can_see_infrastructure_events.setter
@@ -206,6 +255,9 @@ class _TeamState:
     @property
     @pulumi.getter(name="canUseAwsData")
     def can_use_aws_data(self) -> Optional[pulumi.Input[bool]]:
+        """
+        TODO. Default: false.
+        """
         return pulumi.get(self, "can_use_aws_data")
 
     @can_use_aws_data.setter
@@ -233,6 +285,9 @@ class _TeamState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the team.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -242,6 +297,10 @@ class _TeamState:
     @property
     @pulumi.getter
     def entrypoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TeamEntrypointArgs']]]]:
+        """
+        Main entry point for the current team in the product. 
+        See the Entrypoint argument reference section for more information.
+        """
         return pulumi.get(self, "entrypoints")
 
     @entrypoints.setter
@@ -251,6 +310,10 @@ class _TeamState:
     @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the team can only see some resources, 
+        write down a filter of such resources.
+        """
         return pulumi.get(self, "filter")
 
     @filter.setter
@@ -260,6 +323,9 @@ class _TeamState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Monitor Team. It must be unique and must not exist in Secure.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -269,6 +335,9 @@ class _TeamState:
     @property
     @pulumi.getter(name="scopeBy")
     def scope_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scope for the team. Default: "container".
+        """
         return pulumi.get(self, "scope_by")
 
     @scope_by.setter
@@ -278,6 +347,9 @@ class _TeamState:
     @property
     @pulumi.getter
     def theme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Colour of the team. Default: "#73A1F7".
+        """
         return pulumi.get(self, "theme")
 
     @theme.setter
@@ -321,9 +393,26 @@ class Team(pulumi.CustomResource):
                  user_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamUserRoleArgs']]]]] = None,
                  __props__=None):
         """
-        Create a Team resource with the given unique name, props, and options.
+        ## Import
+
+        Monitor Teams can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/team:Team example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] can_see_infrastructure_events: TODO. Default: false.
+        :param pulumi.Input[bool] can_use_aws_data: TODO. Default: false.
+        :param pulumi.Input[str] description: A description of the team.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamEntrypointArgs']]]] entrypoints: Main entry point for the current team in the product. 
+               See the Entrypoint argument reference section for more information.
+        :param pulumi.Input[str] filter: If the team can only see some resources, 
+               write down a filter of such resources.
+        :param pulumi.Input[str] name: The name of the Monitor Team. It must be unique and must not exist in Secure.
+        :param pulumi.Input[str] scope_by: Scope for the team. Default: "container".
+        :param pulumi.Input[str] theme: Colour of the team. Default: "#73A1F7".
         """
         ...
     @overload
@@ -332,7 +421,14 @@ class Team(pulumi.CustomResource):
                  args: TeamArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Team resource with the given unique name, props, and options.
+        ## Import
+
+        Monitor Teams can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/team:Team example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param TeamArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -414,6 +510,16 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] can_see_infrastructure_events: TODO. Default: false.
+        :param pulumi.Input[bool] can_use_aws_data: TODO. Default: false.
+        :param pulumi.Input[str] description: A description of the team.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TeamEntrypointArgs']]]] entrypoints: Main entry point for the current team in the product. 
+               See the Entrypoint argument reference section for more information.
+        :param pulumi.Input[str] filter: If the team can only see some resources, 
+               write down a filter of such resources.
+        :param pulumi.Input[str] name: The name of the Monitor Team. It must be unique and must not exist in Secure.
+        :param pulumi.Input[str] scope_by: Scope for the team. Default: "container".
+        :param pulumi.Input[str] theme: Colour of the team. Default: "#73A1F7".
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -436,11 +542,17 @@ class Team(pulumi.CustomResource):
     @property
     @pulumi.getter(name="canSeeInfrastructureEvents")
     def can_see_infrastructure_events(self) -> pulumi.Output[Optional[bool]]:
+        """
+        TODO. Default: false.
+        """
         return pulumi.get(self, "can_see_infrastructure_events")
 
     @property
     @pulumi.getter(name="canUseAwsData")
     def can_use_aws_data(self) -> pulumi.Output[Optional[bool]]:
+        """
+        TODO. Default: false.
+        """
         return pulumi.get(self, "can_use_aws_data")
 
     @property
@@ -456,31 +568,51 @@ class Team(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the team.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def entrypoints(self) -> pulumi.Output[Sequence['outputs.TeamEntrypoint']]:
+        """
+        Main entry point for the current team in the product. 
+        See the Entrypoint argument reference section for more information.
+        """
         return pulumi.get(self, "entrypoints")
 
     @property
     @pulumi.getter
     def filter(self) -> pulumi.Output[Optional[str]]:
+        """
+        If the team can only see some resources, 
+        write down a filter of such resources.
+        """
         return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Monitor Team. It must be unique and must not exist in Secure.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="scopeBy")
     def scope_by(self) -> pulumi.Output[Optional[str]]:
+        """
+        Scope for the team. Default: "container".
+        """
         return pulumi.get(self, "scope_by")
 
     @property
     @pulumi.getter
     def theme(self) -> pulumi.Output[Optional[str]]:
+        """
+        Colour of the team. Default: "#73A1F7".
+        """
         return pulumi.get(self, "theme")
 
     @property

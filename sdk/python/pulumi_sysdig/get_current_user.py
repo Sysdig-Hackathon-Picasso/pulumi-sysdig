@@ -39,6 +39,9 @@ class GetCurrentUserResult:
     @property
     @pulumi.getter
     def email(self) -> str:
+        """
+        The user email.
+        """
         return pulumi.get(self, "email")
 
     @property
@@ -52,16 +55,25 @@ class GetCurrentUserResult:
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> str:
+        """
+        The user's last name.
+        """
         return pulumi.get(self, "last_name")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The user's first name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="systemRole")
     def system_role(self) -> str:
+        """
+        The user's system role.
+        """
         return pulumi.get(self, "system_role")
 
 

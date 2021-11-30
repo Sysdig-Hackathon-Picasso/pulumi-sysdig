@@ -10,15 +10,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Secure Teams can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/team:Team example 12345
+// ```
 type Team struct {
 	pulumi.CustomResourceState
 
-	DefaultTeam      pulumi.BoolPtrOutput    `pulumi:"defaultTeam"`
-	Description      pulumi.StringPtrOutput  `pulumi:"description"`
-	Filter           pulumi.StringPtrOutput  `pulumi:"filter"`
-	Name             pulumi.StringOutput     `pulumi:"name"`
-	ScopeBy          pulumi.StringPtrOutput  `pulumi:"scopeBy"`
-	Theme            pulumi.StringPtrOutput  `pulumi:"theme"`
+	DefaultTeam pulumi.BoolPtrOutput `pulumi:"defaultTeam"`
+	// A description of the team.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// If the team can only see some resources,
+	// write down a filter of such resources.
+	Filter pulumi.StringPtrOutput `pulumi:"filter"`
+	// The name of the Secure Team. It must be unique and must not exist in Monitor.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Scope for the team. Default: "container".
+	ScopeBy pulumi.StringPtrOutput `pulumi:"scopeBy"`
+	// Colour of the team. Default: "#73A1F7".
+	Theme pulumi.StringPtrOutput `pulumi:"theme"`
+	// Defines if the team is able to create Sysdig Capture files.
+	// Default: true.
 	UseSysdigCapture pulumi.BoolPtrOutput    `pulumi:"useSysdigCapture"`
 	UserRoles        TeamUserRoleArrayOutput `pulumi:"userRoles"`
 	Version          pulumi.IntOutput        `pulumi:"version"`
@@ -53,24 +68,40 @@ func GetTeam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Team resources.
 type teamState struct {
-	DefaultTeam      *bool          `pulumi:"defaultTeam"`
-	Description      *string        `pulumi:"description"`
-	Filter           *string        `pulumi:"filter"`
-	Name             *string        `pulumi:"name"`
-	ScopeBy          *string        `pulumi:"scopeBy"`
-	Theme            *string        `pulumi:"theme"`
+	DefaultTeam *bool `pulumi:"defaultTeam"`
+	// A description of the team.
+	Description *string `pulumi:"description"`
+	// If the team can only see some resources,
+	// write down a filter of such resources.
+	Filter *string `pulumi:"filter"`
+	// The name of the Secure Team. It must be unique and must not exist in Monitor.
+	Name *string `pulumi:"name"`
+	// Scope for the team. Default: "container".
+	ScopeBy *string `pulumi:"scopeBy"`
+	// Colour of the team. Default: "#73A1F7".
+	Theme *string `pulumi:"theme"`
+	// Defines if the team is able to create Sysdig Capture files.
+	// Default: true.
 	UseSysdigCapture *bool          `pulumi:"useSysdigCapture"`
 	UserRoles        []TeamUserRole `pulumi:"userRoles"`
 	Version          *int           `pulumi:"version"`
 }
 
 type TeamState struct {
-	DefaultTeam      pulumi.BoolPtrInput
-	Description      pulumi.StringPtrInput
-	Filter           pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	ScopeBy          pulumi.StringPtrInput
-	Theme            pulumi.StringPtrInput
+	DefaultTeam pulumi.BoolPtrInput
+	// A description of the team.
+	Description pulumi.StringPtrInput
+	// If the team can only see some resources,
+	// write down a filter of such resources.
+	Filter pulumi.StringPtrInput
+	// The name of the Secure Team. It must be unique and must not exist in Monitor.
+	Name pulumi.StringPtrInput
+	// Scope for the team. Default: "container".
+	ScopeBy pulumi.StringPtrInput
+	// Colour of the team. Default: "#73A1F7".
+	Theme pulumi.StringPtrInput
+	// Defines if the team is able to create Sysdig Capture files.
+	// Default: true.
 	UseSysdigCapture pulumi.BoolPtrInput
 	UserRoles        TeamUserRoleArrayInput
 	Version          pulumi.IntPtrInput
@@ -81,24 +112,40 @@ func (TeamState) ElementType() reflect.Type {
 }
 
 type teamArgs struct {
-	DefaultTeam      *bool          `pulumi:"defaultTeam"`
-	Description      *string        `pulumi:"description"`
-	Filter           *string        `pulumi:"filter"`
-	Name             *string        `pulumi:"name"`
-	ScopeBy          *string        `pulumi:"scopeBy"`
-	Theme            *string        `pulumi:"theme"`
+	DefaultTeam *bool `pulumi:"defaultTeam"`
+	// A description of the team.
+	Description *string `pulumi:"description"`
+	// If the team can only see some resources,
+	// write down a filter of such resources.
+	Filter *string `pulumi:"filter"`
+	// The name of the Secure Team. It must be unique and must not exist in Monitor.
+	Name *string `pulumi:"name"`
+	// Scope for the team. Default: "container".
+	ScopeBy *string `pulumi:"scopeBy"`
+	// Colour of the team. Default: "#73A1F7".
+	Theme *string `pulumi:"theme"`
+	// Defines if the team is able to create Sysdig Capture files.
+	// Default: true.
 	UseSysdigCapture *bool          `pulumi:"useSysdigCapture"`
 	UserRoles        []TeamUserRole `pulumi:"userRoles"`
 }
 
 // The set of arguments for constructing a Team resource.
 type TeamArgs struct {
-	DefaultTeam      pulumi.BoolPtrInput
-	Description      pulumi.StringPtrInput
-	Filter           pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	ScopeBy          pulumi.StringPtrInput
-	Theme            pulumi.StringPtrInput
+	DefaultTeam pulumi.BoolPtrInput
+	// A description of the team.
+	Description pulumi.StringPtrInput
+	// If the team can only see some resources,
+	// write down a filter of such resources.
+	Filter pulumi.StringPtrInput
+	// The name of the Secure Team. It must be unique and must not exist in Monitor.
+	Name pulumi.StringPtrInput
+	// Scope for the team. Default: "container".
+	ScopeBy pulumi.StringPtrInput
+	// Colour of the team. Default: "#73A1F7".
+	Theme pulumi.StringPtrInput
+	// Defines if the team is able to create Sysdig Capture files.
+	// Default: true.
 	UseSysdigCapture pulumi.BoolPtrInput
 	UserRoles        TeamUserRoleArrayInput
 }

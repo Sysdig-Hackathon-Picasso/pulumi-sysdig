@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Secure Benchmark Tasks can be imported using the `id`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/benchmarkTask:BenchmarkTask sample 1
+ * ```
+ */
 export class BenchmarkTask extends pulumi.CustomResource {
     /**
      * Get an existing BenchmarkTask resource's state with the given name, ID, and optional extra
@@ -32,11 +41,26 @@ export class BenchmarkTask extends pulumi.CustomResource {
         return obj['__pulumiType'] === BenchmarkTask.__pulumiType;
     }
 
+    /**
+     * Whether or not this task should be enabled. Default: `true`.
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly id!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+     */
     public readonly schedule!: pulumi.Output<string>;
+    /**
+     * The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+     */
     public readonly schema!: pulumi.Output<string>;
+    /**
+     * The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+     */
     public readonly scope!: pulumi.Output<string>;
 
     /**
@@ -87,11 +111,26 @@ export class BenchmarkTask extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BenchmarkTask resources.
  */
 export interface BenchmarkTaskState {
+    /**
+     * Whether or not this task should be enabled. Default: `true`.
+     */
     enabled?: pulumi.Input<boolean>;
     id?: pulumi.Input<string>;
+    /**
+     * The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+     */
     schedule?: pulumi.Input<string>;
+    /**
+     * The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+     */
     schema?: pulumi.Input<string>;
+    /**
+     * The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+     */
     scope?: pulumi.Input<string>;
 }
 
@@ -99,9 +138,24 @@ export interface BenchmarkTaskState {
  * The set of arguments for constructing a BenchmarkTask resource.
  */
 export interface BenchmarkTaskArgs {
+    /**
+     * Whether or not this task should be enabled. Default: `true`.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+     */
     schedule: pulumi.Input<string>;
+    /**
+     * The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+     */
     schema: pulumi.Input<string>;
+    /**
+     * The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+     */
     scope: pulumi.Input<string>;
 }

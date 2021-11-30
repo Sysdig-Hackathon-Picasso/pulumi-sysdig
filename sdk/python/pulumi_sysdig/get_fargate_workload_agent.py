@@ -93,6 +93,9 @@ class GetFargateWorkloadAgentResult:
     @property
     @pulumi.getter(name="outputContainerDefinitions")
     def output_container_definitions(self) -> str:
+        """
+        The updated container definitions instrumented with the Sysdig workload agent.
+        """
         return pulumi.get(self, "output_container_definitions")
 
     @property
@@ -135,6 +138,15 @@ def get_fargate_workload_agent(collector_host: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFargateWorkloadAgentResult:
     """
     Use this data source to access information about an existing resource.
+
+    :param str collector_host: The collector host to connect to.
+    :param str collector_port: The collector port to connect to.
+    :param str container_definitions: The input Fargate container definitions to instrument with the Sysdig workload agent.
+    :param str image_auth_secret: The registry authentication secret.
+    :param str orchestrator_host: The orchestrator host to connect to.
+    :param str orchestrator_port: The orchestrator port to connect to.
+    :param str sysdig_access_key: The Sysdig Access Key (Agent token).
+    :param str workload_agent_image: The Sysdig workload agent image.
     """
     __args__ = dict()
     __args__['collectorHost'] = collector_host
@@ -176,5 +188,14 @@ def get_fargate_workload_agent_output(collector_host: Optional[pulumi.Input[Opti
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFargateWorkloadAgentResult]:
     """
     Use this data source to access information about an existing resource.
+
+    :param str collector_host: The collector host to connect to.
+    :param str collector_port: The collector port to connect to.
+    :param str container_definitions: The input Fargate container definitions to instrument with the Sysdig workload agent.
+    :param str image_auth_secret: The registry authentication secret.
+    :param str orchestrator_host: The orchestrator host to connect to.
+    :param str orchestrator_port: The orchestrator port to connect to.
+    :param str sysdig_access_key: The Sysdig Access Key (Agent token).
+    :param str workload_agent_image: The Sysdig workload agent image.
     """
     ...

@@ -9,24 +9,48 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Secure Cloud Accounts can be imported using the `account_id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Secure/cloudAccount:CloudAccount sample 123456789012
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Secure/cloudAccount:CloudAccount")]
     public partial class CloudAccount : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// A human friendly alias for `account_id`.
+        /// </summary>
         [Output("alias")]
         public Output<string?> Alias { get; private set; } = null!;
 
+        /// <summary>
+        /// The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+        /// </summary>
         [Output("cloudProvider")]
         public Output<string> CloudProvider { get; private set; } = null!;
 
         [Output("externalId")]
         public Output<string> ExternalId { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+        /// </summary>
         [Output("roleEnabled")]
         public Output<bool?> RoleEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the role Sysdig will have permission to AssumeRole if `role_enaled` is set to `true`. Default: `SysdigCloudBench`.
+        /// </summary>
         [Output("roleName")]
         public Output<string?> RoleName { get; private set; } = null!;
 
@@ -76,18 +100,33 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class CloudAccountArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// A human friendly alias for `account_id`.
+        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+        /// </summary>
         [Input("cloudProvider", required: true)]
         public Input<string> CloudProvider { get; set; } = null!;
 
+        /// <summary>
+        /// Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+        /// </summary>
         [Input("roleEnabled")]
         public Input<bool>? RoleEnabled { get; set; }
 
+        /// <summary>
+        /// The name of the role Sysdig will have permission to AssumeRole if `role_enaled` is set to `true`. Default: `SysdigCloudBench`.
+        /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 
@@ -98,21 +137,36 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class CloudAccountState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// A human friendly alias for `account_id`.
+        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// The cloud provider in which the account exists. Currently supported providers are `aws`, `gcp` and `azure`
+        /// </summary>
         [Input("cloudProvider")]
         public Input<string>? CloudProvider { get; set; }
 
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
+        /// <summary>
+        /// Whether or not a role is provisioned withing this account, that Sysdig has permission to AssumeRole in order to run Benchmarks. Default: `false`.
+        /// </summary>
         [Input("roleEnabled")]
         public Input<bool>? RoleEnabled { get; set; }
 
+        /// <summary>
+        /// The name of the role Sysdig will have permission to AssumeRole if `role_enaled` is set to `true`. Default: `SysdigCloudBench`.
+        /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 

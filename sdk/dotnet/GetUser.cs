@@ -31,12 +31,21 @@ namespace Pulumi.Sysdig
     public sealed class GetUserResult
     {
         public readonly string Email;
+        /// <summary>
+        /// The user's first name.
+        /// </summary>
         public readonly string FirstName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The user's last name.
+        /// </summary>
         public readonly string LastName;
+        /// <summary>
+        /// The user's system role.
+        /// </summary>
         public readonly string SystemRole;
         public readonly int Version;
 

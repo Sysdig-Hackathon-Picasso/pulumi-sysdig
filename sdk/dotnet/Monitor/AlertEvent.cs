@@ -9,57 +9,118 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Monitor
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Event Monitor alerts can be imported using the alert ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Monitor/alertEvent:AlertEvent example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Monitor/alertEvent:AlertEvent")]
     public partial class AlertEvent : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Enables the creation of a capture file of the syscalls during the event.
+        /// </summary>
         [Output("capture")]
         public Output<Outputs.AlertEventCapture?> Capture { get; private set; } = null!;
 
+        /// <summary>
+        /// Allows to define a custom notification title, prepend and append text.
+        /// </summary>
         [Output("customNotification")]
         public Output<Outputs.AlertEventCustomNotification?> CustomNotification { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of Monitor alert.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean that defines if the alert is enabled or not. Defaults to true.
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Number of events to match with event_rel.
+        /// </summary>
         [Output("eventCount")]
         public Output<int> EventCount { get; private set; } = null!;
 
+        /// <summary>
+        /// String that matches part of name, tag or the description of Sysdig Events.
+        /// </summary>
         [Output("eventName")]
         public Output<string> EventName { get; private set; } = null!;
 
+        /// <summary>
+        /// Relationship of the event count. It can be `&gt;`, `&gt;=`, `&lt;`, `&lt;=`, `=` or `!=`.
+        /// </summary>
         [Output("eventRel")]
         public Output<string> EventRel { get; private set; } = null!;
 
+        /// <summary>
+        /// List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+        /// </summary>
         [Output("multipleAlertsBies")]
         public Output<ImmutableArray<string>> MultipleAlertsBies { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Monitor alert. It must be unique.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// List of notification channel IDs where an alert must be sent to once fired.
+        /// </summary>
         [Output("notificationChannels")]
         public Output<ImmutableArray<int>> NotificationChannels { get; private set; } = null!;
 
+        /// <summary>
+        /// Number of minutes for the alert to re-notify until the status is solved.
+        /// </summary>
         [Output("renotificationMinutes")]
         public Output<int?> RenotificationMinutes { get; private set; } = null!;
 
+        /// <summary>
+        /// Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
 
+        /// <summary>
+        /// Severity of the Monitor alert. It must be a value between 0 and 7,
+        /// with 0 being the most critical and 7 the less critical. Defaults to 4.
+        /// </summary>
         [Output("severity")]
         public Output<int?> Severity { get; private set; } = null!;
 
+        /// <summary>
+        /// Source of the event. It can be `docker` or `kubernetes`.
+        /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
 
+        /// <summary>
+        /// Team ID that owns the alert.
+        /// </summary>
         [Output("team")]
         public Output<int> Team { get; private set; } = null!;
 
+        /// <summary>
+        /// Threshold of time for the status to stabilize until the alert is fired.
+        /// </summary>
         [Output("triggerAfterMinutes")]
         public Output<int> TriggerAfterMinutes { get; private set; } = null!;
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Monitor.
+        /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
 
@@ -109,58 +170,106 @@ namespace Pulumi.Sysdig.Monitor
 
     public sealed class AlertEventArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables the creation of a capture file of the syscalls during the event.
+        /// </summary>
         [Input("capture")]
         public Input<Inputs.AlertEventCaptureArgs>? Capture { get; set; }
 
+        /// <summary>
+        /// Allows to define a custom notification title, prepend and append text.
+        /// </summary>
         [Input("customNotification")]
         public Input<Inputs.AlertEventCustomNotificationArgs>? CustomNotification { get; set; }
 
+        /// <summary>
+        /// The description of Monitor alert.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Boolean that defines if the alert is enabled or not. Defaults to true.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Number of events to match with event_rel.
+        /// </summary>
         [Input("eventCount", required: true)]
         public Input<int> EventCount { get; set; } = null!;
 
+        /// <summary>
+        /// String that matches part of name, tag or the description of Sysdig Events.
+        /// </summary>
         [Input("eventName", required: true)]
         public Input<string> EventName { get; set; } = null!;
 
+        /// <summary>
+        /// Relationship of the event count. It can be `&gt;`, `&gt;=`, `&lt;`, `&lt;=`, `=` or `!=`.
+        /// </summary>
         [Input("eventRel", required: true)]
         public Input<string> EventRel { get; set; } = null!;
 
         [Input("multipleAlertsBies")]
         private InputList<string>? _multipleAlertsBies;
+
+        /// <summary>
+        /// List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+        /// </summary>
         public InputList<string> MultipleAlertsBies
         {
             get => _multipleAlertsBies ?? (_multipleAlertsBies = new InputList<string>());
             set => _multipleAlertsBies = value;
         }
 
+        /// <summary>
+        /// The name of the Monitor alert. It must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("notificationChannels")]
         private InputList<int>? _notificationChannels;
+
+        /// <summary>
+        /// List of notification channel IDs where an alert must be sent to once fired.
+        /// </summary>
         public InputList<int> NotificationChannels
         {
             get => _notificationChannels ?? (_notificationChannels = new InputList<int>());
             set => _notificationChannels = value;
         }
 
+        /// <summary>
+        /// Number of minutes for the alert to re-notify until the status is solved.
+        /// </summary>
         [Input("renotificationMinutes")]
         public Input<int>? RenotificationMinutes { get; set; }
 
+        /// <summary>
+        /// Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
+        /// <summary>
+        /// Severity of the Monitor alert. It must be a value between 0 and 7,
+        /// with 0 being the most critical and 7 the less critical. Defaults to 4.
+        /// </summary>
         [Input("severity")]
         public Input<int>? Severity { get; set; }
 
+        /// <summary>
+        /// Source of the event. It can be `docker` or `kubernetes`.
+        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
+        /// <summary>
+        /// Threshold of time for the status to stabilize until the alert is fired.
+        /// </summary>
         [Input("triggerAfterMinutes", required: true)]
         public Input<int> TriggerAfterMinutes { get; set; } = null!;
 
@@ -171,64 +280,118 @@ namespace Pulumi.Sysdig.Monitor
 
     public sealed class AlertEventState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables the creation of a capture file of the syscalls during the event.
+        /// </summary>
         [Input("capture")]
         public Input<Inputs.AlertEventCaptureGetArgs>? Capture { get; set; }
 
+        /// <summary>
+        /// Allows to define a custom notification title, prepend and append text.
+        /// </summary>
         [Input("customNotification")]
         public Input<Inputs.AlertEventCustomNotificationGetArgs>? CustomNotification { get; set; }
 
+        /// <summary>
+        /// The description of Monitor alert.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Boolean that defines if the alert is enabled or not. Defaults to true.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Number of events to match with event_rel.
+        /// </summary>
         [Input("eventCount")]
         public Input<int>? EventCount { get; set; }
 
+        /// <summary>
+        /// String that matches part of name, tag or the description of Sysdig Events.
+        /// </summary>
         [Input("eventName")]
         public Input<string>? EventName { get; set; }
 
+        /// <summary>
+        /// Relationship of the event count. It can be `&gt;`, `&gt;=`, `&lt;`, `&lt;=`, `=` or `!=`.
+        /// </summary>
         [Input("eventRel")]
         public Input<string>? EventRel { get; set; }
 
         [Input("multipleAlertsBies")]
         private InputList<string>? _multipleAlertsBies;
+
+        /// <summary>
+        /// List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+        /// </summary>
         public InputList<string> MultipleAlertsBies
         {
             get => _multipleAlertsBies ?? (_multipleAlertsBies = new InputList<string>());
             set => _multipleAlertsBies = value;
         }
 
+        /// <summary>
+        /// The name of the Monitor alert. It must be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("notificationChannels")]
         private InputList<int>? _notificationChannels;
+
+        /// <summary>
+        /// List of notification channel IDs where an alert must be sent to once fired.
+        /// </summary>
         public InputList<int> NotificationChannels
         {
             get => _notificationChannels ?? (_notificationChannels = new InputList<int>());
             set => _notificationChannels = value;
         }
 
+        /// <summary>
+        /// Number of minutes for the alert to re-notify until the status is solved.
+        /// </summary>
         [Input("renotificationMinutes")]
         public Input<int>? RenotificationMinutes { get; set; }
 
+        /// <summary>
+        /// Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
+        /// <summary>
+        /// Severity of the Monitor alert. It must be a value between 0 and 7,
+        /// with 0 being the most critical and 7 the less critical. Defaults to 4.
+        /// </summary>
         [Input("severity")]
         public Input<int>? Severity { get; set; }
 
+        /// <summary>
+        /// Source of the event. It can be `docker` or `kubernetes`.
+        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
+        /// <summary>
+        /// Team ID that owns the alert.
+        /// </summary>
         [Input("team")]
         public Input<int>? Team { get; set; }
 
+        /// <summary>
+        /// Threshold of time for the status to stabilize until the alert is fired.
+        /// </summary>
         [Input("triggerAfterMinutes")]
         public Input<int>? TriggerAfterMinutes { get; set; }
 
+        /// <summary>
+        /// Current version of the resource in Sysdig Monitor.
+        /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }
 

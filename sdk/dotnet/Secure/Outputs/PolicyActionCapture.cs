@@ -13,7 +13,15 @@ namespace Pulumi.Sysdig.Secure.Outputs
     [OutputType]
     public sealed class PolicyActionCapture
     {
+        /// <summary>
+        /// Captures the system calls for the amount
+        /// of seconds after the policy was triggered.
+        /// </summary>
         public readonly int SecondsAfterEvent;
+        /// <summary>
+        /// Captures the system calls during the
+        /// amount of seconds before the policy was triggered.
+        /// </summary>
         public readonly int SecondsBeforeEvent;
 
         [OutputConstructor]

@@ -13,9 +13,21 @@ namespace Pulumi.Sysdig.Secure.Outputs
     [OutputType]
     public sealed class RuleFalcoException
     {
+        /// <summary>
+        /// Contains comparison operators that align 1-1 with the items in the fields property.
+        /// </summary>
         public readonly ImmutableArray<string> Comps;
+        /// <summary>
+        /// Contains one or more fields that will extract a value from the syscall/k8s_audit events.
+        /// </summary>
         public readonly ImmutableArray<string> Fields;
+        /// <summary>
+        /// The name of the exception. Only used to provide a handy name, and to potentially link together values in a later rule that has `append = true`.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Contains tuples of values. Each item in the tuple should align 1-1 with the corresponding field and comparison operator. Since the value can be a string, a list of strings or a list of a list of strings, the value of this field must be supplied in JSON format. You can use the default `jsonencode` function to provide this value. See the usage example on the top.
+        /// </summary>
         public readonly string Values;
 
         [OutputConstructor]

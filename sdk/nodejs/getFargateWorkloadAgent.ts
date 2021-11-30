@@ -28,13 +28,37 @@ export function getFargateWorkloadAgent(args: GetFargateWorkloadAgentArgs, opts?
  * A collection of arguments for invoking GetFargateWorkloadAgent.
  */
 export interface GetFargateWorkloadAgentArgs {
+    /**
+     * The collector host to connect to.
+     */
     collectorHost?: string;
+    /**
+     * The collector port to connect to.
+     */
     collectorPort?: string;
+    /**
+     * The input Fargate container definitions to instrument with the Sysdig workload agent.
+     */
     containerDefinitions: string;
+    /**
+     * The registry authentication secret.
+     */
     imageAuthSecret?: string;
+    /**
+     * The orchestrator host to connect to.
+     */
     orchestratorHost?: string;
+    /**
+     * The orchestrator port to connect to.
+     */
     orchestratorPort?: string;
+    /**
+     * The Sysdig Access Key (Agent token).
+     */
     sysdigAccessKey: string;
+    /**
+     * The Sysdig workload agent image.
+     */
     workloadAgentImage: string;
 }
 
@@ -52,6 +76,9 @@ export interface GetFargateWorkloadAgentResult {
     readonly imageAuthSecret?: string;
     readonly orchestratorHost?: string;
     readonly orchestratorPort?: string;
+    /**
+     * The updated container definitions instrumented with the Sysdig workload agent.
+     */
     readonly outputContainerDefinitions: string;
     readonly sysdigAccessKey: string;
     readonly workloadAgentImage: string;
@@ -65,12 +92,36 @@ export function getFargateWorkloadAgentOutput(args: GetFargateWorkloadAgentOutpu
  * A collection of arguments for invoking GetFargateWorkloadAgent.
  */
 export interface GetFargateWorkloadAgentOutputArgs {
+    /**
+     * The collector host to connect to.
+     */
     collectorHost?: pulumi.Input<string>;
+    /**
+     * The collector port to connect to.
+     */
     collectorPort?: pulumi.Input<string>;
+    /**
+     * The input Fargate container definitions to instrument with the Sysdig workload agent.
+     */
     containerDefinitions: pulumi.Input<string>;
+    /**
+     * The registry authentication secret.
+     */
     imageAuthSecret?: pulumi.Input<string>;
+    /**
+     * The orchestrator host to connect to.
+     */
     orchestratorHost?: pulumi.Input<string>;
+    /**
+     * The orchestrator port to connect to.
+     */
     orchestratorPort?: pulumi.Input<string>;
+    /**
+     * The Sysdig Access Key (Agent token).
+     */
     sysdigAccessKey: pulumi.Input<string>;
+    /**
+     * The Sysdig workload agent image.
+     */
     workloadAgentImage: pulumi.Input<string>;
 }

@@ -9,15 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Sysdig.Secure
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Secure lists can be imported using the ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import sysdig:Secure/list:List example 12345
+    /// ```
+    /// </summary>
     [SysdigResourceType("sysdig:Secure/list:List")]
     public partial class List : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+        /// The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+        /// append rule called "foo" but not a second one. By default this is false.
+        /// </summary>
         [Output("append")]
         public Output<bool?> Append { get; private set; } = null!;
 
+        /// <summary>
+        /// Elements in the list. Elements can be another lists.
+        /// </summary>
         [Output("items")]
         public Output<ImmutableArray<string>> Items { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Secure list. It must be unique if it's not in append mode.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -70,17 +90,29 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class ListArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+        /// The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+        /// append rule called "foo" but not a second one. By default this is false.
+        /// </summary>
         [Input("append")]
         public Input<bool>? Append { get; set; }
 
         [Input("items", required: true)]
         private InputList<string>? _items;
+
+        /// <summary>
+        /// Elements in the list. Elements can be another lists.
+        /// </summary>
         public InputList<string> Items
         {
             get => _items ?? (_items = new InputList<string>());
             set => _items = value;
         }
 
+        /// <summary>
+        /// The name of the Secure list. It must be unique if it's not in append mode.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -91,17 +123,29 @@ namespace Pulumi.Sysdig.Secure
 
     public sealed class ListState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+        /// The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+        /// append rule called "foo" but not a second one. By default this is false.
+        /// </summary>
         [Input("append")]
         public Input<bool>? Append { get; set; }
 
         [Input("items")]
         private InputList<string>? _items;
+
+        /// <summary>
+        /// Elements in the list. Elements can be another lists.
+        /// </summary>
         public InputList<string> Items
         {
             get => _items ?? (_items = new InputList<string>());
             set => _items = value;
         }
 
+        /// <summary>
+        /// The name of the Secure list. It must be unique if it's not in append mode.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

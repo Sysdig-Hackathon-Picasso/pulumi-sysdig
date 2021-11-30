@@ -29,12 +29,21 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     readonly email: string;
+    /**
+     * The user's first name.
+     */
     readonly firstName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The user's last name.
+     */
     readonly lastName: string;
+    /**
+     * The user's system role.
+     */
     readonly systemRole: string;
     readonly version: number;
 }

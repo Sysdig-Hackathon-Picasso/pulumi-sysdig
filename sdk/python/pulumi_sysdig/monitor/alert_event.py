@@ -32,6 +32,22 @@ class AlertEventArgs:
                  severity: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a AlertEvent resource.
+        :param pulumi.Input[int] event_count: Number of events to match with event_rel.
+        :param pulumi.Input[str] event_name: String that matches part of name, tag or the description of Sysdig Events.
+        :param pulumi.Input[str] event_rel: Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+        :param pulumi.Input[str] source: Source of the event. It can be `docker` or `kubernetes`.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
+        :param pulumi.Input['AlertEventCaptureArgs'] capture: Enables the creation of a capture file of the syscalls during the event.
+        :param pulumi.Input['AlertEventCustomNotificationArgs'] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] multiple_alerts_bies: List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[str] scope: Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
         """
         pulumi.set(__self__, "event_count", event_count)
         pulumi.set(__self__, "event_name", event_name)
@@ -62,6 +78,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter(name="eventCount")
     def event_count(self) -> pulumi.Input[int]:
+        """
+        Number of events to match with event_rel.
+        """
         return pulumi.get(self, "event_count")
 
     @event_count.setter
@@ -71,6 +90,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter(name="eventName")
     def event_name(self) -> pulumi.Input[str]:
+        """
+        String that matches part of name, tag or the description of Sysdig Events.
+        """
         return pulumi.get(self, "event_name")
 
     @event_name.setter
@@ -80,6 +102,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter(name="eventRel")
     def event_rel(self) -> pulumi.Input[str]:
+        """
+        Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+        """
         return pulumi.get(self, "event_rel")
 
     @event_rel.setter
@@ -89,6 +114,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
+        """
+        Source of the event. It can be `docker` or `kubernetes`.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -98,6 +126,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter(name="triggerAfterMinutes")
     def trigger_after_minutes(self) -> pulumi.Input[int]:
+        """
+        Threshold of time for the status to stabilize until the alert is fired.
+        """
         return pulumi.get(self, "trigger_after_minutes")
 
     @trigger_after_minutes.setter
@@ -107,6 +138,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter
     def capture(self) -> Optional[pulumi.Input['AlertEventCaptureArgs']]:
+        """
+        Enables the creation of a capture file of the syscalls during the event.
+        """
         return pulumi.get(self, "capture")
 
     @capture.setter
@@ -116,6 +150,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter(name="customNotification")
     def custom_notification(self) -> Optional[pulumi.Input['AlertEventCustomNotificationArgs']]:
+        """
+        Allows to define a custom notification title, prepend and append text.
+        """
         return pulumi.get(self, "custom_notification")
 
     @custom_notification.setter
@@ -125,6 +162,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Monitor alert.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -134,6 +174,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that defines if the alert is enabled or not. Defaults to true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -143,6 +186,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter(name="multipleAlertsBies")
     def multiple_alerts_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+        """
         return pulumi.get(self, "multiple_alerts_bies")
 
     @multiple_alerts_bies.setter
@@ -152,6 +198,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Monitor alert. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -161,6 +210,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of notification channel IDs where an alert must be sent to once fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @notification_channels.setter
@@ -170,6 +222,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter(name="renotificationMinutes")
     def renotification_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of minutes for the alert to re-notify until the status is solved.
+        """
         return pulumi.get(self, "renotification_minutes")
 
     @renotification_minutes.setter
@@ -179,6 +234,9 @@ class AlertEventArgs:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -188,6 +246,10 @@ class AlertEventArgs:
     @property
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Severity of the Monitor alert. It must be a value between 0 and 7,
+        with 0 being the most critical and 7 the less critical. Defaults to 4.
+        """
         return pulumi.get(self, "severity")
 
     @severity.setter
@@ -217,6 +279,24 @@ class _AlertEventState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering AlertEvent resources.
+        :param pulumi.Input['AlertEventCaptureArgs'] capture: Enables the creation of a capture file of the syscalls during the event.
+        :param pulumi.Input['AlertEventCustomNotificationArgs'] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[int] event_count: Number of events to match with event_rel.
+        :param pulumi.Input[str] event_name: String that matches part of name, tag or the description of Sysdig Events.
+        :param pulumi.Input[str] event_rel: Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] multiple_alerts_bies: List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[str] scope: Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
+        :param pulumi.Input[str] source: Source of the event. It can be `docker` or `kubernetes`.
+        :param pulumi.Input[int] team: Team ID that owns the alert.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Monitor.
         """
         if capture is not None:
             pulumi.set(__self__, "capture", capture)
@@ -256,6 +336,9 @@ class _AlertEventState:
     @property
     @pulumi.getter
     def capture(self) -> Optional[pulumi.Input['AlertEventCaptureArgs']]:
+        """
+        Enables the creation of a capture file of the syscalls during the event.
+        """
         return pulumi.get(self, "capture")
 
     @capture.setter
@@ -265,6 +348,9 @@ class _AlertEventState:
     @property
     @pulumi.getter(name="customNotification")
     def custom_notification(self) -> Optional[pulumi.Input['AlertEventCustomNotificationArgs']]:
+        """
+        Allows to define a custom notification title, prepend and append text.
+        """
         return pulumi.get(self, "custom_notification")
 
     @custom_notification.setter
@@ -274,6 +360,9 @@ class _AlertEventState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of Monitor alert.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -283,6 +372,9 @@ class _AlertEventState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that defines if the alert is enabled or not. Defaults to true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -292,6 +384,9 @@ class _AlertEventState:
     @property
     @pulumi.getter(name="eventCount")
     def event_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of events to match with event_rel.
+        """
         return pulumi.get(self, "event_count")
 
     @event_count.setter
@@ -301,6 +396,9 @@ class _AlertEventState:
     @property
     @pulumi.getter(name="eventName")
     def event_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        String that matches part of name, tag or the description of Sysdig Events.
+        """
         return pulumi.get(self, "event_name")
 
     @event_name.setter
@@ -310,6 +408,9 @@ class _AlertEventState:
     @property
     @pulumi.getter(name="eventRel")
     def event_rel(self) -> Optional[pulumi.Input[str]]:
+        """
+        Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+        """
         return pulumi.get(self, "event_rel")
 
     @event_rel.setter
@@ -319,6 +420,9 @@ class _AlertEventState:
     @property
     @pulumi.getter(name="multipleAlertsBies")
     def multiple_alerts_bies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+        """
         return pulumi.get(self, "multiple_alerts_bies")
 
     @multiple_alerts_bies.setter
@@ -328,6 +432,9 @@ class _AlertEventState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Monitor alert. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -337,6 +444,9 @@ class _AlertEventState:
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        List of notification channel IDs where an alert must be sent to once fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @notification_channels.setter
@@ -346,6 +456,9 @@ class _AlertEventState:
     @property
     @pulumi.getter(name="renotificationMinutes")
     def renotification_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of minutes for the alert to re-notify until the status is solved.
+        """
         return pulumi.get(self, "renotification_minutes")
 
     @renotification_minutes.setter
@@ -355,6 +468,9 @@ class _AlertEventState:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -364,6 +480,10 @@ class _AlertEventState:
     @property
     @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Severity of the Monitor alert. It must be a value between 0 and 7,
+        with 0 being the most critical and 7 the less critical. Defaults to 4.
+        """
         return pulumi.get(self, "severity")
 
     @severity.setter
@@ -373,6 +493,9 @@ class _AlertEventState:
     @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source of the event. It can be `docker` or `kubernetes`.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -382,6 +505,9 @@ class _AlertEventState:
     @property
     @pulumi.getter
     def team(self) -> Optional[pulumi.Input[int]]:
+        """
+        Team ID that owns the alert.
+        """
         return pulumi.get(self, "team")
 
     @team.setter
@@ -391,6 +517,9 @@ class _AlertEventState:
     @property
     @pulumi.getter(name="triggerAfterMinutes")
     def trigger_after_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Threshold of time for the status to stabilize until the alert is fired.
+        """
         return pulumi.get(self, "trigger_after_minutes")
 
     @trigger_after_minutes.setter
@@ -400,6 +529,9 @@ class _AlertEventState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        Current version of the resource in Sysdig Monitor.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -429,9 +561,32 @@ class AlertEvent(pulumi.CustomResource):
                  trigger_after_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a AlertEvent resource with the given unique name, props, and options.
+        ## Import
+
+        Event Monitor alerts can be imported using the alert ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/alertEvent:AlertEvent example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AlertEventCaptureArgs']] capture: Enables the creation of a capture file of the syscalls during the event.
+        :param pulumi.Input[pulumi.InputType['AlertEventCustomNotificationArgs']] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[int] event_count: Number of events to match with event_rel.
+        :param pulumi.Input[str] event_name: String that matches part of name, tag or the description of Sysdig Events.
+        :param pulumi.Input[str] event_rel: Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] multiple_alerts_bies: List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[str] scope: Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
+        :param pulumi.Input[str] source: Source of the event. It can be `docker` or `kubernetes`.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
         """
         ...
     @overload
@@ -440,7 +595,14 @@ class AlertEvent(pulumi.CustomResource):
                  args: AlertEventArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AlertEvent resource with the given unique name, props, and options.
+        ## Import
+
+        Event Monitor alerts can be imported using the alert ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Monitor/alertEvent:AlertEvent example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param AlertEventArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -544,6 +706,24 @@ class AlertEvent(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AlertEventCaptureArgs']] capture: Enables the creation of a capture file of the syscalls during the event.
+        :param pulumi.Input[pulumi.InputType['AlertEventCustomNotificationArgs']] custom_notification: Allows to define a custom notification title, prepend and append text.
+        :param pulumi.Input[str] description: The description of Monitor alert.
+        :param pulumi.Input[bool] enabled: Boolean that defines if the alert is enabled or not. Defaults to true.
+        :param pulumi.Input[int] event_count: Number of events to match with event_rel.
+        :param pulumi.Input[str] event_name: String that matches part of name, tag or the description of Sysdig Events.
+        :param pulumi.Input[str] event_rel: Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] multiple_alerts_bies: List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+        :param pulumi.Input[str] name: The name of the Monitor alert. It must be unique.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] notification_channels: List of notification channel IDs where an alert must be sent to once fired.
+        :param pulumi.Input[int] renotification_minutes: Number of minutes for the alert to re-notify until the status is solved.
+        :param pulumi.Input[str] scope: Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        :param pulumi.Input[int] severity: Severity of the Monitor alert. It must be a value between 0 and 7,
+               with 0 being the most critical and 7 the less critical. Defaults to 4.
+        :param pulumi.Input[str] source: Source of the event. It can be `docker` or `kubernetes`.
+        :param pulumi.Input[int] team: Team ID that owns the alert.
+        :param pulumi.Input[int] trigger_after_minutes: Threshold of time for the status to stabilize until the alert is fired.
+        :param pulumi.Input[int] version: Current version of the resource in Sysdig Monitor.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -571,85 +751,137 @@ class AlertEvent(pulumi.CustomResource):
     @property
     @pulumi.getter
     def capture(self) -> pulumi.Output[Optional['outputs.AlertEventCapture']]:
+        """
+        Enables the creation of a capture file of the syscalls during the event.
+        """
         return pulumi.get(self, "capture")
 
     @property
     @pulumi.getter(name="customNotification")
     def custom_notification(self) -> pulumi.Output[Optional['outputs.AlertEventCustomNotification']]:
+        """
+        Allows to define a custom notification title, prepend and append text.
+        """
         return pulumi.get(self, "custom_notification")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of Monitor alert.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean that defines if the alert is enabled or not. Defaults to true.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="eventCount")
     def event_count(self) -> pulumi.Output[int]:
+        """
+        Number of events to match with event_rel.
+        """
         return pulumi.get(self, "event_count")
 
     @property
     @pulumi.getter(name="eventName")
     def event_name(self) -> pulumi.Output[str]:
+        """
+        String that matches part of name, tag or the description of Sysdig Events.
+        """
         return pulumi.get(self, "event_name")
 
     @property
     @pulumi.getter(name="eventRel")
     def event_rel(self) -> pulumi.Output[str]:
+        """
+        Relationship of the event count. It can be `>`, `>=`, `<`, `<=`, `=` or `!=`.
+        """
         return pulumi.get(self, "event_rel")
 
     @property
     @pulumi.getter(name="multipleAlertsBies")
     def multiple_alerts_bies(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of segments to trigger a separate alert on. Example: `["kubernetes.cluster.name", "kubernetes.namespace.name"]`.
+        """
         return pulumi.get(self, "multiple_alerts_bies")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Monitor alert. It must be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="notificationChannels")
     def notification_channels(self) -> pulumi.Output[Optional[Sequence[int]]]:
+        """
+        List of notification channel IDs where an alert must be sent to once fired.
+        """
         return pulumi.get(self, "notification_channels")
 
     @property
     @pulumi.getter(name="renotificationMinutes")
     def renotification_minutes(self) -> pulumi.Output[Optional[int]]:
+        """
+        Number of minutes for the alert to re-notify until the status is solved.
+        """
         return pulumi.get(self, "renotification_minutes")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        Part of the infrastructure where the alert is valid. Defaults to the entire infrastructure.
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def severity(self) -> pulumi.Output[Optional[int]]:
+        """
+        Severity of the Monitor alert. It must be a value between 0 and 7,
+        with 0 being the most critical and 7 the less critical. Defaults to 4.
+        """
         return pulumi.get(self, "severity")
 
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output[str]:
+        """
+        Source of the event. It can be `docker` or `kubernetes`.
+        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter
     def team(self) -> pulumi.Output[int]:
+        """
+        Team ID that owns the alert.
+        """
         return pulumi.get(self, "team")
 
     @property
     @pulumi.getter(name="triggerAfterMinutes")
     def trigger_after_minutes(self) -> pulumi.Output[int]:
+        """
+        Threshold of time for the status to stabilize until the alert is fired.
+        """
         return pulumi.get(self, "trigger_after_minutes")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        Current version of the resource in Sysdig Monitor.
+        """
         return pulumi.get(self, "version")
 

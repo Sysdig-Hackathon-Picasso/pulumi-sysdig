@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Secure lists can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/list:List example 12345
+ * ```
+ */
 export class List extends pulumi.CustomResource {
     /**
      * Get an existing List resource's state with the given name, ID, and optional extra
@@ -32,8 +41,19 @@ export class List extends pulumi.CustomResource {
         return obj['__pulumiType'] === List.__pulumiType;
     }
 
+    /**
+     * Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+     * The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+     * append rule called "foo" but not a second one. By default this is false.
+     */
     public readonly append!: pulumi.Output<boolean | undefined>;
+    /**
+     * Elements in the list. Elements can be another lists.
+     */
     public readonly items!: pulumi.Output<string[]>;
+    /**
+     * The name of the Secure list. It must be unique if it's not in append mode.
+     */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly version!: pulumi.Output<number>;
 
@@ -75,8 +95,19 @@ export class List extends pulumi.CustomResource {
  * Input properties used for looking up and filtering List resources.
  */
 export interface ListState {
+    /**
+     * Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+     * The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+     * append rule called "foo" but not a second one. By default this is false.
+     */
     append?: pulumi.Input<boolean>;
+    /**
+     * Elements in the list. Elements can be another lists.
+     */
     items?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the Secure list. It must be unique if it's not in append mode.
+     */
     name?: pulumi.Input<string>;
     version?: pulumi.Input<number>;
 }
@@ -85,7 +116,18 @@ export interface ListState {
  * The set of arguments for constructing a List resource.
  */
 export interface ListArgs {
+    /**
+     * Adds these elements to an existing list. Used to extend existing lists provided by Sysdig.
+     * The rules can only be extended once, for example if there is an existing list called "foo", one can have another
+     * append rule called "foo" but not a second one. By default this is false.
+     */
     append?: pulumi.Input<boolean>;
+    /**
+     * Elements in the list. Elements can be another lists.
+     */
     items: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the Secure list. It must be unique if it's not in append mode.
+     */
     name?: pulumi.Input<string>;
 }

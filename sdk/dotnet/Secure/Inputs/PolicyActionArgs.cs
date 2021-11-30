@@ -14,12 +14,21 @@ namespace Pulumi.Sysdig.Secure.Inputs
     {
         [Input("captures")]
         private InputList<Inputs.PolicyActionCaptureArgs>? _captures;
+
+        /// <summary>
+        /// Captures with Sysdig the stream of system calls:
+        /// </summary>
         public InputList<Inputs.PolicyActionCaptureArgs> Captures
         {
             get => _captures ?? (_captures = new InputList<Inputs.PolicyActionCaptureArgs>());
             set => _captures = value;
         }
 
+        /// <summary>
+        /// The action applied to container when this Policy is
+        /// triggered. Can be *stop*, *pause* or *kill*. If this is not specified,
+        /// no action will be applied at the container level.
+        /// </summary>
         [Input("container")]
         public Input<string>? Container { get; set; }
 

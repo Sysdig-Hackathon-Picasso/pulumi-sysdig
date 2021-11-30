@@ -21,6 +21,15 @@ class NotificationChannelWebhookArgs:
                  send_test_notification: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a NotificationChannelWebhook resource.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[str] url: URL to send the event.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "notify_when_ok", notify_when_ok)
@@ -34,6 +43,9 @@ class NotificationChannelWebhookArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        If false, the channel will not emit notifications. Default is true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -43,6 +55,10 @@ class NotificationChannelWebhookArgs:
     @property
     @pulumi.getter(name="notifyWhenOk")
     def notify_when_ok(self) -> pulumi.Input[bool]:
+        """
+        Send a new notification when the alert condition is 
+        no longer triggered. Default is false.
+        """
         return pulumi.get(self, "notify_when_ok")
 
     @notify_when_ok.setter
@@ -52,6 +68,10 @@ class NotificationChannelWebhookArgs:
     @property
     @pulumi.getter(name="notifyWhenResolved")
     def notify_when_resolved(self) -> pulumi.Input[bool]:
+        """
+        Send a new notification when the alert is manually 
+        acknowledged by a user. Default is false.
+        """
         return pulumi.get(self, "notify_when_resolved")
 
     @notify_when_resolved.setter
@@ -61,6 +81,9 @@ class NotificationChannelWebhookArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        URL to send the event.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -70,6 +93,9 @@ class NotificationChannelWebhookArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Notification Channel. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -79,6 +105,10 @@ class NotificationChannelWebhookArgs:
     @property
     @pulumi.getter(name="sendTestNotification")
     def send_test_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send an initial test notification to check
+        if the notification channel is working. Default is false.
+        """
         return pulumi.get(self, "send_test_notification")
 
     @send_test_notification.setter
@@ -98,6 +128,16 @@ class _NotificationChannelWebhookState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering NotificationChannelWebhook resources.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
+        :param pulumi.Input[str] url: URL to send the event.
+        :param pulumi.Input[int] version: (Computed) The current version of the Notification Channel.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -117,6 +157,9 @@ class _NotificationChannelWebhookState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If false, the channel will not emit notifications. Default is true.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -126,6 +169,9 @@ class _NotificationChannelWebhookState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Notification Channel. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -135,6 +181,10 @@ class _NotificationChannelWebhookState:
     @property
     @pulumi.getter(name="notifyWhenOk")
     def notify_when_ok(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send a new notification when the alert condition is 
+        no longer triggered. Default is false.
+        """
         return pulumi.get(self, "notify_when_ok")
 
     @notify_when_ok.setter
@@ -144,6 +194,10 @@ class _NotificationChannelWebhookState:
     @property
     @pulumi.getter(name="notifyWhenResolved")
     def notify_when_resolved(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send a new notification when the alert is manually 
+        acknowledged by a user. Default is false.
+        """
         return pulumi.get(self, "notify_when_resolved")
 
     @notify_when_resolved.setter
@@ -153,6 +207,10 @@ class _NotificationChannelWebhookState:
     @property
     @pulumi.getter(name="sendTestNotification")
     def send_test_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Send an initial test notification to check
+        if the notification channel is working. Default is false.
+        """
         return pulumi.get(self, "send_test_notification")
 
     @send_test_notification.setter
@@ -162,6 +220,9 @@ class _NotificationChannelWebhookState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL to send the event.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -171,6 +232,9 @@ class _NotificationChannelWebhookState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        (Computed) The current version of the Notification Channel.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -191,9 +255,25 @@ class NotificationChannelWebhook(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a NotificationChannelWebhook resource with the given unique name, props, and options.
+        ## Import
+
+        Webhook notification channels for Secure can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/notificationChannelWebhook:NotificationChannelWebhook example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
+        :param pulumi.Input[str] url: URL to send the event.
         """
         ...
     @overload
@@ -202,7 +282,14 @@ class NotificationChannelWebhook(pulumi.CustomResource):
                  args: NotificationChannelWebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NotificationChannelWebhook resource with the given unique name, props, and options.
+        ## Import
+
+        Webhook notification channels for Secure can be imported using the ID, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/notificationChannelWebhook:NotificationChannelWebhook example 12345
+        ```
+
         :param str resource_name: The name of the resource.
         :param NotificationChannelWebhookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,6 +362,16 @@ class NotificationChannelWebhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: If false, the channel will not emit notifications. Default is true.
+        :param pulumi.Input[str] name: The name of the Notification Channel. Must be unique.
+        :param pulumi.Input[bool] notify_when_ok: Send a new notification when the alert condition is 
+               no longer triggered. Default is false.
+        :param pulumi.Input[bool] notify_when_resolved: Send a new notification when the alert is manually 
+               acknowledged by a user. Default is false.
+        :param pulumi.Input[bool] send_test_notification: Send an initial test notification to check
+               if the notification channel is working. Default is false.
+        :param pulumi.Input[str] url: URL to send the event.
+        :param pulumi.Input[int] version: (Computed) The current version of the Notification Channel.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -292,35 +389,59 @@ class NotificationChannelWebhook(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
+        """
+        If false, the channel will not emit notifications. Default is true.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Notification Channel. Must be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="notifyWhenOk")
     def notify_when_ok(self) -> pulumi.Output[bool]:
+        """
+        Send a new notification when the alert condition is 
+        no longer triggered. Default is false.
+        """
         return pulumi.get(self, "notify_when_ok")
 
     @property
     @pulumi.getter(name="notifyWhenResolved")
     def notify_when_resolved(self) -> pulumi.Output[bool]:
+        """
+        Send a new notification when the alert is manually 
+        acknowledged by a user. Default is false.
+        """
         return pulumi.get(self, "notify_when_resolved")
 
     @property
     @pulumi.getter(name="sendTestNotification")
     def send_test_notification(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Send an initial test notification to check
+        if the notification channel is working. Default is false.
+        """
         return pulumi.get(self, "send_test_notification")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        URL to send the event.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
+        """
+        (Computed) The current version of the Notification Channel.
+        """
         return pulumi.get(self, "version")
 

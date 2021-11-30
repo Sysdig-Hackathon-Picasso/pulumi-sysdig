@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Monitor Teams can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Monitor/team:Team example 12345
+ * ```
+ */
 export class Team extends pulumi.CustomResource {
     /**
      * Get an existing Team resource's state with the given name, ID, and optional extra
@@ -33,15 +42,41 @@ export class Team extends pulumi.CustomResource {
         return obj['__pulumiType'] === Team.__pulumiType;
     }
 
+    /**
+     * TODO. Default: false.
+     */
     public readonly canSeeInfrastructureEvents!: pulumi.Output<boolean | undefined>;
+    /**
+     * TODO. Default: false.
+     */
     public readonly canUseAwsData!: pulumi.Output<boolean | undefined>;
     public readonly canUseSysdigCapture!: pulumi.Output<boolean | undefined>;
     public readonly defaultTeam!: pulumi.Output<boolean | undefined>;
+    /**
+     * A description of the team.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Main entry point for the current team in the product. 
+     * See the Entrypoint argument reference section for more information.
+     */
     public readonly entrypoints!: pulumi.Output<outputs.Monitor.TeamEntrypoint[]>;
+    /**
+     * If the team can only see some resources, 
+     * write down a filter of such resources.
+     */
     public readonly filter!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Monitor Team. It must be unique and must not exist in Secure.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Scope for the team. Default: "container".
+     */
     public readonly scopeBy!: pulumi.Output<string | undefined>;
+    /**
+     * Colour of the team. Default: "#73A1F7".
+     */
     public readonly theme!: pulumi.Output<string | undefined>;
     public readonly userRoles!: pulumi.Output<outputs.Monitor.TeamUserRole[] | undefined>;
     public /*out*/ readonly version!: pulumi.Output<number>;
@@ -100,15 +135,41 @@ export class Team extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Team resources.
  */
 export interface TeamState {
+    /**
+     * TODO. Default: false.
+     */
     canSeeInfrastructureEvents?: pulumi.Input<boolean>;
+    /**
+     * TODO. Default: false.
+     */
     canUseAwsData?: pulumi.Input<boolean>;
     canUseSysdigCapture?: pulumi.Input<boolean>;
     defaultTeam?: pulumi.Input<boolean>;
+    /**
+     * A description of the team.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Main entry point for the current team in the product. 
+     * See the Entrypoint argument reference section for more information.
+     */
     entrypoints?: pulumi.Input<pulumi.Input<inputs.Monitor.TeamEntrypoint>[]>;
+    /**
+     * If the team can only see some resources, 
+     * write down a filter of such resources.
+     */
     filter?: pulumi.Input<string>;
+    /**
+     * The name of the Monitor Team. It must be unique and must not exist in Secure.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Scope for the team. Default: "container".
+     */
     scopeBy?: pulumi.Input<string>;
+    /**
+     * Colour of the team. Default: "#73A1F7".
+     */
     theme?: pulumi.Input<string>;
     userRoles?: pulumi.Input<pulumi.Input<inputs.Monitor.TeamUserRole>[]>;
     version?: pulumi.Input<number>;
@@ -118,15 +179,41 @@ export interface TeamState {
  * The set of arguments for constructing a Team resource.
  */
 export interface TeamArgs {
+    /**
+     * TODO. Default: false.
+     */
     canSeeInfrastructureEvents?: pulumi.Input<boolean>;
+    /**
+     * TODO. Default: false.
+     */
     canUseAwsData?: pulumi.Input<boolean>;
     canUseSysdigCapture?: pulumi.Input<boolean>;
     defaultTeam?: pulumi.Input<boolean>;
+    /**
+     * A description of the team.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Main entry point for the current team in the product. 
+     * See the Entrypoint argument reference section for more information.
+     */
     entrypoints: pulumi.Input<pulumi.Input<inputs.Monitor.TeamEntrypoint>[]>;
+    /**
+     * If the team can only see some resources, 
+     * write down a filter of such resources.
+     */
     filter?: pulumi.Input<string>;
+    /**
+     * The name of the Monitor Team. It must be unique and must not exist in Secure.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Scope for the team. Default: "container".
+     */
     scopeBy?: pulumi.Input<string>;
+    /**
+     * Colour of the team. Default: "#73A1F7".
+     */
     theme?: pulumi.Input<string>;
     userRoles?: pulumi.Input<pulumi.Input<inputs.Monitor.TeamUserRole>[]>;
 }

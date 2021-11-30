@@ -20,6 +20,11 @@ class BenchmarkTaskArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BenchmarkTask resource.
+        :param pulumi.Input[str] schedule: The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+        :param pulumi.Input[str] schema: The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+        :param pulumi.Input[str] scope: The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+        :param pulumi.Input[bool] enabled: Whether or not this task should be enabled. Default: `true`.
+        :param pulumi.Input[str] name: The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
         """
         pulumi.set(__self__, "schedule", schedule)
         pulumi.set(__self__, "schema", schema)
@@ -32,6 +37,9 @@ class BenchmarkTaskArgs:
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Input[str]:
+        """
+        The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -41,6 +49,9 @@ class BenchmarkTaskArgs:
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
+        """
+        The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -50,6 +61,9 @@ class BenchmarkTaskArgs:
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
+        """
+        The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -59,6 +73,9 @@ class BenchmarkTaskArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not this task should be enabled. Default: `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -68,6 +85,9 @@ class BenchmarkTaskArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -86,6 +106,11 @@ class _BenchmarkTaskState:
                  scope: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BenchmarkTask resources.
+        :param pulumi.Input[bool] enabled: Whether or not this task should be enabled. Default: `true`.
+        :param pulumi.Input[str] name: The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        :param pulumi.Input[str] schedule: The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+        :param pulumi.Input[str] schema: The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+        :param pulumi.Input[str] scope: The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -103,6 +128,9 @@ class _BenchmarkTaskState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not this task should be enabled. Default: `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -121,6 +149,9 @@ class _BenchmarkTaskState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -130,6 +161,9 @@ class _BenchmarkTaskState:
     @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -139,6 +173,9 @@ class _BenchmarkTaskState:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -148,6 +185,9 @@ class _BenchmarkTaskState:
     @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -167,9 +207,21 @@ class BenchmarkTask(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a BenchmarkTask resource with the given unique name, props, and options.
+        ## Import
+
+        Secure Benchmark Tasks can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/benchmarkTask:BenchmarkTask sample 1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: Whether or not this task should be enabled. Default: `true`.
+        :param pulumi.Input[str] name: The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        :param pulumi.Input[str] schedule: The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+        :param pulumi.Input[str] schema: The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+        :param pulumi.Input[str] scope: The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
         """
         ...
     @overload
@@ -178,7 +230,14 @@ class BenchmarkTask(pulumi.CustomResource):
                  args: BenchmarkTaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BenchmarkTask resource with the given unique name, props, and options.
+        ## Import
+
+        Secure Benchmark Tasks can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import sysdig:Secure/benchmarkTask:BenchmarkTask sample 1
+        ```
+
         :param str resource_name: The name of the resource.
         :param BenchmarkTaskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,6 +305,11 @@ class BenchmarkTask(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: Whether or not this task should be enabled. Default: `true`.
+        :param pulumi.Input[str] name: The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        :param pulumi.Input[str] schedule: The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+        :param pulumi.Input[str] schema: The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+        :param pulumi.Input[str] scope: The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -262,6 +326,9 @@ class BenchmarkTask(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not this task should be enabled. Default: `true`.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -272,20 +339,32 @@ class BenchmarkTask(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the cloud account. e.g. for AWS: `123456789012`,
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[str]:
+        """
+        The schedule (as a cron expression: [Minute Hour Day DayOfWeek DayOfMonth]) on which this task should be run. The schedule may not be more frequent than once per day.
+        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
+        """
+        The identifier of the benchmark schema of which to run. Possible values are: `aws_foundations_bench-1.3.0`, `gcp_foundations_bench-1.2.0`, `azure_foundations_bench-1.3.0`.
+        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[str]:
+        """
+        The Sysdig scope expression on which to run this benchmark: e.g. `aws.accountId = \"123456789012\" and aws.region = \"us-west-2\"`. The labels available are `aws.accountId`, `aws.region`, `gcp.projectId` and `gcp.region`. Only the `=` and `and` operators are supported.
+        """
         return pulumi.get(self, "scope")
 

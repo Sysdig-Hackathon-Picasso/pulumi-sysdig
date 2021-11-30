@@ -11,21 +11,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// Monitor Teams can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Monitor/team:Team example 12345
+// ```
 type Team struct {
 	pulumi.CustomResourceState
 
-	CanSeeInfrastructureEvents pulumi.BoolPtrOutput      `pulumi:"canSeeInfrastructureEvents"`
-	CanUseAwsData              pulumi.BoolPtrOutput      `pulumi:"canUseAwsData"`
-	CanUseSysdigCapture        pulumi.BoolPtrOutput      `pulumi:"canUseSysdigCapture"`
-	DefaultTeam                pulumi.BoolPtrOutput      `pulumi:"defaultTeam"`
-	Description                pulumi.StringPtrOutput    `pulumi:"description"`
-	Entrypoints                TeamEntrypointArrayOutput `pulumi:"entrypoints"`
-	Filter                     pulumi.StringPtrOutput    `pulumi:"filter"`
-	Name                       pulumi.StringOutput       `pulumi:"name"`
-	ScopeBy                    pulumi.StringPtrOutput    `pulumi:"scopeBy"`
-	Theme                      pulumi.StringPtrOutput    `pulumi:"theme"`
-	UserRoles                  TeamUserRoleArrayOutput   `pulumi:"userRoles"`
-	Version                    pulumi.IntOutput          `pulumi:"version"`
+	// TODO. Default: false.
+	CanSeeInfrastructureEvents pulumi.BoolPtrOutput `pulumi:"canSeeInfrastructureEvents"`
+	// TODO. Default: false.
+	CanUseAwsData       pulumi.BoolPtrOutput `pulumi:"canUseAwsData"`
+	CanUseSysdigCapture pulumi.BoolPtrOutput `pulumi:"canUseSysdigCapture"`
+	DefaultTeam         pulumi.BoolPtrOutput `pulumi:"defaultTeam"`
+	// A description of the team.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Main entry point for the current team in the product.
+	// See the Entrypoint argument reference section for more information.
+	Entrypoints TeamEntrypointArrayOutput `pulumi:"entrypoints"`
+	// If the team can only see some resources,
+	// write down a filter of such resources.
+	Filter pulumi.StringPtrOutput `pulumi:"filter"`
+	// The name of the Monitor Team. It must be unique and must not exist in Secure.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Scope for the team. Default: "container".
+	ScopeBy pulumi.StringPtrOutput `pulumi:"scopeBy"`
+	// Colour of the team. Default: "#73A1F7".
+	Theme     pulumi.StringPtrOutput  `pulumi:"theme"`
+	UserRoles TeamUserRoleArrayOutput `pulumi:"userRoles"`
+	Version   pulumi.IntOutput        `pulumi:"version"`
 }
 
 // NewTeam registers a new resource with the given unique name, arguments, and options.
@@ -60,33 +77,53 @@ func GetTeam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Team resources.
 type teamState struct {
-	CanSeeInfrastructureEvents *bool            `pulumi:"canSeeInfrastructureEvents"`
-	CanUseAwsData              *bool            `pulumi:"canUseAwsData"`
-	CanUseSysdigCapture        *bool            `pulumi:"canUseSysdigCapture"`
-	DefaultTeam                *bool            `pulumi:"defaultTeam"`
-	Description                *string          `pulumi:"description"`
-	Entrypoints                []TeamEntrypoint `pulumi:"entrypoints"`
-	Filter                     *string          `pulumi:"filter"`
-	Name                       *string          `pulumi:"name"`
-	ScopeBy                    *string          `pulumi:"scopeBy"`
-	Theme                      *string          `pulumi:"theme"`
-	UserRoles                  []TeamUserRole   `pulumi:"userRoles"`
-	Version                    *int             `pulumi:"version"`
+	// TODO. Default: false.
+	CanSeeInfrastructureEvents *bool `pulumi:"canSeeInfrastructureEvents"`
+	// TODO. Default: false.
+	CanUseAwsData       *bool `pulumi:"canUseAwsData"`
+	CanUseSysdigCapture *bool `pulumi:"canUseSysdigCapture"`
+	DefaultTeam         *bool `pulumi:"defaultTeam"`
+	// A description of the team.
+	Description *string `pulumi:"description"`
+	// Main entry point for the current team in the product.
+	// See the Entrypoint argument reference section for more information.
+	Entrypoints []TeamEntrypoint `pulumi:"entrypoints"`
+	// If the team can only see some resources,
+	// write down a filter of such resources.
+	Filter *string `pulumi:"filter"`
+	// The name of the Monitor Team. It must be unique and must not exist in Secure.
+	Name *string `pulumi:"name"`
+	// Scope for the team. Default: "container".
+	ScopeBy *string `pulumi:"scopeBy"`
+	// Colour of the team. Default: "#73A1F7".
+	Theme     *string        `pulumi:"theme"`
+	UserRoles []TeamUserRole `pulumi:"userRoles"`
+	Version   *int           `pulumi:"version"`
 }
 
 type TeamState struct {
+	// TODO. Default: false.
 	CanSeeInfrastructureEvents pulumi.BoolPtrInput
-	CanUseAwsData              pulumi.BoolPtrInput
-	CanUseSysdigCapture        pulumi.BoolPtrInput
-	DefaultTeam                pulumi.BoolPtrInput
-	Description                pulumi.StringPtrInput
-	Entrypoints                TeamEntrypointArrayInput
-	Filter                     pulumi.StringPtrInput
-	Name                       pulumi.StringPtrInput
-	ScopeBy                    pulumi.StringPtrInput
-	Theme                      pulumi.StringPtrInput
-	UserRoles                  TeamUserRoleArrayInput
-	Version                    pulumi.IntPtrInput
+	// TODO. Default: false.
+	CanUseAwsData       pulumi.BoolPtrInput
+	CanUseSysdigCapture pulumi.BoolPtrInput
+	DefaultTeam         pulumi.BoolPtrInput
+	// A description of the team.
+	Description pulumi.StringPtrInput
+	// Main entry point for the current team in the product.
+	// See the Entrypoint argument reference section for more information.
+	Entrypoints TeamEntrypointArrayInput
+	// If the team can only see some resources,
+	// write down a filter of such resources.
+	Filter pulumi.StringPtrInput
+	// The name of the Monitor Team. It must be unique and must not exist in Secure.
+	Name pulumi.StringPtrInput
+	// Scope for the team. Default: "container".
+	ScopeBy pulumi.StringPtrInput
+	// Colour of the team. Default: "#73A1F7".
+	Theme     pulumi.StringPtrInput
+	UserRoles TeamUserRoleArrayInput
+	Version   pulumi.IntPtrInput
 }
 
 func (TeamState) ElementType() reflect.Type {
@@ -94,32 +131,52 @@ func (TeamState) ElementType() reflect.Type {
 }
 
 type teamArgs struct {
-	CanSeeInfrastructureEvents *bool            `pulumi:"canSeeInfrastructureEvents"`
-	CanUseAwsData              *bool            `pulumi:"canUseAwsData"`
-	CanUseSysdigCapture        *bool            `pulumi:"canUseSysdigCapture"`
-	DefaultTeam                *bool            `pulumi:"defaultTeam"`
-	Description                *string          `pulumi:"description"`
-	Entrypoints                []TeamEntrypoint `pulumi:"entrypoints"`
-	Filter                     *string          `pulumi:"filter"`
-	Name                       *string          `pulumi:"name"`
-	ScopeBy                    *string          `pulumi:"scopeBy"`
-	Theme                      *string          `pulumi:"theme"`
-	UserRoles                  []TeamUserRole   `pulumi:"userRoles"`
+	// TODO. Default: false.
+	CanSeeInfrastructureEvents *bool `pulumi:"canSeeInfrastructureEvents"`
+	// TODO. Default: false.
+	CanUseAwsData       *bool `pulumi:"canUseAwsData"`
+	CanUseSysdigCapture *bool `pulumi:"canUseSysdigCapture"`
+	DefaultTeam         *bool `pulumi:"defaultTeam"`
+	// A description of the team.
+	Description *string `pulumi:"description"`
+	// Main entry point for the current team in the product.
+	// See the Entrypoint argument reference section for more information.
+	Entrypoints []TeamEntrypoint `pulumi:"entrypoints"`
+	// If the team can only see some resources,
+	// write down a filter of such resources.
+	Filter *string `pulumi:"filter"`
+	// The name of the Monitor Team. It must be unique and must not exist in Secure.
+	Name *string `pulumi:"name"`
+	// Scope for the team. Default: "container".
+	ScopeBy *string `pulumi:"scopeBy"`
+	// Colour of the team. Default: "#73A1F7".
+	Theme     *string        `pulumi:"theme"`
+	UserRoles []TeamUserRole `pulumi:"userRoles"`
 }
 
 // The set of arguments for constructing a Team resource.
 type TeamArgs struct {
+	// TODO. Default: false.
 	CanSeeInfrastructureEvents pulumi.BoolPtrInput
-	CanUseAwsData              pulumi.BoolPtrInput
-	CanUseSysdigCapture        pulumi.BoolPtrInput
-	DefaultTeam                pulumi.BoolPtrInput
-	Description                pulumi.StringPtrInput
-	Entrypoints                TeamEntrypointArrayInput
-	Filter                     pulumi.StringPtrInput
-	Name                       pulumi.StringPtrInput
-	ScopeBy                    pulumi.StringPtrInput
-	Theme                      pulumi.StringPtrInput
-	UserRoles                  TeamUserRoleArrayInput
+	// TODO. Default: false.
+	CanUseAwsData       pulumi.BoolPtrInput
+	CanUseSysdigCapture pulumi.BoolPtrInput
+	DefaultTeam         pulumi.BoolPtrInput
+	// A description of the team.
+	Description pulumi.StringPtrInput
+	// Main entry point for the current team in the product.
+	// See the Entrypoint argument reference section for more information.
+	Entrypoints TeamEntrypointArrayInput
+	// If the team can only see some resources,
+	// write down a filter of such resources.
+	Filter pulumi.StringPtrInput
+	// The name of the Monitor Team. It must be unique and must not exist in Secure.
+	Name pulumi.StringPtrInput
+	// Scope for the team. Default: "container".
+	ScopeBy pulumi.StringPtrInput
+	// Colour of the team. Default: "#73A1F7".
+	Theme     pulumi.StringPtrInput
+	UserRoles TeamUserRoleArrayInput
 }
 
 func (TeamArgs) ElementType() reflect.Type {

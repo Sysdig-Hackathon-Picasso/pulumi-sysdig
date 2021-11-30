@@ -11,16 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// SNS notification channels for Secure can be imported using the ID, e.g.
+//
+// ```sh
+//  $ pulumi import sysdig:Secure/notificationChannelSns:NotificationChannelSns example 12345
+// ```
 type NotificationChannelSns struct {
 	pulumi.CustomResourceState
 
-	Enabled              pulumi.BoolOutput        `pulumi:"enabled"`
-	Name                 pulumi.StringOutput      `pulumi:"name"`
-	NotifyWhenOk         pulumi.BoolOutput        `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   pulumi.BoolOutput        `pulumi:"notifyWhenResolved"`
-	SendTestNotification pulumi.BoolPtrOutput     `pulumi:"sendTestNotification"`
-	Topics               pulumi.StringArrayOutput `pulumi:"topics"`
-	Version              pulumi.IntOutput         `pulumi:"version"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolOutput `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolOutput `pulumi:"notifyWhenResolved"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
+	SendTestNotification pulumi.BoolPtrOutput `pulumi:"sendTestNotification"`
+	// List of ARNs from the SNS topics.
+	Topics pulumi.StringArrayOutput `pulumi:"topics"`
+	// (Computed) The current version of the Notification Channel.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewNotificationChannelSns registers a new resource with the given unique name, arguments, and options.
@@ -64,23 +81,43 @@ func GetNotificationChannelSns(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationChannelSns resources.
 type notificationChannelSnsState struct {
-	Enabled              *bool    `pulumi:"enabled"`
-	Name                 *string  `pulumi:"name"`
-	NotifyWhenOk         *bool    `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   *bool    `pulumi:"notifyWhenResolved"`
-	SendTestNotification *bool    `pulumi:"sendTestNotification"`
-	Topics               []string `pulumi:"topics"`
-	Version              *int     `pulumi:"version"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name *string `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk *bool `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved *bool `pulumi:"notifyWhenResolved"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
+	SendTestNotification *bool `pulumi:"sendTestNotification"`
+	// List of ARNs from the SNS topics.
+	Topics []string `pulumi:"topics"`
+	// (Computed) The current version of the Notification Channel.
+	Version *int `pulumi:"version"`
 }
 
 type NotificationChannelSnsState struct {
-	Enabled              pulumi.BoolPtrInput
-	Name                 pulumi.StringPtrInput
-	NotifyWhenOk         pulumi.BoolPtrInput
-	NotifyWhenResolved   pulumi.BoolPtrInput
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolPtrInput
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringPtrInput
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolPtrInput
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolPtrInput
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrInput
-	Topics               pulumi.StringArrayInput
-	Version              pulumi.IntPtrInput
+	// List of ARNs from the SNS topics.
+	Topics pulumi.StringArrayInput
+	// (Computed) The current version of the Notification Channel.
+	Version pulumi.IntPtrInput
 }
 
 func (NotificationChannelSnsState) ElementType() reflect.Type {
@@ -88,22 +125,40 @@ func (NotificationChannelSnsState) ElementType() reflect.Type {
 }
 
 type notificationChannelSnsArgs struct {
-	Enabled              bool     `pulumi:"enabled"`
-	Name                 *string  `pulumi:"name"`
-	NotifyWhenOk         bool     `pulumi:"notifyWhenOk"`
-	NotifyWhenResolved   bool     `pulumi:"notifyWhenResolved"`
-	SendTestNotification *bool    `pulumi:"sendTestNotification"`
-	Topics               []string `pulumi:"topics"`
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled bool `pulumi:"enabled"`
+	// The name of the Notification Channel. Must be unique.
+	Name *string `pulumi:"name"`
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk bool `pulumi:"notifyWhenOk"`
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved bool `pulumi:"notifyWhenResolved"`
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
+	SendTestNotification *bool `pulumi:"sendTestNotification"`
+	// List of ARNs from the SNS topics.
+	Topics []string `pulumi:"topics"`
 }
 
 // The set of arguments for constructing a NotificationChannelSns resource.
 type NotificationChannelSnsArgs struct {
-	Enabled              pulumi.BoolInput
-	Name                 pulumi.StringPtrInput
-	NotifyWhenOk         pulumi.BoolInput
-	NotifyWhenResolved   pulumi.BoolInput
+	// If false, the channel will not emit notifications. Default is true.
+	Enabled pulumi.BoolInput
+	// The name of the Notification Channel. Must be unique.
+	Name pulumi.StringPtrInput
+	// Send a new notification when the alert condition is
+	// no longer triggered. Default is false.
+	NotifyWhenOk pulumi.BoolInput
+	// Send a new notification when the alert is manually
+	// acknowledged by a user. Default is false.
+	NotifyWhenResolved pulumi.BoolInput
+	// Send an initial test notification to check
+	// if the notification channel is working. Default is false.
 	SendTestNotification pulumi.BoolPtrInput
-	Topics               pulumi.StringArrayInput
+	// List of ARNs from the SNS topics.
+	Topics pulumi.StringArrayInput
 }
 
 func (NotificationChannelSnsArgs) ElementType() reflect.Type {

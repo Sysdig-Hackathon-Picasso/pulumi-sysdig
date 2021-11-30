@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Import
+ *
+ * Secure container runtime rules can be imported using the ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import sysdig:Secure/ruleContainer:RuleContainer example 12345
+ * ```
+ */
 export class RuleContainer extends pulumi.CustomResource {
     /**
      * Get an existing RuleContainer resource's state with the given name, ID, and optional extra
@@ -32,11 +41,29 @@ export class RuleContainer extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleContainer.__pulumiType;
     }
 
+    /**
+     * List of containers to match.
+     */
     public readonly containers!: pulumi.Output<string[] | undefined>;
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Defines if the image name matches or not with the provided list. Default is true.
+     */
     public readonly matching!: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A list of tags for this rule.
+     */
     public readonly tags!: pulumi.Output<string[] | undefined>;
+    /**
+     * Current version of the resource in Sysdig Secure.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -78,11 +105,29 @@ export class RuleContainer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RuleContainer resources.
  */
 export interface RuleContainerState {
+    /**
+     * List of containers to match.
+     */
     containers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Defines if the image name matches or not with the provided list. Default is true.
+     */
     matching?: pulumi.Input<boolean>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A list of tags for this rule.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Current version of the resource in Sysdig Secure.
+     */
     version?: pulumi.Input<number>;
 }
 
@@ -90,9 +135,24 @@ export interface RuleContainerState {
  * The set of arguments for constructing a RuleContainer resource.
  */
 export interface RuleContainerArgs {
+    /**
+     * List of containers to match.
+     */
     containers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The description of Secure rule. By default is empty.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Defines if the image name matches or not with the provided list. Default is true.
+     */
     matching?: pulumi.Input<boolean>;
+    /**
+     * The name of the Secure rule. It must be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A list of tags for this rule.
+     */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
 }
