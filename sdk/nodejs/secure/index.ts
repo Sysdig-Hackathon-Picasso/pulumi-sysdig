@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./benchmarkTask";
 export * from "./cloudAccount";
 export * from "./getNotificationChannel";
 export * from "./getTrustedCloudIdentity";
@@ -30,7 +29,6 @@ export * from "./vulnerabilityException";
 export * from "./vulnerabilityExceptionList";
 
 // Import resources to register:
-import { BenchmarkTask } from "./benchmarkTask";
 import { CloudAccount } from "./cloudAccount";
 import { List } from "./list";
 import { Macro } from "./macro";
@@ -56,8 +54,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "sysdig:Secure/benchmarkTask:BenchmarkTask":
-                return new BenchmarkTask(name, <any>undefined, { urn })
             case "sysdig:Secure/cloudAccount:CloudAccount":
                 return new CloudAccount(name, <any>undefined, { urn })
             case "sysdig:Secure/list:List":
@@ -103,7 +99,6 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("sysdig", "Secure/benchmarkTask", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Secure/cloudAccount", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Secure/list", _module)
 pulumi.runtime.registerResourceModule("sysdig", "Secure/macro", _module)

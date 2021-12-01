@@ -21,8 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "sysdig:Secure/benchmarkTask:BenchmarkTask":
-		r = &BenchmarkTask{}
 	case "sysdig:Secure/cloudAccount:CloudAccount":
 		r = &CloudAccount{}
 	case "sysdig:Secure/list:List":
@@ -76,11 +74,6 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
-	pulumi.RegisterResourceModule(
-		"sysdig",
-		"Secure/benchmarkTask",
-		&module{version},
-	)
 	pulumi.RegisterResourceModule(
 		"sysdig",
 		"Secure/cloudAccount",

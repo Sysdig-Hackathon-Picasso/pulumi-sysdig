@@ -149,14 +149,6 @@ _utilities.register(
  },
  {
   "pkg": "sysdig",
-  "mod": "Secure/benchmarkTask",
-  "fqn": "pulumi_sysdig.secure",
-  "classes": {
-   "sysdig:Secure/benchmarkTask:BenchmarkTask": "BenchmarkTask"
-  }
- },
- {
-  "pkg": "sysdig",
   "mod": "Secure/cloudAccount",
   "fqn": "pulumi_sysdig.secure",
   "classes": {
