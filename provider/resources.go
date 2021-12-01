@@ -145,7 +145,7 @@ func Provider() tfbridge.ProviderInfo {
 			"sysdig_monitor_notification_channel_victorops": {Tok: makeResource(monitorMod, "NotificationChannelVictorops")},
 			"sysdig_monitor_notification_channel_webhook":   {Tok: makeResource(monitorMod, "NotificationChannelWebhook")},
 			"sysdig_monitor_team":                           {Tok: makeResource(monitorMod, "Team")},
-			"sysdig_secure_benchmark_task":                  {Tok: makeResource(secureMod, "BenchmarkTask")},
+			//"sysdig_secure_benchmark_task":                  {Tok: makeResource(secureMod, "BenchmarkTask")},
 			"sysdig_secure_cloud_account":                   {Tok: makeResource(secureMod, "CloudAccount")},
 			"sysdig_secure_list":                            {Tok: makeResource(secureMod, "List")},
 			"sysdig_secure_macro":                           {Tok: makeResource(secureMod, "Macro")},
