@@ -54,7 +54,7 @@ tfgen:: install_plugins
 provider:: tfgen install_plugins # build the provider binary
 	(cd provider && go build -a -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/${PROVIDER})
 
-dist:: provider
+dist:: provider build_sdks
 	mkdir -p dist
 	(cd bin/ && tar -czf "../dist/sysdig-${VERSION}.tar.gz" .)
 
