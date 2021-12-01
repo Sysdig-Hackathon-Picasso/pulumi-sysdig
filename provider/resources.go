@@ -166,6 +166,8 @@ func Provider() tfbridge.ProviderInfo {
 			"sysdig_secure_team":                            {Tok: makeResource(secureMod, "Team")},
 			"sysdig_secure_vulnerability_exception":         {Tok: makeResource(secureMod, "VulnerabilityException")},
 			"sysdig_secure_vulnerability_exception_list":    {Tok: makeResource(secureMod, "VulnerabilityExceptionList")},
+			//double id field in the tf provider
+			//"sysdig_secure_benchmark_task":                  {Tok: makeResource(secureMod, "BenchmarkTask")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi function. An example

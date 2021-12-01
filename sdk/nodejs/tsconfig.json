@@ -36,7 +36,6 @@
         "monitor/notificationChannelWebhook.ts",
         "monitor/team.ts",
         "provider.ts",
-        "secure/benchmarkTask.ts",
         "secure/cloudAccount.ts",
         "secure/getNotificationChannel.ts",
         "secure/getTrustedCloudIdentity.ts",
