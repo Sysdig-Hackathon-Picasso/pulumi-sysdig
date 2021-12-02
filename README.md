@@ -1,4 +1,10 @@
-# Sysdig Pulumi Provider
+<a href="https://sysdig">
+    <img src="https://sysdig.com/wp-content/uploads/2019/10/sysdig-logo.svg" alt="Sysdig logo" title="Sysdig" align="left" height="50" />
+</a>
+<a href="https://www.pulumi.com">
+    <img src="https://www.pulumi.com/images/logo/logo-on-white-box.svg?" alt="Pulumi logo" title="Pulumi" align="right" height="45" />
+</a>
+<h1 align="center">Sysdig Pulumi Provider</h1>
 
 This repository hosts the [Pulumi][pulumi] provider for [sysdig][sysdig]. It is a
 wrapper around the [Terraform][terraform] [Sysdig provider][tr_sysdig].
@@ -7,11 +13,11 @@ Pulumi allows to manage infrastructure as code, leveraging many different possib
 languages to manage the resources. It is possible to declare infrastructure as code
 in the following languages:
 
-    - Golang
-    - Python
-    - JavaScript
-    - TypeScript
-    - .NET
+ - Golang
+ - Python
+ - JavaScript
+ - TypeScript
+ - .NET
 
 ## Use with Pulumi
 
