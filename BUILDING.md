@@ -1,5 +1,5 @@
 # Prereqs
-
+* install pulumi
 * install pulumictl
 * install go
 * install python
