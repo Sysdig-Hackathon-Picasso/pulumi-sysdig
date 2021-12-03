@@ -5,7 +5,6 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
-from .benchmark_task import *
 from .cloud_account import *
 from .get_notification_channel import *
 from .get_trusted_cloud_identity import *
